@@ -8,16 +8,17 @@ namespace kärnan
     public class Unit
     {
         public int unitid { get; set; }
-        public string color { get; set; }
-        public DateTime date { get; set; }
-        public string journal { get; set; }
-        public string incident { get; set; }
+        public string name { get; set; }
+        //public string color { get; set; }
+        //public DateTime date { get; set; }
+        //public string journal { get; set; }
+        //public string incident { get; set; }
 
-        public string unitJournal
+        public string unitName
         {
             get
             {
-                return journal;
+                return name;
 
             }
         }
