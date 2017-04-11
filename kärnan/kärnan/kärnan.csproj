@@ -66,6 +66,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="index.aspx" />
     <Content Include="packages.config" />
     <Content Include="Master1.Master" />
     <None Include="Web.Debug.config">
@@ -76,11 +77,19 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="stylesheet.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Employee.cs" />
     <Compile Include="Family.cs" />
+    <Compile Include="index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Master1.Master.cs">
       <DependentUpon>Master1.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
