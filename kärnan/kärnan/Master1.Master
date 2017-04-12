@@ -5,9 +5,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>KÄRNAN</title>
-        <link rel="stylesheet" href="stylesheet.css">
-        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
+        <link rel="stylesheet" href="stylesheet.css"/>
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"/>
+        <link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet"/>
 
 
     <asp:ContentPlaceHolder ID="head" runat="server">
@@ -35,7 +35,7 @@
     </ul>   
 </div>         
     
-<div class="box"></div>
+<%--<div class="box"></div>--%>
 
 <div id="id01" class="modal">
   
@@ -71,10 +71,6 @@ window.onclick = function(event) {
     }
 }
 </script>
-
-
-
-
 
 
 <footer>

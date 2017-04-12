@@ -73,6 +73,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="index.aspx" />
+    <Content Include="journal.aspx" />
     <Content Include="packages.config" />
     <Content Include="Master1.Master" />
     <None Include="Web.Debug.config">
@@ -95,6 +96,13 @@
     </Compile>
     <Compile Include="index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="journal.aspx.cs">
+      <DependentUpon>journal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="journal.aspx.designer.cs">
+      <DependentUpon>journal.aspx</DependentUpon>
     </Compile>
     <Compile Include="Master1.Master.cs">
       <DependentUpon>Master1.Master</DependentUpon>
