@@ -4,17 +4,18 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
+
     <title>KÄRNAN</title>
-        <link rel="stylesheet" href="stylesheet.css">
+
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
-
+        <link rel="stylesheet" href="stylesheet.css">
+        <link rel="stylesheet" type="text/css" href="stylesheet1.css"/>      
 
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
-
 
     <div class="layerdiv">
 <div class="layers" id="layer1">        
