@@ -30,9 +30,9 @@
     
 <div class="navbar">
 <ul>
-  <li><a class="logo" href="#home">Kärnan</a></li>
+  <li><a class="logo" href="index.aspx">Kärnan</a></li>
   <li><a class="login" onclick="document.getElementById('id01').style.display='block'" style="width:auto;" >Logga in</a></li>
-    <li><a class="om" href="#Länk1">Om kärnan</a></li>    
+    <li><a class="om" href="inloggad.html">Om kärnan</a></li>    
     </ul>   
 </div>         
     
@@ -93,3 +93,4 @@ window.onclick = function(event) {
     </form>
 </body>
 </html>
+
