@@ -17,12 +17,12 @@
          
          <div class ="drp">
             <p class ="txbUnit">Välj enhet</p>
-             <asp:DropDownList ID="drpEnhet" CssClass="dropdown" runat="server"></asp:DropDownList>
+             <asp:DropDownList ID="drpEnhet" CssClass="dropdown" runat="server" OnSelectedIndexChanged="drpEnhet_SelectedIndexChanged"></asp:DropDownList>
          <br /> 
              <p>&nbsp;</p><%-- mellanrum--%>
              <p>&nbsp;</p> <%-- mellanrum--%>
             <p> Välj klient</p>
-        <asp:DropDownList ID="drpKlient" CssClass="dropdown" runat="server"></asp:DropDownList>
+        <asp:DropDownList ID="drpKlient" CssClass="dropdown" runat="server" OnSelectedIndexChanged="drpKlient_SelectedIndexChanged"></asp:DropDownList>
     </div>
 </div>
          <%-- Höger column - Skriv journal --%>
