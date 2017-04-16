@@ -4,17 +4,18 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>KÄRNAN</title>
-        <link rel="stylesheet" href="stylesheet.css"/>
-        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"/>
-        <link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet"/>
 
+    <title>KÄRNAN</title>
+
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
+        <link rel="stylesheet" href="stylesheet.css">
+        <link rel="stylesheet" type="text/css" href="stylesheet1.css"/>      
 
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
-
 
     <div class="layerdiv">
 <div class="layers" id="layer1">        
@@ -29,13 +30,13 @@
     
 <div class="navbar">
 <ul>
-  <li><a class="logo" href="#home">Kärnan</a></li>
+  <li><a class="logo" href="index.aspx">Kärnan</a></li>
   <li><a class="login" onclick="document.getElementById('id01').style.display='block'" style="width:auto;" >Logga in</a></li>
-    <li><a class="om" href="#Länk1">Om kärnan</a></li>    
+    <li><a class="om" href="inloggad.html">Om kärnan</a></li>    
     </ul>   
 </div>         
     
-<%--<div class="box"></div>--%>
+<div class="box"></div>
 
 <div id="id01" class="modal">
   
@@ -73,6 +74,10 @@ window.onclick = function(event) {
 </script>
 
 
+
+
+
+
 <footer>
     
     </footer>
@@ -88,3 +93,4 @@ window.onclick = function(event) {
     </form>
 </body>
 </html>
+
