@@ -10,25 +10,25 @@
 namespace kärnan {
     
     
-    public partial class journal {
+    public partial class writeJournal {
         
         /// <summary>
-        /// drpEnhet control.
+        /// DropDownList1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList drpEnhet;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
         
         /// <summary>
-        /// drpKlient control.
+        /// DropDownList2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList drpKlient;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownList2;
         
         /// <summary>
         /// lblEnhet control.
@@ -49,13 +49,13 @@ namespace kärnan {
         protected global::System.Web.UI.WebControls.Label lblKlient;
         
         /// <summary>
-        /// txbBeksrivning control.
+        /// txbincident control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txbBeksrivning;
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea txbincident;
         
         /// <summary>
         /// txbJournal control.
@@ -64,7 +64,7 @@ namespace kärnan {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txbJournal;
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea txbJournal;
         
         /// <summary>
         /// Calendar1 control.

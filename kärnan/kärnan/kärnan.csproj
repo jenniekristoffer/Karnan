@@ -74,11 +74,10 @@
   <ItemGroup>
     <Content Include="index.aspx" />
     <Content Include="inloggad.aspx" />
-    <Content Include="jour.aspx" />
-    <Content Include="journal.aspx" />
     <Content Include="packages.config" />
     <Content Include="Master1.Master" />
     <Content Include="Master2_Inloggad.Master" />
+    <Content Include="writeJournal.aspx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -107,21 +106,7 @@
     <Compile Include="inloggad.aspx.designer.cs">
       <DependentUpon>inloggad.aspx</DependentUpon>
     </Compile>
-    <Compile Include="jour.aspx.cs">
-      <DependentUpon>jour.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="jour.aspx.designer.cs">
-      <DependentUpon>jour.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="journal.aspx.cs">
-      <DependentUpon>journal.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="journal.aspx.designer.cs">
-      <DependentUpon>journal.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="journalClass.cs" />
+    <Compile Include="journal.cs" />
     <Compile Include="Master1.Master.cs">
       <DependentUpon>Master1.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -139,6 +124,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SQL.cs" />
     <Compile Include="Unit.cs" />
+    <Compile Include="writeJournal.aspx.cs">
+      <DependentUpon>writeJournal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="writeJournal.aspx.designer.cs">
+      <DependentUpon>writeJournal.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Analyzer Include="..\..\..\..\Documents\Mono.Security.dll" />
