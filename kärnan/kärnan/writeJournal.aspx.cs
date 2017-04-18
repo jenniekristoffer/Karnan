@@ -13,8 +13,10 @@ namespace kärnan
     {
         SQL sql = new SQL();
         journalClass jc = new journalClass();
+        Family family = new Family();
 
         List<journalClass> newjc = new List<journalClass>();
+        List<Family> newfam = new List<Family>();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -35,7 +37,7 @@ namespace kärnan
         protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
         {
             DropDownList2.Items.Clear();
-            DropDownList2.Items.Add("Välj namn");
+            DropDownList2.Items.Add("-- Välj namn --");
 
             try
             {
@@ -54,6 +56,7 @@ namespace kärnan
 
                 //Lägg till enhetsnamn i label
                 lblEnhet.Text = DropDownList1.SelectedItem.ToString();
+                //lblPnr.Text = DropDownList1.SelectedItem.ToString();
 
             }
             catch (NpgsqlException ex)
@@ -72,6 +75,78 @@ namespace kärnan
         {
             //Lägg till klientnamn i label
             lblKlient.Text = DropDownList2.SelectedItem.ToString();
+            Family f = new Family();
+            string född = f.birth;
+
+         
+            List<Family> familj = f.showBirth(född);
+            
+
+
+
+            //Contest c = new Contest();
+            //List<Contest> nyCon = c.Competitions();
+            //generateContestComp();
+            //DropDownList1.DataSource = nyCon;
+            //DropDownList1.DataTextField = "nameAndDate";
+            //DropDownList1.DataValueField = "contestId";
+            //DropDownList1.DataBind();
+
+
+
+
+
+            //aktuellanhörig = (anhörig)lsb_anhöriga.SelectedItem;
+
+            //if (aktuellanhörig != null)
+            //{
+            //    txb_namnanhörig.Text = aktuellanhörig.namn;
+            //    txb_rollanhörig.Text = aktuellanhörig.roll;
+            //    txb_telefonanhörig.Text = aktuellanhörig.telefon;
+            //    txb_epostanhörig.Text = aktuellanhörig.epost;
+
+            //}
+
+
+
+
+
+
+
+
+            //try
+            //{
+            //    sql.conn.Open();
+            //    NpgsqlCommand cmd = new NpgsqlCommand("SELECT birth FROM family WHERE familyid =" + DropDownList2.DataValueField, sql.conn);
+
+            //    //NpgsqlDataAdapter da = new NpgsqlDataAdapter(cmd);
+            //    NpgsqlDataReader rd = cmd.ExecuteReader();
+            //    //DataTable dt = new DataTable();
+            //    //da.Fill(dt);
+            //    //DropDownList2.DataSource = dt;
+            //    //DropDownList2.DataBind();
+
+            //    //Lägg till enhetsnamn i label
+            //    //lblPnr.Text = family.birth;
+            //    lblPnr.Text = rd["birth"].ToString();
+            //}
+            //catch (NpgsqlException ex)
+            //{
+            //    this.sql.ex = ex.Message;
+            //    return;
+            //}
+            //finally
+            //{
+            //    sql.conn.Close();
+            //}
+
+
+            //if (DropDownList2.DataValueField.ToString() == lblKlient.Text)
+            //{
+            //    //family.showBirth(family.birth);
+
+
+            //}
         }
 
         //Spara journal
@@ -80,7 +155,7 @@ namespace kärnan
             string incident = txbincident.InnerText;
             string journal = txbJournal.InnerText;
 
-            jc.saveJournal(journal, incident, jc.date, jc.journalID);
+            jc.saveJournal(journal, incident, jc.date /*jc.journalID*/);
         }
 
         //Avbryt skrivande journal

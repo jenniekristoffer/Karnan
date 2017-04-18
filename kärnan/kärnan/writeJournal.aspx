@@ -34,7 +34,7 @@
 
             <p>Välj klient</p>
             <div class="drop">
-                <asp:DropDownList ID="DropDownList2" runat="server" AppendDataBoundItems="true" DataTextField="name"
+                <asp:DropDownList ID="DropDownList2" runat="server" AppendDataBoundItems="true" DataTextField="name" 
                     DataValueField="familyid" AutoPostBack="True" CssClass="drop"
                     OnSelectedIndexChanged="DropDownList2_SelectedIndexChanged">
                     <asp:ListItem Value="0">-- Välj namn --</asp:ListItem>
@@ -58,10 +58,10 @@
             Klient:
                 <asp:Label ID="lblKlient" runat="server" Text=""></asp:Label>
         </p>
-<%--        <p>
+        <p>
             Personnummer: 
             <asp:Label ID="lblPnr" runat="server" Text=""></asp:Label>
-        </p>--%>
+        </p>
 
         <p>&nbsp;</p>
         <%-- mellanrum--%>
@@ -70,13 +70,11 @@
 
         <p>Beskrivning</p>
         <div class="beskriv">
-            <%--<asp:TextBox ID="txbBeksrivning" runat="server"></asp:TextBox>--%>
             <textarea cols ="45" rows ="2" runat ="server" id="txbincident" name="inci"></textarea>
         </div>
 
         <p>Journal</p>
         <div class="journ">
-            <%--<asp:TextBox ID="txbJournal" runat="server" Height="271px" Width="376px"></asp:TextBox>--%>
             <textarea cols ="45" rows ="10" runat ="server" id="txbJournal" name ="jour"></textarea>
         </div>
 

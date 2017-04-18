@@ -25,7 +25,7 @@ namespace kärnan
         }
 
         //Spara journalanteckning
-        public void saveJournal(string jour, string inci, DateTime date, int jourid)
+        public void saveJournal(string jour, string inci, DateTime date /*int jourid*/)
         {
             try
             {
@@ -33,14 +33,14 @@ namespace kärnan
 
                 //try
                 //{         
-                string query = "INSERT INTO journal (journalid, date, journal, incident) " +
-                               "VALUES(@journalid,'2016-05-05', @journal, @incident) ";
+                string query = "INSERT INTO journal (date, journal, incident) " +
+                               "VALUES('2016-05-05', @journal, @incident) ";
 
                 NpgsqlCommand cmd = new NpgsqlCommand(query, sql.conn);
                 cmd.Parameters.AddWithValue("journal", journal);
                 cmd.Parameters.AddWithValue("incident", incident);
                 cmd.Parameters.AddWithValue("date", date);
-                cmd.Parameters.AddWithValue("journalid", jourid);
+                //cmd.Parameters.AddWithValue("journalid", jourid);
 
                 cmd.ExecuteNonQuery();
             }
@@ -50,63 +50,7 @@ namespace kärnan
                 this.sql.ex = ex.Message;
                 sql.conn.Close();
             }
-        }    
 
-            //catch (NpgsqlException ex)
-            //{
-            //    this.sql.ex = ex.Message;
-            //    return;
-            //}
-            //finally
-            //{
-            //     sql.conn.Close();
-            //}
-           
-               
-
-
-
-            //try
-            //{
-            //    conn.Open();
-            //    string sql = "SELECT * FROM frånvaro WHERE barnid = @barnid";
-
-            //    NpgsqlCommand cmd = new NpgsqlCommand(sql, conn);
-            //    cmd.Parameters.AddWithValue("barnid", barnid);
-
-            //    NpgsqlDataReader dr = cmd.ExecuteReader();
-
-            //    BindingList<frånvaro> fv = new BindingList<frånvaro>();
-            //    frånvaro frånvaro;
-
-            //    while (dr.Read())
-            //    {
-            //        frånvaro = new frånvaro()
-            //        {
-            //            frånvaroid = (int)dr["frånvaroid"],
-            //            orsak = dr["orsak"].ToString(),
-            //            starttid = dr["starttid"].ToString(),
-            //            sluttid = dr["sluttid"].ToString(),
-            //            datum = (DateTime)dr["datum"],
-            //            heldag = (bool)dr["heldag"],
-            //        };
-
-            //    }
-            //    dr.Close();
-            //    return fv;
-            //}
-            //catch (NpgsqlException ex)
-            //{
-            //    MessageBox.Show(ex.Message);
-            //    return null;
-            //}
-            //finally
-            //{
-            //    conn.Close();
-            //}
-
-
-        //}
-
+        }
     }
 }
