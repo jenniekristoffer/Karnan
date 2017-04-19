@@ -56,7 +56,6 @@ namespace kärnan
 
                 //Lägg till enhetsnamn i label
                 lblEnhet.Text = DropDownList1.SelectedItem.ToString();
-                //lblPnr.Text = DropDownList1.SelectedItem.ToString();
 
             }
             catch (NpgsqlException ex)
@@ -77,76 +76,7 @@ namespace kärnan
             lblKlient.Text = DropDownList2.SelectedItem.ToString();
             Family f = new Family();
             string född = f.birth;
-
-         
-            List<Family> familj = f.showBirth(född);
-            
-
-
-
-            //Contest c = new Contest();
-            //List<Contest> nyCon = c.Competitions();
-            //generateContestComp();
-            //DropDownList1.DataSource = nyCon;
-            //DropDownList1.DataTextField = "nameAndDate";
-            //DropDownList1.DataValueField = "contestId";
-            //DropDownList1.DataBind();
-
-
-
-
-
-            //aktuellanhörig = (anhörig)lsb_anhöriga.SelectedItem;
-
-            //if (aktuellanhörig != null)
-            //{
-            //    txb_namnanhörig.Text = aktuellanhörig.namn;
-            //    txb_rollanhörig.Text = aktuellanhörig.roll;
-            //    txb_telefonanhörig.Text = aktuellanhörig.telefon;
-            //    txb_epostanhörig.Text = aktuellanhörig.epost;
-
-            //}
-
-
-
-
-
-
-
-
-            //try
-            //{
-            //    sql.conn.Open();
-            //    NpgsqlCommand cmd = new NpgsqlCommand("SELECT birth FROM family WHERE familyid =" + DropDownList2.DataValueField, sql.conn);
-
-            //    //NpgsqlDataAdapter da = new NpgsqlDataAdapter(cmd);
-            //    NpgsqlDataReader rd = cmd.ExecuteReader();
-            //    //DataTable dt = new DataTable();
-            //    //da.Fill(dt);
-            //    //DropDownList2.DataSource = dt;
-            //    //DropDownList2.DataBind();
-
-            //    //Lägg till enhetsnamn i label
-            //    //lblPnr.Text = family.birth;
-            //    lblPnr.Text = rd["birth"].ToString();
-            //}
-            //catch (NpgsqlException ex)
-            //{
-            //    this.sql.ex = ex.Message;
-            //    return;
-            //}
-            //finally
-            //{
-            //    sql.conn.Close();
-            //}
-
-
-            //if (DropDownList2.DataValueField.ToString() == lblKlient.Text)
-            //{
-            //    //family.showBirth(family.birth);
-
-
-            //}
+           
         }
 
         //Spara journal
@@ -155,32 +85,20 @@ namespace kärnan
             //string incident = txbincident.InnerText;
             jc.incident = TextBox1.Text;
             string incident = jc.incident.ToString();
-
             jc.journalnote = txbJournal.InnerText;
             string journalnote = jc.journalnote.ToString();
-
-            //int id = 8;
-
+  
+            //Lägger till dagens datum
             DateTime datetoday = Convert.ToDateTime(DateTime.Today.ToShortDateString());
 
-            //string resultat = lblsumma.Text;
-            //string resultatet = resultat.ToString();
-            //string betyg = Label7.Text;
-            //string betyget = betyg.ToString();
-
+            //metod för att spara journalanteckning
             jc.saveJournal(journalnote, incident, datetoday);
         }
 
         //Avbryt skrivande journal
         protected void btnAvbry_Click(object sender, EventArgs e)
         {
-            //string namn = txb_förnamnbarn.Text;
-            //string övriginfo = txb_övriginfobarn.Text;
-            //string foto = fotas;
-            //string kontaktinfobarn = kontaktinfo;
-            //int avdelning = Convert.ToInt32(cmb_avdelning.Text);
 
-            //db.dbLäggtillBarn(namn, övriginfo, foto, kontaktinfobarn, avdelning);
         }
     }
 }
