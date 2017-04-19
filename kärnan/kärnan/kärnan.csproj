@@ -48,6 +48,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.VisualStudio.DebuggerVisualizers, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="Mono.Security">
       <HintPath>..\..\..\..\Documents\Mono.Security.dll</HintPath>
     </Reference>
@@ -63,6 +64,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
@@ -107,6 +109,7 @@
       <DependentUpon>inloggad.aspx</DependentUpon>
     </Compile>
     <Compile Include="journal.cs" />
+    <Compile Include="loggin.cs" />
     <Compile Include="Master1.Master.cs">
       <DependentUpon>Master1.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

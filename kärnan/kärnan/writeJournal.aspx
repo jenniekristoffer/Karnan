@@ -68,47 +68,46 @@
         <p>&nbsp;</p>
         <%-- mellanrum--%>
 
-        <p>Beskrivning</p>
+        <p>Beskrivning<asp:Label ID="lblBeskrivning" ForeColor ="Red" runat="server" Text=""></asp:Label>
+        </p> 
         <div class="beskriv">
             <textarea cols ="45" rows ="2" runat ="server" id="txbincident" name="inci"></textarea>
-            <asp:TextBox ID="TextBox1" runat="server" Height="16px" Width="341px"></asp:TextBox>
         </div>
 
-        <p>Journal</p>
+        <p>Journal<asp:Label ID="lblJournal" ForeColor="Red" runat="server" Text=""></asp:Label>
+        </p>
         <div class="journ">
             <textarea cols ="45" rows ="10" runat ="server" id="txbJournal" name ="jour"></textarea>&nbsp;
         </div>
-
-        <div class="date">
+        <%-- Meddelande om sparnining genomförts eller felblivit --%>
+       <p>
+        <asp:Label ID="lblMeddelande" runat="server" Text=""></asp:Label>
+        </p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        
+         <div class="date">
             <p>
-            <input id="Text1" runat="server" type="text" />Datum</p>
+                Datum</p>
             <asp:Calendar ID="Calendar1" runat="server"></asp:Calendar>
         </div>
-
         <asp:Button ID="btnAvbry" OnClick="btnAvbry_Click" runat="server" Text="Avbryt" />
         <asp:Button ID="btnSpara" OnClick="btnSpara_Click" runat="server" Text="Spara" />
     </div>
 
     <style type="text/css">
         .drp, .drop {
-            /*background-color: #E6E6D9;*/
             padding: 13px;
             font-size: 16px;
             border-radius: 5px;
             margin-bottom: 20px;
-            /*box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.2);*/
             position: relative;
             display: inline-block;
             top: 3px;
             left: 3px;
             width: 155px;
-            /*height: 30px;*/
         }
-
-        /*.drp:hover, .drop:hover {
-                background-color: #DBDBC9;
-                display: inline-block;
-            }*/
 
         .vColumn {
             border-right: 3px solid #22383c;

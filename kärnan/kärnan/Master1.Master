@@ -44,12 +44,15 @@
 
     <div class="container">
       <label><b>Användarnamn:</b></label>
-      <input type="text" placeholder="" name="uname" required>
+      <%--<input type="text" placeholder=""  runat ="server" name="uname" required>--%>
+        <asp:TextBox ID="txbAnv" runat="server"></asp:TextBox>
 
       <label><b>Lösenord:</b></label>
-      <input type="password" placeholder="" name="psw" required>
-        
-      <button type="submit">Logga in</button>
+      <%--<input type="password" placeholder="" runat="server" name="psw" required>--%>
+      <asp:TextBox ID="txbLösen" runat="server"></asp:TextBox>
+
+      <%--<button id="Save" type="submit" runat ="server" >Logga in</button>--%>
+        <asp:Button ID="BtnLoggin" OnClick="BtnLoggin_Click" runat="server" Text="Logga in" />
     </div>
 
     <div class="container" style="background-color:#f1f1f1">

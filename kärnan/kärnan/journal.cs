@@ -47,10 +47,9 @@ namespace kärnan
 
             catch (NpgsqlException ex)
             {
-                this.sql.ex = ex.Message;
-                sql.conn.Close();
+                this.sql.ex = ex.Message;         
             }
-
+            sql.conn.Close();
         }
     }
 }

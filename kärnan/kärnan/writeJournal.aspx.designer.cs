@@ -58,6 +58,15 @@ namespace kärnan {
         protected global::System.Web.UI.WebControls.Label lblPnr;
         
         /// <summary>
+        /// lblBeskrivning control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblBeskrivning;
+        
+        /// <summary>
         /// txbincident control.
         /// </summary>
         /// <remarks>
@@ -67,13 +76,13 @@ namespace kärnan {
         protected global::System.Web.UI.HtmlControls.HtmlTextArea txbincident;
         
         /// <summary>
-        /// TextBox1 control.
+        /// lblJournal control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.Label lblJournal;
         
         /// <summary>
         /// txbJournal control.
@@ -85,13 +94,13 @@ namespace kärnan {
         protected global::System.Web.UI.HtmlControls.HtmlTextArea txbJournal;
         
         /// <summary>
-        /// Text1 control.
+        /// lblMeddelande control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Text1;
+        protected global::System.Web.UI.WebControls.Label lblMeddelande;
         
         /// <summary>
         /// Calendar1 control.

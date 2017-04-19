@@ -74,16 +74,45 @@ namespace kärnan
         {
             //Lägg till klientnamn i label
             lblKlient.Text = DropDownList2.SelectedItem.ToString();
-            Family f = new Family();
-            string född = f.birth;
+            //Family f = new Family();
+            //string född = f.birth;
            
         }
 
         //Spara journal
         protected void btnSpara_Click(object sender, EventArgs e)
         {
-            //string incident = txbincident.InnerText;
-            jc.incident = TextBox1.Text;
+            //FELMEDDELANDE, om något inte är ifyllt så går det inte att spara
+            if (txbincident.Value == "" && txbJournal.Value == "") // DENNA VISAS INTE.. 
+            {
+                lblBeskrivning.Text = "*";
+                lblJournal.Text = "*";
+                lblMeddelande.Text = "Vänligen fyll i 'Beskrivning' och 'Journal'";          
+            }
+
+            if (txbJournal.Value == "" || txbincident.Value != "")
+            {
+                lblJournal.Text = "*";
+                lblBeskrivning.Text = "";
+                lblMeddelande.Text = "Det går inte att spara en tom journal";
+            }
+
+           if (txbincident.Value == "" || txbJournal.Value != "")
+                {
+                    lblBeskrivning.Text = "*";
+                    lblJournal.Text = "";
+                    lblMeddelande.Text = "Du måste fylla i 'rubrik'";
+                }
+
+
+             if (txbJournal.Value != "" && txbincident.Value != "")
+            {
+                //visar tomma felmeddelanden
+                lblBeskrivning.Text = "";
+                lblJournal.Text = "";
+
+            // deklarerar info från textboxrarna
+            jc.incident = txbincident.InnerText;
             string incident = jc.incident.ToString();
             jc.journalnote = txbJournal.InnerText;
             string journalnote = jc.journalnote.ToString();
@@ -93,6 +122,14 @@ namespace kärnan
 
             //metod för att spara journalanteckning
             jc.saveJournal(journalnote, incident, datetoday);
+
+            //tömmer textboxrarna
+            txbincident.InnerText = string.Empty;
+            txbJournal.InnerText = string.Empty;
+                lblMeddelande.Text = "Journalen är sparad";
+
+            }
+
         }
 
         //Avbryt skrivande journal
