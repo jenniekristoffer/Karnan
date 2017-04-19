@@ -152,10 +152,23 @@ namespace kärnan
         //Spara journal
         protected void btnSpara_Click(object sender, EventArgs e)
         {
-            string incident = txbincident.InnerText;
-            string journal = txbJournal.InnerText;
+            //string incident = txbincident.InnerText;
+            jc.incident = TextBox1.Text;
+            string incident = jc.incident.ToString();
 
-            jc.saveJournal(journal, incident, jc.date /*jc.journalID*/);
+            jc.journalnote = txbJournal.InnerText;
+            string journalnote = jc.journalnote.ToString();
+
+            //int id = 8;
+
+            DateTime datetoday = Convert.ToDateTime(DateTime.Today.ToShortDateString());
+
+            //string resultat = lblsumma.Text;
+            //string resultatet = resultat.ToString();
+            //string betyg = Label7.Text;
+            //string betyget = betyg.ToString();
+
+            jc.saveJournal(journalnote, incident, datetoday);
         }
 
         //Avbryt skrivande journal

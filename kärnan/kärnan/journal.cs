@@ -12,20 +12,20 @@ namespace kärnan
 
         public int journalID { get; set; }
         public DateTime date { get; set; }
-        public string journal { get; set; }
+        public string journalnote { get; set; }
         public string incident { get; set; }
 
         public string journalDateIncident
         {
             get
             {
-                return journal;
+                return journalnote;
 
             }
         }
 
         //Spara journalanteckning
-        public void saveJournal(string jour, string inci, DateTime date /*int jourid*/)
+        public void saveJournal(string jour, string inci, DateTime date)
         {
             try
             {
@@ -33,14 +33,14 @@ namespace kärnan
 
                 //try
                 //{         
-                string query = "INSERT INTO journal (date, journal, incident) " +
-                               "VALUES('2016-05-05', @journal, @incident) ";
+                string query = "INSERT INTO journal (date, journalnote, incident) " +
+                               "VALUES(@date, @journalnote, @incident) ";
 
                 NpgsqlCommand cmd = new NpgsqlCommand(query, sql.conn);
-                cmd.Parameters.AddWithValue("journal", journal);
+                cmd.Parameters.AddWithValue("journalnote", journalnote);
                 cmd.Parameters.AddWithValue("incident", incident);
                 cmd.Parameters.AddWithValue("date", date);
-                //cmd.Parameters.AddWithValue("journalid", jourid);
+                //cmd.Parameters.AddWithValue("journalid", journalID);
 
                 cmd.ExecuteNonQuery();
             }

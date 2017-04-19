@@ -71,15 +71,17 @@
         <p>Beskrivning</p>
         <div class="beskriv">
             <textarea cols ="45" rows ="2" runat ="server" id="txbincident" name="inci"></textarea>
+            <asp:TextBox ID="TextBox1" runat="server" Height="16px" Width="341px"></asp:TextBox>
         </div>
 
         <p>Journal</p>
         <div class="journ">
-            <textarea cols ="45" rows ="10" runat ="server" id="txbJournal" name ="jour"></textarea>
+            <textarea cols ="45" rows ="10" runat ="server" id="txbJournal" name ="jour"></textarea>&nbsp;
         </div>
 
         <div class="date">
-            <p>Datum</p>
+            <p>
+            <input id="Text1" runat="server" type="text" />Datum</p>
             <asp:Calendar ID="Calendar1" runat="server"></asp:Calendar>
         </div>
 

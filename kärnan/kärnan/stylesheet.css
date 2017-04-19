@@ -93,12 +93,13 @@ li a {
 
 input[type=text],
 input[type=password] {
-    width: 100%;
+    width: 340px;
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
     border: 1px solid #ccc;
     box-sizing: border-box;
+    height: 252px;
 }
 
 
