@@ -79,7 +79,9 @@
     <Content Include="packages.config" />
     <Content Include="Master1.Master" />
     <Content Include="Master2_Inloggad.Master" />
+    <Content Include="startPage.aspx" />
     <Content Include="writeJournal.aspx" />
+    <Content Include="mainMaster.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -109,7 +111,14 @@
       <DependentUpon>inloggad.aspx</DependentUpon>
     </Compile>
     <Compile Include="journal.cs" />
-    <Compile Include="loggin.cs" />
+    <Compile Include="loggain.cs" />
+    <Compile Include="mainMaster.Master.cs">
+      <DependentUpon>mainMaster.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mainMaster.Master.designer.cs">
+      <DependentUpon>mainMaster.Master</DependentUpon>
+    </Compile>
     <Compile Include="Master1.Master.cs">
       <DependentUpon>Master1.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -126,6 +135,13 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SQL.cs" />
+    <Compile Include="startPage.aspx.cs">
+      <DependentUpon>startPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="startPage.aspx.designer.cs">
+      <DependentUpon>startPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Unit.cs" />
     <Compile Include="writeJournal.aspx.cs">
       <DependentUpon>writeJournal.aspx</DependentUpon>

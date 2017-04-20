@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Npgsql;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -9,9 +10,12 @@ namespace kärnan
 {
     public partial class Master1 : System.Web.UI.MasterPage
     {
-        loggin ln = new loggin();
-        List<loggin> listLoggin = new List<loggin>();
+        loggain ln = new loggain();
+        List<loggain> listLoggin = new List<loggain>();
 
+        SQL sql = new SQL();
+        List<SQL> listSql = new List<SQL>();
+        
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -19,20 +23,24 @@ namespace kärnan
 
         protected void BtnLoggin_Click(object sender, EventArgs e)
         {
+            sql.conn.Open();
+            string query = "SELECT loggin.user, loggin.password FROM loggin WHERE loggin.user'" + txbAnv + "' AND loggin.password'" + txbLösen + "' ";
 
-            // deklarerar info från textboxrarna
-            ln.user =  txbAnv.Text;
+            NpgsqlCommand cmd = new NpgsqlCommand(query, sql.conn);
+            string output = cmd.ExecuteScalar().ToString();
 
-            //jc.incident = txbincident.InnerText;
-            //string incident = jc.incident.ToString();
-            //jc.journalnote = txbJournal.InnerText;
-            //string journalnote = jc.journalnote.ToString();
-
-            if ()
+            if (output == "1")
             {
-
-
+                Session["user"] = txbAnv.Text;           
+                sql.conn.Close();
+                Response.Redirect("inloggad.aspx");
             }
+
+            else
+            {
+                lblMessage.Text = "Skriv in rätt användarnamn och lösenord";
+            }
+
         }
     }
 }

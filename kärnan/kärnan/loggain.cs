@@ -6,7 +6,7 @@ using Npgsql;
 
 namespace kärnan
 {
-    public class loggin
+    public class loggain
     {
         public string user { get; set; }
         public string password { get; set; }
@@ -26,12 +26,12 @@ namespace kärnan
                 cmd.ExecuteNonQuery();
 
                 sql.dr = sql.cmd.ExecuteReader();
-                List<loggin> ln = new List<loggin>();
-                loggin Loggin;
+                List<loggain> ln = new List<loggain>();
+                loggain Loggin;
 
                 while (sql.dr.Read())
                 {
-                    Loggin = new loggin()
+                    Loggin = new loggain()
                     {
                         user = sql.dr["user"].ToString(),
                         password = sql.dr["password"].ToString(),
