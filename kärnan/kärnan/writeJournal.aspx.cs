@@ -1,4 +1,5 @@
-﻿using Npgsql;
+﻿using Microsoft.AspNet.Identity;
+using Npgsql;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -14,12 +15,14 @@ namespace kärnan
         SQL sql = new SQL();
         journalClass jc = new journalClass();
         Family family = new Family();
+        Employee employee = new Employee();
+        Unit ut = new Unit();
 
         List<journalClass> newjc = new List<journalClass>();
         List<Family> newfam = new List<Family>();
 
         protected void Page_Load(object sender, EventArgs e)
-        {
+        {      
             if (!Page.IsPostBack)
             {
                 //Visa namnen på enhet i dropdownlist1
@@ -29,8 +32,15 @@ namespace kärnan
                 DataTable dt = new DataTable();
                 da.Fill(dt);
                 DropDownList1.DataSource = dt;
-                DropDownList1.DataBind();           
-            }
+                DropDownList1.DataBind();
+
+                //Håller koll på vem det är som är inloggad  
+              if (Session["anv"] != null)
+              {
+                 //lblInloggad.Text = "Du är inloggad som: " + employee.name + " " + employee.surname;
+                 lblInitials.Text = Session["anv"].ToString();
+                }      
+          }
         }
 
         //Visa namnen på familjer i dropdownlist2 när enhet valt i dropdownlist1
@@ -82,12 +92,24 @@ namespace kärnan
         //Spara journal
         protected void btnSpara_Click(object sender, EventArgs e)
         {
+            saveJournal();
+
+        }
+
+        //Avbryt skrivande journal -----------------------------------------------BEHÖVS DENNA ? 
+        protected void btnAvbry_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        public void saveJournal()
+        {
             //FELMEDDELANDE, om något inte är ifyllt så går det inte att spara
-            if (txbincident.Value == "" && txbJournal.Value == "") // DENNA VISAS INTE.. 
+            if (txbincident.Value == null && txbJournal.Value == null) // DENNA VISAS INTE.. 
             {
                 lblBeskrivning.Text = "*";
                 lblJournal.Text = "*";
-                lblMeddelande.Text = "Vänligen fyll i 'Beskrivning' och 'Journal'";          
+                lblMeddelande.Text = "Vänligen fyll i 'Beskrivning' och 'Journal'";
             }
 
             if (txbJournal.Value == "" || txbincident.Value != "")
@@ -97,43 +119,50 @@ namespace kärnan
                 lblMeddelande.Text = "Det går inte att spara en tom journal";
             }
 
-           if (txbincident.Value == "" || txbJournal.Value != "")
-                {
-                    lblBeskrivning.Text = "*";
-                    lblJournal.Text = "";
-                    lblMeddelande.Text = "Du måste fylla i 'rubrik'";
-                }
+            if (txbincident.Value == "" || txbJournal.Value != "")
+            {
+                lblBeskrivning.Text = "*";
+                lblJournal.Text = "";
+                lblMeddelande.Text = "Du måste fylla i 'rubrik'";
+            }
 
 
-             if (txbJournal.Value != "" && txbincident.Value != "")
+            if (txbJournal.Value != "" && txbincident.Value != "")
             {
                 //visar tomma felmeddelanden
                 lblBeskrivning.Text = "";
                 lblJournal.Text = "";
 
-            // deklarerar info från textboxrarna
-            jc.incident = txbincident.InnerText;
-            string incident = jc.incident.ToString();
-            jc.journalnote = txbJournal.InnerText;
-            string journalnote = jc.journalnote.ToString();
-  
-            //Lägger till dagens datum
-            DateTime datetoday = Convert.ToDateTime(DateTime.Today.ToShortDateString());
+                // deklarerar info från textboxrarna
+                jc.incident = txbincident.InnerText;
+                string incident = jc.incident.ToString();
+                jc.journalnote = txbJournal.InnerText;
+                string journalnote = jc.journalnote.ToString();
 
-            //metod för att spara journalanteckning
-            jc.saveJournal(journalnote, incident, datetoday);
+                ut.name = DropDownList1.SelectedItem.Value;
+                string unitName = ut.name.ToString();
+                family.name
+                              
 
-            //tömmer textboxrarna
-            txbincident.InnerText = string.Empty;
-            txbJournal.InnerText = string.Empty;
+
+                employee.initials = lblInitials.Text;
+                int initials = Convert.ToInt32(employee.initials); 
+
+                //Lägger till dagens datum
+                DateTime datetoday = Convert.ToDateTime(DateTime.Today.ToShortDateString());
+
+                //metod för att spara journalanteckning
+                jc.saveJournal(journalnote, incident, datetoday, initials);
+
+                //tömmer textboxrarna
+                txbincident.InnerText = string.Empty;
+                txbJournal.InnerText = string.Empty;
                 lblMeddelande.Text = "Journalen är sparad";
 
             }
-
         }
 
-        //Avbryt skrivande journal
-        protected void btnAvbry_Click(object sender, EventArgs e)
+        public void saveAllInfo()
         {
 
         }

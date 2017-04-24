@@ -13,6 +13,24 @@ namespace kärnan {
     public partial class writeJournal {
         
         /// <summary>
+        /// lblInloggad control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblInloggad;
+        
+        /// <summary>
+        /// lblInitials control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblInitials;
+        
+        /// <summary>
         /// DropDownList1 control.
         /// </summary>
         /// <remarks>

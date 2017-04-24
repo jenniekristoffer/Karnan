@@ -15,7 +15,6 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
-
         <div class="layerdiv">
         <div class="layers" id="layer1">
         </div>
@@ -26,6 +25,9 @@
         <div class="layers" id="layer4">
         </div>
     </div>
+
+
+
 
     <div class="navbar">
         <ul>

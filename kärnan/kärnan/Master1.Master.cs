@@ -10,8 +10,8 @@ namespace kärnan
 {
     public partial class Master1 : System.Web.UI.MasterPage
     {
-        loggain ln = new loggain();
-        List<loggain> listLoggin = new List<loggain>();
+        Loggain ln = new Loggain();
+        List<Loggain> listLoggin = new List<Loggain>();
 
         SQL sql = new SQL();
         List<SQL> listSql = new List<SQL>();

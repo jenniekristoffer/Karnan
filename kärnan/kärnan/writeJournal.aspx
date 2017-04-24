@@ -7,6 +7,9 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="conteiner">
 
+        <asp:Label ID="lblInloggad" runat="server" Text=""></asp:Label> 
+        <asp:Label ID="lblInitials" runat="server" Text=""></asp:Label>
+
         <%-- Vänster column - Välj familj och enhet --%>
         <div class="vColumn">
             <h4>Skriv journaler</h4>
