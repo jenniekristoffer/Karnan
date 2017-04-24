@@ -22,14 +22,14 @@ namespace kärnan
         protected void btnLoggin_Click(object sender, EventArgs e)
         {
             sql.conn.Open();
-            sql.cmd = new NpgsqlCommand("SELECT anv, pass FROM userpass WHERE anv = '" + txbUser.Text + "' AND pass = '" + txbPassword.Text + "'", sql.conn);
+            sql.cmd = new NpgsqlCommand("SELECT employeeid, pass FROM userpass WHERE employeeid = '" + txbUser.Text + "' AND pass = '" + txbPassword.Text + "'", sql.conn);
             sql.cmd.Connection = sql.conn;
 
             string output = sql.cmd.ExecuteScalar().ToString();
 
             if (output != null)
             {
-                Session["anv"] = txbUser.Text;
+                Session["employeeid"] = txbUser.Text;
                 sql.conn.Close();
                 Response.Redirect("inloggad.aspx");
             }

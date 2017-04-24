@@ -35,10 +35,10 @@ namespace kärnan
                 DropDownList1.DataBind();
 
                 //Håller koll på vem det är som är inloggad  
-              if (Session["anv"] != null)
+              if (Session["employeeid"] != null)
               {
                  //lblInloggad.Text = "Du är inloggad som: " + employee.name + " " + employee.surname;
-                 lblInitials.Text = Session["anv"].ToString();
+                 lblInitials.Text = Session["employeeid"].ToString();
                 }      
           }
         }
@@ -140,13 +140,12 @@ namespace kärnan
                 string journalnote = jc.journalnote.ToString();
 
                 ut.name = DropDownList1.SelectedItem.Value;
-                string unitName = ut.name.ToString();
-                family.name
-                              
-
+                string unitname = ut.name.ToString();
+                family.name = DropDownList2.SelectedItem.Value;
+                string familyname = family.name.ToString();
 
                 employee.initials = lblInitials.Text;
-                int initials = Convert.ToInt32(employee.initials); 
+                int initials = Convert.ToInt32(employee.initials);
 
                 //Lägger till dagens datum
                 DateTime datetoday = Convert.ToDateTime(DateTime.Today.ToShortDateString());
