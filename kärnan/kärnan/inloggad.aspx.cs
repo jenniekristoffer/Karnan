@@ -33,7 +33,7 @@ namespace kärnan
         {
             if (Session["employeeid"] != null)
             {
-                Response.Redirect("");
+                Response.Redirect("readJournal.aspx");
             }            
         }
 

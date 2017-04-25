@@ -31,19 +31,21 @@ namespace kärnan
         }
 
         //Spara journalanteckning
-        public void saveJournal(string jour, string inci, DateTime date, int employeeid)
+        public void saveJournal(string jour, string inci, DateTime date, int employeeid, int unitid, int familyid)
         {
             try
             {
                 sql.conn.Open();      
-                string query = "INSERT INTO journal (date, journalnote, incident, employeeid) " +
-                               "VALUES(@date, @journalnote, @incident, @employeeid) ";
+                string query = "INSERT INTO journal (date, journalnote, incident, employeeid, unitid, familyid) " +
+                               "VALUES(@date, @journalnote, @incident, @employeeid, @unitid, @familyid) ";
 
                 NpgsqlCommand cmd = new NpgsqlCommand(query, sql.conn);
                 cmd.Parameters.AddWithValue("journalnote", journalnote);
                 cmd.Parameters.AddWithValue("incident", incident);
                 cmd.Parameters.AddWithValue("date", date);
                 cmd.Parameters.AddWithValue("employeeid", employeeid);
+                cmd.Parameters.AddWithValue("unitid", unitid);
+                cmd.Parameters.AddWithValue("familyid", familyid);
 
                 cmd.ExecuteNonQuery();
             }
@@ -78,8 +80,7 @@ namespace kärnan
                     j.date = Convert.ToDateTime(dr["date"]);
                     j.incident = dr["incident"].ToString();
 
-                    jc.Add(j);
-                    //cmd.ExecuteNonQuery();
+                    jc.Add(j);    
                 }
                 return jc;
             }

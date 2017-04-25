@@ -158,7 +158,7 @@ namespace kärnan
                 DateTime datetoday = Convert.ToDateTime(DateTime.Today.ToShortDateString());
 
                 //metod för att spara journalanteckning i db
-                jc.saveJournal(journalnote, incident, datetoday, employeeid);
+                jc.saveJournal(journalnote, incident, datetoday, employeeid, unitid, familyid);
 
                 ////metod för att spara i sammanslagen tabell i db ---------->>>>>>>>>> FUNKAR INTE MED JOURNALID 
                 //all.saveAllInfo(familyid, unitid, employeeid, all.getLastJournal());     
