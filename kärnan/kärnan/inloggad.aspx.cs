@@ -34,8 +34,7 @@ namespace kärnan
             if (Session["employeeid"] != null)
             {
                 Response.Redirect("");
-            }
-            
+            }            
         }
 
         protected void btnHantera_Click(object sender, EventArgs e)
@@ -45,6 +44,5 @@ namespace kärnan
                Response.Redirect("");
             }            
         }
-        }
+      }
     }
-}

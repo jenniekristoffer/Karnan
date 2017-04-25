@@ -19,12 +19,14 @@ namespace kärnan
         public string incident { get; set; }
         public int employeeid { get; set; }
 
-        public string journalDateIncident
+        public int unitid { get; set; }
+        public int familyid { get; set; }
+
+        public string dateIncident
         {
             get
             {
-                return journalnote;
-
+                return date.ToShortDateString() + ": " + incident;
             }
         }
 
@@ -53,38 +55,46 @@ namespace kärnan
             sql.conn.Close();
         }
 
-        ////Spara till sammanslagen tabell 
-        //public void saveAllInfo(int fam, int uni, int employ, int journ)
-        //{
-        //    int f = family.familyID;
-        //    int u = unit.unitID;
-        //    int e = employee.employeeid;
+      //Visa rubriker på journaler
+       public List<journalClass> showIncident(int unitid, int familyid)
+        {
+            try
+            {
+                sql.conn.Open();
+                string query = "SELECT date, incident FROM journal " +
+                               "WHERE unitid = @unitid " +
+                               "AND familyid = @familyid";
 
-        //    try
-        //    {
-        //        sql.conn.Open();
-        //        string query = "INSERT INTO journal_employee_unit_family(employeeid, unitid, familyid, journalid) " +
-        //                        "SELECT employeeid, unitid, familyid, journalid " +
-        //                        "FROM employee, unit, family, journal " +
-        //                        "WHERE employee.employeeid = @employeeid " +
-        //                        "AND unit.unitid = @unitid " +
-        //                        "AND family.familyid = @familyid " +
-        //                        "AND journal.journalid = @journalid";
+                List<journalClass> jc = new List<journalClass>();
+                NpgsqlCommand cmd = new NpgsqlCommand(query, sql.conn);
+                cmd.Parameters.AddWithValue("unitid", unitid);
+                cmd.Parameters.AddWithValue("familyid", familyid);
 
-        //        NpgsqlCommand cmd = new NpgsqlCommand(query, sql.conn);
-        //            cmd.Parameters.AddWithValue("employeeid", employ);
-        //            cmd.Parameters.AddWithValue("unitid", uni);
-        //            cmd.Parameters.AddWithValue("familyid", fam);
-        //            cmd.Parameters.AddWithValue("journalid", journ);
+                NpgsqlDataReader dr = cmd.ExecuteReader();
 
-        //            cmd.ExecuteNonQuery();
-        //        }
+                while (dr.Read())
+                {
+                    journalClass j = new journalClass();
+                    j.date = Convert.ToDateTime(dr["date"]);
+                    j.incident = dr["incident"].ToString();
 
-        //        catch (NpgsqlException ex)
-        //        {
-        //            this.sql.ex = ex.Message;
-        //        }
-        //        sql.conn.Close();
-        //    }
+                    jc.Add(j);
+                    //cmd.ExecuteNonQuery();
+                }
+                return jc;
+            }
+
+            catch (NpgsqlException ex)
+            {
+                this.sql.ex = ex.Message;
+                return null;
+            }
+
+            finally
+            {
+                sql.conn.Close();
+            }
+
+        }
     }
 }

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Windows.Forms;
 
 namespace kärnan
 {
@@ -17,7 +18,9 @@ namespace kärnan
         Family family = new Family();
         Employee employee = new Employee();
         Unit ut = new Unit();
+        Alltables all = new Alltables();
 
+        List<Alltables> listAll = new List<Alltables>();
         List<journalClass> newjc = new List<journalClass>();
         List<Family> newfam = new List<Family>();
 
@@ -36,11 +39,10 @@ namespace kärnan
 
                 //Håller koll på vem det är som är inloggad  
               if (Session["employeeid"] != null)
-              {
-                 //lblInloggad.Text = "Du är inloggad som: " + employee.name + " " + employee.surname;
+              {            
                  lblInitials.Text = Session["employeeid"].ToString();
-                }      
-          }
+              }
+            }
         }
 
         //Visa namnen på familjer i dropdownlist2 när enhet valt i dropdownlist1
@@ -84,19 +86,23 @@ namespace kärnan
         {
             //Lägg till klientnamn i label
             lblKlient.Text = DropDownList2.SelectedItem.ToString();
-            //Family f = new Family();
-            //string född = f.birth;
-           
         }
 
         //Spara journal
         protected void btnSpara_Click(object sender, EventArgs e)
         {
+            //DialogResult dialogResult = MessageBox.Show("Är du säker på att du vill spara ?", "Spara journal", MessageBoxButtons.YesNo);
+            //if (dialogResult == DialogResult.Yes)
+            //{
             saveJournal();
+            //}
+            //else if (dialogResult == DialogResult.No)
+            //{
 
+            //}
         }
 
-        //Avbryt skrivande journal -----------------------------------------------BEHÖVS DENNA ? 
+        //Avbryt skrivande journal ----------------------------------------------->>>>>>>>BEHÖVS DENNA ? 
         protected void btnAvbry_Click(object sender, EventArgs e)
         {
 
@@ -126,32 +132,36 @@ namespace kärnan
                 lblMeddelande.Text = "Du måste fylla i 'rubrik'";
             }
 
-
             if (txbJournal.Value != "" && txbincident.Value != "")
             {
-                //visar tomma felmeddelanden
+                //Visar tomma felmeddelanden
                 lblBeskrivning.Text = "";
                 lblJournal.Text = "";
 
-                // deklarerar info från textboxrarna
+                //Deklarerar info från textboxrarna
                 jc.incident = txbincident.InnerText;
                 string incident = jc.incident.ToString();
                 jc.journalnote = txbJournal.InnerText;
                 string journalnote = jc.journalnote.ToString();
 
                 ut.name = DropDownList1.SelectedItem.Value;
-                string unitname = ut.name.ToString();
+                int unitid = Convert.ToInt32(ut.name);
                 family.name = DropDownList2.SelectedItem.Value;
-                string familyname = family.name.ToString();
+                int familyid = Convert.ToInt32(family.name);
+
+                int jourid = Convert.ToInt32(jc.journalID);
 
                 employee.initials = lblInitials.Text;
-                int initials = Convert.ToInt32(employee.initials);
+                int employeeid = Convert.ToInt32(employee.initials);
 
                 //Lägger till dagens datum
                 DateTime datetoday = Convert.ToDateTime(DateTime.Today.ToShortDateString());
 
-                //metod för att spara journalanteckning
-                jc.saveJournal(journalnote, incident, datetoday, initials);
+                //metod för att spara journalanteckning i db
+                jc.saveJournal(journalnote, incident, datetoday, employeeid);
+
+                ////metod för att spara i sammanslagen tabell i db ---------->>>>>>>>>> FUNKAR INTE MED JOURNALID 
+                //all.saveAllInfo(familyid, unitid, employeeid, all.getLastJournal());     
 
                 //tömmer textboxrarna
                 txbincident.InnerText = string.Empty;
@@ -159,11 +169,6 @@ namespace kärnan
                 lblMeddelande.Text = "Journalen är sparad";
 
             }
-        }
-
-        public void saveAllInfo()
-        {
-
         }
     }
 }

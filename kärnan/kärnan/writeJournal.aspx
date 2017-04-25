@@ -1,13 +1,12 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master2_Inloggad.Master" AutoEventWireup="true" CodeBehind="writeJournal.aspx.cs" Inherits="kärnan.writeJournal" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <%--            <link rel="stylesheet" href="stylesheet.css">
-        <link rel="stylesheet" type="text/css" href="stylesheet1.css"/>      --%>
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="conteiner">
 
-        <asp:Label ID="lblInloggad" runat="server" Text=""></asp:Label> 
+        <%--<asp:Label ID="lblInloggad" runat="server" Text=""></asp:Label>--%> 
         <asp:Label ID="lblInitials" runat="server" Text=""></asp:Label>
 
         <%-- Vänster column - Välj familj och enhet --%>
@@ -70,7 +69,7 @@
         <%-- mellanrum--%>
         <p>&nbsp;</p>
         <%-- mellanrum--%>
-
+        <asp:Label ID="lbljournalID" runat="server" Text=""></asp:Label>
         <p>Beskrivning<asp:Label ID="lblBeskrivning" ForeColor ="Red" runat="server" Text=""></asp:Label>
         </p> 
         <div class="beskriv">

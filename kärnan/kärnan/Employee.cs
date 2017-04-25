@@ -10,7 +10,6 @@ namespace kärnan
     public class Employee
     {
         SQL sql = new SQL();
-        //NpgsqlException ex;
 
         public int employeeid { get; set; }
         public string name { get; set; }
