@@ -29,7 +29,7 @@
 
             </p>
         <p>
-
+            <%-- Felmeddelande --%>
             <asp:Label ID="lblMessage" runat="server" Text=""></asp:Label>
 
         </p>
