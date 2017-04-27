@@ -2,6 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <form runat="server">
 
 
     <asp:Label ID="lblonline" runat="server" Text=""></asp:Label>
@@ -18,4 +19,5 @@
           <asp:Button ID="btnHantera" CssClass="val" runat="server" OnClick="btnHantera_Click" Text="Hantera enheter & klienter" />
    
              </div>
+        </form>
 </asp:Content>

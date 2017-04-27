@@ -1,10 +1,10 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Master2_Inloggad.Master.cs" Inherits="kärnan.Master2" %>
 
 <!DOCTYPE html>
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Kärnan / Val</title>
+  
+            <title>Kärnan / Val</title>
 
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
@@ -15,7 +15,7 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
-   <form runat="server">
+
         <div class="layerdiv">
         <div class="layers" id="layer1">
         </div>
@@ -33,19 +33,15 @@
         <ul>
             <li><a class="logo" href="index.html">Kärnan</a></li>
             <li><a class="login" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Logga ut</a></li>
-            <li><a class="om" href="">Om kärnan</a></li>
+            <li><a class="om" href="">Om kärnan</a></li>        
         </ul>
     </div>
-  </form>
+  <%--      <asp:Button ID="btnLoggaUt" OnClick="btnLoggaUt_Click" runat="server" Text="Logga ut" /> --%>
     <div>
-        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-
-            <form runat="server">
-
-                   <%--<asp:Button ID="btnLoggaUt" OnClick="btnLoggaUt_Click" runat="server" Text="Logga ut" />--%>
-            </form>
-        
+      
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">                  
         </asp:ContentPlaceHolder>
-    </div>
+    </div>  
+
 </body>
 </html>

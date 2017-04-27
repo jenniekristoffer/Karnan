@@ -3,6 +3,8 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
+    <form runat="server">
+
     <div class="read-container">
         <div class="sektion">
             <h3>Välj enhet och klient</h3>
@@ -57,7 +59,7 @@
         </div>
     </div>
 
-
+        </form>
 
     <script>
         $(function() {
