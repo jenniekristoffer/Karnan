@@ -15,6 +15,7 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
+   <form runat="server">
         <div class="layerdiv">
         <div class="layers" id="layer1">
         </div>
@@ -28,7 +29,6 @@
 
 
 
-
     <div class="navbar">
         <ul>
             <li><a class="logo" href="index.html">Kärnan</a></li>
@@ -36,17 +36,16 @@
             <li><a class="om" href="">Om kärnan</a></li>
         </ul>
     </div>
-
-
-
-
-
-    <form id="form1" runat="server">
+  </form>
     <div>
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+
+            <form runat="server">
+
+                   <%--<asp:Button ID="btnLoggaUt" OnClick="btnLoggaUt_Click" runat="server" Text="Logga ut" />--%>
+            </form>
         
         </asp:ContentPlaceHolder>
     </div>
-    </form>
 </body>
 </html>
