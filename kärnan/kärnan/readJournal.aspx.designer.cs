@@ -67,13 +67,13 @@ namespace kärnan {
         protected global::System.Web.UI.WebControls.ListBox lsbList;
         
         /// <summary>
-        /// Textarea1 control.
+        /// txbRubrik control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea Textarea1;
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea txbRubrik;
         
         /// <summary>
         /// txbJournal control.
@@ -83,5 +83,14 @@ namespace kärnan {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTextArea txbJournal;
+        
+        /// <summary>
+        /// lblInitialer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblInitialer;
     }
 }

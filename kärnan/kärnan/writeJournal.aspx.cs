@@ -14,14 +14,14 @@ namespace kärnan
     public partial class writeJournal : System.Web.UI.Page
     {
         SQL sql = new SQL();
-        journalClass jc = new journalClass();
+        Journal jc = new Journal();
         Family family = new Family();
         Employee employee = new Employee();
         Unit ut = new Unit();
         Alltables all = new Alltables();
 
         List<Alltables> listAll = new List<Alltables>();
-        List<journalClass> newjc = new List<journalClass>();
+        List<Journal> newjc = new List<Journal>();
         List<Family> newfam = new List<Family>();
 
         protected void Page_Load(object sender, EventArgs e)
@@ -149,7 +149,7 @@ namespace kärnan
                 family.name = DropDownList2.SelectedItem.Value;
                 int familyid = Convert.ToInt32(family.name);
 
-                int jourid = Convert.ToInt32(jc.journalID);
+                int jourid = Convert.ToInt32(jc.journalid);
 
                 employee.initials = lblInitials.Text;
                 int employeeid = Convert.ToInt32(employee.initials);

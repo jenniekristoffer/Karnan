@@ -17,7 +17,8 @@ namespace kärnan
             //Håller koll på vem det är som är inloggad    
             if (Session["employeeid"] != null)
             {
-                lblonline.Text = Session["employeeid"].ToString();
+                //-------SKRIVER UT ID PÅ DEN INLOGGADE---------
+                //lblonline.Text = Session["employeeid"].ToString();
             }
         }
 

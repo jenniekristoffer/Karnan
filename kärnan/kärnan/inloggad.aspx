@@ -9,15 +9,13 @@
 
         <div class="val-div">
         <ul>            
-            
-            
+                        
             <asp:Button ID="btnSkriv" CssClass="val" runat="server" OnClick="btnSkriv_Click" Text="Skriv journal" />
             <asp:Button ID="btnLäs" runat="server" CssClass="val" OnClick="btnLäs_Click" Text="Läs journal" />
-            <hr>
-
-            <asp:Button ID="btnHantera" CssClass="val" runat="server" OnClick="btnHantera_Click" Text="Hantera enheter & klienter" />
-          
+              
         </ul>
-    </div>
-
+        <hr /> 
+          <asp:Button ID="btnHantera" CssClass="val" runat="server" OnClick="btnHantera_Click" Text="Hantera enheter & klienter" />
+   
+             </div>
 </asp:Content>

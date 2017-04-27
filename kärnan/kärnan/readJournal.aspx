@@ -36,7 +36,7 @@
             <div class="lista">
                 <p>Journaler:</p>
                 <%--<input type="text" id="journal-list">--%>
-                <asp:ListBox ID="lsbList" runat="server" Height="220px" Width="359px"></asp:ListBox>
+                <asp:ListBox ID="lsbList" AutoPostBack="true" OnSelectedIndexChanged="lsbList_SelectedIndexChanged" runat="server" Height="220px" Width="359px"></asp:ListBox>
                 <%--<textarea cols ="45" rows ="15" runat ="server" id="txbList" name="jourlist"></textarea>--%>
             </div>
         </div>
@@ -46,11 +46,13 @@
             <div class="readjournal">
                 <p>Rubrik:</p>
                 <%--<input type="text" id="rubrik">--%>
-                 <textarea cols ="45" rows ="2" runat ="server" id="Textarea1" name="jourlista"></textarea>
+                 <textarea cols ="45" rows ="2" runat ="server" id="txbRubrik" name="jourlista"></textarea>
                 <p>Journalanteckning:</p>
                 <%--<input type="text" id="journal-anteckning">--%>
                 <textarea cols ="45" rows ="10" runat ="server" id="txbJournal" name ="jour"></textarea>
+                <asp:Label ID="lblInitialer" runat="server" Text=""></asp:Label>
             </div>
+            
 
         </div>
     </div>
