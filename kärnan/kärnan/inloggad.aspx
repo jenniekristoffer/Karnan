@@ -2,6 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <form runat="server">
 
 
     <asp:Label ID="lblonline" runat="server" Text=""></asp:Label>
@@ -22,15 +23,19 @@
 
 <%--        <div class="val-div">
         <ul>            
-            
-            
+                        
             <asp:Button ID="btnSkriv" CssClass="val" runat="server" OnClick="btnSkriv_Click" Text="Skriv journal" />
             <asp:Button ID="btnLäs" runat="server" CssClass="val" OnClick="btnLäs_Click" Text="Läs journal" />
-            <hr>
-
-            <asp:Button ID="btnHantera" CssClass="val" runat="server" OnClick="btnHantera_Click" Text="Hantera enheter & klienter" />
-          
+              
         </ul>
+<<<<<<< HEAD
     </div>--%>
 
+=======
+        <hr /> 
+          <asp:Button ID="btnHantera" CssClass="val" runat="server" OnClick="btnHantera_Click" Text="Hantera enheter & klienter" />
+   
+             </div>
+        </form>
+>>>>>>> 6dfd33856bf8b0ed60c8e675c90695e7ef9415f9
 </asp:Content>

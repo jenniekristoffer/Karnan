@@ -6,6 +6,8 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="conteiner">
 
+        <form runat="server">
+
         <%--<asp:Label ID="lblInloggad" runat="server" Text=""></asp:Label>--%> 
         <asp:Label ID="lblInitials" runat="server" Text=""></asp:Label>
 
@@ -98,6 +100,7 @@
         <asp:Button ID="btnSpara" OnClick="btnSpara_Click" runat="server" Text="Spara" />
     </div>
 
+
     <style type="text/css">
         .drp, .drop {
             padding: 13px;
@@ -149,5 +152,5 @@
             box-sizing: border-box;
         }
     </style>
-
+    </form>
 </asp:Content>

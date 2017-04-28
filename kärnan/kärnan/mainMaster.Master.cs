@@ -24,18 +24,17 @@ namespace kärnan
             sql.conn.Open();
             sql.cmd = new NpgsqlCommand("SELECT employeeid, pass FROM userpass WHERE employeeid = '" + txbUser.Text + "' AND pass = '" + txbPassword.Text + "'", sql.conn);
             sql.cmd.Connection = sql.conn;
-
-            string output = sql.cmd.ExecuteScalar().ToString();
-
-            if (output != null)
-            {
+        
+            int output = Convert.ToInt32(sql.cmd.ExecuteScalar());
+            if (output > 0)
+            {               
                 Session["employeeid"] = txbUser.Text;
                 sql.conn.Close();
-                Response.Redirect("inloggad.aspx");
+                Response.Redirect("inloggad.aspx");               
             }
-            else
+           else 
             {
-                lblMessage.Text = "Skriv in rätt användarnamn och lösenord";
+                lblMessage.Text = "Felaktigt användarnamn eller lösenord";
                 sql.conn.Close();
             }
         }

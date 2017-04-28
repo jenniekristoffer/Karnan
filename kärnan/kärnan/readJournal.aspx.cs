@@ -14,6 +14,9 @@ namespace kärnan
         SQL sql = new SQL();
         Unit ut = new Unit();
         Family family = new Family();
+        Journal journal = new Journal();
+
+        List<Journal> aktuellJournal = new List<Journal>();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -31,8 +34,14 @@ namespace kärnan
                 //Håller koll på vem det är som är inloggad  
                 if (Session["employeeid"] != null)
                 {
-                    //lblInitials.Text = Session["employeeid"].ToString();
+                   
                 }
+
+                //txbJournal.EnableViewState = true;
+                //txbRubrik.EnableViewState = true;
+
+                //myTextBox.Attributes.Add("readonly", "readonly");
+                
             }
         }
 
@@ -79,24 +88,68 @@ namespace kärnan
             lblclient.Text = drpClient.SelectedItem.ToString();
         }
 
-        //Visa alla anteckningar i listbox
+        //Visa ALLA datum + anteckningar i listbox
         protected void btnShowAll_Click(object sender, EventArgs e)
+        {       //Deklarera information från dropdowns
+                ut.name = drpUnit.SelectedItem.Value;
+                int unitid = Convert.ToInt32(ut.name);
+                family.name = drpClient.SelectedItem.Value;
+                int familyid = Convert.ToInt32(family.name);
+
+            if (unitid.ToString() != null || familyid.ToString() != null)
+            {
+                //Visa information (DATUM + RUBRIK) i listbox
+                Journal jc = new Journal();
+                List<Journal> journal = jc.showIncident(unitid, familyid);
+
+                lsbList.DataSource = journal;
+                lsbList.DataTextField = "date" + "incident";
+                lsbList.DataValueField = "journalid";
+                lsbList.Items.Add("dateIncident");
+                lsbList.DataBind();
+            }
+
+            else
+            {
+                lblFelmeddelande.Text = "Du måste välja enhet eller familjmedlem";
+            }
+    }
+
+         protected void lsbList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //Deklarera information från dropdowns
-            ut.name = drpUnit.SelectedItem.Value;
-            int unitid = Convert.ToInt32(ut.name);
-            family.name = drpClient.SelectedItem.Value;
-            int familyid = Convert.ToInt32(family.name);
+     try
+            {
+            sql.conn.Open();
+            string query = "SELECT DISTINCT journal.date, journalnote, incident, initials " +
+                           "FROM journal, employee " +
+                           "WHERE journalid = @journalid " +
+                           "AND journal.employeeid = employee.employeeid";
 
-            //Visa information (DATUM + RUBRIK) i listbox
-            journalClass jc = new journalClass();
-            List<journalClass> journal = jc.showIncident(unitid, familyid);
+            NpgsqlCommand cmd = new NpgsqlCommand();
+            cmd.Parameters.AddWithValue("journalid", lsbList.SelectedItem.Value);
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = query;
+            cmd.Connection = sql.conn;
+               
+            NpgsqlDataReader dr = cmd.ExecuteReader();
 
-            lsbList.DataSource = journal;
-            lsbList.SelectedIndex = 0;
-            lsbList.DataTextField = "date" + "incident";
-            lsbList.Items.Add("dateIncident");
-            lsbList.DataBind();
+                while (dr.Read())
+               {
+                    txbRubrik.InnerText = dr["incident"].ToString();
+                    txbJournal.InnerText = dr["journalnote"].ToString();
+                    lblInitialer.Text = dr["initials"].ToString();
+                }
+            }
+                catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            finally
+            {
+                sql.conn.Close();
+                sql.conn.Dispose();
+            }
         }
     }
 }

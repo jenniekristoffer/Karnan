@@ -6,14 +6,14 @@ using System.Web;
 
 namespace kärnan
 {
-    public class journalClass
+    public class Journal
     {
         SQL sql = new SQL();
         Family family = new Family();
         Unit unit = new Unit();
         Employee employee = new Employee();
 
-        public int journalID { get; set; }
+        public int journalid { get; set; }
         public DateTime date { get; set; }
         public string journalnote { get; set; }
         public string incident { get; set; }
@@ -21,6 +21,7 @@ namespace kärnan
 
         public int unitid { get; set; }
         public int familyid { get; set; }
+        public string initialer { get; set; }
 
         public string dateIncident
         {
@@ -57,17 +58,17 @@ namespace kärnan
             sql.conn.Close();
         }
 
-      //Visa rubriker på journaler
-       public List<journalClass> showIncident(int unitid, int familyid)
+       //Visa rubriker på journaler
+       public List<Journal> showIncident(int unitid, int familyid)
         {
             try
             {
                 sql.conn.Open();
-                string query = "SELECT date, incident FROM journal " +
+                string query = "SELECT journalid, date, incident FROM journal " +
                                "WHERE unitid = @unitid " +
                                "AND familyid = @familyid";
 
-                List<journalClass> jc = new List<journalClass>();
+                List<Journal> jc = new List<Journal>();
                 NpgsqlCommand cmd = new NpgsqlCommand(query, sql.conn);
                 cmd.Parameters.AddWithValue("unitid", unitid);
                 cmd.Parameters.AddWithValue("familyid", familyid);
@@ -76,7 +77,8 @@ namespace kärnan
 
                 while (dr.Read())
                 {
-                    journalClass j = new journalClass();
+                    Journal j = new Journal();
+                    j.journalid = Convert.ToInt32(dr["journalid"]);
                     j.date = Convert.ToDateTime(dr["date"]);
                     j.incident = dr["incident"].ToString();
 
@@ -97,5 +99,35 @@ namespace kärnan
             }
 
         }
+
+        ////Läs vald journal 
+        //public void readJournal(int journalid)
+        //{
+        //    try
+        //    {
+        //        sql.conn.Open();
+        //        string query = "SELECT DISTINCT journal.date, journalnote, incident, initials " + 
+        //                       "FROM journal, employee " + 
+        //                       "WHERE journalid = @journalid " +
+        //                       "AND journal.employeeid = employee.employeeid";
+
+        //        NpgsqlCommand cmd = new NpgsqlCommand(query, sql.conn);
+        //        //cmd.Parameters.AddWithValue("journalnote", journalnote);
+        //        //cmd.Parameters.AddWithValue("incident", incident);
+        //        //cmd.Parameters.AddWithValue("date", date);
+        //        //cmd.Parameters.AddWithValue("employeeid", employeeid);
+        //        cmd.Parameters.AddWithValue("journalid", journalid);
+        //        //cmd.Parameters.AddWithValue("unitid", unitid);
+        //        //cmd.Parameters.AddWithValue("familyid", familyid);
+
+        //        cmd.ExecuteNonQuery();
+        //    }
+
+        //    catch (NpgsqlException ex)
+        //    {
+        //        this.sql.ex = ex.Message;
+        //    }
+        //    sql.conn.Close();
+        //}
     }
 }

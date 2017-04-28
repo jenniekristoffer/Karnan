@@ -14,14 +14,14 @@ namespace kärnan
     public partial class writeJournal : System.Web.UI.Page
     {
         SQL sql = new SQL();
-        journalClass jc = new journalClass();
+        Journal jc = new Journal();
         Family family = new Family();
         Employee employee = new Employee();
         Unit ut = new Unit();
         Alltables all = new Alltables();
 
         List<Alltables> listAll = new List<Alltables>();
-        List<journalClass> newjc = new List<journalClass>();
+        List<Journal> newjc = new List<Journal>();
         List<Family> newfam = new List<Family>();
 
         protected void Page_Load(object sender, EventArgs e)
@@ -111,28 +111,28 @@ namespace kärnan
         public void saveJournal()
         {
             //FELMEDDELANDE, om något inte är ifyllt så går det inte att spara
-            if (txbincident.Value == null && txbJournal.Value == null) // DENNA VISAS INTE.. 
+            if (lblEnhet.Text == null && lblKlient.Text == null) // DENNA FUNKAR INTE.. 
             {
-                lblBeskrivning.Text = "*";
-                lblJournal.Text = "*";
-                lblMeddelande.Text = "Vänligen fyll i 'Beskrivning' och 'Journal'";
+                //lblBeskrivning.Text = "*";
+                //lblJournal.Text = "*";
+                lblMeddelande.Text = "Vänligen välj 'Enhet' och 'Familj'";
             }
 
-            if (txbJournal.Value == "" || txbincident.Value != "")
+           else if (txbJournal.Value != "" || txbincident.Value != "")
             {
-                lblJournal.Text = "*";
                 lblBeskrivning.Text = "";
-                lblMeddelande.Text = "Det går inte att spara en tom journal";
+                lblJournal.Text = "*";
+                lblMeddelande.Text = "Du måste fylla i 'Rubrik' och skriva i 'Journalanteckning'";
             }
 
-            if (txbincident.Value == "" || txbJournal.Value != "")
+            else if (txbincident.Value == "" || txbJournal.Value != "")
             {
                 lblBeskrivning.Text = "*";
                 lblJournal.Text = "";
                 lblMeddelande.Text = "Du måste fylla i 'rubrik'";
             }
 
-            if (txbJournal.Value != "" && txbincident.Value != "")
+            else /*(txbJournal.Value != "" && txbincident.Value != "")*/
             {
                 //Visar tomma felmeddelanden
                 lblBeskrivning.Text = "";
@@ -149,7 +149,7 @@ namespace kärnan
                 family.name = DropDownList2.SelectedItem.Value;
                 int familyid = Convert.ToInt32(family.name);
 
-                int jourid = Convert.ToInt32(jc.journalID);
+                int jourid = Convert.ToInt32(jc.journalid);
 
                 employee.initials = lblInitials.Text;
                 int employeeid = Convert.ToInt32(employee.initials);

@@ -7,18 +7,11 @@ using System.Web.UI.WebControls;
 
 namespace kärnan
 {
-    public partial class Master2 : System.Web.UI.MasterPage
+    public partial class admin : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
 
-        }
-
-        //Logga ut 
-        protected void btnLoggaUt_Click(object sender, EventArgs e)
-        {
-            Session.RemoveAll();
-            Response.Redirect("startPage.aspx");
         }
     }
 }

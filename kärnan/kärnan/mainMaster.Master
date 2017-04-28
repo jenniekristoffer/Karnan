@@ -12,18 +12,34 @@
 </head>
 <body>
     <form id="form1" runat="server">
+<<<<<<< HEAD
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
            
 
         </asp:ContentPlaceHolder>
 
+=======
+    <div>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">           
+        </asp:ContentPlaceHolder>
+
+    </div>
+        <p> 
+>>>>>>> 6dfd33856bf8b0ed60c8e675c90695e7ef9415f9
             <asp:Label ID="Label1" runat="server" Text="Användarnamn"></asp:Label>
             <asp:TextBox ID="txbUser" runat="server"></asp:TextBox>
 
             <asp:Label ID="Label2" runat="server" Text="Lösenord"></asp:Label>
-            <asp:TextBox ID="txbPassword" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txbPassword" TextMode="Password" runat="server"></asp:TextBox>
 
+<<<<<<< HEAD
             <asp:Label ID="lblMessage" runat="server" Text=""></asp:Label>
+=======
+            </p>
+        <p>
+            <%-- Felmeddelande --%>
+            <asp:Label ID="lblMessage" ForeColor="Red" runat="server" Text=""></asp:Label>
+>>>>>>> 6dfd33856bf8b0ed60c8e675c90695e7ef9415f9
 
             <asp:Button ID="btnLoggin" runat="server" OnClick="btnLoggin_Click" Text="Logga in" />
     </form>
