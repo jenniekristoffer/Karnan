@@ -5,13 +5,11 @@
 
 body {
     background-color: #fafafa;
-    width: 100%;
-    height: 100%;
     font-family: Fredoka One;
 }
 
 .layers {
-    height: 15px;
+    height: 10px;
     width: 100%;
 }
 
@@ -37,7 +35,7 @@ ul {
     overflow: hidden;
     background-color: #fafafa;
     width: 100%;
-    margin-bottom: 50px;
+    margin-bottom: 0px;
 }
 
 li a {
@@ -49,12 +47,12 @@ li a {
     float: left;
     font-size: 15px;
     border-bottom: 3px solid #fafafa;
-    border-bottom-width: 5x;
+    border-bottom-width: 5px;
 }
 
 .navbar li a:hover:not(.logo) {
     border-bottom: 3px solid #22383c;
-    border-bottom-width: 5x;
+    border-bottom-width: 5px;
 }
 
 .logo {
@@ -84,22 +82,21 @@ li a {
     transition: transform 3500ms ease-in-out;
 }
 
-.box:hover {
-    transform: translate(600px) rotate(360deg);
-}
+    .box:hover {
+        transform: translate(600px) rotate(360deg);
+    }
 
 
 /* Full-width input fields */
 
 input[type=text],
 input[type=password] {
-    width: 340px;
+    width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
     border: 1px solid #ccc;
     box-sizing: border-box;
-    height: 252px;
 }
 
 
@@ -115,9 +112,9 @@ button {
     width: 100%;
 }
 
-button:hover {
-    opacity: 0.8;
-}
+    button:hover {
+        opacity: 0.8;
+    }
 
 
 /* Extra styles for the cancel button */
@@ -137,10 +134,10 @@ span.psw {
     padding-top: 16px;
 }
 
-span.psw a {
-    color: #76a5af;
-    text-decoration: none;
-}
+    span.psw a {
+        color: #76a5af;
+        text-decoration: none;
+    }
 
 
 /* The Modal (background) */
@@ -192,11 +189,11 @@ span.psw a {
     font-weight: bold;
 }
 
-.close:hover,
-.close:focus {
-    color: red;
-    cursor: pointer;
-}
+    .close:hover,
+    .close:focus {
+        color: red;
+        cursor: pointer;
+    }
 
 
 /* Add Zoom Animation */
@@ -210,6 +207,7 @@ span.psw a {
     from {
         -webkit-transform: scale(0)
     }
+
     to {
         -webkit-transform: scale(1)
     }
@@ -219,6 +217,7 @@ span.psw a {
     from {
         transform: scale(0)
     }
+
     to {
         transform: scale(1)
     }
@@ -232,6 +231,7 @@ span.psw a {
         display: block;
         float: none;
     }
+
     .cancelbtn {
         width: 100%;
     }
@@ -257,10 +257,10 @@ span.psw a {
     transition: transform 300ms ease-in-out;
 }
 
-.val:hover {
-    transform: scale(0.98);
-    background-color: #f6b26b;
-}
+    .val:hover {
+        transform: scale(0.98);
+        background-color: #f6b26b;
+    }
 
 hr {
     width: 10%;
@@ -271,11 +271,11 @@ hr {
     opacity: 0.5;
 }
 
-hr.vertical {
-    width: 0px;
-    height: 100%;
-    /* or height in PX */
-}
+    hr.vertical {
+        width: 0px;
+        height: 100%;
+        /* or height in PX */
+    }
 
 
 /* Read Journal */
@@ -327,11 +327,11 @@ h3 {
     flex-direction: row;
 }
 
-.sektion-top h3 {
-    display: flex;
-    flex-direction: row;
-    padding-right: 30px;
-}
+    .sektion-top h3 {
+        display: flex;
+        flex-direction: row;
+        padding-right: 30px;
+    }
 
 .drop {
     max-width: 250px;
@@ -367,6 +367,19 @@ h3 {
 }
 
 
-
-
-
+.txb-password {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+.txb-user {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}

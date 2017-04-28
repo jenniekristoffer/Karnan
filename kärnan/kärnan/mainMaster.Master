@@ -12,32 +12,20 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <div>
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
            
 
         </asp:ContentPlaceHolder>
-    </div>
-        <p> 
+
             <asp:Label ID="Label1" runat="server" Text="Användarnamn"></asp:Label>
             <asp:TextBox ID="txbUser" runat="server"></asp:TextBox>
-
-            </p>
-        <p>
 
             <asp:Label ID="Label2" runat="server" Text="Lösenord"></asp:Label>
             <asp:TextBox ID="txbPassword" runat="server"></asp:TextBox>
 
-            </p>
-        <p>
-
             <asp:Label ID="lblMessage" runat="server" Text=""></asp:Label>
 
-        </p>
-        <p>
             <asp:Button ID="btnLoggin" runat="server" OnClick="btnLoggin_Click" Text="Logga in" />
-
-        </p>
     </form>
 </body>
 </html>

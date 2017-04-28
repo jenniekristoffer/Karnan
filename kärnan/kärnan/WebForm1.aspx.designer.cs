@@ -10,24 +10,24 @@
 namespace kärnan {
     
     
-    public partial class inloggad {
+    public partial class WebForm1 {
         
         /// <summary>
-        /// lblonline control.
+        /// btn_cancel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblonline;
+        protected global::System.Web.UI.WebControls.Button btn_cancel;
         
         /// <summary>
-        /// lblInitials control.
+        /// btn_login control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblInitials;
+        protected global::System.Web.UI.WebControls.Button btn_login;
     }
 }

@@ -1,0 +1,70 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterMasterPage.master.cs" Inherits="kärnan.MasterMasterPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <link rel="stylesheet" href="stylesheet.css">
+    <script src="script.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+
+
+            <div class="layerdiv">
+        <div class="layers" id="layer1">
+        </div>
+        <div class="layers" id="layer2">
+        </div>
+        <div class="layers" id="layer3">
+        </div>
+        <div class="layers" id="layer4">
+        </div>
+    </div>
+
+    <div class="navbar">
+        <ul>
+            <li><a class="logo" href="index.html">Kärnan</a></li>
+            <li><a class="login" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Logga in</a><a class="om" href="inloggad.html">Om kärnan</a></li>
+            <li></li>
+        </ul>
+    </div>
+
+    <!--    <div class="box"></div>-->
+
+    <div id="id01" class="modal">
+
+        <div class="modal-content animate" action="/action_page.php">
+
+            <div class="container">
+                <label><b>Användarnamn:</b></label>
+                <input type="text" placeholder="" name="uname" required>
+                <label><b>Lösenord:</b></label>
+                <input type="password" placeholder="" name="psw" required>
+                <button type="submit">Logga in</a></button>
+            </div>
+
+            <div class="container" style="background-color:#f1f1f1">
+                <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Avbryt</button>
+                <span class="psw">Glömt ditt <a href="#">lösenord?</a></span>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>
