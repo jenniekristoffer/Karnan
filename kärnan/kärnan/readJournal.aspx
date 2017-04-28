@@ -35,6 +35,7 @@
                 <%--<button class="alla-datum datepick">Välj alla datum</button>--%>
                 <asp:Button ID="btnShowAll" CssClass ="alla-datum datepick" runat="server" OnClick="btnShowAll_Click" Text="Välj alla datum" />
             </div>
+            <asp:Label ID="lblFelmeddelande" ForeColor ="Red" runat="server" Text=""></asp:Label>
             <div class="lista">
                 <p>Journaler:</p>
                 <%--<input type="text" id="journal-list">--%>
@@ -48,10 +49,10 @@
             <div class="readjournal">
                 <p>Rubrik:</p>
                 <%--<input type="text" id="rubrik">--%>
-                 <textarea cols ="45" rows ="2" runat ="server" id="txbRubrik" name="jourlista"></textarea>
+                 <textarea cols ="45" rows ="2" readonly ="readonly" runat ="server" id="txbRubrik" name="jourlista"></textarea>
                 <p>Journalanteckning:</p>
                 <%--<input type="text" id="journal-anteckning">--%>
-                <textarea cols ="45" rows ="10" runat ="server" id="txbJournal" name ="jour"></textarea>
+                <textarea cols ="45" rows ="10" readonly ="readonly" runat ="server" id="txbJournal" name ="jour"></textarea>
                 <asp:Label ID="lblInitialer" runat="server" Text=""></asp:Label>
             </div>
             

@@ -34,8 +34,14 @@ namespace kärnan
                 //Håller koll på vem det är som är inloggad  
                 if (Session["employeeid"] != null)
                 {
-                    //lblInitials.Text = Session["employeeid"].ToString();
+                   
                 }
+
+                //txbJournal.EnableViewState = true;
+                //txbRubrik.EnableViewState = true;
+
+                //myTextBox.Attributes.Add("readonly", "readonly");
+                
             }
         }
 
@@ -84,25 +90,30 @@ namespace kärnan
 
         //Visa ALLA datum + anteckningar i listbox
         protected void btnShowAll_Click(object sender, EventArgs e)
-        {
-            //Deklarera information från dropdowns
-            ut.name = drpUnit.SelectedItem.Value;
-            int unitid = Convert.ToInt32(ut.name);
-            family.name = drpClient.SelectedItem.Value;
-            int familyid = Convert.ToInt32(family.name);
+        {       //Deklarera information från dropdowns
+                ut.name = drpUnit.SelectedItem.Value;
+                int unitid = Convert.ToInt32(ut.name);
+                family.name = drpClient.SelectedItem.Value;
+                int familyid = Convert.ToInt32(family.name);
 
-            //Visa information (DATUM + RUBRIK) i listbox
-            Journal jc = new Journal();
-            List<Journal> journal = jc.showIncident(unitid, familyid);
+            if (unitid.ToString() != null || familyid.ToString() != null)
+            {
+                //Visa information (DATUM + RUBRIK) i listbox
+                Journal jc = new Journal();
+                List<Journal> journal = jc.showIncident(unitid, familyid);
 
-            lsbList.DataSource = journal;
-            //lsbList.SelectedIndex = 0;
-            lsbList.DataTextField = "date" + "incident";
-            lsbList.DataValueField = "journalid";
-            lsbList.Items.Add("dateIncident");
-            lsbList.DataBind();
-        }
+                lsbList.DataSource = journal;
+                lsbList.DataTextField = "date" + "incident";
+                lsbList.DataValueField = "journalid";
+                lsbList.Items.Add("dateIncident");
+                lsbList.DataBind();
+            }
 
+            else
+            {
+                lblFelmeddelande.Text = "Du måste välja enhet eller familjmedlem";
+            }
+    }
 
          protected void lsbList_SelectedIndexChanged(object sender, EventArgs e)
         {

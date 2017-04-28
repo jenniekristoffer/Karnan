@@ -111,28 +111,28 @@ namespace kärnan
         public void saveJournal()
         {
             //FELMEDDELANDE, om något inte är ifyllt så går det inte att spara
-            if (txbincident.Value == null && txbJournal.Value == null) // DENNA VISAS INTE.. 
+            if (lblEnhet.Text == null && lblKlient.Text == null) // DENNA FUNKAR INTE.. 
             {
-                lblBeskrivning.Text = "*";
-                lblJournal.Text = "*";
-                lblMeddelande.Text = "Vänligen fyll i 'Beskrivning' och 'Journal'";
+                //lblBeskrivning.Text = "*";
+                //lblJournal.Text = "*";
+                lblMeddelande.Text = "Vänligen välj 'Enhet' och 'Familj'";
             }
 
-            if (txbJournal.Value == "" || txbincident.Value != "")
+           else if (txbJournal.Value != "" || txbincident.Value != "")
             {
-                lblJournal.Text = "*";
                 lblBeskrivning.Text = "";
-                lblMeddelande.Text = "Det går inte att spara en tom journal";
+                lblJournal.Text = "*";
+                lblMeddelande.Text = "Du måste fylla i 'Rubrik' och skriva i 'Journalanteckning'";
             }
 
-            if (txbincident.Value == "" || txbJournal.Value != "")
+            else if (txbincident.Value == "" || txbJournal.Value != "")
             {
                 lblBeskrivning.Text = "*";
                 lblJournal.Text = "";
                 lblMeddelande.Text = "Du måste fylla i 'rubrik'";
             }
 
-            if (txbJournal.Value != "" && txbincident.Value != "")
+            else /*(txbJournal.Value != "" && txbincident.Value != "")*/
             {
                 //Visar tomma felmeddelanden
                 lblBeskrivning.Text = "";
