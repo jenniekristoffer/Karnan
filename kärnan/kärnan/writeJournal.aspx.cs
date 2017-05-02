@@ -40,7 +40,7 @@ namespace kärnan
                 //Håller koll på vem det är som är inloggad  
               if (Session["employeeid"] != null)
               {            
-                 lblInitials.Text = Session["employeeid"].ToString();
+                 //lblInitials.Text = Session["employeeid"].ToString();
               }
             }
         }

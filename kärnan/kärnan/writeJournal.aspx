@@ -99,6 +99,7 @@
         <asp:Button ID="btnAvbry" OnClick="btnAvbry_Click" runat="server" Text="Avbryt" />
         <asp:Button ID="btnSpara" OnClick="btnSpara_Click" runat="server" Text="Spara" />
     </div>
+    </form>
 
 
     <style type="text/css">
