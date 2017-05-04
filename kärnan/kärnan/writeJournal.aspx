@@ -4,7 +4,11 @@
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<<<<<<< HEAD
 
+=======
+    <div class="conteiner">
+>>>>>>> 8549ac42b013d589a4bf9fe239bce8b969c63600
         <form runat="server">
 
                 <!--Här börjar writejournal-->
@@ -66,6 +70,7 @@
 
         </div>
     </div>
+    </form>
 
 
     </form>

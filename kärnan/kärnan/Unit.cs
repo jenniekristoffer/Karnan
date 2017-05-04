@@ -9,56 +9,90 @@ namespace kärnan
     public class Unit
     {
         public int unitID { get; set; }
-        public string name { get; set; }
+        public string unitname { get; set; }
+
+        SQL sql = new SQL();
 
         public string unitName
         {
             get
             {
-                return name ;
+                return unitname ;
 
             }
         }
 
         SQL newSql = new SQL();
 
-        ////Visa namnen på enhet
+        //Lägg till ny enhet 
+        public void saveUnit(string unitname)
+        {
+            try
+            {
+                sql.conn.Open();
+                string query = "INSERT INTO unit (unitname) " +
+                               "VALUES(@unitname) ";
 
-        //public List<Unit> showUnit()
-        //{
+                NpgsqlCommand cmd = new NpgsqlCommand(query, sql.conn);
+                cmd.Parameters.AddWithValue("unitname", unitname);
 
-        //    try
-        //    {
-        //        newSql.conn.Open();
-        //        string query = "SELECT name FROM unit";
-        //        newSql.cmd = new NpgsqlCommand(query, newSql.conn);
+                cmd.ExecuteNonQuery();
+            }
 
-        //        newSql.dr = newSql.cmd.ExecuteReader();
-        //        List<Unit> ut = new List<Unit>();
-        //        Unit unit;
+            catch (NpgsqlException ex)
+            {
+                this.sql.ex = ex.Message;
+            }
+            sql.conn.Close();
+        }
 
-        //        while (newSql.dr.Read())
-        //        {
-        //            unit = new Unit()
-        //            {
-        //                name = newSql.dr["name"].ToString(),
-        //            };
-        //            ut.Add(unit);
-        //        }
-        //        return ut;
-        //    }
-        //    catch (NpgsqlException ex)
-        //    {
-        //        this.newSql.ex = ex.Message;
-        //        return null;
-        //    }
-        //    finally
-        //    {
-        //        newSql.conn.Close();
-        //    }
-        //}
+        //Uppdatera namn på enhet
+        public void updateUnit(int unitid, string unitname)
+        {
+            try
+            {
+                sql.conn.Open();
 
+                string query = "UPDATE unit " +
+                            "SET unitname = @unitname " +
+                            "WHERE unitid = @unitid ";
 
+                NpgsqlCommand cmd = new NpgsqlCommand(query, sql.conn);
+                cmd.Parameters.AddWithValue("unitid", unitid);
+                cmd.Parameters.AddWithValue("unitname", unitname);
+
+                cmd.ExecuteNonQuery();
+            }
+            catch (NpgsqlException ex)
+            {
+                this.sql.ex = ex.Message;
+            }
+            finally
+            {
+                sql.conn.Close();
+            }
+        }
+
+        //Radera enhet 
+        public void removeUnit(int unitid)
+        {
+            try
+            {
+                sql.conn.Open();
+                string query = "DELETE FROM unit WHERE unit.unitid = @unitid";
+
+                NpgsqlCommand cmd = new NpgsqlCommand(query, sql.conn);
+                cmd.Parameters.AddWithValue("unitid", unitid);
+
+                cmd.ExecuteNonQuery();
+            }
+
+            catch (NpgsqlException ex)
+            {
+                this.sql.ex = ex.Message;
+            }
+            sql.conn.Close();
+        }
 
     }
 }

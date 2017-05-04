@@ -34,14 +34,8 @@ namespace kärnan
                 //Håller koll på vem det är som är inloggad  
                 if (Session["employeeid"] != null)
                 {
-                   
+
                 }
-
-                //txbJournal.EnableViewState = true;
-                //txbRubrik.EnableViewState = true;
-
-                //myTextBox.Attributes.Add("readonly", "readonly");
-                
             }
         }
 
@@ -90,11 +84,12 @@ namespace kärnan
 
         //Visa ALLA datum + anteckningar i listbox
         protected void btnShowAll_Click(object sender, EventArgs e)
-        {       //Deklarera information från dropdowns
-                ut.name = drpUnit.SelectedItem.Value;
-                int unitid = Convert.ToInt32(ut.name);
-                family.name = drpClient.SelectedItem.Value;
-                int familyid = Convert.ToInt32(family.name);
+        {
+            //Deklarera information från dropdowns
+            ut.unitname = drpUnit.SelectedItem.Value;
+            int unitid = Convert.ToInt32(ut.unitname);
+            family.name = drpClient.SelectedItem.Value;
+            int familyid = Convert.ToInt32(family.name);
 
             if (unitid.ToString() != null || familyid.ToString() != null)
             {
@@ -113,38 +108,41 @@ namespace kärnan
             {
                 lblFelmeddelande.Text = "Du måste välja enhet eller familjmedlem";
             }
-    }
+        }
 
-         protected void lsbList_SelectedIndexChanged(object sender, EventArgs e)
+        //Visa info i textboxrar om journal när namnet markeras i listboxen
+        protected void lsbList_SelectedIndexChanged(object sender, EventArgs e)
         {
-     try
+            try
             {
-            sql.conn.Open();
-            string query = "SELECT DISTINCT journal.date, journalnote, incident, initials " +
-                           "FROM journal, employee " +
-                           "WHERE journalid = @journalid " +
-                           "AND journal.employeeid = employee.employeeid";
+                sql.conn.Open();
 
-            NpgsqlCommand cmd = new NpgsqlCommand();
-            cmd.Parameters.AddWithValue("journalid", lsbList.SelectedItem.Value);
-            cmd.CommandType = CommandType.Text;
-            cmd.CommandText = query;
-            cmd.Connection = sql.conn;
-               
-            NpgsqlDataReader dr = cmd.ExecuteReader();
+                //sql.conn.Open();
+                string query = "SELECT DISTINCT journalnote, incident, initials " +
+                               "FROM journal, employee " +
+                               "WHERE journal.employeeid = employee.employeeid " +
+                               "AND journalid::int = " + lsbList.SelectedItem.Value;
+
+                NpgsqlCommand cmd = new NpgsqlCommand();
+                cmd.Parameters.AddWithValue("journalid", lsbList.SelectedItem.Value);
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = query;
+                cmd.Connection = sql.conn;
+
+                NpgsqlDataReader dr = cmd.ExecuteReader();
 
                 while (dr.Read())
-               {
+                {
                     txbRubrik.InnerText = dr["incident"].ToString();
                     txbJournal.InnerText = dr["journalnote"].ToString();
                     lblInitialer.Text = dr["initials"].ToString();
                 }
             }
-                catch (Exception ex)
+
+            catch (Exception ex)
             {
                 throw ex;
             }
-
             finally
             {
                 sql.conn.Close();
