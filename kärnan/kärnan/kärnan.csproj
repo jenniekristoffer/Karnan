@@ -87,7 +87,10 @@
     <Content Include="Master1.Master" />
     <Content Include="Master2_Inloggad.Master" />
     <Content Include="readJournal.aspx" />
+    <Content Include="script.js" />
     <Content Include="startPage.aspx" />
+    <Content Include="style.css" />
+    <Content Include="stylehead.css" />
     <Content Include="WebForm1.aspx" />
     <Content Include="writeJournal.aspx" />
     <Content Include="mainMaster.Master" />

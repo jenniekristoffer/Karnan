@@ -13,15 +13,6 @@ namespace kärnan {
     public partial class writeJournal {
         
         /// <summary>
-        /// lblInitials control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblInitials;
-        
-        /// <summary>
         /// DropDownList1 control.
         /// </summary>
         /// <remarks>
@@ -67,24 +58,6 @@ namespace kärnan {
         protected global::System.Web.UI.WebControls.Label lblPnr;
         
         /// <summary>
-        /// lbljournalID control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbljournalID;
-        
-        /// <summary>
-        /// lblBeskrivning control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblBeskrivning;
-        
-        /// <summary>
         /// txbincident control.
         /// </summary>
         /// <remarks>
@@ -92,15 +65,6 @@ namespace kärnan {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTextArea txbincident;
-        
-        /// <summary>
-        /// lblJournal control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblJournal;
         
         /// <summary>
         /// txbJournal control.
@@ -112,6 +76,33 @@ namespace kärnan {
         protected global::System.Web.UI.HtmlControls.HtmlTextArea txbJournal;
         
         /// <summary>
+        /// Button1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button1;
+        
+        /// <summary>
+        /// Button2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button2;
+        
+        /// <summary>
+        /// lblInitials control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblInitials;
+        
+        /// <summary>
         /// lblMeddelande control.
         /// </summary>
         /// <remarks>
@@ -121,30 +112,21 @@ namespace kärnan {
         protected global::System.Web.UI.WebControls.Label lblMeddelande;
         
         /// <summary>
-        /// Calendar1 control.
+        /// lblBeskrivning control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar Calendar1;
+        protected global::System.Web.UI.WebControls.Label lblBeskrivning;
         
         /// <summary>
-        /// btnAvbry control.
+        /// lblJournal control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAvbry;
-        
-        /// <summary>
-        /// btnSpara control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSpara;
+        protected global::System.Web.UI.WebControls.Label lblJournal;
     }
 }

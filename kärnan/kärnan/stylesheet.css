@@ -102,7 +102,7 @@ input[type=password] {
 
 /* Set a style for all buttons */
 
-button {
+button, .btn-loggain{
     background-color: #76a5af;
     color: white;
     padding: 14px 20px;
@@ -253,7 +253,6 @@ span.psw {
     margin-bottom: 10px;
     font-family: roboto;
     font-weight: 400;
-    border-radius: 5px;
     transition: transform 300ms ease-in-out;
 }
 
@@ -365,6 +364,8 @@ h3 {
 #journal-anteckning {
     height: 400px;
 }
+
+
 
 
 .txb-password {

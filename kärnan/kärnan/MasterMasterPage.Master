@@ -5,10 +5,12 @@
 <html>
 <head runat="server">
     <title></title>
-    <link rel="stylesheet" href="stylesheet.css">
+
+    
     <script src="script.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="stylesheet.css">
 
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
@@ -36,19 +38,24 @@
         </ul>
     </div>
 
-    <!--    <div class="box"></div>-->
-
     <div id="id01" class="modal">
 
         <div class="modal-content animate" action="/action_page.php">
 
             <div class="container">
                 <label><b>Användarnamn:</b></label>
-                <input type="text" placeholder="" name="uname" required>
+<%--                <input type="text" placeholder="" name="uname" required>--%>
+                <asp:TextBox ID="txbUser" runat="server"></asp:TextBox>
+
                 <label><b>Lösenord:</b></label>
-                <input type="password" placeholder="" name="psw" required>
-                <button type="submit">Logga in</a></button>
+<%--                <input type="password" placeholder="" name="psw" required>--%>
+                <asp:TextBox ID="txbPassword" runat="server"></asp:TextBox>
+
+<%--                <button type="submit">Logga in</a></button>--%>
+                <asp:Button ID="btnLoggin" runat="server" Text="Logga in" CssClass="btn-loggain" OnClick="btnLoggin_Click1" />
             </div>
+
+            <asp:Label ID="lblMessage" runat="server" Text=""></asp:Label>
 
             <div class="container" style="background-color:#f1f1f1">
                 <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Avbryt</button>
@@ -57,9 +64,7 @@
         </div>
     </div>
 
-
-
-
+       
 
         <div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
