@@ -21,9 +21,12 @@ namespace kärnan
         public string anv { get; set; }
         public string pass { get; set; }
 
-        public override string ToString()
+        public string nameSurnameInitialsAdmin
         {
-            return name.ToString();
+            get
+            {
+                return name + " " + surname + "( " + initials + ") :" + admin;
+            }
         }
 
         //Spara ny anställd 
@@ -50,11 +53,95 @@ namespace kärnan
             sql.conn.Close();
         }
 
+        //Visa alla anställda
+        public List<Employee> showEmployee()
+        {
+            try
+            {
+                sql.conn.Open();
+                string query = "SELECT employeeid, name, surname, initials, admin " +
+                               "FROM employee;";
 
+                List<Employee> emp = new List<Employee>();
+                NpgsqlCommand cmd = new NpgsqlCommand(query, sql.conn);
+                NpgsqlDataReader dr = cmd.ExecuteReader();
 
+                while (dr.Read())
+                {
+                    Employee e = new Employee();
+                    e.employeeid = Convert.ToInt32(dr["employeeid"]);
+                    e.name = dr["name"].ToString();
+                    e.surname = dr["surname"].ToString();
+                    e.initials = dr["initials"].ToString();
+                    e.admin = Convert.ToBoolean(dr["admin"]);
 
+                    emp.Add(e);
+                }
+                return emp;
+            }
 
+            catch (NpgsqlException ex)
+            {
+                this.sql.ex = ex.Message;
+                return null;
+            }
 
+            finally
+            {
+                sql.conn.Close();
+            }
+        }
+
+        //Radera anställd
+        public void removeEmployee(int familyid)
+        {
+            try
+            {
+                sql.conn.Open();
+                string query = "DELETE FROM employee WHERE employee.employeeid = @employeeid";
+
+                NpgsqlCommand cmd = new NpgsqlCommand(query, sql.conn);
+                cmd.Parameters.AddWithValue("employeeid", employeeid);
+
+                cmd.ExecuteNonQuery();
+            }
+
+            catch (NpgsqlException ex)
+            {
+                this.sql.ex = ex.Message;
+            }
+            sql.conn.Close();
+        }
+
+        //Uppdatera anställd
+        public void updateEmployee(int employeeid, string name, string surname, string initials, bool admin)
+        {
+            try
+            {
+                sql.conn.Open();
+
+                string query = "UPDATE employee " +
+                               "SET name = @name, surname = @surname, initials = @initials, admin = @admin " +
+                               "WHERE employeeid = @employeeid ";
+
+                NpgsqlCommand cmd = new NpgsqlCommand(query, sql.conn);
+                cmd.Parameters.AddWithValue("employeeid", employeeid);
+                cmd.Parameters.AddWithValue("name", name);
+                cmd.Parameters.AddWithValue("surname", surname);
+                cmd.Parameters.AddWithValue("initials", initials);
+                cmd.Parameters.AddWithValue("admin", admin);
+
+                cmd.ExecuteNonQuery();
+            }
+            catch (NpgsqlException ex)
+            {
+                this.sql.ex = ex.Message;
+            }
+            finally
+            {
+                sql.conn.Close();
+            }
+        }
 
 
 
@@ -68,7 +155,7 @@ namespace kärnan
         /// </summary>
         /// <param name="anv"></param>
         /// <returns>Ett objekt: Employee</returns>
-        //Hämtar information om den inloggade till en session 
+            //Hämtar information om den inloggade till en session 
         public Employee logginInfo(string anv)
         {
             try

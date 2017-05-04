@@ -131,20 +131,9 @@ namespace kärnan
             
 
             family.updateFamily(familyid, name, surname, birth);
-               
-            //lblCorrectMessage.Text = "Namnet på enheten är ändrad!";
-
-            //ListBox1.Items.Clear();
+            ListBox1.Items.Clear(); 
+            //lblCorrectMessage.Text = "Namnet på enheten är ändrad!";         
             //txbChangeUnit.Text = string.Empty;
-
-            ////Visa namnen på enhet i dropdownlist
-            //sql.conn.Open();
-            //NpgsqlCommand cmd = new NpgsqlCommand("SELECT unitname, unitid FROM unit ORDER BY unitid", sql.conn);
-            //NpgsqlDataAdapter da = new NpgsqlDataAdapter(cmd);
-            //DataTable dt = new DataTable();
-            //da.Fill(dt);
-            //DropDownList1.DataSource = dt;
-            //DropDownList1.DataBind();
         }
 
         protected void DropDownList2_SelectedIndexChanged(object sender, EventArgs e)
