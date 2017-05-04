@@ -9,7 +9,7 @@
         <div class="sektion">
             <h3>Välj enhet och klient</h3>
             <p>Välj enhet:</p>
-                    <asp:DropDownList ID="drpUnit" runat="server" AutoPostBack="True" DataTextField="name"
+                    <asp:DropDownList ID="drpUnit" runat="server" AutoPostBack="True" DataTextField="unitname"
                     DataValueField="unitid" AppendDataBoundItems="true" CssClass="drp" 
                     OnSelectedIndexChanged ="drpUnit_SelectedIndexChanged" >
                     <asp:ListItem Value="0">-- Välj enhet --</asp:ListItem>
@@ -49,10 +49,10 @@
             <div class="readjournal">
                 <p>Rubrik:</p>
                 <%--<input type="text" id="rubrik">--%>
-                 <textarea cols ="45" rows ="2" readonly ="readonly" runat ="server" id="txbRubrik" name="jourlista"></textarea>
+                 <textarea cols ="45" rows ="2" runat ="server" id="txbRubrik" name="jourlista"></textarea>
                 <p>Journalanteckning:</p>
                 <%--<input type="text" id="journal-anteckning">--%>
-                <textarea cols ="45" rows ="10" readonly ="readonly" runat ="server" id="txbJournal" name ="jour"></textarea>
+                <textarea cols ="45" rows ="10" runat ="server" id="txbJournal" name ="jour"></textarea>
                 <asp:Label ID="lblInitialer" runat="server" Text=""></asp:Label>
             </div>
             

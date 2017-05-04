@@ -144,8 +144,8 @@ namespace kärnan
                 jc.journalnote = txbJournal.InnerText;
                 string journalnote = jc.journalnote.ToString();
 
-                ut.name = DropDownList1.SelectedItem.Value;
-                int unitid = Convert.ToInt32(ut.name);
+                ut.unitname = DropDownList1.SelectedItem.Value;
+                int unitid = Convert.ToInt32(ut.unitname);
                 family.name = DropDownList2.SelectedItem.Value;
                 int familyid = Convert.ToInt32(family.name);
 

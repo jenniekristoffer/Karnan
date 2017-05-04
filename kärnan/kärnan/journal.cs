@@ -61,7 +61,7 @@ namespace kärnan
        //Visa rubriker på journaler
        public List<Journal> showIncident(int unitid, int familyid)
         {
-            try
+         try
             {
                 sql.conn.Open();
                 string query = "SELECT journalid, date, incident FROM journal " +

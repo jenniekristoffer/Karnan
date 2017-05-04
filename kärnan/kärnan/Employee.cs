@@ -15,6 +15,7 @@ namespace kärnan
         public string name { get; set; }
         public string surname { get; set; }
         public string initials { get; set; }
+        public bool admin { get; set; }
 
         public int userpassid { get; set; }
         public string anv { get; set; }
@@ -24,7 +25,44 @@ namespace kärnan
         {
             return name.ToString();
         }
-        
+
+        //Spara ny anställd 
+        public void saveEmployee(string name, string surname, string initials, bool admin)
+        {
+            try
+            {
+                sql.conn.Open();
+                string query = "INSERT INTO employee(name, surname, initials, admin) " +
+                               "VALUES(@name, @surname, @initials, @admin);";
+
+                NpgsqlCommand cmd = new NpgsqlCommand(query, sql.conn);
+                cmd.Parameters.AddWithValue("name", name);
+                cmd.Parameters.AddWithValue("surname", surname);
+                cmd.Parameters.AddWithValue("initials", initials);
+                cmd.Parameters.AddWithValue("admin", admin);
+                cmd.ExecuteNonQuery();
+            }
+
+            catch (NpgsqlException ex)
+            {
+                sql.ex = ex.Message;
+            }
+            sql.conn.Close();
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         ///<summary>
         /// Metod som hämtar information om den inloggade till ett Session
         /// </summary>
@@ -77,41 +115,9 @@ namespace kärnan
             {
                 sql.conn.Close();
             }
-
-            //    try
-            //    {
-            //        sql.conn.Open();
-            //        string query = "SELECT user, password FROM loggin WHERE user";
-            //        NpgsqlCommand cmd = new NpgsqlCommand(query, sql.conn);
-            //        cmd.Parameters.AddWithValue("id", user);
-            //        cmd.Parameters.AddWithValue("id", password);
-            //        cmd.ExecuteNonQuery();
-
-            //        sql.dr = sql.cmd.ExecuteReader();
-            //        List<Loggain> ln = new List<Loggain>();
-            //        Loggain Loggin;
-
-            //        while (sql.dr.Read())
-            //        {
-            //            Loggin = new Loggain()
-            //            {
-            //                user = sql.dr["user"].ToString(),
-            //                password = sql.dr["password"].ToString(),
-            //            };
-            //            ln.Add(Loggin);
-            //        }
-            //    }
-            //    catch (NpgsqlException ex)
-            //    {
-            //        this.sql.ex = ex.Message;
-            //    }
-
-            //    finally
-            //    {
-            //        sql.conn.Close();
-            //    }
-            //}
-
         }
-        }
+
+
+
+    }
 }

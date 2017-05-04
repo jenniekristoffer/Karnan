@@ -15,7 +15,7 @@
        <%-- Ändra namn på befintligt enhet --%>
        <asp:Label ID="lblChangeUnit" runat="server" Text="Välj enhet du vill ändra namnet på"></asp:Label>
 
-      <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True" DataTextField="name"
+      <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True" DataTextField="unitname"
        DataValueField="unitid" AppendDataBoundItems="true" CssClass="drp"
        OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
        <asp:ListItem Value="0">-- Välj enhet --</asp:ListItem>
@@ -26,9 +26,9 @@
        <asp:Label ID="lblCorrectMessage" runat="server" Text=""></asp:Label>
        <%-- SLUT --%>
 
-       <%-- Ändra namn på befintligt enhet --%>
+       <%-- Radera enhet --%>
        <asp:Label ID="lblRemove" runat="server" Text="Välj enhet du vill ta bort och tryck på knappen 'Radera enhet'"></asp:Label>
-      <asp:DropDownList ID="DropDownList2" runat="server" AutoPostBack="True" DataTextField="name"
+      <asp:DropDownList ID="DropDownList2" runat="server" AutoPostBack="True" DataTextField="unitname"
        DataValueField="unitid" AppendDataBoundItems="true" CssClass="drp"
        OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
        <asp:ListItem Value="0">-- Välj enhet --</asp:ListItem>

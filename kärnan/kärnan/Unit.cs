@@ -9,7 +9,7 @@ namespace kärnan
     public class Unit
     {
         public int unitID { get; set; }
-        public string name { get; set; }
+        public string unitname { get; set; }
 
         SQL sql = new SQL();
 
@@ -17,7 +17,7 @@ namespace kärnan
         {
             get
             {
-                return name ;
+                return unitname ;
 
             }
         }
@@ -25,16 +25,16 @@ namespace kärnan
         SQL newSql = new SQL();
 
         //Lägg till ny enhet 
-        public void saveUnit(string name)
+        public void saveUnit(string unitname)
         {
             try
             {
                 sql.conn.Open();
-                string query = "INSERT INTO unit (name) " +
-                               "VALUES(@name) ";
+                string query = "INSERT INTO unit (unitname) " +
+                               "VALUES(@unitname) ";
 
                 NpgsqlCommand cmd = new NpgsqlCommand(query, sql.conn);
-                cmd.Parameters.AddWithValue("name", name);
+                cmd.Parameters.AddWithValue("unitname", unitname);
 
                 cmd.ExecuteNonQuery();
             }
@@ -47,19 +47,19 @@ namespace kärnan
         }
 
         //Uppdatera namn på enhet
-        public void updateUnit(int unitid, string name)
+        public void updateUnit(int unitid, string unitname)
         {
             try
             {
                 sql.conn.Open();
 
                 string query = "UPDATE unit " +
-                            "SET name = @name " +
+                            "SET unitname = @unitname " +
                             "WHERE unitid = @unitid ";
 
                 NpgsqlCommand cmd = new NpgsqlCommand(query, sql.conn);
                 cmd.Parameters.AddWithValue("unitid", unitid);
-                cmd.Parameters.AddWithValue("name", name);
+                cmd.Parameters.AddWithValue("unitname", unitname);
 
                 cmd.ExecuteNonQuery();
             }
@@ -73,7 +73,7 @@ namespace kärnan
             }
         }
 
-        // Radera enhet 
+        //Radera enhet 
         public void removeUnit(int unitid)
         {
             try

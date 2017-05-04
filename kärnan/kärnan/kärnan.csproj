@@ -80,6 +80,9 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="adminEmployee.aspx" />
+    <Content Include="adminFamily.aspx" />
+    <Content Include="adminPage.aspx" />
     <Content Include="adminUnit.aspx" />
     <Content Include="index.aspx" />
     <Content Include="inloggad.aspx" />
@@ -104,6 +107,27 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="adminEmployee.aspx.cs">
+      <DependentUpon>adminEmployee.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="adminEmployee.aspx.designer.cs">
+      <DependentUpon>adminEmployee.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="adminFamily.aspx.cs">
+      <DependentUpon>adminFamily.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="adminFamily.aspx.designer.cs">
+      <DependentUpon>adminFamily.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="adminPage.aspx.cs">
+      <DependentUpon>adminPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="adminPage.aspx.designer.cs">
+      <DependentUpon>adminPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="adminUnit.aspx.cs">
       <DependentUpon>adminUnit.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
