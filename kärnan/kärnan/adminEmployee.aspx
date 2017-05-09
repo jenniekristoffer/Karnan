@@ -4,19 +4,10 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <form runat="server">
 
-    <%-- Lägg till anställd --%>
-        <p>Förnamn</p>
-    
-        <p>Efternamn</p>
-    
-        <p>Initialer</p>
-    
-    
-
+   
     <asp:Button ID="btnAddEmployee" OnClick="btnAddEmployee_Click" runat="server" Text="Spara ny anställd" />
-    <%-- SLUT --%>
 
-    <%-- Ta bort anställd --%>
+
    <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True" AppendDataBoundItems="true" CssClass="drp"
       OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" > <asp:ListItem Value="0">-- Radera anställd --</asp:ListItem>
    </asp:DropDownList>
@@ -40,16 +31,14 @@
     <%-- SLUT --%>
 
 
-<<<<<<< HEAD
+
 
             <div class="unit-container">
         <div class="sektion">
             <h3>Hanterings alternativ</h3>
             <p class="mellan-rubrik">Vad vill du göra?</p>
-<%--            <button class="drop">"enhet"</button>--%>
             <asp:DropDownList ID="DropDownList3" runat="server" CssClass="drop"></asp:DropDownList>
             <p class="mellan-rubrik">Välj den admin du vill hantera</p>
-            <%--<button class="drop">"enhet"</button>--%>
             <asp:ListBox ID="ListBox1" runat="server" CssClass="journal-list"></asp:ListBox>
         </div>
 
@@ -58,16 +47,11 @@
                 <h3>Uppgifter för klient</h3>
             </div>
             <p class="mellan-rubrik">Förnamn: </p>
-            <%--<input type="text" id="new-name">--%>
             <asp:TextBox ID="txbName" runat="server" CssClass="new-name"></asp:TextBox>
             <p class="mellan-rubrik">Efternamn: </p>
-            <%--<input type="text" id="new-name">--%>
             <asp:TextBox ID="txbSurname" runat="server" CssClass="new-name"></asp:TextBox>
             <p class="mellan-rubrik">Initialer: </p>
-            <%--<input type="text" id="new-name">--%>
             <asp:TextBox ID="txbInitials" runat="server" CssClass="new-name"></asp:TextBox>
-<%--            <p class="mellan-rubrik">Behörighetsnivå: </p>--%>
-<%--            <button class="drop">Välj enhet</button>--%>
             <div class="checkbox">
             <asp:CheckBox ID="cbxAdmin" Text ="Utökade admin egenskaper" runat="server" CssClass="mellan-rubrik" />
                 </div>
@@ -79,7 +63,6 @@
             </div>
         </div>
     </div>
-
 
 
         <style>

@@ -6,9 +6,6 @@
 
 
      <asp:Button ID="btnAddFamily" OnClick="btnAddFamily_Click" runat="server" Text="Lägg till ny familjemedlem" />
-     <%-- SLUT --%>
-
-      <%-- Uppdatera information om familj --%>
 
      <asp:ListBox ID="ListBox1" AutoPostBack="true" OnSelectedIndexChanged="ListBox1_SelectedIndexChanged" runat="server" ></asp:ListBox>
       <p>Namn</p>
@@ -39,15 +36,12 @@
 
 
 
-
          <div class="unit-container">
         <div class="sektion">
             <h3>Hanterings alternativ</h3>
             <p class="mellan-rubrik">Vad vill du göra?</p>
-            <%--<button class="drop">"enhet"</button>--%>
             <asp:DropDownList ID="DropDownList3" runat="server" CssClass="drop"></asp:DropDownList>
             <p class="mellan-rubrik">Välj den klient du vill hantera</p>
-<%--            <button class="drop">"enhet"</button>--%>
             <asp:ListBox ID="lsbFamily" runat="server" CssClass="journal-list"></asp:ListBox>
         </div>
 
@@ -56,16 +50,12 @@
                 <h3>Uppgifter för klient</h3>
             </div>
             <p class="mellan-rubrik">Förnamn: </p>
-            <%--<input type="text" id="new-name">--%>
             <asp:TextBox ID="txbName" runat="server" CssClass="new-name"></asp:TextBox>
             <p class="mellan-rubrik">Efternamn: </p>
-            <%--<input type="text" id="new-name">--%>
             <asp:TextBox ID="txbSurname" runat="server" CssClass="new-name"></asp:TextBox>
             <p class="mellan-rubrik">Personnummer: </p>
-<%--            <input type="text" id="new-name">--%>
             <asp:TextBox ID="txbBirth" runat="server" CssClass="new-name"></asp:TextBox>
             <p class="mellan-rubrik">Tillhörande enhet: </p>
-            <%--<button class="drop">Välj enhet</button>--%>
                  <asp:DropDownList ID="drpUnit" runat="server" AutoPostBack="True" DataTextField="unitname"
                   DataValueField="unitid" AppendDataBoundItems="true" CssClass="drop"
                   OnSelectedIndexChanged="drpUnit_SelectedIndexChanged" >
@@ -83,8 +73,6 @@
             </div>
         </div>
     </div>
-
-
 
 
      <style>

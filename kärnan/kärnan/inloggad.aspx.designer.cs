@@ -11,44 +11,5 @@ namespace kärnan {
     
     
     public partial class inloggad {
-        
-        /// <summary>
-        /// lblonline control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblonline;
-        
-        /// <summary>
-        /// lblInitials control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblInitials;
-<<<<<<< HEAD
-=======
-        
-        /// <summary>
-        /// btnHandel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor btnHandel;
-        
-        /// <summary>
-        /// btnHantera control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnHantera;
->>>>>>> 9a264fb1a9554b6d4fd040bde4534ad8ba898fd3
     }
 }

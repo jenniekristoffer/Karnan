@@ -44,28 +44,18 @@
 
             <div class="container">
                 <label><b>Användarnamn:</b></label>
-<%--                <input type="text" placeholder="" name="uname" required>--%>
                 <asp:TextBox ID="txbUser" runat="server"></asp:TextBox>
-
                 <label><b>Lösenord:</b></label>
-<%--                <input type="password" placeholder="" name="psw" required>--%>
                 <asp:TextBox ID="txbPassword" runat="server"></asp:TextBox>
-
-<%--                <button type="submit">Logga in</a></button>--%>
                 <asp:Button ID="btnLoggin" runat="server" Text="Logga in" CssClass="btn-loggain" OnClick="btnLoggin_Click1" />
             </div>
-
             <asp:Label ID="lblMessage" runat="server" Text=""></asp:Label>
-
             <div class="container" style="background-color:#f1f1f1">
                 <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Avbryt</button>
                 <span class="psw">Glömt ditt <a href="#">lösenord?</a></span>
             </div>
         </div>
-    </div>
-
-       
-
+    </div>       
         <div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>

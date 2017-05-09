@@ -5,37 +5,25 @@
 
    <form runat ="server">
 
-    <%-- Lägg till ny enhet --%>
-<%--    <asp:Label ID="lblUnitAdd" runat="server" Text="Lägg till enhet"></asp:Label>--%>
-      
-
-
-           <div class="unit-container">
-
+        <div class="unit-container">
         <div class="sektion">
             <h3>Enhets överblick</h3>
             <p class="mellan-rubrik">Samtliga enheter i verksamheten:</p>
             <asp:ListBox ID="ListBox1" runat="server" CssClass="journal-list"></asp:ListBox>
-
         </div>
-
         <div class="sektion">
             <h3>Lägg till nya enheter</h3>
             <div class="sektion-2-topp">
                 <p class="mellan-rubrik">Namn på ny enhet: </p>
-<%--                <input type="text" id="new-name">--%>
                 <asp:TextBox ID="txbAddUnit" runat="server" CssClass="new-name"></asp:TextBox>
                 <div class="unit-buttons-div">
-<%--                    <button class="unit-buttons">Lägg till ny enhet</button>--%>
                     <asp:Button ID="btnAddUnit" runat="server" OnClick="btnAddUnit_Click" CssClass="unit-buttons" Text="Lägg till enhet" />
                     <asp:Label ID="lblUnitMessage" runat="server" Text=""></asp:Label>
                 </div>
             </div>                
-
             <h3>Byt namn på enhet</h3>
             <div class="sektion-2-botten">
                 <p class="mellan-rubrik">Välj den enhet du vill ändra:</p>
-<%--                <button class="drop">"enhet"</button>--%>
                     <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True" DataTextField="unitname"
                     DataValueField="unitid" AppendDataBoundItems="true" CssClass="drop"
                     OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
@@ -43,36 +31,27 @@
                     </asp:DropDownList>
 
                 <p class="mellan-rubrik">Ändra namnet och klicka på spara:</p>
-                <%--<input type="text" id="new-name">--%>
                  <asp:TextBox ID="txbChangeUnit" runat="server" CssClass="new-name"></asp:TextBox>
                 <div class="unit-buttons-div">
-<%--                <button class="unit-buttons">Spara</button>--%>
                      <asp:Button ID="btnChangeUnit" OnClick="btnChangeUnit_Click" CssClass="unit-buttons" runat="server" Text="Ändra namn på enhet" />
                      <asp:Label ID="lblCorrectMessage" runat="server" Text=""></asp:Label>
                 </div>
             </div>
         </div>
-
         <div class="sektion">
             <h3>Tabort enheter</h3>
             <p class="mellan-rubrik">Välj den enhet du vill tabort:</p>
-<%--            <button class="drop">"enhet"</button>--%>
                   <asp:DropDownList ID="DropDownList2" runat="server" AutoPostBack="True" DataTextField="unitname"
        DataValueField="unitid" AppendDataBoundItems="true" CssClass="drop"
        OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
        <asp:ListItem Value="0">-- Välj enhet --</asp:ListItem>
        </asp:DropDownList>
-
             <div class="unit-buttons-div">
-<%--            <button class="unit-buttons">Tabort</button>--%>
                 <asp:Button ID="btnRemove" runat="server" OnClick="btnRemove_Click" CssClass="unit-buttons" Text="Radera enhet" />
             </div>
         </div>
-
     </div>
-
-
-       
+     
 
        <style>
 .unit-container {
@@ -133,7 +112,7 @@ h3 {
 
 .new-name {
     height: 37px;
-    width: 99%;;
+    width: 99%;
 }
 
 .sektion-2-topp {
@@ -148,16 +127,6 @@ h3 {
 }
 
        </style>
-       
-
-
-
-
-
-
-
-
-
 
 
 </form>

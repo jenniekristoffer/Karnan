@@ -99,35 +99,5 @@ namespace kärnan
             }
 
         }
-
-        ////Läs vald journal 
-        //public void readJournal(int journalid)
-        //{
-        //    try
-        //    {
-        //        sql.conn.Open();
-        //        string query = "SELECT DISTINCT journal.date, journalnote, incident, initials " + 
-        //                       "FROM journal, employee " + 
-        //                       "WHERE journalid = @journalid " +
-        //                       "AND journal.employeeid = employee.employeeid";
-
-        //        NpgsqlCommand cmd = new NpgsqlCommand(query, sql.conn);
-        //        //cmd.Parameters.AddWithValue("journalnote", journalnote);
-        //        //cmd.Parameters.AddWithValue("incident", incident);
-        //        //cmd.Parameters.AddWithValue("date", date);
-        //        //cmd.Parameters.AddWithValue("employeeid", employeeid);
-        //        cmd.Parameters.AddWithValue("journalid", journalid);
-        //        //cmd.Parameters.AddWithValue("unitid", unitid);
-        //        //cmd.Parameters.AddWithValue("familyid", familyid);
-
-        //        cmd.ExecuteNonQuery();
-        //    }
-
-        //    catch (NpgsqlException ex)
-        //    {
-        //        this.sql.ex = ex.Message;
-        //    }
-        //    sql.conn.Close();
-        //}
     }
 }

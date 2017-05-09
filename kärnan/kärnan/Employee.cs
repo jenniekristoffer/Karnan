@@ -154,7 +154,6 @@ namespace kärnan
                                "WHERE userpass.admin = true;";
 
                 NpgsqlCommand cmd = new NpgsqlCommand(query, sql.conn);
-                //cmd.Parameters.AddWithValue("employeeid", employeeid);
 
                 cmd.ExecuteNonQuery();
                 return admin;
@@ -167,62 +166,5 @@ namespace kärnan
                 return false;              
             }          
         }
-
-
-
-        ///<summary>
-        /// Metod som hämtar information om den inloggade till ett Session
-        /// </summary>
-        /// <param name="anv"></param>
-        /// <returns>Ett objekt: Employee</returns>
-            //Hämtar information om den inloggade till en session 
-        public Employee logginInfo(string anv)
-        {
-            try
-            {
-                string query = "SELECT name, surname, initials" +
-                               "FROM employee, userpass " +
-                               "WHERE userpass.anv = @anv " +
-                               "AND userpass.employeeid = employee.employeeid";
-
-                Employee e = new Employee();
-                sql.conn.Open();
-                NpgsqlCommand cmd = new NpgsqlCommand(query, sql.conn);
-                //cmd.Parameters.AddWithValue("@employeeid", employeeid);
-                cmd.Parameters.AddWithValue("@anv", anv);
-                NpgsqlDataReader dr = cmd.ExecuteReader();
-
-                List<Employee> emp = new List<Employee>();
-                Employee employee;
-
-                while (dr.Read())
-                {
-                    employee = new Employee()
-                    {
-                        name = dr["name"].ToString(),
-                        surname = dr["surname"].ToString(),
-                        initials = dr["initials"].ToString(),
-                        employeeid = Convert.ToInt32(dr["employeeid"]),
-                        anv = dr["anv"].ToString(),
-                    };
-
-                    emp.Add(employee);           
-                }
-
-                return e;
-            }
-
-            catch (NpgsqlException ex)
-            {
-                this.sql.ex = ex.Message;
-                return null;
-            }
-
-            finally
-            {
-                sql.conn.Close();
-            }
-        }
-
     }
 }

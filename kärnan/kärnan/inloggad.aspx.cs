@@ -19,7 +19,7 @@ namespace kärnan
             {
                 if (employee.controllEmployee() == true)
                 {
-                    btnHantera.Enabled = false;
+                    //btnHantera.Enabled = false;
                 }
 
 

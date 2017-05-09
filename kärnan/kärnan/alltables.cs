@@ -42,7 +42,7 @@ namespace kärnan
 
 
         //Hämtar den senast sparade journalen  
-        public int getLastJournal(/*int journalid*/)
+        public int getLastJournal()
         {
             try
             {
@@ -52,7 +52,6 @@ namespace kärnan
                                "DESC LIMIT 1 ";                   
 
                 NpgsqlCommand cmd = new NpgsqlCommand(query, sql.conn);
-                //cmd.Parameters.AddWithValue("journalid", journalid);
 
                 cmd.ExecuteNonQuery();
                 return journalid;
@@ -71,14 +70,6 @@ namespace kärnan
 
       
         }   
-
-        //"INSERT INTO journal_employee_unit_family(employeeid, unitid, journal_employee_unit_family.familyid, journalid) " +
-        //                        "SELECT employeeid, unitid, familyid, journalid " +
-        //                        "FROM employee, unit, family, journal " +
-        //                        "WHERE employee.employeeid = @employeeid " +
-        //                        "AND unit.unitid = @unitid " +
-        //                        "AND family.familyid = @familyid " +
-        //                        "AND journal.journalid = @journalid";
 
     }
 }

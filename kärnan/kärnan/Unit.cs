@@ -93,6 +93,5 @@ namespace kärnan
             }
             sql.conn.Close();
         }
-
     }
 }

@@ -74,8 +74,6 @@ namespace kärnan
 
                 List<Family> fy = new List<Family>();
                 NpgsqlCommand cmd = new NpgsqlCommand(query, sql.conn);
-                //cmd.Parameters.AddWithValue("unitid", unitid);
-                //cmd.Parameters.AddWithValue("familyid", familyid);
 
                 NpgsqlDataReader dr = cmd.ExecuteReader();
 

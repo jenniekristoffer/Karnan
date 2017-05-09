@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterMasterPage.Master" AutoEventWireup="true" CodeBehind="WebForm1.aspx.cs" Inherits="kärnan.WebForm1" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterMasterPage.Master" AutoEventWireup="true" CodeBehind="loggain_mobile.aspx.cs" Inherits="kärnan.WebForm1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">

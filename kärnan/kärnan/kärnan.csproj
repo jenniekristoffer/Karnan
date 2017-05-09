@@ -91,10 +91,9 @@
     <Content Include="Master2_Inloggad.Master" />
     <Content Include="readJournal.aspx" />
     <Content Include="script.js" />
-    <Content Include="startPage.aspx" />
     <Content Include="style.css" />
     <Content Include="stylehead.css" />
-    <Content Include="WebForm1.aspx" />
+    <Content Include="loggain_mobile.aspx" />
     <Content Include="writeJournal.aspx" />
     <Content Include="mainMaster.Master" />
     <Content Include="MasterMasterPage.Master" />
@@ -194,20 +193,13 @@
       <DependentUpon>readJournal.aspx</DependentUpon>
     </Compile>
     <Compile Include="SQL.cs" />
-    <Compile Include="startPage.aspx.cs">
-      <DependentUpon>startPage.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="startPage.aspx.designer.cs">
-      <DependentUpon>startPage.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Unit.cs" />
-    <Compile Include="WebForm1.aspx.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
+    <Compile Include="loggain_mobile.aspx.cs">
+      <DependentUpon>loggain_mobile.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
+    <Compile Include="loggain_mobile.aspx.designer.cs">
+      <DependentUpon>loggain_mobile.aspx</DependentUpon>
     </Compile>
     <Compile Include="writeJournal.aspx.cs">
       <DependentUpon>writeJournal.aspx</DependentUpon>

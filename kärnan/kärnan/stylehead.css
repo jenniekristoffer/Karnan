@@ -47,12 +47,12 @@ li a {
     float: left;
     font-size: 15px;
     border-bottom: 3px solid #fafafa;
-    border-bottom-width: 5x;
+    border-bottom-width: 5px;
 }
 
 .navbar li a:hover:not(.logo) {
     border-bottom: 3px solid #22383c;
-    border-bottom-width: 5x;
+    border-bottom-width: 5px;
 }
 
 .logo {
