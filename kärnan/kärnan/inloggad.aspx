@@ -16,26 +16,9 @@
             <li><a class="val" href="readJournal.aspx#">Läs journal</a></li>
             <hr>
 
-            <li><a class="val" href="#">Hantera enheter & klienter</a></li>
+            <li><a class="val" href="adminPage.aspx#">Hantera enheter & klienter</a></li>
         </ul>
     </div>
-
-
-<%--        <div class="val-div">
-        <ul>            
-                        
-            <asp:Button ID="btnSkriv" CssClass="val" runat="server" OnClick="btnSkriv_Click" Text="Skriv journal" />
-            <asp:Button ID="btnLäs" runat="server" CssClass="val" OnClick="btnLäs_Click" Text="Läs journal" />
-              
-        </ul>
-<<<<<<< HEAD
-    </div>--%>
-
-=======
-        <hr /> 
-          <asp:Button ID="btnHantera" CssClass="val" runat="server" OnClick="btnHantera_Click" Text="Hantera enheter & klienter" />
    
-             </div>
         </form>
->>>>>>> 6dfd33856bf8b0ed60c8e675c90695e7ef9415f9
 </asp:Content>

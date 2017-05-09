@@ -49,14 +49,14 @@
             <div class="beskrivning">
                 <%--<input type="text" id="txb-beskrivning">--%>
                 <textarea cols ="45" rows ="2" runat ="server" id="txbincident" name="inci" class="txb-beskrivning"></textarea>
-                <input type="text" class="datepick" id="datepicker" placeholder="Datum: "/>
+                <input type="text" class="datepick" id="datepicker" runat="server" placeholder="Datum: "/>
             </div>
             <div class="lista">
                 <p class="mellan-rubrik">Journaler:</p>
                 <%--<input type="text" id="journal-list">--%>
                 <textarea cols ="45" rows ="10" runat ="server" id="txbJournal" name ="jour" class="journal-list"></textarea>
             </div>
-            <div class="knappar">
+            <div class="knappar-div">
                 <asp:Button ID="Button1" OnClick="btnAvbry_Click" runat="server" CssClass="write-buttons" Text="Avbryt" />
                 <asp:Button ID="Button2" OnClick="btnSpara_Click" runat="server" CssClass="write-buttons" Text="Spara" />
             </div>
@@ -167,21 +167,21 @@ textarea{
     resize: none;
 }
 
-.knappar{
+.knappar-div{
     display:flex;
     flex-direction:row;
     justify-content:flex-end;
 }
 
 .write-buttons {
-    width:100px;
+    width:150px;
     border: 1px solid rgba(64, 64, 64, 0.39);
     padding: 12px 0px 12px 0px;
     background-color: #cecece;
     margin-top:10px;
     margin-bottom:20px;
 }
-
+    
 .write-buttons:nth-of-type(2) {
 margin-left:20px;
 }
