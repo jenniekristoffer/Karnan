@@ -31,6 +31,15 @@ namespace kärnan {
         protected global::System.Web.UI.WebControls.Label lblInitials;
         
         /// <summary>
+        /// btnHandel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor btnHandel;
+        
+        /// <summary>
         /// btnHantera control.
         /// </summary>
         /// <remarks>

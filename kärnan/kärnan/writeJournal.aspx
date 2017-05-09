@@ -73,10 +73,6 @@
     </form>
 
 
-    </form>
-
-
-
     <style type="text/css">
 
         /* Read Journal */

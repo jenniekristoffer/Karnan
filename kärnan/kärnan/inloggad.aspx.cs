@@ -17,9 +17,16 @@ namespace kärnan
             //Håller koll på vem det är som är inloggad    
             if (Session["employeeid"] != null)
             {
+                if (employee.controllEmployee() == true)
+                {
+                    btnHantera.Enabled = false;
+                }
+
+
                 //-------SKRIVER UT ID PÅ DEN INLOGGADE---------
                 //lblonline.Text = Session["employeeid"].ToString();
             }
+
         }
 
         protected void btnSkriv_Click(object sender, EventArgs e)
@@ -42,7 +49,7 @@ namespace kärnan
         {
             if (Session["employeeid"] != null)
             {
-               Response.Redirect("");
+               Response.Redirect("adminPage.aspx");
             }            
         }
       }

@@ -16,7 +16,7 @@
             <li><a class="val" href="readJournal.aspx#">Läs journal</a></li>
             <hr>
 
-            <li><a class="val" href="#">Hantera enheter & klienter</a></li>
+            <li><a class="val" runat="server" id="btnHandel" href="adminPage.aspx#">Hantera enheter & klienter</a></li>
         </ul>
     </div>
 
