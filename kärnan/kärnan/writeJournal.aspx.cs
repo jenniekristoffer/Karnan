@@ -111,29 +111,32 @@ namespace kärnan
         public void saveJournal()
         {
             //FELMEDDELANDE, om något inte är ifyllt så går det inte att spara
-            if (lblEnhet.Text == null && lblKlient.Text == null) // DENNA FUNKAR INTE.. 
-            {
-                //lblBeskrivning.Text = "*";
-                //lblJournal.Text = "*";
-                lblMeddelande.Text = "Vänligen välj 'Enhet' och 'Familj'";
-            }
+           // if (lblEnhet.Text == null && lblKlient.Text == null) // DENNA FUNKAR INTE.. 
+           // {
+           //     //lblBeskrivning.Text = "*";
+           //     //lblJournal.Text = "*";
+           //     lblMeddelande.Text = "Vänligen välj 'Enhet' och 'Familj'";
+           // }
 
-           else if (txbJournal.Value != "" || txbincident.Value != "")
-            {
-                lblBeskrivning.Text = "";
-                lblJournal.Text = "*";
-                lblMeddelande.Text = "Du måste fylla i 'Rubrik' och skriva i 'Journalanteckning'";
-            }
+           //else if (txbJournal.Value != "" || txbincident.Value != "")
+           // {
+           //     lblBeskrivning.Text = "";
+           //     lblJournal.Text = "*";
+           //     lblMeddelande.Text = "Du måste fylla i 'Rubrik' och skriva i 'Journalanteckning'";
+           // }
 
-            else if (txbincident.Value == "" || txbJournal.Value != "")
-            {
-                lblBeskrivning.Text = "*";
-                lblJournal.Text = "";
-                lblMeddelande.Text = "Du måste fylla i 'rubrik'";
-            }
+           // else if (txbincident.Value == "" || txbJournal.Value != "")
+           // {
+           //     lblBeskrivning.Text = "*";
+           //     lblJournal.Text = "";
+           //     lblMeddelande.Text = "Du måste fylla i 'rubrik'";
+           // }
 
-            else /*(txbJournal.Value != "" && txbincident.Value != "")*/
-            {
+           // else /*(txbJournal.Value != "" && txbincident.Value != "")*/
+           // {
+
+             
+
                 //Visar tomma felmeddelanden
                 lblBeskrivning.Text = "";
                 lblJournal.Text = "";
@@ -151,7 +154,7 @@ namespace kärnan
 
                 int jourid = Convert.ToInt32(jc.journalid);
 
-                employee.initials = lblInitials.Text;
+                employee.initials = Session["employeeid"].ToString();
                 int employeeid = Convert.ToInt32(employee.initials);
 
                 //Lägger till dagens datum
@@ -168,7 +171,7 @@ namespace kärnan
                 txbJournal.InnerText = string.Empty;
                 lblMeddelande.Text = "Journalen är sparad";
 
-            }
+            //}
         }
     }
 }

@@ -40,6 +40,7 @@
     <%-- SLUT --%>
 
 
+<<<<<<< HEAD
 
             <div class="unit-container">
         <div class="sektion">
@@ -224,5 +225,7 @@ h3 {
 
 
 
+=======
+>>>>>>> 9a264fb1a9554b6d4fd040bde4534ad8ba898fd3
 </form>
 </asp:Content>

@@ -143,10 +143,30 @@ namespace kärnan
             }
         }
 
+        //Kontroller om anställd är admin 
+        public bool controllEmployee()
+        {
+            try
+            {
+                sql.conn.Open();
+                string query = "SELECT employeeid, pass, userpass.admin " +
+                               "FROM userpass " +
+                               "WHERE userpass.admin = true;";
 
+                NpgsqlCommand cmd = new NpgsqlCommand(query, sql.conn);
+                //cmd.Parameters.AddWithValue("employeeid", employeeid);
 
+                cmd.ExecuteNonQuery();
+                return admin;
+            }
 
-
+            catch (NpgsqlException ex)
+            {
+                this.sql.ex = ex.Message;
+                sql.conn.Close();
+                return false;              
+            }          
+        }
 
 
 
@@ -203,8 +223,6 @@ namespace kärnan
                 sql.conn.Close();
             }
         }
-
-
 
     }
 }
