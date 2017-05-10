@@ -12,6 +12,9 @@
     <link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="stylesheet.css">
 
+<%--    <link rel="stylesheet" href="stylehead.css"/>
+    <link rel="stylesheet" href="style.css"/>--%>
+
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>

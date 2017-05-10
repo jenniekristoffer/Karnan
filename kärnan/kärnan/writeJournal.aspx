@@ -26,11 +26,11 @@
         <div class="sektion">
             <div class="sektion-top">
                 <h3>Enhet:</h3>
-                <asp:Label ID="lblEnhet" runat="server" Text=""></asp:Label>
+                <asp:Label ID="lblEnhet" runat="server" Text="" CssClass="label"></asp:Label>
                 <h3>Klient:</h3>
-                <asp:Label ID="lblKlient" runat="server" Text=""></asp:Label>
+                <asp:Label ID="lblKlient" runat="server" Text="" CssClass="label"></asp:Label>
                 <h3>Person-nr:</h3>
-                <asp:Label ID="lblPnr" runat="server" Text=""></asp:Label>
+                <asp:Label ID="lblPnr" runat="server" Text="" CssClass="label"></asp:Label>
             </div>
             <p class="mellan-rubrik">Beskrivning:</p>
             <div class="beskrivning">
@@ -98,7 +98,7 @@ h3 {
 .sektion-top h3 {
     display: flex;
     flex-direction: row;
-    padding-right: 30px;
+    padding-right: 10px;
 }
 
 .datepick {
@@ -162,6 +162,15 @@ textarea{
     
 .write-buttons:nth-of-type(2) {
 margin-left:20px;
+}
+
+.label{
+    font-family:inherit;
+    font-size:18.72px;
+    color:cyan;
+    margin-right:15px;
+    margin-bottom: 20px;
+    color:black;
 }
 
 </style>

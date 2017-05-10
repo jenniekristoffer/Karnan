@@ -9,7 +9,7 @@
         <div class="sektion">
             <h3>Enhets överblick</h3>
             <p class="mellan-rubrik">Samtliga enheter i verksamheten:</p>
-            <asp:ListBox ID="ListBox1" runat="server" CssClass="journal-list"></asp:ListBox>
+            <asp:ListBox ID="ListBox1" runat="server" CssClass="listbox"></asp:ListBox>
         </div>
         <div class="sektion">
             <h3>Lägg till nya enheter</h3>
@@ -33,9 +33,14 @@
                 <p class="mellan-rubrik">Ändra namnet och klicka på spara:</p>
                  <asp:TextBox ID="txbChangeUnit" runat="server" CssClass="new-name"></asp:TextBox>
                 <div class="unit-buttons-div">
-                     <asp:Button ID="btnChangeUnit" OnClick="btnChangeUnit_Click" CssClass="unit-buttons" runat="server" Text="Ändra namn på enhet" />
-                     <asp:Label ID="lblCorrectMessage" runat="server" Text=""></asp:Label>
+                     <asp:Button ID="btnChangeUnit" OnClick="btnChangeUnit_Click" CssClass="bok" runat="server" Text="Ändra namn på enhet" />                     
                 </div>
+                <div class="unit-buttons-div">
+                    <asp:Label ID="lblCorrectMessage" runat="server" Text=""></asp:Label>
+                    
+
+                </div>
+                <p id="message" style="display:none; color:forestgreen;">Nytt namn sparat.</p>
             </div>
         </div>
         <div class="sektion">
@@ -46,12 +51,22 @@
        OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
        <asp:ListItem Value="0">-- Välj enhet --</asp:ListItem>
        </asp:DropDownList>
-            <div class="unit-buttons-div">
+            <div class="unit-buttons-label">
                 <asp:Button ID="btnRemove" runat="server" OnClick="btnRemove_Click" CssClass="unit-buttons" Text="Radera enhet" />
             </div>
         </div>
     </div>
      
+
+         <script>
+                   $(document).ready(function () {
+                       $(".bok").click(function () {
+                           $("#message").fadeIn(2000);
+                           $("#message").fadeOut(5000);
+                       });
+                   });
+       </script>
+
 
        <style>
 .unit-container {
@@ -101,6 +116,12 @@ h3 {
     justify-content: flex-end;
 }
 
+.unit-buttons-label-div{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
 .unit-buttons {
     width:150px;
     border: 1px solid rgba(64, 64, 64, 0.39);
@@ -124,6 +145,13 @@ h3 {
 .sektion-2-botten {
     display: flex;
     flex-direction: column;
+}
+
+.listbox {
+    height: 502px;
+    width: 100%;
+    border: 1px solid grey;
+    /*margin-top: 0px;*/
 }
 
        </style>
