@@ -9,7 +9,11 @@
         <div class="sektion">
             <h3>Enhets överblick</h3>
             <p class="mellan-rubrik">Samtliga enheter i verksamheten:</p>
+<<<<<<< HEAD
             <asp:ListBox ID="ListBox1" runat="server" CssClass="listbox"></asp:ListBox>
+=======
+            <asp:ListBox ID="lsbAllUnit" OnSelectedIndexChanged="lsbAllUnit_SelectedIndexChanged" runat="server" CssClass="journal-list"></asp:ListBox>
+>>>>>>> bd9455c99679431b799d79912f3571050e9e04cd
         </div>
         <div class="sektion">
             <h3>Lägg till nya enheter</h3>
@@ -54,6 +58,7 @@
             <div class="unit-buttons-label">
                 <asp:Button ID="btnRemove" runat="server" OnClick="btnRemove_Click" CssClass="unit-buttons" Text="Radera enhet" />
             </div>
+            <asp:Label ID="lblRemoveUnit" runat="server" Text=""></asp:Label>
         </div>
     </div>
      

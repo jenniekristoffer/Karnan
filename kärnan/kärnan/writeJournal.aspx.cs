@@ -15,14 +15,14 @@ namespace kärnan
     {
         SQL sql = new SQL();
         Journal jc = new Journal();
-        Family family = new Family();
+        Client family = new Client();
         Employee employee = new Employee();
         Unit ut = new Unit();
         Alltables all = new Alltables();
 
         List<Alltables> listAll = new List<Alltables>();
         List<Journal> newjc = new List<Journal>();
-        List<Family> newfam = new List<Family>();
+        List<Client> newfam = new List<Client>();
 
         protected void Page_Load(object sender, EventArgs e)
         {      
@@ -37,10 +37,10 @@ namespace kärnan
                 DropDownList1.DataSource = dt;
                 DropDownList1.DataBind();
 
-                //Håller koll på vem det är som är inloggad  
+             //Håller koll på vem det är som är inloggad  
               if (Session["employeeid"] != null)
-              {            
-                 //lblInitials.Text = Session["employeeid"].ToString();
+              {                         
+
               }
             }
         }
@@ -94,7 +94,7 @@ namespace kärnan
             //DialogResult dialogResult = MessageBox.Show("Är du säker på att du vill spara ?", "Spara journal", MessageBoxButtons.YesNo);
             //if (dialogResult == DialogResult.Yes)
             //{
-            saveJournal();
+                saveJournal();
             //}
             //else if (dialogResult == DialogResult.No)
             //{
@@ -102,12 +102,7 @@ namespace kärnan
             //}
         }
 
-        //Avbryt skrivande journal ----------------------------------------------->>>>>>>>BEHÖVS DENNA ? 
-        protected void btnAvbry_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        //Spara journal-Metod
         public void saveJournal()
         {
             //FELMEDDELANDE, om något inte är ifyllt så går det inte att spara
@@ -157,11 +152,15 @@ namespace kärnan
                 employee.initials = Session["employeeid"].ToString();
                 int employeeid = Convert.ToInt32(employee.initials);
 
-                //Lägger till dagens datum
-                DateTime datetoday = Convert.ToDateTime(DateTime.Today.ToShortDateString());
+            //Hämta valt datum från datepicker
+                jc.date = Convert.ToDateTime(Request.Form["datepicker"]);
+                DateTime date = jc.date;
 
-                //metod för att spara journalanteckning i db
-                jc.saveJournal(journalnote, incident, datetoday, employeeid, unitid, familyid);
+            //Lägger till dagens datum
+            DateTime datetoday = Convert.ToDateTime(DateTime.Today.ToShortDateString());
+
+            //metod för att spara journalanteckning i db
+            jc.saveJournal(journalnote, incident, date, employeeid, unitid, familyid);
 
                 ////metod för att spara i sammanslagen tabell i db ---------->>>>>>>>>> FUNKAR INTE MED JOURNALID 
                 //all.saveAllInfo(familyid, unitid, employeeid, all.getLastJournal());     

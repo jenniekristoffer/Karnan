@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Windows.Forms;
 
 namespace kärnan
 {
@@ -20,18 +21,21 @@ namespace kärnan
             {
                 //Visa namnen på enhet i dropdownlist
                 sql.conn.Open();
-                NpgsqlCommand cmd = new NpgsqlCommand("SELECT unitname, unitid FROM unit", sql.conn);
+                NpgsqlCommand cmd = new NpgsqlCommand("SELECT unitname, unitid FROM unit ORDER BY unitid", sql.conn);
                 NpgsqlDataAdapter da = new NpgsqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
                 DropDownList1.DataSource = dt;
                 DropDownList1.DataBind();
+                DropDownList2.DataSource = dt;
+                DropDownList2.DataBind();
 
                 //Håller koll på vem det är som är inloggad  
                 if (Session["employeeid"] != null)
                 {
-                    //lblInitials.Text = Session["employeeid"].ToString();
                 }
+
+                showAllUnit();
             }
         }
          //Lägg till enhet
@@ -47,6 +51,8 @@ namespace kärnan
 
          
             DropDownList1.Items.Clear();
+            DropDownList2.Items.Clear();
+            lsbAllUnit.Items.Clear();
             fillList();  
         }
 
@@ -99,6 +105,8 @@ namespace kärnan
             lblCorrectMessage.Text = "Namnet på enheten är ändrad!";
 
             DropDownList1.Items.Clear();
+            DropDownList2.Items.Clear();
+            lsbAllUnit.Items.Clear();
             txbChangeUnit.Text = string.Empty;
             fillList();
         }
@@ -106,14 +114,38 @@ namespace kärnan
         //Radera enhet
         protected void btnRemove_Click(object sender, EventArgs e)
         {
-            unit.unitname = DropDownList1.SelectedItem.Value;
-            int unitid = Convert.ToInt32(unit.unitname);
+            DialogResult dialogResult = MessageBox.Show("Vill du radera enhet? Raderad enhet går inte att få tillbaka", "Radera enhet", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                 unit.unitname = DropDownList2.SelectedItem.Value;
+                 int unitid = Convert.ToInt32(unit.unitname);
 
-            unit.removeUnit(unitid);
-            DropDownList1.Items.Clear();
-            fillList();
+                 unit.removeUnit(unitid);
+                 DropDownList1.Items.Clear();
+                 DropDownList2.Items.Clear();
+                 lsbAllUnit.Items.Clear();
+
+                lblRemoveUnit.Text = "Enheten är raderad";           
+             
+               fillList();
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+
+            }
         }
-        
+              
+        public void showAllUnit()
+        {
+            //Visa information (Unitname)
+            List<Unit> listUnit = unit.showUnit();
+            lsbAllUnit.DataSource = listUnit;
+            lsbAllUnit.DataTextField = "unitname";
+            lsbAllUnit.DataValueField = "unitid";
+            lsbAllUnit.Items.Add("unitName");
+            lsbAllUnit.DataBind();
+        }
+
         //Metod för att fylla listboxrarna med uppdaterad information 
         public void fillList()
         {
@@ -125,7 +157,19 @@ namespace kärnan
             da.Fill(dt);
             DropDownList1.DataSource = dt;
             DropDownList1.DataBind();
+            DropDownList2.DataSource = dt;
+            DropDownList2.DataBind();
 
+            //Uppdatera namn i listbox 
+            List<Unit> listUnit = unit.showUnit();
+            lsbAllUnit.DataSource = listUnit;
+            lsbAllUnit.DataTextField = "unitname";
+            lsbAllUnit.DataValueField = "unitid";
+            lsbAllUnit.Items.Add("unitName");
+            lsbAllUnit.DataBind();
+
+            txbAddUnit.Text = string.Empty;
+            txbChangeUnit.Text = string.Empty;
         }
     }
 }
