@@ -35,14 +35,13 @@
             <p class="mellan-rubrik">Beskrivning:</p>
             <div class="beskrivning">
                 <textarea cols ="45" rows ="2" runat ="server" id="txbincident" name="inci" class="txb-beskrivning"></textarea>
-                <input type="text" class="datepick" id="datepicker" runat="server" placeholder="Datum: "/>
+                <input type="text" class="datepick" name="datepicker" id="datepicker" placeholder="Datum: "/>
             </div>
             <div class="lista">
                 <p class="mellan-rubrik">Journaler:</p>
                 <textarea cols ="45" rows ="10" runat ="server" id="txbJournal" name ="jour" class="journal-list"></textarea>
             </div>
             <div class="knappar-div">
-                <asp:Button ID="Button1" OnClick="btnAvbry_Click" runat="server" CssClass="write-buttons" Text="Avbryt" />
                 <asp:Button ID="Button2" OnClick="btnSpara_Click" runat="server" CssClass="write-buttons" Text="Spara" />
             </div>
             <asp:Label ID="lblInitials" runat="server" Text=""></asp:Label>
@@ -51,10 +50,20 @@
 
             <asp:Label ID="lblBeskrivning" ForeColor ="Red" runat="server" Text=""></asp:Label>
             <asp:Label ID="lblJournal" ForeColor="Red" runat="server" Text=""></asp:Label>
+            <p id ="date"></p>
 
         </div>
     </div>
     </form>
+
+    <%-- Visa datum i datepicker --%>
+<script type="text/javascript">
+    n = new Date();
+    y = n.getFullYear();
+    m = n.getMonth() + 1;
+    d = n.getDate();
+    document.getElementById('datepicker').value = "0" + m + "/" + d + "/" + y;
+</script>
 
 
     <style type="text/css">

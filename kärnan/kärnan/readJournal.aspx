@@ -41,9 +41,11 @@
 
             <p class="mellan-rubrik-top">Välj journaler efter datum: </p>
             <div class="date">
-                <input type="text" class="datepick" id="datepicker" placeholder="Från: ">
-                <input type="text" class="datepick" id="datepicker2" placeholder="Till: ">
+                <input type="text" class="datepick" id="datepicker" name="date1" placeholder="Från: "/>
+                <input type="text" class="datepick" id="datepicker2" name="date2" placeholder="Till: "/>
+                <asp:Button ID="btnShowSpecifik" CssClass ="alla-datum" runat="server" OnClick="btnShowSpecifik_Click" Text="Visa mellan datum" />  
                 <asp:Button ID="btnShowAll" CssClass ="alla-datum" runat="server" OnClick="btnShowAll_Click" Text="Välj alla datum" />
+              
             </div>
             <asp:Label ID="lblFelmeddelande" ForeColor ="Red" runat="server" Text=""></asp:Label>
             <div class="lista">
@@ -57,9 +59,12 @@
             <div class="readjournal">
 
                 <p class="mellan-rubrik-top">Rubrik:</p>
+                
                  <textarea cols ="45" rows ="2" readonly ="readonly" runat ="server" id="txbRubrik" class="rubrik" name="jourlista"></textarea>
-
-                <p class="mellan-rubrik">Journalanteckning:</p>
+                 <p class="mellan-rubrik-top">Datum</p>
+                  <textarea cols ="45" rows ="2" readonly ="readonly" runat ="server" id="txbDate" class="rubrik" name="date"></textarea>
+              
+                  <p class="mellan-rubrik">Journalanteckning:</p>
                 <textarea cols ="45" rows ="10" readonly ="readonly" runat ="server" id="txbJournal" class="journal-anteckning" name ="jour"></textarea>
 
                 <asp:Label ID="lblInitialer" runat="server" Text=""></asp:Label>

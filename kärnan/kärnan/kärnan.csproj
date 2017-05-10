@@ -81,7 +81,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="adminEmployee.aspx" />
-    <Content Include="adminFamily.aspx" />
+    <Content Include="adminClient.aspx" />
     <Content Include="adminPage.aspx" />
     <Content Include="adminUnit.aspx" />
     <Content Include="index.aspx" />
@@ -116,12 +116,12 @@
     <Compile Include="adminEmployee.aspx.designer.cs">
       <DependentUpon>adminEmployee.aspx</DependentUpon>
     </Compile>
-    <Compile Include="adminFamily.aspx.cs">
-      <DependentUpon>adminFamily.aspx</DependentUpon>
+    <Compile Include="adminClient.aspx.cs">
+      <DependentUpon>adminClient.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="adminFamily.aspx.designer.cs">
-      <DependentUpon>adminFamily.aspx</DependentUpon>
+    <Compile Include="adminClient.aspx.designer.cs">
+      <DependentUpon>adminClient.aspx</DependentUpon>
     </Compile>
     <Compile Include="adminPage.aspx.cs">
       <DependentUpon>adminPage.aspx</DependentUpon>
@@ -138,7 +138,7 @@
       <DependentUpon>adminUnit.aspx</DependentUpon>
     </Compile>
     <Compile Include="Employee.cs" />
-    <Compile Include="Family.cs" />
+    <Compile Include="Client.cs" />
     <Compile Include="Alltables.cs" />
     <Compile Include="index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>

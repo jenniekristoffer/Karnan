@@ -6,7 +6,7 @@ using System.Web;
 
 namespace kärnan
 {
-    public class Family
+    public class Client
     {
         SQL sql = new SQL();
 
@@ -26,7 +26,7 @@ namespace kärnan
         }
      
         //Visa födelsenummret på familjemedlem - EJ IMPLEMENTERAD
-        public List<Family>showBirth(string pnr)
+        public List<Client>showBirth(string pnr)
         {
             try
             {
@@ -37,12 +37,12 @@ namespace kärnan
                 sql.cmd.Parameters.AddWithValue("familyid", pnr);
 
                 sql.dr = sql.cmd.ExecuteReader();
-                List<Family> fy = new List<Family>();
-                Family family;
+                List<Client> fy = new List<Client>();
+                Client family;
 
                 while (sql.dr.Read())
                 {
-                    family = new Family()
+                    family = new Client()
                     {
                         familyid = (int)sql.dr["familyid"],
                         birth = sql.dr["birth"].ToString(),
@@ -63,7 +63,7 @@ namespace kärnan
         }
 
         //Visa rubriker på journaler
-        public List<Family> showFamily()
+        public List<Client> showFamily()
         {
             try
             {
@@ -72,14 +72,14 @@ namespace kärnan
                                "FROM family, unit " +
                                "WHERE family.unitid = unit.unitid";
 
-                List<Family> fy = new List<Family>();
+                List<Client> fy = new List<Client>();
                 NpgsqlCommand cmd = new NpgsqlCommand(query, sql.conn);
 
                 NpgsqlDataReader dr = cmd.ExecuteReader();
 
                 while (dr.Read())
                 {
-                    Family f = new Family();
+                    Client f = new Client();
                     f.familyid = Convert.ToInt32(dr["familyid"]);
                     f.name = dr["name"].ToString();
                     f.unitname = dr["unitname"].ToString();
@@ -105,7 +105,7 @@ namespace kärnan
         }
 
         //Spara ny familjemedlem till enhet 
-        public void saveFamily(string name, string surname, string birth, int unitid)
+        public void saveClient(string name, string surname, string birth, int unitid)
         {
             try
             {

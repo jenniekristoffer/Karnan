@@ -9,12 +9,13 @@ namespace kärnan
     public class Journal
     {
         SQL sql = new SQL();
-        Family family = new Family();
+        Client family = new Client();
         Unit unit = new Unit();
         Employee employee = new Employee();
 
         public int journalid { get; set; }
         public DateTime date { get; set; }
+        public DateTime date2 { get; set; }
         public string journalnote { get; set; }
         public string incident { get; set; }
         public int employeeid { get; set; }
@@ -98,6 +99,53 @@ namespace kärnan
                 sql.conn.Close();
             }
 
+        }
+
+        //Visa journal mellan specifika datum 
+        public List<Journal> dateJournal(int familyid, int unitid, DateTime date, DateTime date2)
+        {
+            try
+            {     
+            sql.conn.Open();
+                string query = "SELECT DISTINCT journal.date, incident, journalnote, familyid, unitid, journalid " +
+                               "FROM journal " +
+                               "WHERE journal.date " +
+                               "BETWEEN @timefrom AND @timeto " +
+                               "AND journal.familyid = @familyid";
+
+            List<Journal> journalList = new List<Journal>();
+            
+            NpgsqlCommand cmd = new NpgsqlCommand(query, sql.conn);
+            cmd.Parameters.AddWithValue("@timefrom", date);
+            cmd.Parameters.AddWithValue("@timeto", date2);
+            cmd.Parameters.AddWithValue("@familyid", familyid);
+            NpgsqlDataReader dr = cmd.ExecuteReader();
+
+            while (dr.Read())
+            {
+                Journal j = new Journal();
+
+                j.date = Convert.ToDateTime(dr["date"]);
+                j.incident = dr["incident"].ToString();
+                j.journalnote = dr["journalnote"].ToString();
+                j.unitid = Convert.ToInt32(dr["unitid"]);
+                j.familyid = Convert.ToInt32(dr["familyid"]);
+                j.journalid = Convert.ToInt32(dr["journalid"]);
+
+                    journalList.Add(j);
+            }
+                return journalList;
+          }
+            catch (NpgsqlException ex)
+            {
+                this.sql.ex = ex.Message;
+                return null;
+            }
+
+            finally
+            {
+                sql.conn.Close();
+            }
         }
     }
 }

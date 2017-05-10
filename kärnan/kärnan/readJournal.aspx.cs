@@ -13,7 +13,7 @@ namespace kärnan
     {
         SQL sql = new SQL();
         Unit ut = new Unit();
-        Family family = new Family();
+        Client family = new Client();
         Journal journal = new Journal();
 
         List<Journal> aktuellJournal = new List<Journal>();
@@ -34,7 +34,6 @@ namespace kärnan
                 //Håller koll på vem det är som är inloggad  
                 if (Session["employeeid"] != null)
                 {
-
                 }
             }
         }
@@ -117,11 +116,10 @@ namespace kärnan
             {
                 sql.conn.Open();
 
-                //sql.conn.Open();
-                string query = "SELECT DISTINCT journalnote, incident, initials " +
+                string query = "SELECT DISTINCT journalnote, incident, initials, date " +
                                "FROM journal, employee " +
                                "WHERE journal.employeeid = employee.employeeid " +
-                               "AND journalid::int = " + lsbList.SelectedItem.Value;
+                               "AND journal.journalid = " + lsbList.SelectedItem.Value;
 
                 NpgsqlCommand cmd = new NpgsqlCommand();
                 cmd.Parameters.AddWithValue("journalid", lsbList.SelectedItem.Value);
@@ -136,6 +134,7 @@ namespace kärnan
                     txbRubrik.InnerText = dr["incident"].ToString();
                     txbJournal.InnerText = dr["journalnote"].ToString();
                     lblInitialer.Text = dr["initials"].ToString();
+                    txbDate.InnerText = Convert.ToDateTime(dr["date"]).ToShortDateString();
                 }
             }
 
@@ -148,6 +147,30 @@ namespace kärnan
                 sql.conn.Close();
                 sql.conn.Dispose();
             }
+        }
+
+        //Visa journaler mellan vald datum 
+        protected void btnShowSpecifik_Click(object sender, EventArgs e)
+        {
+            journal.date = Convert.ToDateTime(Request.Form["date1"]);
+            DateTime date = journal.date;
+            journal.date2 = Convert.ToDateTime(Request.Form["date2"]);
+            DateTime date2 = journal.date2;
+
+            ut.unitname = drpUnit.SelectedItem.Value;
+            int unitid = Convert.ToInt32(ut.unitname);
+            family.name = drpClient.SelectedItem.Value;
+            int familyid = Convert.ToInt32(family.name);
+
+            //Visa specifik information (DATUM + RUBRIK) i listbox
+            List<Journal> j = journal.dateJournal(familyid, unitid, date, date2);
+
+            lsbList.DataSource = j;
+            lsbList.DataTextField = "date" + "incident";
+            lsbList.DataValueField = "journalid";
+            lsbList.Items.Add("dateIncident");
+            lsbList.DataBind();
+
         }
     }
 }

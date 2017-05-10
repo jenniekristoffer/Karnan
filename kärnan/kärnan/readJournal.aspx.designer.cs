@@ -49,6 +49,15 @@ namespace kärnan {
         protected global::System.Web.UI.WebControls.Label lblclient;
         
         /// <summary>
+        /// btnShowSpecifik control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnShowSpecifik;
+        
+        /// <summary>
         /// btnShowAll control.
         /// </summary>
         /// <remarks>
@@ -83,6 +92,15 @@ namespace kärnan {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTextArea txbRubrik;
+        
+        /// <summary>
+        /// txbDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea txbDate;
         
         /// <summary>
         /// txbJournal control.
