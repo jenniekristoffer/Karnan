@@ -60,10 +60,13 @@ namespace kärnan
             {
                 sql.conn.Open();
                 string query = "SELECT employeeid, name, surname, initials, admin " +
-                               "FROM employee;";
+                               "FROM employee " +
+                               //"WHERE employeeid = @employeeid " +
+                               "ORDER BY employeeid;";
 
                 List<Employee> emp = new List<Employee>();
                 NpgsqlCommand cmd = new NpgsqlCommand(query, sql.conn);
+                cmd.Parameters.AddWithValue("employeeid", employeeid);
                 NpgsqlDataReader dr = cmd.ExecuteReader();
 
                 while (dr.Read())

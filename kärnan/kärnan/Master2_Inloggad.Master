@@ -41,7 +41,7 @@
 
     <div class="navbar">
         <ul>
-            <li><a class="logo" href="index.html">Kärnan</a></li>
+            <li><a class="logo" href="inloggad.aspx">Kärnan</a></li>
             <li><a class="login" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Logga ut</a></li>
             <li><a class="om" href="">Om kärnan</a></li>        
         </ul>

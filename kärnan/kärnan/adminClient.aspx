@@ -3,44 +3,14 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <form runat="server">
-
-
-        <%--  <asp:Button ID="btnAddFamily" OnClick="btnAddFamily_Click" runat="server" Text="Lägg till ny familjemedlem" />--%>
-
-        <%--<asp:ListBox ID="ListBox1" AutoPostBack="true" OnSelectedIndexChanged="ListBox1_SelectedIndexChanged" runat="server" ></asp:ListBox>--%>
-<%--        <p>Namn</p>
-        <asp:TextBox ID="txbUpdateName" runat="server"></asp:TextBox>
-        <p>Efternamn</p>
-        <asp:TextBox ID="txbUpdateSurname" runat="server"></asp:TextBox>
-        <p>Personnummer</p>
-        <asp:TextBox ID="txbUpdateBirth" runat="server"></asp:TextBox>--%>
-
-<%--        <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True" DataTextField="unitname"
-            DataValueField="unitid" AppendDataBoundItems="true" CssClass="drp"
-            OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
-            <asp:ListItem Value="0">-- Välj enhet --</asp:ListItem>
-        </asp:DropDownList>
-
-        <%--   <asp:Button ID="btnUpdateFamily" OnClick="btnUpdateFamily_Click" runat="server" Text="Uppdatera familj" />--%>
-        <%-- SLUT --%>
-
-        <%-- Radera information om familj --%>
-<%--        <asp:DropDownList ID="DropDownList2" runat="server" AutoPostBack="True" AppendDataBoundItems="true" CssClass="drp"
-            OnSelectedIndexChanged="DropDownList2_SelectedIndexChanged">
-            <asp:ListItem Value="0">-- Välj enhet --</asp:ListItem>
-        </asp:DropDownList>
-        <asp:Button ID="btnRemoveFamily" runat="server" OnClick="btnRemoveFamily_Click" Text="Radera familj" />--%>
-        <%-- SLUT --%>
-        
+    <form runat="server">        
         <div class="unit-container">
             <div class="sektion">
                 <h3>Hanterings alternativ</h3>
                 <p class="mellan-rubrik">Vad vill du göra?</p>
                 <asp:DropDownList ID="drpChoice" runat="server" CssClass="drop"></asp:DropDownList>
                 <p class="mellan-rubrik">Välj den klient du vill hantera</p>
-                <asp:ListBox ID="lsbClient" AutoPostBack="true" OnSelectedIndexChanged="lsbClient_SelectedIndexChanged" runat="server" CssClass="journal-list"></asp:ListBox>
-                <%--<asp:ListBox ID="ListBox1" AutoPostBack="true" OnSelectedIndexChanged="ListBox1_SelectedIndexChanged" runat="server"></asp:ListBox>--%>
+                <asp:ListBox ID="lsbClient" AutoPostBack="true" OnSelectedIndexChanged="lsbClient_SelectedIndexChanged" runat="server" CssClass="journal-list"></asp:ListBox>          
             </div>
 
             <div class="sektion">

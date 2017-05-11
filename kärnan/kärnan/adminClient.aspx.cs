@@ -190,8 +190,7 @@ namespace kärnan
 
         //Uppdatera lista 
         public void fillList()
-        {
-            //Visa information om klient
+        {    //Visa information om klient
             Client f = new Client();
             List<Client> aktuellfamily = f.showFamily();
 
@@ -210,6 +209,7 @@ namespace kärnan
             da.Fill(dt);
             drpUnit.DataSource = dt;
             drpUnit.DataBind();
+        
         }
 
         //Metod som fyller dropboxen med alternativ 
