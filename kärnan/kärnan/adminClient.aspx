@@ -10,7 +10,7 @@
                 <p class="mellan-rubrik">Vad vill du göra?</p>
                 <asp:DropDownList ID="drpChoice" runat="server" CssClass="drop"></asp:DropDownList>
                 <p class="mellan-rubrik">Välj den klient du vill hantera</p>
-                <asp:ListBox ID="lsbClient" AutoPostBack="true" OnSelectedIndexChanged="lsbClient_SelectedIndexChanged" runat="server" CssClass="journal-list"></asp:ListBox>          
+                <asp:ListBox ID="lsbClient" AutoPostBack="true" OnSelectedIndexChanged="lsbClient_SelectedIndexChanged" runat="server" CssClass="journal-list"></asp:ListBox>      
             </div>
 
             <div class="sektion">
@@ -31,18 +31,10 @@
                 </asp:DropDownList>
 
                 <div class="unit-buttons-div">
-
                     <asp:Button ID="btnClearText" CssClass="unit-buttons" runat="server" OnClick="btnClearText_Click" Text="Töm fält" />
-                    <%--<button class="unit-buttons">Töm fält</button>--%>
-
                     <asp:Button ID="btnAddFamily" OnClick="btnAddFamily_Click" runat="server" CssClass="unit-buttons" Text="Lägg till klient" />
-                    <%--            <button class="unit-buttons">Lägg till klient</button>--%>
-
                     <asp:Button ID="btnUpdateFamily" CssClass="unit-buttons" OnClick="btnUpdateFamily_Click" runat="server" Text="Spara ändringar" />
-                    <%--<button class="unit-buttons">Spara ändringar</button>--%>
-
                     <asp:Button ID="Button1" CssClass="unit-buttons" runat="server" OnClick="btnRemoveFamily_Click" Text="Radera familj" />
-                    <%--<button class="unit-buttons">Radera klient</button>--%>
                 </div>
             </div>
         </div>

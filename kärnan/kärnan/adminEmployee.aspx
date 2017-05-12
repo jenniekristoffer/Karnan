@@ -3,42 +3,15 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <form runat="server">
+        
+        <asp:ListBox ID="lsbEmployee" AutoPostBack="true" AppendDataBoundItems="true" OnSelectedIndexChanged="lsbEmployee_SelectedIndexChanged"  runat="server" CssClass="journal-list"></asp:ListBox>
 
-   <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True" AppendDataBoundItems="true" CssClass="drp"
-      OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" > <asp:ListItem Value="0">-- Radera anställd --</asp:ListItem>
-   </asp:DropDownList>
-    <%-- SLUT --%>
-
-    <%-- Uppdatera anställd --%>
-   <asp:DropDownList ID="DropDownList2" runat="server" AutoPostBack="True" AppendDataBoundItems="true" CssClass="drp"
-        OnSelectedIndexChanged="DropDownList2_SelectedIndexChanged" > <asp:ListItem Value="0">-- Uppdatera anställd --</asp:ListItem>
-   </asp:DropDownList>
-        <p>Förnamn</p>
-        <asp:TextBox ID="txbUpdateName" runat="server"></asp:TextBox>
-        <p>Efternamn</p>
-        <asp:TextBox ID="txbUpdateSurname" runat="server"></asp:TextBox>
-        <p>Initialer</p>
-        <asp:TextBox ID="txbUpdateInitials" runat="server"></asp:TextBox>
-        <asp:CheckBox ID="cbxUpdateAdmin" Text ="Adminegenskap" runat="server" />
-
- <%--  <asp:Button ID="btnUpdateEmployee" runat="server" Text="Uppdatera anställd" OnClick="btnUpdateEmployee_Click" />--%>
-    <%-- SLUT --%>
-
-
-
-
-            <div class="unit-container">
+        <div class="unit-container">
         <div class="sektion">
             <h3>Hanterings alternativ</h3>
             <p class="mellan-rubrik">Vad vill du göra?</p>
             <asp:DropDownList ID="drpAlternativ" OnSelectedIndexChanged="drpAlternativ_SelectedIndexChanged" AutoPostBack="true" runat="server" CssClass="drop"></asp:DropDownList>
             <p class="mellan-rubrik">Välj den admin du vill hantera</p>
-            <asp:ListBox ID="lsbEmploy" OnSelectedIndexChanged="lsbEmploy_SelectedIndexChanged" AutoPostBack="true" runat="server" CssClass="journal-list"></asp:ListBox>
-
-            <asp:ListBox ID="ListBox1" OnSelectedIndexChanged="ListBox1_SelectedIndexChanged" AutoPostBack="true" runat="server"></asp:ListBox>
-           <%--<asp:ListBox ID="lsbEmployee" OnSelectedIndexChanged="lsbEmployee_SelectedIndexChanged" AutoPostBack="true" runat="server" CssClass="journal-list"></asp:ListBox>--%>
-            <%--<asp:ListBox ID="lsbClient" OnSelectedIndexChanged="lsbClient_SelectedIndexChanged"  AutoPostBack="true" runat="server" CssClass="journal-list"></asp:ListBox>--%>          
-        
         </div>
 
         <div class="sektion">
@@ -55,13 +28,22 @@
             <asp:CheckBox ID="cbxAdmin" Text ="Utökade admin egenskaper" runat="server" CssClass="mellan-rubrik" />
                 </div>
             <div class="unit-buttons-div">
-                 <asp:Button ID="btnEmptyField" runat="server" OnClick="btnEmptyField_Click" CssClass="unit-buttons" Text="Radera fält" />
+                <asp:Button ID="btnEmptyField" runat="server" OnClick="btnEmptyField_Click" CssClass="unit-buttons" Text="Radera fält" />
                 <asp:Button ID="btnUpdate" runat="server" OnClick="btnUpdate_Click" CssClass="unit-buttons" Text="Uppdatera anställd" />
                 <asp:Button ID="btnAdd" runat="server"  OnClick="btnAdd_Click" CssClass="unit-buttons" Text="Lägg till anställd" />
                 <asp:Button ID="btnRemove" runat="server" OnClick="btnRemove_Click"  CssClass="unit-buttons" Text="Radera anställd" />
             </div>
         </div>
     </div>
+        <h3>Användarnamn och lösenord</h3>
+        <p class="mellan-rubrik">Användarnamn: </p>
+        <asp:TextBox ID="txbAnv" ReadOnly="true" runat="server"></asp:TextBox>
+        <p class="mellan-rubrik">Lösenord: </p>
+        <asp:TextBox ID="txbPass" runat="server"></asp:TextBox>
+        <p class="mellan-rubrik">Upprepa lösenord: </p>
+        <asp:TextBox ID="txbPass2" runat="server"></asp:TextBox>
+        <asp:Button ID="btnUsername" runat="server" Text="Skapa nytt loggin " CssClass="unit-buttons" OnClick="btnUsername_Click" />
+        <asp:Button ID="btnUpdateName" runat="server" CssClass="unit-buttons" Text="Ändra lösenord" OnClick="btnUpdateName_Click" />
 
 
         <style>

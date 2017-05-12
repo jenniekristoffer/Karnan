@@ -53,7 +53,7 @@ namespace kärnan
             sql.conn.Close();
         }
 
-        //Visa alla anställda
+        //Visa anställda
         public List<Employee> showEmployee()
         {
             try
@@ -61,12 +61,10 @@ namespace kärnan
                 sql.conn.Open();
                 string query = "SELECT employeeid, name, surname, initials, admin " +
                                "FROM employee " +
-                               //"WHERE employeeid = @employeeid " +
                                "ORDER BY employeeid;";
 
                 List<Employee> emp = new List<Employee>();
                 NpgsqlCommand cmd = new NpgsqlCommand(query, sql.conn);
-                cmd.Parameters.AddWithValue("employeeid", employeeid);
                 NpgsqlDataReader dr = cmd.ExecuteReader();
 
                 while (dr.Read())
@@ -146,7 +144,52 @@ namespace kärnan
             }
         }
 
-        //Kontroller om anställd är admin 
+        //Spara ny inloggning
+        public void saveInlogg(string pass, int employeeid)
+        {       
+            try
+            {
+                sql.conn.Open();
+                string query = "INSERT INTO userpass(pass, employeeid) " +
+                               "VALUES(@pass, @employeeid);";
+
+                NpgsqlCommand cmd = new NpgsqlCommand(query, sql.conn);
+                cmd.Parameters.AddWithValue("pass", pass);
+                cmd.Parameters.AddWithValue("employeeid", employeeid);
+                cmd.ExecuteNonQuery();
+            }
+
+            catch (NpgsqlException ex)
+            {
+                sql.ex = ex.Message;
+            }
+            sql.conn.Close();
+        }
+
+        //Uppdatera lösenord
+        public void updatePassword(string pass, int employeeid)
+        {
+            try
+            {
+                sql.conn.Open();
+                string query = "UPDATE userpass " +
+                               "SET pass = @pass " +
+                               "WHERE employeeid = @employeeid ";
+
+                NpgsqlCommand cmd = new NpgsqlCommand(query, sql.conn);
+                cmd.Parameters.AddWithValue("pass", pass);
+                cmd.Parameters.AddWithValue("employeeid", employeeid);
+                cmd.ExecuteNonQuery();
+            }
+
+            catch (NpgsqlException ex)
+            {
+                sql.ex = ex.Message;
+            }
+            sql.conn.Close();
+        }
+
+        //Kontroller om anställd är admin EJ ANVÄND
         public bool controllEmployee()
         {
             try
@@ -169,5 +212,7 @@ namespace kärnan
                 return false;              
             }          
         }
+
+
     }
 }

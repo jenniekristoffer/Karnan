@@ -57,45 +57,7 @@ namespace kärnan
 
         }
 
-        //Visa info i textboxrar om familj när namnet markeras i listboxen
-        //protected void ListBox1_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-        //    //try
-        //    //{
-        //    //    sql.conn.Open();
-        //    //    string query = "SELECT name, surname, birth, unitname " +
-        //    //               "FROM family, unit " +
-        //    //               "WHERE family.unitid = unit.unitid " +
-        //    //               "AND family.familyid = " + ListBox1.SelectedItem.Value;
-
-        //    //    NpgsqlCommand cmd = new NpgsqlCommand();
-        //    //    cmd.Parameters.AddWithValue("familyid", ListBox1.SelectedItem.Value);
-        //    //    cmd.CommandType = CommandType.Text;
-        //    //    cmd.CommandText = query;
-        //    //    cmd.Connection = sql.conn;
-
-        //    //    NpgsqlDataReader dr = cmd.ExecuteReader();
-
-        //    //    while (dr.Read())
-        //    //    {
-        //    //        txbUpdateName.Text = dr["name"].ToString();
-        //    //        txbUpdateSurname.Text = dr["surname"].ToString();
-        //    //        txbUpdateBirth.Text = dr["birth"].ToString();
-        //    //    }
-        //    //}
-        //    //catch (Exception ex)
-        //    //{
-        //    //    throw ex;
-        //    //}
-
-        //    //finally
-        //    //{
-        //    //    sql.conn.Close();
-        //    //    sql.conn.Dispose();
-        //    //}
-        //}
-
-        //Uppdatera information om familj
+        //Uppdatera client 
         protected void btnUpdateFamily_Click(object sender, EventArgs e)
         {
             //Deklarerar info
@@ -118,11 +80,6 @@ namespace kärnan
             clearTextbox();
             //lblCorrectMessage.Text = "Namnet på enheten är ändrad!";         
         }
-
-        //protected void DropDownList2_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-
-        //}
 
         protected void btnRemoveFamily_Click(object sender, EventArgs e)
         {
@@ -190,7 +147,7 @@ namespace kärnan
 
         //Uppdatera lista 
         public void fillList()
-        {    //Visa information om klient
+        {   //Visa information om klient
             Client f = new Client();
             List<Client> aktuellfamily = f.showFamily();
 
