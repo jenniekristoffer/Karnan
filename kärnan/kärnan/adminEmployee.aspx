@@ -3,7 +3,8 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <form runat="server">
-        
+
+        <%-- DET ÄR DEN HÄR JÄVELN SOM INTE FUNKAR OM DEN LIGGER DÄR DEN SKA LIGGA  --%>
         <asp:ListBox ID="lsbEmployee" AutoPostBack="true" AppendDataBoundItems="true" OnSelectedIndexChanged="lsbEmployee_SelectedIndexChanged"  runat="server" CssClass="journal-list"></asp:ListBox>
 
         <div class="unit-container">
