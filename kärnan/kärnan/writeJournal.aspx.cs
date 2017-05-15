@@ -55,10 +55,9 @@ namespace kärnan
             {
                 sql.conn.Open();
                 NpgsqlCommand cmd = new NpgsqlCommand("SELECT DISTINCT family.name, family.familyid " +
-                               "FROM family_unit " +
-                               "JOIN unit ON family_unit.unitid = unit.unitid " +
-                               "JOIN family ON family_unit.familyid = family.familyid " +
-                               "WHERE unit.unitid =" + DropDownList1.SelectedItem.Value, sql.conn);
+                                                      "FROM family, unit " +
+                                                      "WHERE family.unitid = unit.unitid " +
+                                                      "AND unit.unitid = " + DropDownList1.SelectedItem.Value, sql.conn);
 
                 NpgsqlDataAdapter da = new NpgsqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
@@ -105,35 +104,26 @@ namespace kärnan
         //Spara journal-Metod
         public void saveJournal()
         {
-            //FELMEDDELANDE, om något inte är ifyllt så går det inte att spara
-           // if (lblEnhet.Text == null && lblKlient.Text == null) // DENNA FUNKAR INTE.. 
-           // {
-           //     //lblBeskrivning.Text = "*";
-           //     //lblJournal.Text = "*";
-           //     lblMeddelande.Text = "Vänligen välj 'Enhet' och 'Familj'";
-           // }
 
-           //else if (txbJournal.Value != "" || txbincident.Value != "")
-           // {
-           //     lblBeskrivning.Text = "";
-           //     lblJournal.Text = "*";
-           //     lblMeddelande.Text = "Du måste fylla i 'Rubrik' och skriva i 'Journalanteckning'";
-           // }
+            if (lblKlient.Text == string.Empty && lblEnhet.Text == string.Empty)
+            {
+                lblMeddelande.Text = "Du måste först välja enhet och klient";
+            }
 
-           // else if (txbincident.Value == "" || txbJournal.Value != "")
-           // {
-           //     lblBeskrivning.Text = "*";
-           //     lblJournal.Text = "";
-           //     lblMeddelande.Text = "Du måste fylla i 'rubrik'";
-           // }
+            if (txbincident.InnerText == string.Empty)
+            {
+                lblBeskrivning.Text = "Du måste skriva en rubrik";
+            }
 
-           // else /*(txbJournal.Value != "" && txbincident.Value != "")*/
-           // {
+            if(txbJournal.InnerText == string.Empty)
+            {
+                lblJournal.Text = "Du måste skriva något i journalanteckningen";
+            }
 
-             
-
-                //Visar tomma felmeddelanden
-                lblBeskrivning.Text = "";
+            else
+            {
+              //Visar tomma felmeddelanden
+            lblBeskrivning.Text = "";
                 lblJournal.Text = "";
 
                 //Deklarerar info från textboxrarna
@@ -170,7 +160,7 @@ namespace kärnan
                 txbJournal.InnerText = string.Empty;
                 lblMeddelande.Text = "Journalen är sparad";
 
-            //}
+            }
         }
     }
 }

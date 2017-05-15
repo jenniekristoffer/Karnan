@@ -52,34 +52,39 @@ namespace kärnan
             //    sql.ex = ex.Message;
             //}
             //sql.conn.Close();     
-            
-
-            sql.conn.Open();
-            sql.cmd = new NpgsqlCommand("SELECT userpass.employeeid, pass, admin FROM userpass, employee WHERE userpass.employeeid = '" + txbUser.Text + "' AND pass = '" + txbPassword.Text + "'", sql.conn);
-            sql.cmd.Connection = sql.conn;
-            int output = Convert.ToInt32(sql.cmd.ExecuteScalar());
-            //bool admin = emp.controllEmployee();       
-            int username = Convert.ToInt32(txbUser.Text);
-            emp.controllEmployee(username);
-
-            if (username == 1 || username == 6)
+            if (txbUser.Text == string.Empty || txbPassword.Text == string.Empty)
             {
-                Response.Redirect("adminPage.aspx");
-                Session["employeeid"] = txbUser.Text;
-                sql.conn.Close();
-            }
-
-            if (output > 0)
-            {
-                Session["employeeid"] = txbUser.Text;
-                sql.conn.Close();
-                Response.Redirect("inloggad.aspx");
-
+                lblMessage.Text = "Du måste fylla i användarnamn och lösenord";
             }
             else
             {
-                lblMessage.Text = "Felaktigt användarnamn eller lösenord";
-                sql.conn.Close();
+                sql.conn.Open();
+                sql.cmd = new NpgsqlCommand("SELECT userpass.employeeid, pass, admin FROM userpass, employee WHERE userpass.employeeid = '" + txbUser.Text + "' AND pass = '" + txbPassword.Text + "'", sql.conn);
+                sql.cmd.Connection = sql.conn;
+                int output = Convert.ToInt32(sql.cmd.ExecuteScalar());
+                //bool admin = emp.controllEmployee();       
+                int username = Convert.ToInt32(txbUser.Text);
+                emp.controllEmployee(username);
+
+                if (username == 1 || username == 6)
+                {
+                    Response.Redirect("adminPage.aspx");
+                    Session["employeeid"] = txbUser.Text;
+                    sql.conn.Close();
+                }
+
+                if (output > 0)
+                {
+                    Session["employeeid"] = txbUser.Text;
+                    sql.conn.Close();
+                    Response.Redirect("inloggad.aspx");
+
+                }
+                else
+                {
+                    lblMessage.Text = "Felaktigt användarnamn eller lösenord";
+                    sql.conn.Close();
+                }
             }
 
             //if (output != 0)
