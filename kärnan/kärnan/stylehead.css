@@ -1,72 +1,145 @@
 ﻿* {
     margin: 0;
     padding: 0;
-}
-
-body {
-    background-color: #fafafa;
-    font-family: Fredoka One;
+    box-sizing: border-box;
 }
 
 .layers {
-    height: 10px;
+    display: flex;
+    flex-direction: column;
     width: 100%;
 }
 
-#layer1 {
-    background-color: #6fa8dc;
-}
-
-#layer2 {
-    background-color: #76a5af;
-}
-
-#layer3 {
-    background-color: #ffd966;
-}
-
-#layer4 {
-    background-color: #f6b26b;
-}
-
-ul {
-    list-style-type: none;
-    padding: 0;
-    overflow: hidden;
-    background-color: #fafafa;
+.layer {
+    height: 5px;
     width: 100%;
-    margin-bottom: 0px;
 }
 
-li a {
-    display: block;
-    color: #22383c;
-    text-align: center;
-    padding: 14.5px 14.5px;
+    .layer:first-of-type {
+        background-color: #73626E;
+    }
+
+    .layer:nth-of-type(2) {
+        background-color: #B38184;
+    }
+
+    .layer:nth-of-type(3) {
+        background-color: #F0B49E;
+    }
+
+    .layer:nth-of-type(4) {
+        background-color: #F7E4BE;
+    }
+
+#navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    margin: auto;
+} 
+
+    #navbar ul {
+        display: flex;
+        flex-direction: row;
+        list-style: none;
+        position: relative;
+    }
+
+        #navbar ul a {
+            display: block;
+            color: #434343;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 20px;
+            line-height: 40px;
+            padding: 5px 15px;
+            font-family: 'Francois One', sans-serif;
+        }
+
+.material-icons {
+    color: #434343;
     text-decoration: none;
-    float: left;
-    font-size: 15px;
-    border-bottom: 3px solid #fafafa;
-    border-bottom-width: 5px;
+    font-size: 20px;
 }
 
-.navbar li a:hover:not(.logo) {
-    border-bottom: 3px solid #22383c;
-    border-bottom-width: 5px;
+#navbar ul li {
+    border-bottom: 1px solid rgba(250, 250, 250, 0.46);
+    margin-left: 2px;
 }
 
-.logo {
+    #navbar ul li.meny {
+    }
+
+#navbar ul a.logo {
     font-size: 30px;
-    padding: 12px 12px;
-    margin-left: 10px;
+    line-height: 40px;
 }
 
-.om,
-.login {
-    float: right;
-    font-size: 15px;
-    padding: 14.5px 14.5px;
-    color: #22383c;
-    border-bottom: 3px solid #fafafa;
-    margin-right: 10px;
+    #navbar ul a.logo:hover {
+        font-size: 30px;
+        line-height: 40px;
+        color: #575757;
+    }
+
+#navbar ul li:hover:not(.meny) {
+    background:;
+    border-bottom: 1px solid #73626E;
+}
+    
+#navbar ul ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: none;
+}
+
+    #navbar ul ul li {
+        width: 100%;
+        margin-top: 2px;
+    }
+
+    #navbar ul ul a {
+        line-height: 120%;
+        padding: 5px 15px
+    }
+
+#navbar ul li:hover > ul {
+    display: block;
+    background-color: rgba(250, 250, 250, 0.86);
+}
+
+
+@media screen and (max-width: 400px) {
+    #navbar {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        width: 100%;
+        margin: auto;
+    }
+
+        #navbar ul {
+            display: flex;
+            flex-direction: row;
+            list-style: none;
+            position: relative;
+        }
+
+            #navbar ul a {
+                display: block;
+                color: #434343;
+                text-decoration: none;
+                font-weight: 500;
+                font-size: 20px;
+                line-height: 40px;
+                padding: 5px 15px;
+                font-family: 'Francois One', sans-serif;
+            }
+
+            #navbar ul li.meny {
+                width: 100%;
+                border-bottom: 1px solid #73626E;
+            }
 }

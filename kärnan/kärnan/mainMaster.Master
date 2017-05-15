@@ -12,28 +12,62 @@
 </head>
 <body>
     <form id="form1" runat="server">
-     <%--   <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-           
 
-        </asp:ContentPlaceHolder>--%>
-    <div>
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">           
         </asp:ContentPlaceHolder>
 
+
+            <div class="layers">
+        <div class="layer"></div>
+        <div class="layer"></div>
+        <div class="layer"></div>
+        <div class="layer"></div>
     </div>
-        <p> 
-            <asp:Label ID="Label1" runat="server" Text="Användarnamn"></asp:Label>
-            <asp:TextBox ID="txbUser" runat="server"></asp:TextBox>
 
-            <asp:Label ID="Label2" runat="server" Text="Lösenord"></asp:Label>
-            <asp:TextBox ID="txbPassword" TextMode="Password" runat="server"></asp:TextBox>
 
-          <%--  <asp:Label ID="lblMessage" runat="server" Text=""></asp:Label>--%>
-            </p>
-        <p>
-            <%-- Felmeddelande --%>
-            <asp:Label ID="lblMessage" ForeColor="Red" runat="server" Text=""></asp:Label>
-            <asp:Button ID="btnLoggin" runat="server" OnClick="btnLoggin_Click" Text="Logga in" />
+    <nav id="navbar">
+        <ul>
+            <li class="meny"><a class="logo" href="#">kärnan</a></li>
+        </ul>
+        <ul>
+            <li><a href="#">Meny</a>
+                <ul>
+                    <li><a href="#">Skriv journal</a></li>
+                    <li><a href="#">Läs journal</a></li>
+                </ul>
+            </li>
+            <li><a href="#" onclick="document.getElementById('id01') .style.display='block'">Logga in</a></li>
+        </ul>
+    </nav>
+
+    <!--    <div class="box"></div>-->
+    <div id="id01" class="modal">
+        <div class="modal-content animate" action="/action_page.php">
+            <div class="container">
+                <label><b>Användarnamn:</b></label>
+                <%--<input type="text" placeholder="" name="uname" required>--%>
+                <asp:TextBox ID="txbUser" runat="server"></asp:TextBox>
+
+                <label><b>Lösenord:</b></label>
+                <%--<input type="password" placeholder="" name="psw" required>--%>
+                <asp:TextBox ID="txbPassword" TextMode="Password" runat="server"></asp:TextBox>
+
+                <%--<button type="submit">Logga in</button>--%>
+                <asp:Button ID="btnLoggin" runat="server" OnClick="btnLoggin_Click" Text="Logga in" />
+                <asp:Label ID="lblMessage" ForeColor="Red" runat="server" Text=""></asp:Label>
+            </div>
+            <div class="container" style="background-color:#f1f1f1">
+                <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Avbryt</button>
+                <span class="psw">Glömt ditt <a href="#">lösenord?</a></span>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
     </form>
 </body>
 </html>

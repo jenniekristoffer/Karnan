@@ -66,7 +66,7 @@
 </script>
 
 
-    <style type="text/css">
+<style type="text/css">
 
 .write-container {
     display: flex;
@@ -80,7 +80,8 @@
     display: flex;
     flex-direction: column;
     padding: 22px;
-    background-color: #FFFEDF;
+    background-color: #f6f6f6;
+    border: 2px solid #fafafa;
 }
 
 sektion,
@@ -90,13 +91,11 @@ h3 {
 
 .sektion:first-of-type {
     flex-grow: 1;
-    border: 1px solid rgba(60, 60, 60, 0.49);
 }
 
 .sektion:nth-of-type(2) {
     flex-grow: 4;
     flex-shrink: 1;
-    border: 1px solid rgba(60, 60, 60, 0.49);
 }
 
 .sektion-top {
@@ -112,7 +111,7 @@ h3 {
 
 .datepick {
     width: 150px;
-    height: 37px;
+    height: 41px;
 }
 
 .alla-datum {
@@ -136,7 +135,7 @@ h3 {
 
 .txb-beskrivning {
     width: 100%;
-    height: 39px;
+    height: 41px;
     margin-right: 25px;
 }
 

@@ -6,9 +6,10 @@
   
             <title>Kärnan / Val</title>
 
-        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"/>
-        <link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet"/>
-<%--    <link rel="stylesheet" href="stylesheet.css"/>--%>
+        <link href="https://fonts.googleapis.com/css?family=Francois+One|Open+Sans" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <link rel="stylesheet" type="text/css" href="stylehead.css">
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
@@ -20,38 +21,35 @@
         <link rel="stylesheet" href="style.css"/>
         <script src="script.js"></script>
 
-
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
 
-        <div class="layerdiv">
-        <div class="layers" id="layer1">
-        </div>
-        <div class="layers" id="layer2">
-        </div>
-        <div class="layers" id="layer3">
-        </div>
-        <div class="layers" id="layer4">
-        </div>
+        <div class="layers">
+        <div class="layer"></div>
+        <div class="layer"></div>
+        <div class="layer"></div>
+        <div class="layer"></div>
     </div>
 
-
-
-    <div class="navbar">
+                <nav id="navbar">
         <ul>
-            <li><a class="logo" href="index.html">Kärnan</a></li>
-            <li><a class="login" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Logga ut</a></li>
-            <li><a class="om" href="">Om kärnan</a></li>        
+            <li class="meny"><a class="logo" href="#">kärnan</a></li>
         </ul>
-    </div>
-  <%--      <asp:Button ID="btnLoggaUt" OnClick="btnLoggaUt_Click" runat="server" Text="Logga ut" /> --%>
-    <div>
+        <ul>
+            <li><a href="inloggad.aspx#">Meny</a>
+                <ul>
+                    <li><a href="writeJournal.aspx#">Skriv journal</a></li>
+                    <li><a href="readJournal.aspx#">Läs journal</a></li>
+                </ul>
+            </li>
+            <li><a href="#" onclick="document.getElementById('id01') .style.display='block'">Logga ut</a></li>
+        </ul>
+    </nav>
       
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">                  
         </asp:ContentPlaceHolder>
-    </div>  
 
 </body>
 </html>

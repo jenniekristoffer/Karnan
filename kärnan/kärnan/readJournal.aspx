@@ -58,15 +58,20 @@
             <h3>Journal</h3>
             <div class="readjournal">
 
+                <div class="read-right-top">
+
+                <div class="read-rubrik">
                 <p class="mellan-rubrik-top">Rubrik:</p>
-                
-                 <textarea cols ="45" rows ="2" readonly ="readonly" runat ="server" id="txbRubrik" class="rubrik" name="jourlista"></textarea>
-                 <p class="mellan-rubrik-top">Datum</p>
-                  <textarea cols ="45" rows ="2" readonly ="readonly" runat ="server" id="txbDate" class="rubrik" name="date"></textarea>
-              
+                <textarea width="100%" rows ="2" readonly ="readonly" runat ="server" id="txbRubrik" class="rubrik read-right-rubrik" name="jourlista"></textarea>    
+                </div>
+
+                <div class="read-date">    
+                <p class="mellan-rubrik-top">Datum:</p>
+                <textarea width="100%" rows ="2" readonly ="readonly" runat ="server" id="txbDate" class="rubrik read-right-date" name="date"></textarea>
+                </div>
+                </div>
                   <p class="mellan-rubrik">Journalanteckning:</p>
                 <textarea cols ="45" rows ="10" readonly ="readonly" runat ="server" id="txbJournal" class="journal-anteckning" name ="jour"></textarea>
-
                 <asp:Label ID="lblInitialer" runat="server" Text=""></asp:Label>
             </div>
             
