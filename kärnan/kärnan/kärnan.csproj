@@ -93,6 +93,7 @@
     <Content Include="style.css" />
     <Content Include="stylehead.css" />
     <Content Include="loggain_mobile.aspx" />
+    <Content Include="Test.aspx" />
     <Content Include="writeJournal.aspx" />
     <Content Include="mainMaster.Master" />
     <Content Include="MasterMasterPage.Master" />
@@ -136,6 +137,7 @@
     <Compile Include="adminUnit.aspx.designer.cs">
       <DependentUpon>adminUnit.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Crypt.cs" />
     <Compile Include="Employee.cs" />
     <Compile Include="Client.cs" />
     <Compile Include="Alltables.cs" />
@@ -185,6 +187,13 @@
       <DependentUpon>readJournal.aspx</DependentUpon>
     </Compile>
     <Compile Include="SQL.cs" />
+    <Compile Include="Test.aspx.cs">
+      <DependentUpon>Test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Test.aspx.designer.cs">
+      <DependentUpon>Test.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Unit.cs" />
     <Compile Include="loggain_mobile.aspx.cs">
       <DependentUpon>loggain_mobile.aspx</DependentUpon>

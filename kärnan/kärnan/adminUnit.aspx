@@ -9,7 +9,10 @@
         <div class="sektion">
             <h3>Enhets överblick</h3>
             <p class="mellan-rubrik">Samtliga enheter i verksamheten:</p>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7dfc8c535629b1d3bf9ea48d7f6206c36daca7bb
             <asp:ListBox ID="ListBox1" runat="server" CssClass="listbox"></asp:ListBox>
 
             <asp:ListBox ID="lsbAllUnit" OnSelectedIndexChanged="lsbAllUnit_SelectedIndexChanged" runat="server" CssClass="journal-list"></asp:ListBox>

@@ -17,10 +17,10 @@ namespace kärnan
             //Håller koll på vem det är som är inloggad    
             if (Session["employeeid"] != null)
             {
-                if (employee.controllEmployee() == true)
-                {
-                    //btnHantera.Enabled = false;
-                }
+                //if (employee.controllEmployee() == true)
+                //{
+                //    //btnHantera.Enabled = false;
+                //}
 
 
                 //-------SKRIVER UT ID PÅ DEN INLOGGADE---------

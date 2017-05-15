@@ -70,7 +70,8 @@ namespace kärnan
                 sql.conn.Open();
                 string query = "SELECT familyid, name, surname, birth, unitname " +
                                "FROM family, unit " +
-                               "WHERE family.unitid = unit.unitid";
+                               "WHERE family.unitid = unit.unitid " + 
+                               "ORDER BY family.familyid;";
 
                 List<Client> fy = new List<Client>();
                 NpgsqlCommand cmd = new NpgsqlCommand(query, sql.conn);

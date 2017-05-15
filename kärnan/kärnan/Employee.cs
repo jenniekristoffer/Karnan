@@ -10,6 +10,7 @@ namespace kärnan
     public class Employee
     {
         SQL sql = new SQL();
+        //Crypt crypt = new Crypt();
 
         public int employeeid { get; set; }
         public string name { get; set; }
@@ -53,14 +54,15 @@ namespace kärnan
             sql.conn.Close();
         }
 
-        //Visa alla anställda
+        //Visa anställda
         public List<Employee> showEmployee()
         {
             try
             {
                 sql.conn.Open();
                 string query = "SELECT employeeid, name, surname, initials, admin " +
-                               "FROM employee;";
+                               "FROM employee " +
+                               "ORDER BY employeeid;";
 
                 List<Employee> emp = new List<Employee>();
                 NpgsqlCommand cmd = new NpgsqlCommand(query, sql.conn);
@@ -143,28 +145,80 @@ namespace kärnan
             }
         }
 
-        //Kontroller om anställd är admin 
-        public bool controllEmployee()
+        //Spara ny inloggning
+        public void saveInlogg(string pass, int employeeid)
+        {       
+            try
+            {
+                sql.conn.Open();
+                string query = "INSERT INTO userpass(pass, employeeid) " +
+                               "VALUES(@pass, @employeeid);";
+                NpgsqlCommand cmd = new NpgsqlCommand(query, sql.conn);
+                cmd.Parameters.AddWithValue("pass", pass);
+                cmd.Parameters.AddWithValue("employeeid", employeeid);
+                cmd.ExecuteNonQuery();
+            }
+
+            catch (NpgsqlException ex)
+            {
+                sql.ex = ex.Message;
+            }
+            sql.conn.Close();
+        }
+
+        //Uppdatera lösenord
+        public void updatePassword(string pass, int employeeid)
         {
             try
             {
                 sql.conn.Open();
-                string query = "SELECT employeeid, pass, userpass.admin " +
-                               "FROM userpass " +
-                               "WHERE userpass.admin = true;";
+                string query = "UPDATE userpass " +
+                               "SET pass = @pass " +
+                               "WHERE employeeid = @employeeid ";
+
+                NpgsqlCommand cmd = new NpgsqlCommand(query, sql.conn);
+                cmd.Parameters.AddWithValue("pass", pass);
+                cmd.Parameters.AddWithValue("employeeid", employeeid);
+                cmd.ExecuteNonQuery();
+            }
+
+            catch (NpgsqlException ex)
+            {
+                sql.ex = ex.Message;
+            }
+            sql.conn.Close();
+        }
+
+        //Kontroller om anställd är admin EJ ANVÄND
+        public void controllEmployee(int employeeid)
+        {
+            try
+            {
+                sql.conn.Open();
+                //string query = "SELECT DISTINCT employee.employeeid, pass, admin " +
+                //               "FROM userpass, employee " +
+                //               "WHERE employee.admin = true " +
+                //               "AND employee.employeeid = userpass.employeeid; ";
+
+                string query = "SELECT DISTINCT employeeid, pass " +
+               "FROM userpass " +
+               "WHERE employeeid = '1' " +
+               "AND employeeid = '6'; ";
 
                 NpgsqlCommand cmd = new NpgsqlCommand(query, sql.conn);
 
                 cmd.ExecuteNonQuery();
-                return admin;
+                //return true;
             }
 
             catch (NpgsqlException ex)
             {
                 this.sql.ex = ex.Message;
                 sql.conn.Close();
-                return false;              
+                //return null;              
             }          
         }
+
+
     }
 }

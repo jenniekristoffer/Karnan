@@ -47,11 +47,10 @@ namespace kärnan
             try
             {
                 sql.conn.Open();
-                NpgsqlCommand cmd = new NpgsqlCommand("SELECT DISTINCT family.name, family.familyid " +
-                               "FROM family_unit " +
-                               "JOIN unit ON family_unit.unitid = unit.unitid " +
-                               "JOIN family ON family_unit.familyid = family.familyid " +
-                               "WHERE unit.unitid =" + drpUnit.SelectedItem.Value, sql.conn);
+                NpgsqlCommand cmd = new NpgsqlCommand("SELECT DISTINCT family.name, family.familyid "+
+                                                      "FROM family, unit " + 
+                                                      "WHERE family.unitid = unit.unitid " +
+                                                      "AND unit.unitid = " + drpUnit.SelectedItem.Value, sql.conn);
 
                 NpgsqlDataAdapter da = new NpgsqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
@@ -84,14 +83,21 @@ namespace kärnan
         //Visa ALLA datum + anteckningar i listbox
         protected void btnShowAll_Click(object sender, EventArgs e)
         {
-            //Deklarera information från dropdowns
-            ut.unitname = drpUnit.SelectedItem.Value;
+            if (lblclient.Text == string.Empty && lblunit.Text == string.Empty)
+            {
+                lblFelmeddelande.Text = "Du måste först välja enhet och klient";
+            }
+            else
+            {
+                //}
+                //Deklarera information från dropdowns
+                ut.unitname = drpUnit.SelectedItem.Value;
             int unitid = Convert.ToInt32(ut.unitname);
             family.name = drpClient.SelectedItem.Value;
             int familyid = Convert.ToInt32(family.name);
 
-            if (unitid.ToString() != null || familyid.ToString() != null)
-            {
+            //if (unitid.ToString() != null || familyid.ToString() != null)
+            //{
                 //Visa information (DATUM + RUBRIK) i listbox
                 Journal jc = new Journal();
                 List<Journal> journal = jc.showIncident(unitid, familyid);
@@ -103,10 +109,10 @@ namespace kärnan
                 lsbList.DataBind();
             }
 
-            else
-            {
-                lblFelmeddelande.Text = "Du måste välja enhet eller familjmedlem";
-            }
+            //else
+            //{
+            //    lblFelmeddelande.Text = "Du måste välja enhet eller familjmedlem";
+            //}
         }
 
         //Visa info i textboxrar om journal när namnet markeras i listboxen
@@ -152,6 +158,19 @@ namespace kärnan
         //Visa journaler mellan vald datum 
         protected void btnShowSpecifik_Click(object sender, EventArgs e)
         {
+            if (Request.Form["date1"] == string.Empty || Request.Form["date2"] == string.Empty)
+            {
+                lblFelmeddelande.Text = "Du måste välja mellan vilka datum du vill läsa";
+            }
+            if (lblclient.Text == string.Empty && lblunit.Text == string.Empty)
+            {
+                lblFelmeddelande.Text = "Du måste först välja enhet och klient";
+            }
+
+            else
+            {
+
+            lblFelmeddelande.Text = string.Empty;
             journal.date = Convert.ToDateTime(Request.Form["date1"]);
             DateTime date = journal.date;
             journal.date2 = Convert.ToDateTime(Request.Form["date2"]);
@@ -170,7 +189,7 @@ namespace kärnan
             lsbList.DataValueField = "journalid";
             lsbList.Items.Add("dateIncident");
             lsbList.DataBind();
-
+            }
         }
     }
 }
