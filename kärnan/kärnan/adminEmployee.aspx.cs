@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -147,18 +149,16 @@ namespace kärnan
             {
                 employ.employeeid = Convert.ToInt32(txbAnv.Text);
                 int employeeid = Convert.ToInt32(employ.employeeid);
-                employ.pass = txbPass2.Text;
-                string pass = employ.pass;
-
-                employ.saveInlogg(pass, employeeid);
+                string crypt = Crypt.ComputeHash(txbPass.Text, "SHA512", null);
+                employ.saveInlogg(crypt, employeeid);
             }
 
             else
             {
 
             }
-        }        
-        
+        }
+
         //Uppdatera lösenord
         protected void btnUpdateName_Click(object sender, EventArgs e)
         {

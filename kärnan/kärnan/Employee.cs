@@ -10,6 +10,7 @@ namespace kärnan
     public class Employee
     {
         SQL sql = new SQL();
+        //Crypt crypt = new Crypt();
 
         public int employeeid { get; set; }
         public string name { get; set; }
@@ -152,7 +153,6 @@ namespace kärnan
                 sql.conn.Open();
                 string query = "INSERT INTO userpass(pass, employeeid) " +
                                "VALUES(@pass, @employeeid);";
-
                 NpgsqlCommand cmd = new NpgsqlCommand(query, sql.conn);
                 cmd.Parameters.AddWithValue("pass", pass);
                 cmd.Parameters.AddWithValue("employeeid", employeeid);
@@ -190,26 +190,32 @@ namespace kärnan
         }
 
         //Kontroller om anställd är admin EJ ANVÄND
-        public bool controllEmployee()
+        public void controllEmployee(int employeeid)
         {
             try
             {
                 sql.conn.Open();
-                string query = "SELECT employeeid, pass, userpass.admin " +
-                               "FROM userpass " +
-                               "WHERE userpass.admin = true;";
+                //string query = "SELECT DISTINCT employee.employeeid, pass, admin " +
+                //               "FROM userpass, employee " +
+                //               "WHERE employee.admin = true " +
+                //               "AND employee.employeeid = userpass.employeeid; ";
+
+                string query = "SELECT DISTINCT employeeid, pass " +
+               "FROM userpass " +
+               "WHERE employeeid = '1' " +
+               "AND employeeid = '6'; ";
 
                 NpgsqlCommand cmd = new NpgsqlCommand(query, sql.conn);
 
                 cmd.ExecuteNonQuery();
-                return admin;
+                //return true;
             }
 
             catch (NpgsqlException ex)
             {
                 this.sql.ex = ex.Message;
                 sql.conn.Close();
-                return false;              
+                //return null;              
             }          
         }
 

@@ -138,6 +138,7 @@
     <Compile Include="adminUnit.aspx.designer.cs">
       <DependentUpon>adminUnit.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Crypt.cs" />
     <Compile Include="Employee.cs" />
     <Compile Include="Client.cs" />
     <Compile Include="Alltables.cs" />
