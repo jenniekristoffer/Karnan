@@ -47,11 +47,10 @@ namespace kärnan
             try
             {
                 sql.conn.Open();
-                NpgsqlCommand cmd = new NpgsqlCommand("SELECT DISTINCT family.name, family.familyid " +
-                               "FROM family_unit " +
-                               "JOIN unit ON family_unit.unitid = unit.unitid " +
-                               "JOIN family ON family_unit.familyid = family.familyid " +
-                               "WHERE unit.unitid =" + drpUnit.SelectedItem.Value, sql.conn);
+                NpgsqlCommand cmd = new NpgsqlCommand("SELECT DISTINCT family.name, family.familyid "+
+                                                      "FROM family, unit " + 
+                                                      "WHERE family.unitid = unit.unitid " +
+                                                      "AND unit.unitid = " + drpUnit.SelectedItem.Value, sql.conn);
 
                 NpgsqlDataAdapter da = new NpgsqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
