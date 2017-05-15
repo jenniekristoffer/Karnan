@@ -8,7 +8,21 @@
             <div class="sektion">
                 <h3>Hanterings alternativ</h3>
                 <p class="mellan-rubrik">Vad vill du göra?</p>
-                <asp:DropDownList ID="drpChoice" runat="server" CssClass="drop"></asp:DropDownList>
+              <asp:DropDownList ID="drpChoice" runat="server" AutoPostBack="true" CssClass="drop">
+                <asp:ListItem Enabled="true" Text="-- Välj alternativ --" Value="-1"></asp:ListItem>
+                <asp:ListItem Text="Lägg till" Value="1"></asp:ListItem>
+                <asp:ListItem Text="Uppdatera" Value="2"></asp:ListItem>
+                <asp:ListItem Text="Radera" Value="3"></asp:ListItem>
+               </asp:DropDownList>
+
+
+                <%--<asp:DropDownList ID="drpChoice" runat="server" AutoPostBack="true" CssClass="drop"></asp:DropDownList>--%>
+<%--                <select id ="drpChoice" runat="server" CS>
+  <option value="volvo">Volvo</option>
+  <option value="saab">Saab</option>
+  <option value="opel">Opel</option>
+  <option value="audi">Audi</option>
+</select>--%>
                 <p class="mellan-rubrik">Välj den klient du vill hantera</p>
                 <asp:ListBox ID="lsbClient" AutoPostBack="true" OnSelectedIndexChanged="lsbClient_SelectedIndexChanged" runat="server" CssClass="journal-list"></asp:ListBox>      
             </div>
@@ -34,8 +48,11 @@
                     <asp:Button ID="btnClearText" CssClass="unit-buttons" runat="server" OnClick="btnClearText_Click" Text="Töm fält" />
                     <asp:Button ID="btnAddFamily" OnClick="btnAddFamily_Click" runat="server" CssClass="unit-buttons" Text="Lägg till klient" />
                     <asp:Button ID="btnUpdateFamily" CssClass="unit-buttons" OnClick="btnUpdateFamily_Click" runat="server" Text="Spara ändringar" />
-                    <asp:Button ID="Button1" CssClass="unit-buttons" runat="server" OnClick="btnRemoveFamily_Click" Text="Radera familj" />
+                    <asp:Button ID="btnRemove" CssClass="unit-buttons" runat="server" OnClick="btnRemove_Click"  Text="Radera familj" />
+
                 </div>
+             <asp:Label ID="lblmeddelande" ForeColor="Red" runat="server" Text=""></asp:Label>
+             <asp:Label ID="lblcorrekt" runat="server" Text=""></asp:Label>
             </div>
         </div>
 

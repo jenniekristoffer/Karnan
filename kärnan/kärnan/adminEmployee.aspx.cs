@@ -98,6 +98,12 @@ namespace kärnan
         //Lägg till ny employee
         protected void btnAdd_Click(object sender, EventArgs e)
         {
+            if (txbName.Text == string.Empty || txbSurname.Text == string.Empty || txbInitials.Text == string.Empty)
+            {
+                lblmeddelande.Text = "Du måste fylla i information i textboxrarna";
+            }
+            else
+            {
             //Deklarerar info från textboxen
             employ.name = txbName.Text;
             string name = employ.name.ToString();
@@ -112,11 +118,19 @@ namespace kärnan
             lsbEmployee.Items.Clear();
             clearTextbox();
             fill();
+            lblCorrekt.Text = "Ny anställd tillagd";
+            }
         }
 
         //Radera employee
         protected void btnRemove_Click(object sender, EventArgs e)
         {
+            if (lsbEmployee.SelectedItem == null)
+            {
+                lblmeddelande.Text = "Välj anställd innan du raderar";
+            }
+            else
+            {
             employ.employeeid = Convert.ToInt32(lsbEmployee.SelectedItem.Value);
             int employeeid = Convert.ToInt32(employ.employeeid);
 
@@ -124,6 +138,10 @@ namespace kärnan
             lsbEmployee.Items.Clear();          
             clearTextbox();
             fill();
+                lblCorrekt.Text = "Anställd är nu raderad";
+            }
+
+         
         }
 
         //Töm fälten 
@@ -145,19 +163,25 @@ namespace kärnan
         //Lägg till ny inloggning för Employee
         protected void btnUsername_Click(object sender, EventArgs e)
         {
-            if (txbPass.Text == txbPass2.Text)
+            if (lsbEmployee.SelectedItem == null)
+            {
+                lblmeddelande.Text = "Välj klient innan du kan lägga till nytt lösenord";
+            }
+
+            else if (txbPass.Text == txbPass2.Text)
             {
                 employ.employeeid = Convert.ToInt32(txbAnv.Text);
                 int employeeid = Convert.ToInt32(employ.employeeid);
                 string crypt = Crypt.ComputeHash(txbPass.Text, "SHA512", null);
                 employ.saveInlogg(crypt, employeeid);
+                lblCorrekt.Text = "Nytt lösenord tillagd";
             }
 
-            else
+            else if (txbPass.Text != txbPass2.Text || txbPass.Text == string.Empty || txbPass2.Text == string.Empty)
             {
-
+                lblmeddelande.Text = "Du måste skriva samma lösenord två gånger";
             }
-        }
+          }
 
         //Uppdatera lösenord
         protected void btnUpdateName_Click(object sender, EventArgs e)

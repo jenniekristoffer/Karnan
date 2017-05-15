@@ -94,12 +94,30 @@ namespace kärnan {
         protected global::System.Web.UI.WebControls.Button btnUpdateFamily;
         
         /// <summary>
-        /// Button1 control.
+        /// btnRemove control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.Button btnRemove;
+        
+        /// <summary>
+        /// lblmeddelande control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblmeddelande;
+        
+        /// <summary>
+        /// lblcorrekt control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblcorrekt;
     }
 }

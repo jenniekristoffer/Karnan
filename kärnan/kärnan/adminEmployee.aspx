@@ -34,6 +34,8 @@
                 <asp:Button ID="btnAdd" runat="server"  OnClick="btnAdd_Click" CssClass="unit-buttons" Text="Lägg till anställd" />
                 <asp:Button ID="btnRemove" runat="server" OnClick="btnRemove_Click"  CssClass="unit-buttons" Text="Radera anställd" />
             </div>
+            <asp:Label ID="lblCorrekt" runat="server" Text=""></asp:Label>
+            <asp:Label ID="lblmeddelande" ForeColor="Red" runat="server" Text=""></asp:Label>
         </div>
     </div>
         <h3>Användarnamn och lösenord</h3>

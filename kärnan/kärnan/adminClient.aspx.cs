@@ -15,18 +15,14 @@ namespace kärnan
         Client family = new Client();
 
         protected void Page_Load(object sender, EventArgs e)
-        {
+        {       
             if (!Page.IsPostBack)
             {
-                //Fyll dropboxen med alternativ 
-                choice();
-
                 //Fyll information i listbox 
                 fillList();
 
                 ////Visa och dölj knappar beroende på alternativ i listboxen
-                // alternativ();
-
+                //alternativ();
 
                 //Håller koll på vem det är som är inloggad  
                 if (Session["employeeid"] != null)
@@ -35,9 +31,16 @@ namespace kärnan
             }
         }
 
-        //Lägg till familj till enhet 
+        //Lägg till client till enhet 
         protected void btnAddFamily_Click(object sender, EventArgs e)
         {
+            if (txbName.Text == string.Empty || txbSurname.Text == string.Empty || txbBirth.Text == string.Empty || drpUnit.SelectedItem.Value == string.Empty)
+            {
+                lblmeddelande.Text = "Du måste fylla i information i textboxrarna och välja enhet";
+            }
+            else
+            {
+
             //Deklarerar info från textboxen
             family.name = txbName.Text;
             string name = family.name.ToString();
@@ -54,7 +57,9 @@ namespace kärnan
             drpUnit.Items.Clear();
             fillList();
             clearTextbox();
-
+            lblcorrekt.Text = "Ny klient är tillagd";
+            
+            }
         }
 
         //Uppdatera client 
@@ -72,17 +77,23 @@ namespace kärnan
             family.unitname = drpUnit.SelectedItem.Value;
             string unitname = family.unitname;
 
-
             family.updateFamily(familyid, name, surname, birth);
             lsbClient.Items.Clear();
             drpUnit.Items.Clear();
             fillList();
             clearTextbox();
-            //lblCorrectMessage.Text = "Namnet på enheten är ändrad!";         
+            lblcorrekt.Text = "Information om klient är uppdaterad";       
         }
 
-        protected void btnRemoveFamily_Click(object sender, EventArgs e)
+        //Radera client
+        protected void btnRemove_Click(object sender, EventArgs e)
         {
+            if (lsbClient.SelectedItem == null)
+            {
+                lblmeddelande.Text = "Välj klient innan du raderar";
+            }
+            else
+            {
             //deklarera
             family.familyid = Convert.ToInt32(lsbClient.SelectedItem.Value);
             int familyid = Convert.ToInt32(family.familyid);
@@ -92,7 +103,8 @@ namespace kärnan
             drpUnit.Items.Clear();
             fillList();
             clearTextbox();
-
+            lblcorrekt.Text = "Klient är borttagen";
+            }
         }
 
         //Radera alla textfält 
@@ -170,27 +182,57 @@ namespace kärnan
         }
 
         //Metod som fyller dropboxen med alternativ 
-        public void choice()
-        {
-            drpChoice.Items.Add("--- Välj alternativ ---");
-            drpChoice.Items.Add("Lägg till ny klient");
-            drpChoice.Items.Add("Radera befintlig klient");
-            drpChoice.Items.Add("Redigera befintlig klient");
-        }
+        //public void choice()
+        //{
+        //    //List<ListItem> items = new List<ListItem>();
+        //    //items.Add(new ListItem("Lägg till", "Value 2"));
+        //    //items.Add(new ListItem("Radera", "Value 1"));
+        //    //items.Add(new ListItem("Redigera", "Value 3"));
+        //    //items.Sort(delegate (ListItem item1, ListItem item2) { return item1.Text.CompareTo(item2.Text); });
+        //    //drpChoice.Items.AddRange(items.ToArray());
+
+        //    //drpChoice.Items.Add("--- Välj alternativ ---");
+        //    //drpChoice.Items.Add("Lägg till ny klient");
+        //    //drpChoice.Items.Add("Radera befintlig klient");
+        //    //drpChoice.Items.Add("Redigera befintlig klient");
+        //}
 
         //Metod för att avgöra vilket alternativ användaren väljer i droplist 
         public void alternativ()
-
         {
-            //if (drpChoice.DataTextField == "Lägg till ny klient")
-            //{
 
-            //}
-            //  btnRemoveFamily.Enabled = true;
-            //  btnUpdateFamily.Enabled = false;
-            //ButtonAssociateRules.Style["visibility"] = "hidden";
-            //ButtonReplaceId.Style["visibility"] = "hidden";
-            //myUpdatePanel.Update();
+            if (drpChoice.SelectedItem.Value == "-1")
+            {
+                btnAddFamily.Enabled = false;
+                btnUpdateFamily.Enabled = false;
+                btnRemove.Enabled = false;
+            }
+
+            if (drpChoice.SelectedItem.Value == "1")
+            {
+                btnAddFamily.Enabled = true;
+                btnUpdateFamily.Enabled = false;
+                btnRemove.Enabled = false;
+            }
+
+            if (drpChoice.SelectedItem.Value == "2")
+            {
+                btnAddFamily.Enabled = false;
+                btnUpdateFamily.Enabled = true;
+                btnRemove.Enabled = false;
+            }
+
+            if (drpChoice.SelectedItem.Value == "3")
+            {
+                btnAddFamily.Enabled = false;
+                btnUpdateFamily.Enabled = false;
+                btnRemove.Enabled = true;
+            }
+        }
+
+        public void add()
+        {
+          
         }
 
         //Metod Radera textboxrar
@@ -207,5 +249,8 @@ namespace kärnan
         {
 
         }
+
+
+
     }
 }
