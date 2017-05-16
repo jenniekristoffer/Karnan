@@ -18,28 +18,28 @@ namespace kärnan
             }
         }
 
-        protected void btnUnit_Click(object sender, EventArgs e)
-        {
-            if (Session["employeeid"] != null)
-            {
-                Response.Redirect("adminUnit.aspx");
-            }
-        }
+        //protected void btnUnit_Click(object sender, EventArgs e)
+        //{
+        //    if (Session["employeeid"] != null)
+        //    {
+        //        Response.Redirect("adminUnit.aspx");
+        //    }
+        //}
 
-        protected void btnFamily_Click(object sender, EventArgs e)
-        {
-            if (Session["employeeid"] != null)
-            {
-                Response.Redirect("adminFamily.aspx");
-            }
-        }
+        //protected void btnFamily_Click(object sender, EventArgs e)
+        //{
+        //    if (Session["employeeid"] != null)
+        //    {
+        //        Response.Redirect("adminFamily.aspx");
+        //    }
+        //}
 
-        protected void btnEmployee_Click(object sender, EventArgs e)
-        {
-            if (Session["employeeid"] != null)
-            {
-                Response.Redirect("adminEmployee.aspx");
-            }
-        }
+        //protected void btnEmployee_Click(object sender, EventArgs e)
+        //{
+        //    if (Session["employeeid"] != null)
+        //    {
+        //        Response.Redirect("adminEmployee.aspx");
+        //    }
+        //}
     }
 }

@@ -1,19 +1,18 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Master2_Inloggad.Master.cs" Inherits="kärnan.Master2" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="masterAdmin.master.cs" Inherits="kärnan.masterAdmin" %>
 
 <!DOCTYPE html>
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-  
-            <title>Kärnan / Val</title>
+    <title>Kärnan</title>
+        <link href="https://fonts.googleapis.com/css?family=Francois+One|Open+Sans" rel="stylesheet"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
 
-        <link href="https://fonts.googleapis.com/css?family=Francois+One|Open+Sans" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-        <link rel="stylesheet" type="text/css" href="stylehead.css">
+        <link rel="stylesheet" type="text/css" href="stylehead.css"/>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-        <link rel="stylesheet" href="/resources/demos/style.css">
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"/>
+        <link rel="stylesheet" href="/resources/demos/style.css"/>
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
@@ -25,18 +24,15 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
-
-        <div class="layers">
+            <div class="layers">
         <div class="layer"></div>
         <div class="layer"></div>
         <div class="layer"></div>
         <div class="layer"></div>
     </div>
-
-                <nav id="navbar">
+         <nav id="navbar">
         <ul>
             <li class="meny"><a class="logo" href="#">kärnan</a></li>  
-            <li class="meny"><a class="logo" href="#">kärnan</a></li>
             <li><a class="logo" href="inloggad.aspx">Kärnan</a></li>
             <li><a class="login" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Logga ut</a></li>
             <li><a class="om" href="#">Om kärnan</a></li>        
@@ -46,14 +42,21 @@
                 <ul>
                     <li><a href="writeJournal.aspx#">Skriv journal</a></li>
                     <li><a href="readJournal.aspx#">Läs journal</a></li>
+                    <hr />
+                    <li><a href="adminClient.aspx#">Hantera Klient</a></li>
+                    <li><a href="adminEmployee.aspx#">Hantera Anställd</a></li>
+                    <li><a href="adminUnit.aspx#">Hantera Enhet</a></li>
                 </ul>
             </li>
             <li><a href="index.aspx" onclick="document.getElementById('id01') .style.display='block'">Logga ut</a></li>
         </ul>
     </nav>
-      
-        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">                  
-        </asp:ContentPlaceHolder>
 
+    <form id="form1" runat="server">
+    <div>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">   
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
 </body>
 </html>
