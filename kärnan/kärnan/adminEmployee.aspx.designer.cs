@@ -13,15 +13,6 @@ namespace kärnan {
     public partial class adminEmployee {
         
         /// <summary>
-        /// lsbEmployee control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox lsbEmployee;
-        
-        /// <summary>
         /// drpAlternativ control.
         /// </summary>
         /// <remarks>
@@ -29,6 +20,15 @@ namespace kärnan {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList drpAlternativ;
+        
+        /// <summary>
+        /// lsbEmployee control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListBox lsbEmployee;
         
         /// <summary>
         /// txbName control.
