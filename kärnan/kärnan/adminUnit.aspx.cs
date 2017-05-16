@@ -36,24 +36,30 @@ namespace kärnan
                 }
 
                 showAllUnit();
+
             }
         }
-         //Lägg till enhet
+        //Lägg till enhet
         protected void btnAddUnit_Click(object sender, EventArgs e)
         {
-            //Deklarerar info från textboxen
-            unit.unitname = txbAddUnit.Text;
-            string name = unit.unitname.ToString();
+            if (txbAddUnit.Text == string.Empty)
+            {
+                lblUnitMessage.Text = "Du måste skriva ett namn på enheten";
+            }
+            else
+            {
+                //Deklarerar info från textboxen
+                unit.unitname = txbAddUnit.Text;
+                string name = unit.unitname.ToString();
 
-            unit.saveUnit(name);
-            lblUnitMessage.Text = "Ny enhet är sparad";
-            lblUnitMessage.Text = string.Empty;
+                unit.saveUnit(name);
+                lblUnitMessage.Text = "Ny enhet är sparad";
 
-         
-            DropDownList1.Items.Clear();
-            DropDownList2.Items.Clear();
-            lsbAllUnit.Items.Clear();
-            fillList();  
+                DropDownList1.Items.Clear();
+                DropDownList2.Items.Clear();
+                lsbAllUnit.Items.Clear();
+                fillList();
+            }
         }
 
         //Visa info i textboxrar om familj när namnet markeras i listboxen
@@ -123,7 +129,7 @@ namespace kärnan
                  unit.removeUnit(unitid);
                  DropDownList1.Items.Clear();
                  DropDownList2.Items.Clear();
-                 lsbAllUnit.Items.Clear();
+                lsbAllUnit.Items.Clear();
 
                 lblRemoveUnit.Text = "Enheten är raderad";           
              
@@ -170,6 +176,11 @@ namespace kärnan
 
             txbAddUnit.Text = string.Empty;
             txbChangeUnit.Text = string.Empty;
+        }
+
+        protected void lsbAllUnit_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
