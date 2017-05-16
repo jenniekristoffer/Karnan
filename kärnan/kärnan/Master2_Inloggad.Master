@@ -35,13 +35,7 @@
 
                 <nav id="navbar">
         <ul>
-<<<<<<< HEAD
-            <li class="meny"><a class="logo" href="#">kärnan</a></li>
-=======
-            <li><a class="logo" href="inloggad.aspx">Kärnan</a></li>
-            <li><a class="login" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Logga ut</a></li>
-            <li><a class="om" href="">Om kärnan</a></li>        
->>>>>>> 7dfc8c535629b1d3bf9ea48d7f6206c36daca7bb
+            <li class="meny"><a class="logo" href="#">kärnan</a></li>  
         </ul>
         <ul>
             <li><a href="inloggad.aspx#">Meny</a>
