@@ -80,9 +80,8 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="adminEmployee.aspx" />
     <Content Include="adminClient.aspx" />
-    <Content Include="adminPag.aspx" />
+    <Content Include="adminEmployee.aspx" />
     <Content Include="adminPage.aspx" />
     <Content Include="adminUnit.aspx" />
     <Content Include="index.aspx" />
@@ -111,13 +110,6 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="adminEmployee.aspx.cs">
-      <DependentUpon>adminEmployee.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="adminEmployee.aspx.designer.cs">
-      <DependentUpon>adminEmployee.aspx</DependentUpon>
-    </Compile>
     <Compile Include="adminClient.aspx.cs">
       <DependentUpon>adminClient.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -125,12 +117,12 @@
     <Compile Include="adminClient.aspx.designer.cs">
       <DependentUpon>adminClient.aspx</DependentUpon>
     </Compile>
-    <Compile Include="adminPag.aspx.cs">
-      <DependentUpon>adminPag.aspx</DependentUpon>
+    <Compile Include="adminEmployee.aspx.cs">
+      <DependentUpon>adminEmployee.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="adminPag.aspx.designer.cs">
-      <DependentUpon>adminPag.aspx</DependentUpon>
+    <Compile Include="adminEmployee.aspx.designer.cs">
+      <DependentUpon>adminEmployee.aspx</DependentUpon>
     </Compile>
     <Compile Include="adminPage.aspx.cs">
       <DependentUpon>adminPage.aspx</DependentUpon>

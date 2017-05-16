@@ -10,7 +10,7 @@
 namespace kärnan {
     
     
-    public partial class adminEmployee {
+    public partial class adminEmployeee {
         
         /// <summary>
         /// drpAlternativ control.

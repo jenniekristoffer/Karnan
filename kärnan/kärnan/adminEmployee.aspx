@@ -1,10 +1,8 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master2_Inloggad.Master" AutoEventWireup="true" CodeBehind="adminEmployee.aspx.cs" Inherits="kärnan.adminEmployee" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/masterAdmin.Master" AutoEventWireup="true" CodeBehind="adminEmployee.aspx.cs" Inherits="kärnan.adminEmployeee" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <form runat="server">
-
-        
 
         <div class="unit-container">
            
@@ -33,8 +31,8 @@
             <div class="unit-buttons-div">
                 <asp:Button ID="btnEmptyField" runat="server" OnClick="btnEmptyField_Click" CssClass="unit-buttons" Text="Radera fält" />
                 <asp:Button ID="btnUpdate" runat="server" OnClick="btnUpdate_Click" CssClass="unit-buttons" Text="Uppdatera anställd" />
-                <asp:Button ID="btnAdd" runat="server"  OnClick="btnAdd_Click" CssClass="unit-buttons" Text="Lägg till anställd" />
-                <asp:Button ID="btnRemove" runat="server" OnClick="btnRemove_Click"  CssClass="unit-buttons" Text="Radera anställd" />
+                <asp:Button ID="btnAdd" runat="server" OnClick="btnAdd_Click" CssClass="unit-buttons" Text="Lägg till anställd" />
+                <asp:Button ID="btnRemove" runat="server" OnClick="btnRemove_Click" CssClass="unit-buttons" Text="Radera anställd" />
             </div>
             <asp:Label ID="lblCorrekt" runat="server" Text=""></asp:Label>
             <asp:Label ID="lblmeddelande" ForeColor="Red" runat="server" Text=""></asp:Label>
@@ -191,4 +189,6 @@ h3 {
 
         </style>
 </form>
+
+
 </asp:Content>

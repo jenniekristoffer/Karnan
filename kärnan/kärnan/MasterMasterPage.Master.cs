@@ -68,7 +68,7 @@ namespace kärnan
 
                 if (username == 1 || username == 6)
                 {
-                    Response.Redirect("adminPag.aspx");
+                    Response.Redirect("adminPage.aspx");
                     Session["employeeid"] = txbUser.Text;
                     sql.conn.Close();
                 }
