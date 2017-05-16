@@ -100,7 +100,8 @@ namespace kärnan
             try
             {
                 sql.conn.Open();
-                string query = "DELETE FROM employee WHERE employee.employeeid = @employeeid";
+                string query = "DELETE FROM userpass WHERE userpass.employeeid = @employeeid; " +
+                               "DELETE FROM employee WHERE employee.employeeid = @employeeid;";
 
                 NpgsqlCommand cmd = new NpgsqlCommand(query, sql.conn);
                 cmd.Parameters.AddWithValue("employeeid", employeeid);

@@ -47,7 +47,7 @@
                     <li><a href="readJournal.aspx#">Läs journal</a></li>
                 </ul>
             </li>
-            <li><a href="#" onclick="document.getElementById('id01') .style.display='block'">Logga ut</a></li>
+            <li><a href="index.aspx" onclick="document.getElementById('id01') .style.display='block'">Logga ut</a></li>
         </ul>
     </nav>
       
