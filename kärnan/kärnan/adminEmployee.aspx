@@ -7,13 +7,14 @@
         
 
         <div class="unit-container">
-            <%-- DET ÄR DEN HÄR JÄVELN SOM INTE FUNKAR OM DEN LIGGER DÄR DEN SKA LIGGA  --%>
-        <asp:ListBox ID="lsbEmployee" AutoPostBack="true" AppendDataBoundItems="true" OnSelectedIndexChanged="lsbEmployee_SelectedIndexChanged"  runat="server" CssClass="journal-list"></asp:ListBox>
-        <div class="sektion">
+           
+        <div class="sektion"> 
             <h3>Hanterings alternativ</h3>
             <p class="mellan-rubrik">Vad vill du göra?</p>
             <asp:DropDownList ID="drpAlternativ" OnSelectedIndexChanged="drpAlternativ_SelectedIndexChanged" AutoPostBack="true" runat="server" CssClass="drop"></asp:DropDownList>
-            <p class="mellan-rubrik">Välj den admin du vill hantera</p>
+            <p class="mellan-rubrik">Välj den admin du vill hantera</p> 
+        <asp:ListBox ID="lsbEmployee" AutoPostBack="true" AppendDataBoundItems="true" OnSelectedIndexChanged="lsbEmployee_SelectedIndexChanged"  runat="server" CssClass="journal-list"></asp:ListBox>
+           
         </div>
 
         <div class="sektion">
