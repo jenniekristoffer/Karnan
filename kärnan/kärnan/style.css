@@ -4,6 +4,7 @@
 
 body {
     background-color: #fafafa; 
+    box-sizing:border-box;
 }
 
 .read-container {
@@ -12,7 +13,7 @@ body {
     height: 100%;
     display: flex;
     flex-direction: row;
-    font-family: Roboto;
+    font-family: 'Open Sans' ;
     padding: 0;
     flex-wrap: wrap;
 }
@@ -63,7 +64,7 @@ h3 {
 #datepicker,
 #datepicker2,
 .alla-datum {
-    max-width: 110px;
+    max-width: 140px;
 }
 
 .datepick:nth-of-type(2) {
@@ -72,9 +73,12 @@ h3 {
 
 .alla-datum {
     border: 1px solid rgba(64, 64, 64, 0.39);
-    padding: 12px 0px 12px 0px;
     margin-left: 10px;
     background-color: #cecece;
+    height:41px;
+    /*margin-top:8px;
+    margin-bottom:8px;*/
+    padding:0px 10px;
 }
 
 .journal-anteckning {
@@ -86,7 +90,7 @@ h3 {
     border: 1px solid grey;
 }
 .journal-list {
-    height: 502px;
+    height: 500px;
     width: 100%;
     /*min-width: 400px;
     max-width: 400px;*/
@@ -143,12 +147,17 @@ textarea {
     margin-left:10px;
 }
 
+.date-rubrik-top {
+    margin-left: 10px;
+}
+
 .read-right-rubrik{
 min-width:400px;
 width:100%;
 padding: 0;
 height:39px;
 }
+
 
 
 @media screen and (max-width: 550px) {
@@ -167,42 +176,3 @@ height:39px;
 
 
     /*Read Journal Read Journal*/
-    /*Inloggad Inloggad*/
-    .val-div {
-        margin: auto;
-        width: 400px;
-        height: 100%;
-    }
-
-    .val {
-        float: none;
-        background-color: #ffd966;
-        color: #22383c;
-        margin-bottom: 10px;
-        font-family: roboto;
-        font-weight: 400;
-        transition: transform 300ms ease-in-out;
-    }
-
-        .val:hover {
-            transform: scale(0.98);
-            background-color: #f6b26b;
-        }
-
-    hr {
-        width: 10%;
-        margin: auto;
-        margin-bottom: 10px;
-        height: 1px;
-        background-color: black;
-        opacity: 0.5;
-    }
-
-        hr.vertical {
-            width: 0px;
-            height: 100%;
-            /* or height in PX */
-        }
-
-
-    /*Inloggad Inloggad*/

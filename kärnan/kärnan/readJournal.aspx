@@ -41,8 +41,8 @@
 
             <p class="mellan-rubrik-top">Välj journaler efter datum: </p>
             <div class="date">
-                <input type="text" class="datepick" id="datepicker" name="date1" placeholder="Från: "/>
-                <input type="text" class="datepick" id="datepicker2" name="date2" placeholder="Till: "/>
+                <input type="text" class="datepick" id="datepicker" name="date1" placeholder="Från: " style="margin-top: 0px; margin-bottom: 0px;"/>
+                <input type="text" class="datepick" id="datepicker2" name="date2" placeholder="Till: " style="margin-top: 0px; margin-bottom: 0px;"/>
                 <asp:Button ID="btnShowSpecifik" CssClass ="alla-datum" runat="server" OnClick="btnShowSpecifik_Click" Text="Visa mellan datum" />  
                 <asp:Button ID="btnShowAll" CssClass ="alla-datum" runat="server" OnClick="btnShowAll_Click" Text="Välj alla datum" />
               
@@ -66,7 +66,7 @@
                 </div>
 
                 <div class="read-date">    
-                <p class="mellan-rubrik-top">Datum:</p>
+                <p class="mellan-rubrik-top date-rubrik-top">Datum:</p>
                 <textarea width="100%" rows ="2" readonly ="readonly" runat ="server" id="txbDate" class="rubrik read-right-date" name="date"></textarea>
                 </div>
                 </div>

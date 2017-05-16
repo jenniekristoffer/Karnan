@@ -32,11 +32,11 @@
                     <h3>Uppgifter för klient</h3>
                 </div>
                 <p class="mellan-rubrik">Förnamn: </p>
-                <asp:TextBox ID="txbName" runat="server" CssClass="new-name"></asp:TextBox>
+                <asp:TextBox ID="txbName" runat="server" CssClass="new-name" style="margin-top: 0px; margin-bottom: 0px;"></asp:TextBox>
                 <p class="mellan-rubrik">Efternamn: </p>
-                <asp:TextBox ID="txbSurname" runat="server" CssClass="new-name"></asp:TextBox>
+                <asp:TextBox ID="txbSurname" runat="server" CssClass="new-name" style="margin-top: 0px; margin-bottom: 0px;"></asp:TextBox>
                 <p class="mellan-rubrik">Personnummer: </p>
-                <asp:TextBox ID="txbBirth" runat="server" CssClass="new-name"></asp:TextBox>
+                <asp:TextBox ID="txbBirth" runat="server" CssClass="new-name" style="margin-top: 0px; margin-bottom: 0px;"></asp:TextBox>
                 <p class="mellan-rubrik">Tillhörande enhet: </p>
                 <asp:DropDownList ID="drpUnit" runat="server" AutoPostBack="True" DataTextField="unitname"
                     DataValueField="unitid" AppendDataBoundItems="true" CssClass="drop"
@@ -58,13 +58,14 @@
 
 
         <style>
+
             .unit-container {
                 width: 100%;
                 max-width: 100%;
                 height: 100%;
                 display: flex;
                 flex-direction: row;
-                font-family: Roboto;
+                font-family: 'Open Sans';
                 padding: 0;
                 flex-wrap: wrap;
             }
@@ -73,7 +74,8 @@
                 display: flex;
                 flex-direction: column;
                 padding: 22px;
-                background-color: #FFFEDF;
+                background-color: #f6f6f6;
+                border: 2px solid #fafafa;
             }
 
             sektion,
@@ -83,17 +85,14 @@
 
             .sektion:first-of-type {
                 flex-grow: 1;
-                border: 1px solid rgba(60, 60, 60, 0.49);
             }
 
             .sektion:nth-of-type(2) {
                 flex-grow: 1;
-                border: 1px solid rgba(60, 60, 60, 0.49);
             }
 
             .sektion:nth-of-type(3) {
                 flex-grow: 1;
-                border: 1px solid rgba(60, 60, 60, 0.49);
             }
 
             .sektion-top {
@@ -166,7 +165,7 @@
             }
 
             .new-name {
-                height: 37px;
+                height: 41px;
                 width: 99.5%;
             }
 

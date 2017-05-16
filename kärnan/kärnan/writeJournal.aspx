@@ -35,7 +35,7 @@
             <p class="mellan-rubrik">Beskrivning:</p>
             <div class="beskrivning">
                 <textarea cols ="45" rows ="2" runat ="server" id="txbincident" name="inci" class="txb-beskrivning"></textarea>
-                <input type="text" class="datepick" name="datepicker" id="datepicker" placeholder="Datum: "/>
+                <input type="text" class="datepick" name="datepicker" id="datepicker" placeholder="Datum: " style="margin-top: 0px; margin-bottom: 0px;"/>
             </div>
             <div class="lista">
                 <p class="mellan-rubrik">Journaler:</p>
@@ -71,7 +71,7 @@
 .write-container {
     display: flex;
     flex-direction: row;
-    font-family: Roboto;
+    font-family: 'Open Sans';
     padding: 0;
     flex-wrap: wrap;
 }

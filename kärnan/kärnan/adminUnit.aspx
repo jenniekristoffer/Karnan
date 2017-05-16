@@ -18,7 +18,7 @@
             <h3>Lägg till nya enheter</h3>
             <div class="sektion-2-topp">
                 <p class="mellan-rubrik">Namn på ny enhet: </p>
-                <asp:TextBox ID="txbAddUnit" runat="server" CssClass="new-name"></asp:TextBox>
+                <asp:TextBox ID="txbAddUnit" runat="server" CssClass="new-name" style="margin-top: 0px; margin-bottom: 0px;"></asp:TextBox>
                 <div class="unit-buttons-div">
                     <asp:Button ID="btnAddUnit" runat="server" OnClick="btnAddUnit_Click" CssClass="unit-buttons" Text="Lägg till enhet" />                    
                 </div>
@@ -34,7 +34,7 @@
                     </asp:DropDownList>
 
                 <p class="mellan-rubrik">Ändra namnet och klicka på spara:</p>
-                 <asp:TextBox ID="txbChangeUnit" runat="server" CssClass="new-name"></asp:TextBox>
+                 <asp:TextBox ID="txbChangeUnit" runat="server" CssClass="new-name" style="margin-top: 0px; margin-bottom: 0px;"></asp:TextBox>
                 <div class="unit-buttons-div">
                      <asp:Button ID="btnChangeUnit" OnClick="btnChangeUnit_Click" CssClass="unit-buttons" runat="server" Text="Ändra namn på enhet" />                     
                 </div>
@@ -79,7 +79,7 @@
     height: 100%;
     display: flex;
     flex-direction: row;
-    font-family: Roboto;
+    font-family: 'Open Sans';
     padding: 0;
     flex-wrap: wrap;
 }
@@ -88,7 +88,8 @@
     display: flex;
     flex-direction: column;
     padding: 22px;
-    background-color: #FFFEDF;
+    background-color: #f6f6f6;
+    border: 2px solid #fafafa;
 }
 
 sektion,
@@ -98,17 +99,14 @@ h3 {
 
 .sektion:first-of-type {
     flex-grow: 1;
-    border: 1px solid rgba(60, 60, 60, 0.49);
 }
 
 .sektion:nth-of-type(2) {
     flex-grow: 1;
-    border: 1px solid rgba(60, 60, 60, 0.49);
 }
 
 .sektion:nth-of-type(3) {
     flex-grow: 1;
-    border: 1px solid rgba(60, 60, 60, 0.49);
 }
 
 
@@ -136,7 +134,7 @@ h3 {
 }
 
 .new-name {
-    height: 37px;
+    height: 41px;
     width: 99%;
 }
 
