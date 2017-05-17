@@ -214,7 +214,7 @@ namespace kärnan
 
            else if (drpChoice.SelectedItem.Value == "1")
             {
-                btnAddFamily.Enabled = true;
+                //btnAddFamily.Enabled = true;
                 btnUpdateFamily.Enabled = false;
                 btnRemove.Enabled = false;
             }

@@ -8,24 +8,23 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Windows.Forms;
-
 namespace kärnan
 {
-    public partial class writeJournal : System.Web.UI.Page
+    public partial class adminWriteJournal : System.Web.UI.Page
     {
-        SQL sql = new SQL();
-        Journal jc = new Journal();
-        Client family = new Client();
-        Employee employee = new Employee();
-        Unit ut = new Unit();
-        Alltables all = new Alltables();
+            SQL sql = new SQL();
+            Journal jc = new Journal();
+            Client family = new Client();
+            Employee employee = new Employee();
+            Unit ut = new Unit();
+            Alltables all = new Alltables();
 
-        List<Alltables> listAll = new List<Alltables>();
-        List<Journal> newjc = new List<Journal>();
-        List<Client> newfam = new List<Client>();
+            List<Alltables> listAll = new List<Alltables>();
+            List<Journal> newjc = new List<Journal>();
+            List<Client> newfam = new List<Client>();
 
         protected void Page_Load(object sender, EventArgs e)
-        {      
+        {
             if (!Page.IsPostBack)
             {
                 //Visa namnen på enhet i dropdownlist1
@@ -37,11 +36,11 @@ namespace kärnan
                 DropDownList1.DataSource = dt;
                 DropDownList1.DataBind();
 
-             //Håller koll på vem det är som är inloggad  
-              if (Session["employeeid"] != null)
-              {                         
-
-              }
+                //Håller koll på vem det är som är inloggad  
+                if (Session["employeeid"] != null)
+                {
+                    //lblBeskrivning.Text = Session["employeeid"].ToString();
+                }
             }
         }
 
@@ -93,8 +92,8 @@ namespace kärnan
             DialogResult dialogResult = MessageBox.Show("Är du säker på att du vill spara ?", "Spara journal", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                saveJournal();
-        }
+                saveJournals();
+            }
             else if (dialogResult == DialogResult.No)
             {
 
@@ -102,7 +101,7 @@ namespace kärnan
         }
 
         //Spara journal-Metod
-        public void saveJournal()
+        public void saveJournals()
         {
 
             if (lblKlient.Text == string.Empty && lblEnhet.Text == string.Empty)
@@ -115,14 +114,14 @@ namespace kärnan
                 lblBeskrivning.Text = "Du måste skriva en rubrik";
             }
 
-            if(txbJournal.InnerText == string.Empty)
+            if (txbJournal.InnerText == string.Empty)
             {
                 lblJournal.Text = "Du måste skriva något i journalanteckningen";
             }
 
             else
             {
-              //Visar tomma felmeddelanden
+                //Visar tomma felmeddelanden
                 lblBeskrivning.Text = "";
                 lblJournal.Text = "";
 
@@ -142,15 +141,15 @@ namespace kärnan
                 employee.initials = Session["employeeid"].ToString();
                 int employeeid = Convert.ToInt32(employee.initials);
 
-            //Hämta valt datum från datepicker
+                //Hämta valt datum från datepicker
                 jc.date = Convert.ToDateTime(Request.Form["datepicker"]);
                 DateTime date = jc.date;
 
-            //Lägger till dagens datum
-            DateTime datetoday = Convert.ToDateTime(DateTime.Today.ToShortDateString());
+                //Lägger till dagens datum
+                DateTime datetoday = Convert.ToDateTime(DateTime.Today.ToShortDateString());
 
-            //metod för att spara journalanteckning i db
-            jc.saveJournal(journalnote, incident, date, employeeid, unitid, familyid);
+                //metod för att spara journalanteckning i db
+                jc.saveJournal(journalnote, incident, date, employeeid, unitid, familyid);
 
                 //tömmer textboxrarna
                 txbincident.InnerText = string.Empty;

@@ -6,8 +6,8 @@
 
       <div class="val-div">
         <ul>
-            <li><a class="val" href="writeJournal.aspx#">Skriv journal</a></li>
-            <li><a class="val" href="readJournal.aspx#">Läs journal</a></li>
+            <li><a class="val" href="adminWriteJournal.aspx#">Skriv journal</a></li>
+            <li><a class="val" href="adminReadJournal.aspx#">Läs journal</a></li>
             <hr>           
             <li><a class="val" href="adminClient.aspx#">Hantera klienter</a></li>
             <li><a class="val" href="adminUnit.aspx#">Hantera enheter</a></li>
