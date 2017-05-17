@@ -22,7 +22,7 @@ namespace kärnan
                 fillList();
 
                 ////Visa och dölj knappar beroende på alternativ i listboxen
-                //alternativ();
+                alternativ();
 
                 //Håller koll på vem det är som är inloggad  
                 if (Session["employeeid"] != null)
@@ -164,17 +164,17 @@ namespace kärnan
         //Metod som fyller dropboxen med alternativ 
         public void choice()
         {
-            List<ListItem> items = new List<ListItem>();
-            items.Add(new ListItem("Lägg till", "Value 2"));
-            items.Add(new ListItem("Radera", "Value 1"));
-            items.Add(new ListItem("Redigera", "Value 3"));
-            items.Sort(delegate (ListItem item1, ListItem item2) { return item1.Text.CompareTo(item2.Text); });
-            drpChoice.Items.AddRange(items.ToArray());
+            //List<ListItem> items = new List<ListItem>();
+            //items.Add(new ListItem("Lägg till", "Value 2"));
+            //items.Add(new ListItem("Radera", "Value 1"));
+            //items.Add(new ListItem("Redigera", "Value 3"));
+            //items.Sort(delegate (ListItem item1, ListItem item2) { return item1.Text.CompareTo(item2.Text); });
+            //drpChoice.Items.AddRange(items.ToArray());
 
-            drpChoice.Items.Add("--- Välj alternativ ---");
-            drpChoice.Items.Add("Lägg till ny klient");
-            drpChoice.Items.Add("Radera befintlig klient");
-            drpChoice.Items.Add("Redigera befintlig klient");
+            //drpChoice.Items.Add("--- Välj alternativ ---");
+            //drpChoice.Items.Add("Lägg till ny klient");
+            //drpChoice.Items.Add("Radera befintlig klient");
+            //drpChoice.Items.Add("Redigera befintlig klient");
         }
 
         //Uppdatera lista 
@@ -212,21 +212,21 @@ namespace kärnan
                 btnRemove.Enabled = false;
             }
 
-            if (drpChoice.SelectedItem.Value == "1")
+           else if (drpChoice.SelectedItem.Value == "1")
             {
                 btnAddFamily.Enabled = true;
                 btnUpdateFamily.Enabled = false;
                 btnRemove.Enabled = false;
             }
 
-            if (drpChoice.SelectedItem.Value == "2")
+            else if (drpChoice.SelectedItem.Value == "2")
             {
                 btnAddFamily.Enabled = false;
                 btnUpdateFamily.Enabled = true;
                 btnRemove.Enabled = false;
             }
 
-            if (drpChoice.SelectedItem.Value == "3")
+           else if (drpChoice.SelectedItem.Value == "3")
             {
                 btnAddFamily.Enabled = false;
                 btnUpdateFamily.Enabled = false;
