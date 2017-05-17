@@ -147,6 +147,7 @@ h3 {
 .drop {
     height: 41px;
     width: 100%;
+    cursor:pointer;
 }
 
 textarea{
@@ -161,11 +162,19 @@ textarea{
 
 .write-buttons {
     width:150px;
-    border: 1px solid rgba(64, 64, 64, 0.39);
-    padding: 12px 0px 12px 0px;
-    background-color: #cecece;
+    border: none;
+    padding: 12px 0px 12px 0px;    
     margin-top:10px;
     margin-bottom:20px;
+    background-color: #9b6e71;
+    color:white;
+    font-size:14px;
+    cursor:pointer;
+    font-family:'Open Sans', sans-serif;
+}
+
+.write-buttons:hover{
+    background-color:#B38184;
 }
     
 .write-buttons:nth-of-type(2) {

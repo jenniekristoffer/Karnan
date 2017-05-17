@@ -24,7 +24,7 @@
     justify-content: space-between;
     width: 95%;
     margin: auto;
-    font-family: Open Sans;
+    font-family: 'Open Sans',sans-serif;
 }
 
 .val-div ul {
