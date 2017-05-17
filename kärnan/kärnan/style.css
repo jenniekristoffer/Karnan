@@ -13,7 +13,7 @@ body {
     height: 100%;
     display: flex;
     flex-direction: row;
-    font-family: 'Open Sans' ;
+    font-family: 'Open Sans';
     padding: 0;
     flex-wrap: wrap;
 }
@@ -74,11 +74,17 @@ h3 {
 .alla-datum {
     border: 1px solid rgba(64, 64, 64, 0.39);
     margin-left: 10px;
-    background-color: #cecece;
-    height:41px;
-    /*margin-top:8px;
-    margin-bottom:8px;*/
-    padding:0px 10px;
+    height: 41px;
+    color: black;
+    padding: 0px 10px;
+    background-color: #f2d498;
+    cursor: pointer;
+    font-weight: lighter;
+    font-family: 'Open Sans', sans-serif;
+    border: none;
+}
+ .alla-datum:hover {
+    background-color: #F7E4BE;
 }
 
 .journal-anteckning {
@@ -116,6 +122,7 @@ h3 {
 .drop {
     height: 41px;
     width: 100%;
+    cursor:pointer;
 }
 
 textarea {

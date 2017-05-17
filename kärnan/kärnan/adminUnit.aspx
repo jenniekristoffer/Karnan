@@ -116,20 +116,22 @@ h3 {
     justify-content: flex-end;
 }
 
-.unit-buttons-label-div{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-}
+            .unit-buttons {
+                width: 150px;
+                height:41px;
+                border: 1px solid rgba(64, 64, 64, 0.39);
+                margin-top: 20px;
+                background-color: #9b6e71;
+                color:white;
+                font-size:14px;
+                cursor:pointer;
+                font-family:'Open Sans', sans-serif;
+                border:none;
+            }
 
-.unit-buttons {
-    width:150px;
-    border: 1px solid rgba(64, 64, 64, 0.39);
-    padding: 12px 0px 12px 0px;
-    background-color: #cecece;
-    margin-top:10px;
-    margin-bottom:20px;
-}
+            .unit-buttons:hover{
+                    background-color:#B38184;
+            }
 
 .new-name {
     height: 41px;

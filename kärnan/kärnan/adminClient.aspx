@@ -144,17 +144,26 @@
                 display: flex;
                 flex-direction: row;
                 justify-content: flex-end;
+                flex-wrap:wrap;
             }
 
             .unit-buttons {
                 width: 150px;
                 border: 1px solid rgba(64, 64, 64, 0.39);
                 padding: 12px 0px 12px 0px;
-                background-color: #cecece;
                 margin-top: 20px;
                 margin-left: 10px;
+                background-color: #9b6e71;
+                color:white;
+                font-size:14px;
+                cursor:pointer;
+                font-family:'Open Sans', sans-serif;
+                border:none;
             }
 
+            .unit-buttons:hover{
+                    background-color:#B38184;
+            }
             .new-name {
                 height: 41px;
                 width: 99.5%;
