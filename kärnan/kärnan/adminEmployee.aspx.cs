@@ -11,7 +11,7 @@ using System.Web.UI.WebControls;
 
 namespace kärnan
 {
-    public partial class adminEmployee : System.Web.UI.Page
+    public partial class adminEmployeee : System.Web.UI.Page
     {
         Employee employ = new Employee();
         SQL sql = new SQL();
@@ -21,17 +21,23 @@ namespace kärnan
         {
             if (!Page.IsPostBack)
             {
-              //Fyll dropdown 
-              choice();
+                //Fyll dropdown 
+                choice();
 
-              //Fyll listboxen
-              fill();
+                //Fyll listboxen
+                fill();
 
-            //Håller koll på vem det är som är inloggad  
-            if (Session["employeeid"] != null)
-            {
+                //Håller koll på vem det är som är inloggad  
+                if (Session["employeeid"] != null)
+                {
+                }
             }
-          }
+        }
+
+        //Dropdown med alternativ 
+        protected void drpAlternativ_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
 
         //Visa info från listbox i texbox
@@ -58,7 +64,6 @@ namespace kärnan
                     txbSurname.Text = dr["surname"].ToString();
                     txbInitials.Text = dr["initials"].ToString();
                     cbxAdmin.Checked = Convert.ToBoolean(dr["admin"]);
-                    //employ.employeeid = Convert.ToInt32(dr["employeeid"]);
                     txbAnv.Text = Convert.ToString(dr["employeeid"]);
                 }
             }
@@ -72,8 +77,18 @@ namespace kärnan
                 sql.conn.Close();
                 sql.conn.Dispose();
             }
-        } 
-        
+        }
+
+        //Töm fälten 
+        protected void btnEmptyField_Click(object sender, EventArgs e)
+        {
+            //tömmer textboxrarna
+            txbName.Text = string.Empty;
+            txbSurname.Text = string.Empty;
+            txbInitials.Text = string.Empty;
+            cbxAdmin.Checked = false;
+        }
+
         //Uppdatera information om employee
         protected void btnUpdate_Click(object sender, EventArgs e)
         {
@@ -104,21 +119,21 @@ namespace kärnan
             }
             else
             {
-            //Deklarerar info från textboxen
-            employ.name = txbName.Text;
-            string name = employ.name.ToString();
-            employ.surname = txbSurname.Text;
-            string surname = employ.surname.ToString();
-            employ.initials = txbInitials.Text;
-            string initials = employ.initials.ToString();
-            employ.admin = cbxAdmin.Checked;
-            bool admin = Convert.ToBoolean(employ.admin);
+                //Deklarerar info från textboxen
+                employ.name = txbName.Text;
+                string name = employ.name.ToString();
+                employ.surname = txbSurname.Text;
+                string surname = employ.surname.ToString();
+                employ.initials = txbInitials.Text;
+                string initials = employ.initials.ToString();
+                employ.admin = cbxAdmin.Checked;
+                bool admin = Convert.ToBoolean(employ.admin);
 
-            employ.saveEmployee(name, surname, initials, admin);
-            lsbEmployee.Items.Clear();
-            clearTextbox();
-            fill();
-            lblCorrekt.Text = "Ny anställd tillagd";
+                employ.saveEmployee(name, surname, initials, admin);
+                lsbEmployee.Items.Clear();
+                clearTextbox();
+                fill();
+                lblCorrekt.Text = "Ny anställd tillagd";
             }
         }
 
@@ -131,33 +146,15 @@ namespace kärnan
             }
             else
             {
-            employ.employeeid = Convert.ToInt32(lsbEmployee.SelectedItem.Value);
-            int employeeid = Convert.ToInt32(employ.employeeid);
+                employ.employeeid = Convert.ToInt32(lsbEmployee.SelectedItem.Value);
+                int employeeid = Convert.ToInt32(employ.employeeid);
 
-            employ.removeEmployee(employeeid);
-            lsbEmployee.Items.Clear();          
-            clearTextbox();
-            fill();
+                employ.removeEmployee(employeeid);
+                lsbEmployee.Items.Clear();
+                clearTextbox();
+                fill();
                 lblCorrekt.Text = "Anställd är nu raderad";
             }
-
-         
-        }
-
-        //Töm fälten 
-        protected void btnEmptyField_Click(object sender, EventArgs e)
-        {
-            //tömmer textboxrarna
-            txbName.Text = string.Empty;
-            txbSurname.Text = string.Empty;
-            txbInitials.Text = string.Empty;
-            cbxAdmin.Checked = false;
-        }
-    
-        //Dropdown med alternativ 
-        protected void drpAlternativ_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
 
         //Lägg till ny inloggning för Employee
@@ -181,7 +178,7 @@ namespace kärnan
             {
                 lblmeddelande.Text = "Du måste skriva samma lösenord två gånger";
             }
-          }
+        }
 
         //Uppdatera lösenord
         protected void btnUpdateName_Click(object sender, EventArgs e)
@@ -194,17 +191,18 @@ namespace kärnan
                 string pass = employ.pass;
 
                 employ.updatePassword(pass, employeeid);
+                lblCorrekt.Text = "Lösenordet är bytt";
             }
 
             else
             {
-
+                lblmeddelande.Text = "Du måste skriva samma lösenord två gånger";
             }
         }
 
         //Metod: Fyll listbox
         public void fill()
-      {
+        {
             Employee e = new Employee();
             List<Employee> aktuellEmployee = e.showEmployee();
 
@@ -214,10 +212,6 @@ namespace kärnan
             lsbEmployee.DataValueField = "employeeid";
             lsbEmployee.Items.Add("nameSurnameInitialsAdmin");
             lsbEmployee.DataBind();
-
-            //lsbEmployee.Items.Clear();
-            //clearTextbox();
-            //fill();
         }
 
         //Metod som fyller dropboxen med alternativ 
@@ -238,7 +232,5 @@ namespace kärnan
             cbxAdmin.Checked = false;
             drpAlternativ.SelectedItem.Text = "-- Välj enhet --";
         }
-
-
     }
 }

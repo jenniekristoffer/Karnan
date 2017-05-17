@@ -10,6 +10,6 @@
 namespace kärnan {
     
     
-    public partial class adminPage {
+    public partial class adminPag {
     }
 }

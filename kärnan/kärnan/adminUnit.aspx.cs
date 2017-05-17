@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace kärnan
 {
-    public partial class adminUnit : System.Web.UI.Page
+    public partial class adminUnitt : System.Web.UI.Page
     {
         Unit unit = new Unit();
         SQL sql = new SQL();
@@ -39,6 +39,12 @@ namespace kärnan
 
             }
         }
+
+        protected void lsbAllUnit_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
         //Lägg till enhet
         protected void btnAddUnit_Click(object sender, EventArgs e)
         {
@@ -83,7 +89,7 @@ namespace kärnan
 
                 while (dr.Read())
                 {
-                    txbChangeUnit.Text = dr["unitname"].ToString();     
+                    txbChangeUnit.Text = dr["unitname"].ToString();
                 }
             }
 
@@ -116,6 +122,12 @@ namespace kärnan
             txbChangeUnit.Text = string.Empty;
             fillList();
         }
+        
+
+        protected void DropDownList2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
 
         //Radera enhet
         protected void btnRemove_Click(object sender, EventArgs e)
@@ -123,24 +135,24 @@ namespace kärnan
             DialogResult dialogResult = MessageBox.Show("Vill du radera enhet? Raderad enhet går inte att få tillbaka", "Radera enhet", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                 unit.unitname = DropDownList2.SelectedItem.Value;
-                 int unitid = Convert.ToInt32(unit.unitname);
+                unit.unitname = DropDownList2.SelectedItem.Value;
+                int unitid = Convert.ToInt32(unit.unitname);
 
-                 unit.removeUnit(unitid);
-                 DropDownList1.Items.Clear();
-                 DropDownList2.Items.Clear();
+                unit.removeUnit(unitid);
+                DropDownList1.Items.Clear();
+                DropDownList2.Items.Clear();
                 lsbAllUnit.Items.Clear();
 
-                lblRemoveUnit.Text = "Enheten är raderad";           
-             
-               fillList();
+                lblRemoveUnit.Text = "Enheten är raderad";
+
+                fillList();
             }
             else if (dialogResult == DialogResult.No)
             {
 
             }
         }
-              
+
         public void showAllUnit()
         {
             //Visa information (Unitname)
@@ -176,11 +188,6 @@ namespace kärnan
 
             txbAddUnit.Text = string.Empty;
             txbChangeUnit.Text = string.Empty;
-        }
-
-        protected void lsbAllUnit_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

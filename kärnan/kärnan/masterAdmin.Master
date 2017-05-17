@@ -34,10 +34,7 @@
     </div>
          <nav id="navbar">
         <ul>
-            <li class="meny"><a class="logo" href="#">kärnan</a></li>  
-            <li><a class="logo" href="inloggad.aspx">Kärnan</a></li>
-            <li><a class="login" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Logga ut</a></li>
-            <li><a class="om" href="#">Om kärnan</a></li>        
+            <li class="meny"><a class="logo" href="#">kärnan</a></li>    
         </ul>
         <ul>
             <li><a href="inloggad.aspx#">Meny</a>
@@ -53,12 +50,7 @@
             <li><a href="index.aspx" onclick="document.getElementById('id01') .style.display='block'">Logga ut</a></li>
         </ul>
     </nav>
-
-    <form id="form1" runat="server">
-    <div>
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">   
         </asp:ContentPlaceHolder>
-    </div>
-    </form>
 </body>
 </html>

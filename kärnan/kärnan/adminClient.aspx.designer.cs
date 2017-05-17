@@ -10,7 +10,7 @@
 namespace kärnan {
     
     
-    public partial class adminFamily {
+    public partial class adminClientt {
         
         /// <summary>
         /// drpChoice control.

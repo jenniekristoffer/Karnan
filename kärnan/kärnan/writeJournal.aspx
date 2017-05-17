@@ -28,9 +28,7 @@
                 <h3>Enhet:</h3>
                 <asp:Label ID="lblEnhet" runat="server" Text="" CssClass="label"></asp:Label>
                 <h3>Klient:</h3>
-                <asp:Label ID="lblKlient" runat="server" Text="" CssClass="label"></asp:Label>
-                <h3>Person-nr:</h3>
-                <asp:Label ID="lblPnr" runat="server" Text="" CssClass="label"></asp:Label>
+                <asp:Label ID="lblKlient" runat="server" Text="" CssClass="label"></asp:Label>             
             </div>
             <p class="mellan-rubrik">Beskrivning:</p>
             <div class="beskrivning">

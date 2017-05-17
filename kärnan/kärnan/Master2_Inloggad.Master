@@ -3,15 +3,16 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-  
-            <title>Kärnan / Val</title>
 
-        <link href="https://fonts.googleapis.com/css?family=Francois+One|Open+Sans" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title>Kärnan / Val</title>
+        <link href="https://fonts.googleapis.com/css?family=Francois+One|Open+Sans" rel="stylesheet"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+
+        <link rel="stylesheet" type="text/css" href="stylehead.css"/>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-        <link rel="stylesheet" href="/resources/demos/style.css">
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"/>
+        <link rel="stylesheet" href="/resources/demos/style.css"/>
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
@@ -24,14 +25,14 @@
 </head>
 <body>
 
-        <div class="layers">
+     <div class="layers">
         <div class="layer"></div>
         <div class="layer"></div>
         <div class="layer"></div>
         <div class="layer"></div>
     </div>
 
-                <nav id="navbar">
+       <nav id="navbar">
         <ul>
             <li class="meny"><a class="logo" href="#">kärnan</a></li>  
         </ul>
@@ -48,6 +49,5 @@
       
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">                  
         </asp:ContentPlaceHolder>
-
 </body>
 </html>

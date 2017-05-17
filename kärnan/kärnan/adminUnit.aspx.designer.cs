@@ -10,7 +10,7 @@
 namespace kärnan {
     
     
-    public partial class adminUnit {
+    public partial class adminUnitt {
         
         /// <summary>
         /// lsbAllUnit control.

@@ -1,17 +1,15 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master2_Inloggad.Master" AutoEventWireup="true" CodeBehind="adminUnit.aspx.cs" Inherits="kärnan.adminUnit" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/masterAdmin.Master" AutoEventWireup="true" CodeBehind="adminUnit.aspx.cs" Inherits="kärnan.adminUnitt" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-   <form runat ="server">
+      <form runat ="server">
 
         <div class="unit-container">
         <div class="sektion">
             <h3>Enhets överblick</h3>
             <p class="mellan-rubrik">Samtliga enheter i verksamheten:</p>
-            <asp:ListBox ID="lsbAllUnit" runat="server" OnSelectedIndexChanged="lsbAllUnit_SelectedIndexChanged" AutoPostBack="true" CssClass="listbox"></asp:ListBox>
-
-            <%--<asp:ListBox ID="lsbAllUnit" OnSelectedIndexChanged="lsbAllUnit_SelectedIndexChanged" runat="server" CssClass="journal-list"></asp:ListBox>--%>
+            <asp:ListBox ID="lsbAllUnit" runat="server" OnSelectedIndexChanged="lsbAllUnit_SelectedIndexChanged" AutoPostBack="true" CssClass="listbox"></asp:ListBox>    
 
         </div>
         <div class="sektion">
@@ -29,7 +27,7 @@
                 <p class="mellan-rubrik">Välj den enhet du vill ändra:</p>
                     <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True" DataTextField="unitname"
                     DataValueField="unitid" AppendDataBoundItems="true" CssClass="drop"
-                    OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
+                     OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
                     <asp:ListItem Value="0">-- Välj enhet --</asp:ListItem>
                     </asp:DropDownList>
 
@@ -51,7 +49,7 @@
             <p class="mellan-rubrik">Välj den enhet du vill tabort:</p>
                   <asp:DropDownList ID="DropDownList2" runat="server" AutoPostBack="True" DataTextField="unitname"
        DataValueField="unitid" AppendDataBoundItems="true" CssClass="drop"
-       OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
+        OnSelectedIndexChanged="DropDownList2_SelectedIndexChanged">
        <asp:ListItem Value="0">-- Välj enhet --</asp:ListItem>
        </asp:DropDownList>
             <div class="unit-buttons-label">

@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace kärnan
 {
-    public partial class adminPage : System.Web.UI.Page
+    public partial class adminPag : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -17,29 +17,5 @@ namespace kärnan
 
             }
         }
-
-        //protected void btnUnit_Click(object sender, EventArgs e)
-        //{
-        //    if (Session["employeeid"] != null)
-        //    {
-        //        Response.Redirect("adminUnit.aspx");
-        //    }
-        //}
-
-        //protected void btnFamily_Click(object sender, EventArgs e)
-        //{
-        //    if (Session["employeeid"] != null)
-        //    {
-        //        Response.Redirect("adminFamily.aspx");
-        //    }
-        //}
-
-        //protected void btnEmployee_Click(object sender, EventArgs e)
-        //{
-        //    if (Session["employeeid"] != null)
-        //    {
-        //        Response.Redirect("adminEmployee.aspx");
-        //    }
-        //}
     }
 }
