@@ -42,7 +42,7 @@
                     <asp:Button ID="btnClearText" CssClass="unit-buttons" runat="server" OnClick="btnClearText_Click" Text="Töm fält" />
                     <asp:Button ID="btnAddFamily" OnClick="btnAddFamily_Click" runat="server" CssClass="unit-buttons" Text="Lägg till klient" />
                     <asp:Button ID="btnUpdateFamily" CssClass="unit-buttons" OnClick="btnUpdateFamily_Click" runat="server" Text="Spara ändringar" />
-                    <asp:Button ID="btnRemove" CssClass="unit-buttons" runat="server" OnClick="btnRemove_Click" Text="Radera familj" />
+                    <asp:Button ID="btnRemove" CssClass="unit-buttons" runat="server" OnClick="btnRemove_Click" Text="Radera klient" />
 
                 </div>
              <asp:Label ID="lblmeddelande" ForeColor="Red" runat="server" Text=""></asp:Label>

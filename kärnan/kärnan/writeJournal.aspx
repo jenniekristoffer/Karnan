@@ -38,7 +38,7 @@
                 <input type="text" class="datepick" name="datepicker" id="datepicker" placeholder="Datum: " style="margin-top: 0px; margin-bottom: 0px;"/>
             </div>
             <div class="lista">
-                <p class="mellan-rubrik">Journaler:</p>
+                <p class="mellan-rubrik">Journal:</p>
                 <textarea cols ="45" rows ="10" runat ="server" id="txbJournal" name ="jour" class="journal-list"></textarea>
             </div>
             <div class="knappar-div">
