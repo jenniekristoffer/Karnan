@@ -13,7 +13,7 @@
 
         </div>
         <div class="sektion">
-            <h3>Lägg till nya enheter</h3>
+            <h3>Lägg till ny enhet</h3>
             <div class="sektion-2-topp">
                 <p class="mellan-rubrik">Namn på ny enhet: </p>
                 <asp:TextBox ID="txbAddUnit" runat="server" CssClass="new-name" style="margin-top: 0px; margin-bottom: 0px;"></asp:TextBox>
@@ -46,7 +46,7 @@
         </div>
         <div class="sektion">
             <h3>Tabort enheter</h3>
-            <p class="mellan-rubrik">Välj den enhet du vill tabort:</p>
+            <p class="mellan-rubrik">Välj den enhet du vill ta bort:</p>
                   <asp:DropDownList ID="DropDownList2" runat="server" AutoPostBack="True" DataTextField="unitname"
        DataValueField="unitid" AppendDataBoundItems="true" CssClass="drop"
         OnSelectedIndexChanged="DropDownList2_SelectedIndexChanged">
