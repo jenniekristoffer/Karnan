@@ -83,7 +83,9 @@
     <Content Include="adminClient.aspx" />
     <Content Include="adminEmployee.aspx" />
     <Content Include="adminPage.aspx" />
+    <Content Include="adminReadJournal.aspx" />
     <Content Include="adminUnit.aspx" />
+    <Content Include="adminWriteJournal.aspx" />
     <Content Include="index.aspx" />
     <Content Include="inloggad.aspx" />
     <Content Include="packages.config" />
@@ -130,12 +132,26 @@
     <Compile Include="adminPage.aspx.designer.cs">
       <DependentUpon>adminPage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="adminReadJournal.aspx.cs">
+      <DependentUpon>adminReadJournal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="adminReadJournal.aspx.designer.cs">
+      <DependentUpon>adminReadJournal.aspx</DependentUpon>
+    </Compile>
     <Compile Include="adminUnit.aspx.cs">
       <DependentUpon>adminUnit.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="adminUnit.aspx.designer.cs">
       <DependentUpon>adminUnit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="adminWriteJournal.aspx.cs">
+      <DependentUpon>adminWriteJournal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="adminWriteJournal.aspx.designer.cs">
+      <DependentUpon>adminWriteJournal.aspx</DependentUpon>
     </Compile>
     <Compile Include="Crypt.cs" />
     <Compile Include="Employee.cs" />

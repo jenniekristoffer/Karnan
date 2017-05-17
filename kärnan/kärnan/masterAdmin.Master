@@ -9,8 +9,6 @@
         <link href="https://fonts.googleapis.com/css?family=Francois+One|Open+Sans" rel="stylesheet"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
 
-        <link rel="stylesheet" type="text/css" href="stylehead.css"/>
-
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"/>
         <link rel="stylesheet" href="/resources/demos/style.css"/>
@@ -37,10 +35,14 @@
             <li class="meny"><a class="logo" href="#">kärnan</a></li>    
         </ul>
         <ul>
+<<<<<<< HEAD
             <li><a href="inloggad.aspx#">Meny <i class="fa fa-angle-down"></i></a>
+=======
+            <li><a href="adminPage.aspx#">Meny</a>
+>>>>>>> 21d744c43280077e3d7635027e4354e76394cc91
                 <ul>
-                    <li><a href="writeJournal.aspx#">Skriv journal</a></li>
-                    <li><a href="readJournal.aspx#">Läs journal</a></li>
+                    <li><a href="adminWriteJournal.aspx#">Skriv journal</a></li>
+                    <li><a href="adminReadJournal.aspx#">Läs journal</a></li>
                     <hr />
                     <li><a href="adminClient.aspx#">Hantera Klient</a></li>
                     <li><a href="adminEmployee.aspx#">Hantera Anställd</a></li>
