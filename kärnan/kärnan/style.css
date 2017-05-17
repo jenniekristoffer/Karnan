@@ -76,6 +76,7 @@ h3 {
     border: 1px solid rgba(64, 64, 64, 0.39);
     margin-left: 10px;
     height: 41px;
+    width:100%;
     color: black;
     padding: 0px 10px;
     background-color: #f2d498;
@@ -186,7 +187,27 @@ height:39px;
     font-weight: 600;
     color: #73626E;
     margin-left: 10px;
-} 
+}
+
+.sektions-huvud {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 41px;
+    padding: 0px 22px;
+    background-color: #f6f6f6;
+    border: 2px solid #fafafa;
+}
+
+    .sektions-huvud h3 {
+        line-height: 37px;
+        font-family: 'Open Sans', sans-serif;
+        font-weight: bold;
+        margin: 0px;
+        text-align: center;
+    }
+
+
 
 @media screen and (max-width: 550px) {
     .read-right-top {

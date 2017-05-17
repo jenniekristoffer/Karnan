@@ -6,7 +6,9 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
         <form runat="server">
-
+             <div class="sektions-huvud">
+              <h3 style="margin:0px;">Skriv journal</h3>
+            </div>
                 <div class="write-container">
         <div class="sektion">
             <h3>Välj enhet och klient</h3>
@@ -187,6 +189,25 @@ margin-left:20px;
     margin-bottom: 20px;
     color:black;
 }
+
+.sektions-huvud{
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+    height:41px;
+    padding:0px 22px;
+    background-color: #f6f6f6;
+    border: 2px solid #fafafa;
+}
+
+.sektions-huvud h3{
+    line-height:37px;
+    font-family:'Open Sans', sans-serif;
+    font-weight:bold;
+    margin:0px;
+    text-align:center;
+}
+
 
 </style>
 

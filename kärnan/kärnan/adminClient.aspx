@@ -2,7 +2,10 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-        <form runat="server">        
+        <form runat="server"> 
+        <div class="sektions-huvud">
+        <h3>Hantera klient</h3>
+        </div>
         <div class="unit-container">
             <div class="sektion">
                 <h3>Hanterings alternativ</h3>
@@ -185,6 +188,7 @@
                 justify-content: flex-start;
                 flex-direction: row;
             }
+
         </style>
 
 

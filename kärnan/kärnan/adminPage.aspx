@@ -9,9 +9,10 @@
             <li><a class="val" href="adminWriteJournal.aspx#">Skriv journal</a></li>
             <li><a class="val" href="adminReadJournal.aspx#">Läs journal</a></li>
             <hr>           
-            <li><a class="val" href="adminClient.aspx#">Hantera klienter</a></li>
-            <li><a class="val" href="adminUnit.aspx#">Hantera enheter</a></li>
-            <li><a class="val" href="adminEmployee.aspx#">Hantera admins</a></li>
+            <li><a class="val" href="adminClient.aspx#">Hantera klient</a></li>
+            <li><a class="val" href="adminUnit.aspx#">Hantera enhet</a></li>
+            <hr>  
+            <li><a class="val" href="adminEmployee.aspx#">Hantera användare</a></li>
         </ul>
             <p id="message" style="display:none; color:forestgreen;">Nytt namn sparat.</p>
     </div>
@@ -23,10 +24,11 @@
 .val-div {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
     width: 95%;
     margin: auto;
     font-family: 'Open Sans',sans-serif;
+    margin-top:40px;
 }
 
 .val-div ul {

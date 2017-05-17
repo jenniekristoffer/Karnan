@@ -32,21 +32,16 @@
     </div>
          <nav id="navbar">
         <ul>
-            <li class="meny"><a class="logo" href="#">kärnan</a></li>    
+            <li class="meny"><a class="logo" href="adminPage.aspx#">kärnan</a></li>    
         </ul>
         <ul>
-<<<<<<< HEAD
-            <li><a href="inloggad.aspx#">Meny <i class="fa fa-angle-down"></i></a>
-=======
-            <li><a href="adminPage.aspx#">Meny</a>
->>>>>>> 21d744c43280077e3d7635027e4354e76394cc91
+            <li><a href="adminPage.aspx#">Meny <i class="fa fa-angle-down"></i></a>
                 <ul>
                     <li><a href="adminWriteJournal.aspx#">Skriv journal</a></li>
                     <li><a href="adminReadJournal.aspx#">Läs journal</a></li>
-                    <hr />
-                    <li><a href="adminClient.aspx#">Hantera Klient</a></li>
-                    <li><a href="adminEmployee.aspx#">Hantera Anställd</a></li>
-                    <li><a href="adminUnit.aspx#">Hantera Enhet</a></li>
+                    <li><a href="adminClient.aspx#">Hantera klient</a></li>                    
+                    <li><a href="adminUnit.aspx#">Hantera enhet</a></li>
+                    <li><a href="adminEmployee.aspx#">Hantera användare</a></li>
                 </ul>
             </li>
             <li><a href="index.aspx" onclick="document.getElementById('id01') .style.display='block'">Logga ut</a></li>

@@ -13,8 +13,9 @@
                     $("#datepicker2").datepicker();
                 });
     </script>
-
-
+    <div class="sektions-huvud">
+        <h3>Läs journal</h3>
+    </div>
     <div class="read-container">
         <div class="sektion">
             <h3>Välj enhet och klient</h3>

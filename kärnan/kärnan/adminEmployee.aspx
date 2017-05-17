@@ -4,8 +4,10 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <form runat="server">
 
-        <div class="unit-container">
-           
+        <div class="sektions-huvud">
+        <h3>Hantera användare</h3>
+         </div>
+        <div class="unit-container">           
         <div class="sektion"> 
             <h3>Hanterings alternativ</h3>
             <p class="mellan-rubrik">Vad vill du göra?</p>
@@ -207,6 +209,25 @@ h3 {
     flex-direction:row;
     margin-top:10px;
 }
+
+
+.sektions-huvud {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 41px;
+    padding: 0px 22px;
+    background-color: #f6f6f6;
+    border: 2px solid #fafafa;
+}
+
+.sektions-huvud h3 {
+    line-height: 37px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    margin: 0px;
+    text-align: center;
+            }
 
         </style>
 </form>

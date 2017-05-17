@@ -14,14 +14,14 @@
 
         <style>
             
-.val-div {
-    margin-top:50px;
+.val-div {    
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
     width: 95%;
     margin: auto;
     font-family: 'Open Sans', sans-serif;
+    margin-top:40px;
 }
 
 .val-div ul {

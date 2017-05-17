@@ -4,7 +4,9 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
       <form runat="server">
-
+        <div class="sektions-huvud">
+        <h3>Skriv journal</h3>
+        </div>
                 <div class="write-container">
         <div class="sektion">
             <h3>Välj enhet och klient</h3>

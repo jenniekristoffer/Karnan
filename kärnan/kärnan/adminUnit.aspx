@@ -4,7 +4,9 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
       <form runat ="server">
-
+        <div class="sektions-huvud">
+        <h3>Hantera enhet</h3>
+        </div>
         <div class="unit-container">
         <div class="sektion">
             <h3>Enhets överblick</h3>
@@ -131,6 +133,12 @@ h3 {
 
             .unit-buttons:hover{
                     background-color:#B38184;
+            }
+
+            .unit-buttons-label{
+                display:flex;
+                flex-direction:row;
+                justify-content:flex-end;
             }
 
 .new-name {
