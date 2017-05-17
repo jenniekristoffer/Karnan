@@ -17,7 +17,7 @@
 
         <div class="sektion">
             <div class="klient-top">
-                <h3>Uppgifter för klient</h3>
+                <h3>Uppgifter för anställd</h3>
             </div>
             <p class="mellan-rubrik">Förnamn: </p>
             <asp:TextBox ID="txbName" runat="server" CssClass="new-name" style="margin-top: 0px; margin-bottom: 0px;"></asp:TextBox>
