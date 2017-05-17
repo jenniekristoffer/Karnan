@@ -37,7 +37,7 @@
             <li class="meny"><a class="logo" href="#">kärnan</a></li>  
         </ul>
         <ul>
-            <li><a href="inloggad.aspx#">Meny</a>
+            <li><a href="inloggad.aspx#">Meny <i class="fa fa-angle-down"></i></a>
                 <ul>
                     <li><a href="writeJournal.aspx#">Skriv journal</a></li>
                     <li><a href="readJournal.aspx#">Läs journal</a></li>

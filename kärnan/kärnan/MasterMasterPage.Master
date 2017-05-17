@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Francois+One|Open+Sans" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <link rel="stylesheet" href="stylehead.css"/>
     <link rel="stylesheet" href="style.css"/>
@@ -34,7 +34,7 @@
             <li class="meny"><a class="logo" href="#">kärnan</a></li>
         </ul>
         <ul>
-            <li><a href="#">Meny</a>
+            <li><a href="#">Meny <i class="fa fa-angle-down"></i></a>
                 <ul>
                     <li><a href="#">Skriv journal</a></li>
                     <li><a href="#">Läs journal</a></li>
