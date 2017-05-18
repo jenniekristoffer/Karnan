@@ -76,31 +76,31 @@ namespace kärnan {
         protected global::System.Web.UI.WebControls.Button btnClearText;
         
         /// <summary>
-        /// btnAddFamily control.
+        /// btnAddClient control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAddFamily;
+        protected global::System.Web.UI.WebControls.Button btnAddClient;
         
         /// <summary>
-        /// btnUpdateFamily control.
+        /// btnUpdateClient control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnUpdateFamily;
+        protected global::System.Web.UI.WebControls.Button btnUpdateClient;
         
         /// <summary>
-        /// btnRemove control.
+        /// btnRemoveClient control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnRemove;
+        protected global::System.Web.UI.WebControls.Button btnRemoveClient;
         
         /// <summary>
         /// lblmeddelande control.

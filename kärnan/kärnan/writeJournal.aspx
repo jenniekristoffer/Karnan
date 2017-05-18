@@ -2,6 +2,12 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
+<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.10.0.min.js" type="text/javascript"></script>
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.9.2/jquery-ui.min.js" type="text/javascript"></script>
+<link href="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.9.2/themes/blitzer/jquery-ui.css"
+    rel="Stylesheet" type="text/css" />
+
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
@@ -35,6 +41,7 @@
             <p class="mellan-rubrik">Beskrivning:</p>
             <div class="beskrivning">
                 <textarea cols ="45" rows ="2" runat ="server" id="txbincident" name="inci" class="txb-beskrivning"></textarea>
+                <%--<asp:HiddenField ID="hfCustomerId" runat="server" />--%>
                 <input type="text" class="datepick" name="datepicker" id="datepicker" placeholder="Datum: " style="margin-top: 0px; margin-bottom: 0px;"/>
             </div>
             <div class="lista">
@@ -47,7 +54,7 @@
             <asp:Label ID="lblInitials" runat="server" Text=""></asp:Label>
 
             <asp:Label ID="lblMeddelande" runat="server" Text=""></asp:Label>
-            <asp:Label ID="lblClient" runat="server" Text=""></asp:Label>
+            <asp:Label ID="lblClient" ForeColor="Red" runat="server" Text=""></asp:Label>
             <asp:Label ID="lblBeskrivning" ForeColor ="Red" runat="server" Text=""></asp:Label>
             <asp:Label ID="lblJournal" ForeColor="Red" runat="server" Text=""></asp:Label>
             <p id ="date"></p>
@@ -64,6 +71,47 @@
     d = n.getDate();
     document.getElementById('datepicker').value = "0" + m + "/" + d + "/" + y;
 </script>
+
+
+<%--    <script type="text/javascript">
+    $(function () {
+        $("[id$=txtSearch]").autocomplete({
+            source: function (request, response) {
+                $.ajax({
+                    url: '<%=ResolveUrl("~/Default.aspx/GetCustomers") %>',
+                    data: "{ 'prefix': '" + request.term + "'}",
+                    dataType: "json",
+                    type: "POST",
+                    contentType: "application/json; charset=utf-8",
+                    success: function (data) {
+                        response($.map(data.d, function (item) {
+                            return {
+                                label: item.split('-')[0],
+                                val: item.split('-')[1]
+                            }
+                        }))
+                    },
+                    error: function (response) {
+                        alert(response.responseText);
+                    },
+                    failure: function (response) {
+                        alert(response.responseText);
+                    }
+                });
+            },
+            select: function (e, i) {
+                $("[id$=hfCustomerId]").val(i.item.val);
+            },
+            minLength: 1
+        });
+    });  --%>
+<%--</script>--%>
+
+
+
+
+
+
 
 
 <style type="text/css">

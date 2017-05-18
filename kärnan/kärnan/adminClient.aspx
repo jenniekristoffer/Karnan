@@ -40,11 +40,16 @@
 
                 <div class="unit-buttons-div">
                     <asp:Button ID="btnClearText" CssClass="unit-buttons" runat="server" OnClick="btnClearText_Click" Text="Töm fält" />
-                    <asp:Button ID="btnAddFamily" OnClick="btnAddFamily_Click" runat="server" CssClass="unit-buttons" Text="Lägg till klient" />
-                    <asp:Button ID="btnUpdateFamily" CssClass="unit-buttons" OnClick="btnUpdateFamily_Click" runat="server" Text="Spara ändringar" />
-                    <asp:Button ID="btnRemove" CssClass="unit-buttons" runat="server" OnClick="btnRemove_Click" Text="Radera klient" />
+                   <asp:Button ID="btnAddClient" OnClick="btnAddClient_Click" runat="server" CssClass="unit-buttons" Text="Lägg till klient" />
+                    <asp:Button ID="btnUpdateClient" OnClick="btnUpdateClient_Click" CssClass="unit-buttons" runat="server" Text="Uppdatera klient" />
+                    <asp:Button ID="btnRemoveClient" OnClick="btnRemoveClient_Click" CssClass="unit-buttons" runat="server" Text="Radera klient" />
+                    <%--<asp:Button ID="btnUpdateFamily" CssClass="unit-buttons" OnClick="btnUpdateFamily_Click" runat="server" Text="Spara ändringar" />--%>
+                    <%--<asp:Button ID="btnRemove" CssClass="unit-buttons" runat="server" OnClick="btnRemove_Click" Text="Radera klient" />--%>
 
                 </div>
+                   
+                 <%--<asp:Button ID="btnAddFamily" OnClick="btnAddFamily_Click" runat="server" CssClass="unit-buttons" Text="Lägg till klient" />--%>
+
              <asp:Label ID="lblmeddelande" ForeColor="Red" runat="server" Text=""></asp:Label>
              <asp:Label ID="lblcorrekt" runat="server" Text=""></asp:Label>
             </div>

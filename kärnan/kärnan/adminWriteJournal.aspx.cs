@@ -124,6 +124,7 @@ namespace kärnan
                 //Visar tomma felmeddelanden
                 lblBeskrivning.Text = "";
                 lblJournal.Text = "";
+                lblClient.Text = "";
 
                 //Deklarerar info från textboxrarna
                 jc.incident = txbincident.InnerText;
