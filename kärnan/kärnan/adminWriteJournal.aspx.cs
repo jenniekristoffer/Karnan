@@ -93,7 +93,7 @@ namespace kärnan
             if (dialogResult == DialogResult.Yes)
             {
                 saveJournals();
-            }
+        }
             else if (dialogResult == DialogResult.No)
             {
 
@@ -106,7 +106,7 @@ namespace kärnan
 
             if (lblKlient.Text == string.Empty && lblEnhet.Text == string.Empty)
             {
-                lblMeddelande.Text = "Du måste först välja enhet och klient";
+                lblClient.Text = "Du måste först välja enhet och klient";
             }
 
             if (txbincident.InnerText == string.Empty)
@@ -119,7 +119,7 @@ namespace kärnan
                 lblJournal.Text = "Du måste skriva något i journalanteckningen";
             }
 
-            else
+            if (lblKlient.Text != string.Empty && lblEnhet.Text != string.Empty && txbincident.InnerText != string.Empty && txbJournal.InnerText != string.Empty)
             {
                 //Visar tomma felmeddelanden
                 lblBeskrivning.Text = "";

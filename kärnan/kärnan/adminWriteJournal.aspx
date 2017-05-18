@@ -45,7 +45,7 @@
             <asp:Label ID="lblInitials" runat="server" Text=""></asp:Label>
 
             <asp:Label ID="lblMeddelande" runat="server" Text=""></asp:Label>
-
+            <asp:Label ID="lblClient" ForeColor="Red" runat="server" Text=""></asp:Label>
             <asp:Label ID="lblBeskrivning" ForeColor ="Red" runat="server" Text=""></asp:Label>
             <asp:Label ID="lblJournal" ForeColor="Red" runat="server" Text=""></asp:Label>
             <p id ="date"></p>
