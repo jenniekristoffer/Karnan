@@ -187,7 +187,7 @@ namespace kärnan
             lsbClient.DataSource = aktuellfamily;
             lsbClient.DataTextField = "name" + "surname" + "birth" + "unitname";
             lsbClient.DataValueField = "familyid";
-            lsbClient.Items.Add("nameSurnameBirthUnitname");
+            //lsbClient.Items.Add("nameSurnameBirthUnitname");
             lsbClient.DataBind();
 
             //Visa namnen på enhet i dropdownlist

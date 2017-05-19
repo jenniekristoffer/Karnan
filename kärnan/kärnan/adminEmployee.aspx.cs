@@ -203,14 +203,26 @@ namespace kärnan
         //Metod: Fyll listbox
         public void fill()
         {
+            string admin = Convert.ToString(employ.admin);
+            string ad = admin = "Admin";
+            if (employ.admin == true )
+            {
+                ad.ToString();
+            }
+
+            else
+            {
+                
+            }
+
             Employee e = new Employee();
             List<Employee> aktuellEmployee = e.showEmployee();
 
             //Visa namn på familj i listbox         
             lsbEmployee.DataSource = aktuellEmployee;
-            lsbEmployee.DataTextField = "name" + "surname" + "initials" + "admin";
+            lsbEmployee.DataTextField = "name" + "surname" + "initials" + ad.ToString();
             lsbEmployee.DataValueField = "employeeid";
-            lsbEmployee.Items.Add("nameSurnameInitialsAdmin");
+            //lsbEmployee.Items.Add("nameSurnameInitialsAdmin");
             lsbEmployee.DataBind();
         }
 
