@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <form runat="server">
+<%--    <form runat="server">--%>
 
         <div class="val-div">
         <ul>
@@ -76,5 +76,5 @@ hr.vertical {
            });
        </script>
 
-        </form>
+<%--        </form>--%>
 </asp:Content>

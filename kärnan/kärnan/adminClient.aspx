@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-        <form runat="server"> 
+<%--        <form runat="server">--%> 
         <div class="sektions-huvud">
         <h3>Hantera klient</h3>
         </div>
@@ -193,5 +193,5 @@
 
 
 
-    </form>
+<%--    </form>--%>
 </asp:Content>

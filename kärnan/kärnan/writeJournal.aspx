@@ -5,7 +5,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-        <form runat="server">
+<%--        <form runat="server">--%>
              <div class="sektions-huvud">
               <h3 style="margin:0px;">Skriv journal</h3>
             </div>
@@ -54,7 +54,7 @@
 
         </div>
     </div>
-    </form>
+<%--    </form>--%>
 
     <%-- Visa datum i datepicker --%>
 <script type="text/javascript">

@@ -24,7 +24,7 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
-
+        <form runat="server">
      <div class="layers">
         <div class="layer"></div>
         <div class="layer"></div>
@@ -34,7 +34,7 @@
 
        <nav id="navbar">
         <ul>
-            <li class="meny"><a class="logo" href="#">kärnan</a></li>  
+            <li class="meny"><a class="logo" href="inloggad.aspx#">kärnan</a></li>  
         </ul>
         <ul>
             <li><a href="inloggad.aspx#">Meny <i class="fa fa-angle-down"></i></a>
@@ -43,11 +43,34 @@
                     <li><a href="readJournal.aspx#">Läs journal</a></li>
                 </ul>
             </li>
-            <li><a href="index.aspx" onclick="document.getElementById('id01') .style.display='block'">Logga ut</a></li>
+            <li><a href="#" onclick="document.getElementById('id01') .style.display='block'">Logga ut</a></li>
         </ul>
     </nav>
-      
+
+    
+    
+        <div id="id01" class="modal">
+        <div class="modal-content animate" action="/action_page.php">
+            <div class="container">
+                <label><b>Logga ut?</b></label>
+                <asp:Button ID="btnLoggaut" runat="server" Text="Logga ut" CssClass="btn-loggain" OnClick="btnLoggaut_Click1" />
+            </div>
+            <div class="container" style="background-color:#f1f1f1">
+                <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Avbryt</button>
+                <span class="psw">Glömt ditt <a href="#">lösenord?</a></span>
+            </div>
+        </div>
+    </div>
+    
+
+
+
+
+
+
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">                  
         </asp:ContentPlaceHolder>
+
+</form>
 </body>
 </html>

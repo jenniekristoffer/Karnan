@@ -24,6 +24,8 @@
 
 </head>
 <body>
+    <form runat="server">
+
     <div class="layers">
         <div class="layer"></div>
         <div class="layer"></div>
@@ -35,11 +37,7 @@
             <li class="meny"><a class="logo" href="adminPage.aspx#">kärnan</a></li>    
         </ul>
         <ul>
-<<<<<<< HEAD
             <li><a href="adminPage.aspx#">Meny <i class="fa fa-angle-down"></i></a>
-=======
-            <li><a href="inloggad.aspx#">Meny <i class="fa fa-angle-down"></i></a>
->>>>>>> be0f90bce2efbc18fa61c7da6b1a906551e3722a
                 <ul>
                     <li><a href="adminWriteJournal.aspx#">Skriv journal</a></li>
                     <li><a href="adminReadJournal.aspx#">Läs journal</a></li>
@@ -48,11 +46,29 @@
                     <li><a href="adminEmployee.aspx#">Hantera användare</a></li>
                 </ul>
             </li>
-            <li><a href="index.aspx" onclick="document.getElementById('id01') .style.display='block'">Logga ut</a></li>
+            <li><a href="#" onclick="document.getElementById('id01') .style.display='block'">Logga ut</a></li>
         </ul>
     </nav>
+
+
+            <div id="id01" class="modal">
+        <div class="modal-content animate" action="/action_page.php">
+            <div class="container">
+                <label><b>Logga ut?</b></label>
+                <asp:Button ID="btnLoggaut" runat="server" Text="Logga ut" CssClass="btn-loggain" OnClick="btnLoggaut_Click" />
+            </div>
+            <div class="container" style="background-color:#f1f1f1">
+                <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Avbryt</button>
+                <span class="psw">Glömt ditt <a href="#">lösenord?</a></span>
+            </div>
+        </div>
+    </div>
+
+
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">   
         </asp:ContentPlaceHolder>
+
+        </form>
 </body>
 </html>
 

@@ -34,12 +34,12 @@
             <li class="meny"><a class="logo" href="#">kärnan</a></li>
         </ul>
         <ul>
-            <li><a href="#">Meny <i class="fa fa-angle-down"></i></a>
+<%--            <li><a href="#">Meny <i class="fa fa-angle-down"></i></a>
                 <ul>
                     <li><a href="#">Skriv journal</a></li>
                     <li><a href="#">Läs journal</a></li>
                 </ul>
-            </li>
+            </li>--%>
             <li><a href="#" onclick="document.getElementById('id01') .style.display='block'">Logga in</a></li>
         </ul>
     </nav>
