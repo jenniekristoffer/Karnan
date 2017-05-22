@@ -3,7 +3,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-      <form runat="server">
+<%--      <form runat="server">--%>
     <script>
                 $(function () {
                     $("#datepicker").datepicker();
@@ -76,5 +76,5 @@
             </div>          
         </div>
     </div>
- </form>
+<%-- </form>--%>
 </asp:Content>

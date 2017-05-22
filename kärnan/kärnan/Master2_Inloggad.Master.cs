@@ -14,11 +14,10 @@ namespace kärnan
 
         }
 
-        //Logga ut 
-        protected void btnLoggaUt_Click(object sender, EventArgs e)
+        protected void btnLoggaut_Click1(object sender, EventArgs e)
         {
             Session.RemoveAll();
-            Response.Redirect("startPage.aspx");
+            Response.Redirect("index.aspx");
         }
     }
 }
