@@ -37,6 +37,10 @@
             <li class="meny"><a class="logo" href="adminPage.aspx#">kärnan</a></li>    
         </ul>
         <ul>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4dec1392f95c6202b60d7d457b56a4c0b4ebdbcc
             <li><a href="adminPage.aspx#">Meny <i class="fa fa-angle-down"></i></a>
                 <ul>
                     <li><a href="adminWriteJournal.aspx#">Skriv journal</a></li>

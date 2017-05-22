@@ -119,24 +119,24 @@ namespace kärnan
         //Uppdatera client 
         protected void btnUpdateFamily_Click(object sender, EventArgs e)
         {
-            //Deklarerar info
-            family.familyid = Convert.ToInt32(lsbClient.SelectedItem.Value);
-            int familyid = Convert.ToInt32(family.familyid);
-            family.name = txbName.Text;
-            string name = family.name;
-            family.surname = txbSurname.Text;
-            string surname = family.surname;
-            family.birth = txbBirth.Text;
-            string birth = family.birth;
-            family.unitname = drpUnit.SelectedItem.Value;
-            string unitname = family.unitname;
+            ////Deklarerar info
+            //family.familyid = Convert.ToInt32(lsbClient.SelectedItem.Value);
+            //int familyid = Convert.ToInt32(family.familyid);
+            //family.name = txbName.Text;
+            //string name = family.name;
+            //family.surname = txbSurname.Text;
+            //string surname = family.surname;
+            //family.birth = txbBirth.Text;
+            //string birth = family.birth;
+            //family.unitname = drpUnit.SelectedItem.Value;
+            //string unitname = family.unitname;
 
-            family.updateFamily(familyid, name, surname, birth);
-            lsbClient.Items.Clear();
-            drpUnit.Items.Clear();
-            fillList();
-            clearTextbox();
-            lblcorrekt.Text = "Information om klient är uppdaterad";
+            //family.updateFamily(familyid, name, surname, birth);
+            //lsbClient.Items.Clear();
+            //drpUnit.Items.Clear();
+            //fillList();
+            //clearTextbox();
+            //lblcorrekt.Text = "Information om klient är uppdaterad";
         }
 
         //Radera client
@@ -187,7 +187,7 @@ namespace kärnan
             lsbClient.DataSource = aktuellfamily;
             lsbClient.DataTextField = "name" + "surname" + "birth" + "unitname";
             lsbClient.DataValueField = "familyid";
-            lsbClient.Items.Add("nameSurnameBirthUnitname");
+            //lsbClient.Items.Add("nameSurnameBirthUnitname");
             lsbClient.DataBind();
 
             //Visa namnen på enhet i dropdownlist
@@ -205,33 +205,33 @@ namespace kärnan
         public void alternativ()
         {
 
-            if (drpChoice.SelectedItem.Value == "-1")
-            {
-                btnAddFamily.Enabled = false;
-                btnUpdateFamily.Enabled = false;
-                btnRemove.Enabled = false;
-            }
+           // if (drpChoice.SelectedItem.Value == "-1")
+           // {
+           //     btnAddFamily.Enabled = false;
+           //     btnUpdateFamily.Enabled = false;
+           //     btnRemove.Enabled = false;
+           // }
 
-           else if (drpChoice.SelectedItem.Value == "1")
-            {
-                //btnAddFamily.Enabled = true;
-                btnUpdateFamily.Enabled = false;
-                btnRemove.Enabled = false;
-            }
+           //else if (drpChoice.SelectedItem.Value == "1")
+           // {
+           //     //btnAddFamily.Enabled = true;
+           //     btnUpdateFamily.Enabled = false;
+           //     btnRemove.Enabled = false;
+           // }
 
-            else if (drpChoice.SelectedItem.Value == "2")
-            {
-                btnAddFamily.Enabled = false;
-                btnUpdateFamily.Enabled = true;
-                btnRemove.Enabled = false;
-            }
+           // else if (drpChoice.SelectedItem.Value == "2")
+           // {
+           //     btnAddFamily.Enabled = false;
+           //     btnUpdateFamily.Enabled = true;
+           //     btnRemove.Enabled = false;
+           // }
 
-           else if (drpChoice.SelectedItem.Value == "3")
-            {
-                btnAddFamily.Enabled = false;
-                btnUpdateFamily.Enabled = false;
-                btnRemove.Enabled = true;
-            }
+           //else if (drpChoice.SelectedItem.Value == "3")
+           // {
+           //     btnAddFamily.Enabled = false;
+           //     btnUpdateFamily.Enabled = false;
+           //     btnRemove.Enabled = true;
+           // }
         }
 
         //Metod Radera textboxrar
@@ -243,5 +243,79 @@ namespace kärnan
             drpUnit.SelectedItem.Text = "-- Välj enhet --";
         }
 
+        //Lägg till klient
+        protected void btnAddClient_Click(object sender, EventArgs e)
+        {
+            if (txbName.Text == string.Empty || txbSurname.Text == string.Empty || txbBirth.Text == string.Empty || drpUnit.SelectedItem.Value == string.Empty)
+            {
+                lblmeddelande.Text = "Du måste fylla i information i textboxrarna och välja enhet";
+            }
+            else
+            {
+
+                //Deklarerar info från textboxen
+                family.name = txbName.Text;
+                string name = family.name.ToString();
+                family.surname = txbSurname.Text;
+                string surname = family.surname.ToString();
+                family.birth = txbBirth.Text;
+                string birth = family.birth.ToString();
+
+                family.unitname = drpUnit.SelectedItem.Value;
+                int unitid = Convert.ToInt32(family.unitname);
+
+                family.saveClient(name, surname, birth, unitid);
+                lsbClient.Items.Clear();
+                drpUnit.Items.Clear();
+                fillList();
+                clearTextbox();
+                lblcorrekt.Text = "Ny klient är tillagd";
+            }
+        }
+
+        //Uppdatera klient
+        protected void btnUpdateClient_Click(object sender, EventArgs e)
+        {
+            //Deklarerar info
+            family.familyid = Convert.ToInt32(lsbClient.SelectedItem.Value);
+            int familyid = Convert.ToInt32(family.familyid);
+            family.name = txbName.Text;
+            string name = family.name;
+            family.surname = txbSurname.Text;
+            string surname = family.surname;
+            family.birth = txbBirth.Text;
+            string birth = family.birth;
+            family.unitname = drpUnit.SelectedItem.Value;
+            string unitname = family.unitname;
+
+            family.updateFamily(familyid, name, surname, birth);
+            lsbClient.Items.Clear();
+            drpUnit.Items.Clear();
+            fillList();
+            clearTextbox();
+            lblcorrekt.Text = "Information om klient är uppdaterad";
+        }
+
+        //Radera klient
+        protected void btnRemoveClient_Click(object sender, EventArgs e)
+        {
+            if (lsbClient.SelectedItem == null)
+            {
+                lblmeddelande.Text = "Välj klient innan du raderar";
+            }
+            else
+            {
+                //deklarera
+                family.familyid = Convert.ToInt32(lsbClient.SelectedItem.Value);
+                int familyid = Convert.ToInt32(family.familyid);
+
+                family.removeFamily(familyid);
+                lsbClient.Items.Clear();
+                drpUnit.Items.Clear();
+                fillList();
+                clearTextbox();
+                lblcorrekt.Text = "Klient är borttagen";
+            }
+        }
     }
 }

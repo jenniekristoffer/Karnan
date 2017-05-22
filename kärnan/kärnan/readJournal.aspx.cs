@@ -108,11 +108,6 @@ namespace kärnan
                 lsbList.Items.Add("dateIncident");
                 lsbList.DataBind();
             }
-
-            //else
-            //{
-            //    lblFelmeddelande.Text = "Du måste välja enhet eller familjmedlem";
-            //}
         }
 
         //Visa info i textboxrar om journal när namnet markeras i listboxen
@@ -158,10 +153,11 @@ namespace kärnan
         //Visa journaler mellan vald datum 
         protected void btnShowSpecifik_Click(object sender, EventArgs e)
         {
-            if (Request.Form["date1"] == string.Empty || Request.Form["date2"] == string.Empty)
-            {
-                lblFelmeddelande.Text = "Du måste välja mellan vilka datum du vill läsa";
-            }
+
+            //if (Convert.ToDateTime(Request.Form["date1"]) != Convert.ToDateTime(Request.Form["date1"]) || Convert.ToDateTime(Request.Form["date2"]) != Convert.ToDateTime(Request.Form["date2"]))
+            //{ 
+            //    lblFelmeddelande.Text = "Du måste välja mellan vilka datum du vill läsa";
+            //}
             if (lblclient.Text == string.Empty && lblunit.Text == string.Empty)
             {
                 lblFelmeddelande.Text = "Du måste först välja enhet och klient";
@@ -169,12 +165,16 @@ namespace kärnan
 
             else
             {
-
-            lblFelmeddelande.Text = string.Empty;
             journal.date = Convert.ToDateTime(Request.Form["date1"]);
             DateTime date = journal.date;
-            journal.date2 = Convert.ToDateTime(Request.Form["date2"]);
+            journal.date2 = Convert.ToDateTime(Request.Form["date2"].ToString());
             DateTime date2 = journal.date2;
+
+            //lblFelmeddelande.Text = string.Empty;
+            //journal.date = Convert.ToDateTime(Request.Form["date1"]);
+            //DateTime date = journal.date;
+            //journal.date2 = Convert.ToDateTime(Request.Form["date2"]);
+            //DateTime date2 = journal.date2;
 
             ut.unitname = drpUnit.SelectedItem.Value;
             int unitid = Convert.ToInt32(ut.unitname);

@@ -49,13 +49,9 @@
         <div class="modal-content animate" action="/action_page.php">
             <div class="container">
                 <label><b>Användarnamn:</b></label>
-                <%--<input type="text" placeholder="" name="uname" required>--%>
                 <asp:TextBox ID="txbUser" runat="server"></asp:TextBox>
                 <label><b>Lösenord:</b></label>
-                <%--<input type="password" placeholder="" name="psw" required>--%>
                 <asp:TextBox ID="txbPassword" TextMode="Password" runat="server"></asp:TextBox>
-
-                <%--<button type="submit">Logga in</button>--%>
                  <asp:Button ID="btnLoggin" runat="server" Text="Logga in" CssClass="btn-loggain" OnClick="btnLoggin_Click1" />
                 <asp:Label ID="lblMessage" runat="server" Text=""></asp:Label>
             </div>
