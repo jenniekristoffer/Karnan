@@ -10,7 +10,7 @@
             <div class="sektion">
                 <h3>Hanterings alternativ</h3>
                 <p class="mellan-rubrik">Vad vill du göra?</p>
-              <asp:DropDownList ID="drpChoice" runat="server" AutoPostBack="true" CssClass="drop">
+              <asp:DropDownList ID="drpChoice" runat="server" OnSelectedIndexChanged="drpChoice_SelectedIndexChanged" AutoPostBack="true" CssClass="drop">
                 <asp:ListItem Enabled="true" Text="-- Välj alternativ --" Value="-1"></asp:ListItem>
                 <asp:ListItem Text="Lägg till" Value="1"></asp:ListItem>
                 <asp:ListItem Text="Uppdatera" Value="2"></asp:ListItem>
@@ -37,19 +37,14 @@
                      OnSelectedIndexChanged= "drpUnit_SelectedIndexChanged">
                     <asp:ListItem Value="0">-- Välj enhet --</asp:ListItem>
                 </asp:DropDownList>
-
+                    
                 <div class="unit-buttons-div">
-                    <asp:Button ID="btnClearText" CssClass="unit-buttons" runat="server" OnClick="btnClearText_Click" Text="Töm fält" />
+                <asp:Button ID="btnClearText" CssClass="unit-buttons" runat="server" OnClick="btnClearText_Click" Text="Töm fält" />
                    <asp:Button ID="btnAddClient" OnClick="btnAddClient_Click" runat="server" CssClass="unit-buttons" Text="Lägg till klient" />
                     <asp:Button ID="btnUpdateClient" OnClick="btnUpdateClient_Click" CssClass="unit-buttons" runat="server" Text="Uppdatera klient" />
                     <asp:Button ID="btnRemoveClient" OnClick="btnRemoveClient_Click" CssClass="unit-buttons" runat="server" Text="Radera klient" />
-                    <%--<asp:Button ID="btnUpdateFamily" CssClass="unit-buttons" OnClick="btnUpdateFamily_Click" runat="server" Text="Spara ändringar" />--%>
-                    <%--<asp:Button ID="btnRemove" CssClass="unit-buttons" runat="server" OnClick="btnRemove_Click" Text="Radera klient" />--%>
-
-                </div>
-                   
-                 <%--<asp:Button ID="btnAddFamily" OnClick="btnAddFamily_Click" runat="server" CssClass="unit-buttons" Text="Lägg till klient" />--%>
-
+                    </div>
+                    
              <asp:Label ID="lblmeddelande" ForeColor="Red" runat="server" Text=""></asp:Label>
              <asp:Label ID="lblcorrekt" runat="server" Text=""></asp:Label>
             </div>

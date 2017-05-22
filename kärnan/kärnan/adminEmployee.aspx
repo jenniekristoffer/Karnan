@@ -11,7 +11,12 @@
         <div class="sektion"> 
             <h3>Hanterings alternativ</h3>
             <p class="mellan-rubrik">Vad vill du göra?</p>
-            <asp:DropDownList ID="drpAlternativ" OnSelectedIndexChanged="drpAlternativ_SelectedIndexChanged" AutoPostBack="true" runat="server" CssClass="drop"></asp:DropDownList>
+                       <asp:DropDownList ID="drpChoice" runat="server" OnSelectedIndexChanged="drpChoice_SelectedIndexChanged" AutoPostBack="true" CssClass="drop">
+                <asp:ListItem Enabled="true" Text="-- Välj alternativ --" Value="-1"></asp:ListItem>
+                <asp:ListItem Text="Lägg till" Value="1"></asp:ListItem>
+                <asp:ListItem Text="Uppdatera" Value="2"></asp:ListItem>
+                <asp:ListItem Text="Radera" Value="3"></asp:ListItem>
+               </asp:DropDownList>
             <p class="mellan-rubrik">Välj den admin du vill hantera:</p> 
         <asp:ListBox ID="lsbEmployee" AutoPostBack="true" AppendDataBoundItems="true" OnSelectedIndexChanged="lsbEmployee_SelectedIndexChanged"  runat="server" CssClass="journal-list"></asp:ListBox>
            

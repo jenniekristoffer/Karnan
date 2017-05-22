@@ -21,23 +21,19 @@ namespace kärnan
         {
             if (!Page.IsPostBack)
             {
-                //Fyll dropdown 
-                choice();
-
                 //Fyll listboxen
                 fill();
+
+                btnAdd.Visible = false;
+                btnRemove.Visible = false;
+                btnUpdate.Visible = false;
+                lsbEmployee.Enabled = false;
 
                 //Håller koll på vem det är som är inloggad  
                 if (Session["employeeid"] != null)
                 {
                 }
             }
-        }
-
-        //Dropdown med alternativ 
-        protected void drpAlternativ_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
 
         //Visa info från listbox i texbox
@@ -222,17 +218,7 @@ namespace kärnan
             lsbEmployee.DataSource = aktuellEmployee;
             lsbEmployee.DataTextField = "name" + "surname" + "initials" + ad.ToString();
             lsbEmployee.DataValueField = "employeeid";
-            //lsbEmployee.Items.Add("nameSurnameInitialsAdmin");
             lsbEmployee.DataBind();
-        }
-
-        //Metod som fyller dropboxen med alternativ 
-        public void choice()
-        {
-            drpAlternativ.Items.Add("--- Välj alternativ ---");
-            drpAlternativ.Items.Add("Lägg till ny klient");
-            drpAlternativ.Items.Add("Radera befintlig klient");
-            drpAlternativ.Items.Add("Redigera befintlig klient");
         }
 
         //Metod: Radera boxarna
@@ -242,7 +228,42 @@ namespace kärnan
             txbSurname.Text = string.Empty;
             txbInitials.Text = string.Empty;
             cbxAdmin.Checked = false;
-            drpAlternativ.SelectedItem.Text = "-- Välj enhet --";
+            drpChoice.SelectedItem.Text = "-- Välj enhet --";
+        }
+
+        protected void drpChoice_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (drpChoice.SelectedItem.Value == "-1")
+            {
+                btnAdd.Visible = false;
+                btnRemove.Visible = false;
+                btnUpdate.Visible = false;
+                lsbEmployee.Enabled = false;
+            }
+
+            else if (drpChoice.SelectedItem.Value == "1")
+            {
+                btnAdd.Visible = true;
+                btnRemove.Visible = false;
+                btnUpdate.Visible = false;
+                lsbEmployee.Enabled = false;
+            }
+
+            else if (drpChoice.SelectedItem.Value == "2")
+            {
+                btnAdd.Visible = false;
+                btnRemove.Visible = false;
+                btnUpdate.Visible = true;
+                lsbEmployee.Enabled = true;
+            }
+
+            else if (drpChoice.SelectedItem.Value == "3")
+            {
+                btnAdd.Visible = false;
+                btnRemove.Visible = true;
+                btnUpdate.Visible = false;
+                lsbEmployee.Enabled = true;
+            }
         }
     }
 }
