@@ -15,16 +15,30 @@
 
         </div>
         <div class="sektion">
-            <h3>Lägg till ny enhet</h3>
+            
+            <div class="rubrik-hjalp-div">
+                 <h3>Lägg till ny enhet</h3>
+                <div class="tooltip"><i class="fa fa-question-circle" style="font-size: 23px;"></i>
+                    <span class="tooltiptext"><strong>Lägg till ny enhet:</strong><br/>Ge den nya enheten ett namn. Klicka sedan på <strong>Lägg till</strong>.</span>
+                </div>
+            </div>
+
             <div class="sektion-2-topp">
                 <p class="mellan-rubrik">Namn på ny enhet: </p>
                 <asp:TextBox ID="txbAddUnit" runat="server" CssClass="new-name" style="margin-top: 0px; margin-bottom: 0px;"></asp:TextBox>
                 <div class="unit-buttons-div">
-                    <asp:Button ID="btnAddUnit" runat="server" OnClick="btnAddUnit_Click" CssClass="unit-buttons" Text="Lägg till enhet" />                    
+                    <asp:Button ID="btnAddUnit" runat="server" OnClick="btnAddUnit_Click" CssClass="unit-buttons" Text="Lägg till" />                    
                 </div>
                 <asp:Label ID="lblUnitMessage" runat="server" Text=""></asp:Label>
             </div>                
-            <h3>Byt namn på enhet</h3>
+            
+            <div class="rubrik-hjalp-div">
+                 <h3>Byt namn på enhet</h3>
+                <div class="tooltip"><i class="fa fa-question-circle" style="font-size: 23px;"></i>
+                    <span class="tooltiptext"><strong>Byt namn på enhet:</strong><br/>Välj den enhet du vill ändra. Byt namn på enheten.<br /> Klicka sedan på <strong>Byt namn</strong>.</span>
+                </div>
+            </div>
+
             <div class="sektion-2-botten">
                 <p class="mellan-rubrik">Välj den enhet du vill ändra:</p>
                     <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True" DataTextField="unitname"
@@ -36,7 +50,7 @@
                 <p class="mellan-rubrik">Ändra namnet och klicka på spara:</p>
                  <asp:TextBox ID="txbChangeUnit" runat="server" CssClass="new-name" style="margin-top: 0px; margin-bottom: 0px;"></asp:TextBox>
                 <div class="unit-buttons-div">
-                     <asp:Button ID="btnChangeUnit" OnClick="btnChangeUnit_Click" CssClass="unit-buttons" runat="server" Text="Ändra namn på enhet" />                     
+                     <asp:Button ID="btnChangeUnit" OnClick="btnChangeUnit_Click" CssClass="unit-buttons" runat="server" Text="Byt namn" />                     
                 </div>
                 <div class="unit-buttons-div">
                     <asp:Label ID="lblCorrectMessage" runat="server" Text=""></asp:Label>
@@ -47,7 +61,12 @@
             </div>
         </div>
         <div class="sektion">
-            <h3>Tabort enheter</h3>
+            <div class="rubrik-hjalp-div">
+            <h3>Tabort enhet</h3>
+                <div class="tooltip"><i class="fa fa-question-circle" style="font-size: 23px;"></i>
+                    <span class="tooltiptext"><strong>Tabort enhet:</strong><br/>Välj den enhet du till tabort.<br />Klicka sedan på <strong>Tabort</strong>.</span>
+                </div>
+            </div>
             <p class="mellan-rubrik">Välj den enhet du vill ta bort:</p>
                   <asp:DropDownList ID="DropDownList2" runat="server" AutoPostBack="True" DataTextField="unitname"
        DataValueField="unitid" AppendDataBoundItems="true" CssClass="drop"
@@ -55,7 +74,7 @@
        <asp:ListItem Value="0">-- Välj enhet --</asp:ListItem>
        </asp:DropDownList>
             <div class="unit-buttons-label">
-                <asp:Button ID="btnRemove" runat="server" OnClick="btnRemove_Click" CssClass="unit-buttons" Text="Radera enhet" />
+                <asp:Button ID="btnRemove" runat="server" OnClick="btnRemove_Click" CssClass="unit-buttons" Text="Tabort" />
             </div>
             <asp:Label ID="lblRemoveUnit" runat="server" Text=""></asp:Label>
         </div>

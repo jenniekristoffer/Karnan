@@ -9,7 +9,12 @@
         </div>
                 <div class="write-container">
         <div class="sektion">
+            <div class="rubrik-hjalp-div">
             <h3>Välj enhet och klient</h3>
+            <div class="tooltip"><i class="fa fa-question-circle" style="font-size: 23px;"></i>
+            <span class="tooltiptext"><strong>Steg 1.   Val av klient</strong><br/>Välj först enhet, välj sedan den klient du vill hantera.</span>
+            </div>
+            </div>
             <p class="mellan-rubrik">Välj enhet:</p>
                     <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True" DataTextField="unitname"
                     DataValueField="unitid" AppendDataBoundItems="true" CssClass="drop"
@@ -24,12 +29,18 @@
                 </asp:DropDownList>
         </div>
         <div class="sektion">
+            <div class="rubrik-hjalp-div">
             <div class="sektion-top">
                 <h3>Enhet:</h3>
                 <asp:Label ID="lblEnhet" runat="server" Text="" CssClass="label"></asp:Label>
                 <h3>Klient:</h3>
                 <asp:Label ID="lblKlient" runat="server" Text="" CssClass="label"></asp:Label>             
             </div>
+            <div class="tooltip"><i class="fa fa-question-circle" style="font-size: 23px;"></i>
+            <span class="tooltiptext"><strong>Steg 2.   Skriv journal</strong><br/>Fyll i beskrivning, datum och journalanteckningen. <br />När du är färdig, klicka på <strong>Spara</strong>.</span>
+            </div>
+            </div>
+
             <p class="mellan-rubrik">Beskrivning:</p>
             <div class="beskrivning">
                 <textarea cols ="45" rows ="2" runat ="server" id="txbincident" name="inci" class="txb-beskrivning"></textarea>
@@ -52,7 +63,7 @@
 
         </div>
     </div>
-<%--    </form>--%>
+
 
     <%-- Visa datum i datepicker --%>
 <script type="text/javascript">

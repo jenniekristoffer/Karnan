@@ -8,7 +8,13 @@
         </div>
         <div class="unit-container">
             <div class="sektion">
+            <div class="rubrik-hjalp-div">
                 <h3>Hanterings alternativ</h3>
+                <div class="tooltip"><i class="fa fa-question-circle" style="font-size: 23px;"></i>
+                    <span class="tooltiptext"><strong>Steg 1.   Hanterings alternativ</strong><br/>Välj först vad du vill göra, välj sedan den klient du vill hantera.<br />Den valda klienten kommer upp till höger.</span>
+                </div>
+            </div>
+
                 <p class="mellan-rubrik">Vad vill du göra?</p>
               <asp:DropDownList ID="drpChoice" runat="server" OnSelectedIndexChanged="drpChoice_SelectedIndexChanged" AutoPostBack="true" CssClass="drop">
                 <asp:ListItem Enabled="true" Text="-- Välj alternativ --" Value="-1"></asp:ListItem>
@@ -22,9 +28,14 @@
             </div>
 
             <div class="sektion">
-                <div class="klient-top">
-                    <h3>Uppgifter för klient</h3>
+            <div class="rubrik-hjalp-div">
+                <h3>Uppgifter för klient</h3>
+                <div class="tooltip"><i class="fa fa-question-circle" style="font-size: 23px;"></i>
+                    <span class="tooltiptext"><strong>Steg 2.   Hantera uppgifter</strong><br/>Genomför de ändringarna du vill göra. Klicka sedan på relevant knapp.</span>
                 </div>
+            </div>
+
+
                 <p class="mellan-rubrik">Förnamn: </p>
                 <asp:TextBox ID="txbName" runat="server" CssClass="new-name" style="margin-top: 0px; margin-bottom: 0px;"></asp:TextBox>
                 <p class="mellan-rubrik">Efternamn: </p>
@@ -188,6 +199,11 @@
                 justify-content: flex-start;
                 flex-direction: row;
             }
+
+            /*#navbar ul li:hover .tooltip {
+            display: none;
+            }*/
+
 
         </style>
 

@@ -18,7 +18,13 @@
     </div>
     <div class="read-container">
         <div class="sektion">
-            <h3>Välj enhet och klient</h3>
+            <div class="rubrik-hjalp-div">
+                <h3>Välj enhet och klient</h3>
+                <div class="tooltip"><i class="fa fa-question-circle" style="font-size: 23px;"></i>
+                    <span class="tooltiptext"><strong>Steg 1.   Val av klient</strong><br/>Välj först enhet, välj sedan den klient du vill hantera.</span>
+                </div>
+            </div>
+
             <p class="mellan-rubrik-top">Välj enhet:</p>
                     <asp:DropDownList ID="drpUnit" runat="server" AutoPostBack="True" DataTextField="unitname"
                     DataValueField="unitid" AppendDataBoundItems="true" CssClass="drop" 
@@ -34,10 +40,16 @@
                 </asp:DropDownList>
         </div>
         <div class="sektion">
+            <div class="rubrik-hjalp-div">
             <div class="sektion-top">
                 <h3>Enhet:</h3><asp:Label ID="lblunit" runat="server" Text=""></asp:Label>
                 <h3>Klient:</h3> <asp:Label ID="lblclient" runat="server" Text=""></asp:Label>             
             </div>
+                <div class="tooltip"><i class="fa fa-question-circle" style="font-size: 23px;"></i>
+                    <span class="tooltiptext"><strong>Steg 2.   Filtrera journaler</strong><br/>För att se datumspann: Välj datum <b>Från</b> och <b>Till</b>. Klicka sedan på <b>Visa mellan datum</b>. För att se alla datum: Klicka på <b>Visa alla datum</b></span>
+                </div>
+            </div>
+
 
             <p class="mellan-rubrik-top">Välj journaler efter datum: </p>
             <div class="date">
@@ -52,7 +64,9 @@
                 <p class="mellan-rubrik">Journaler:</p>
                 <asp:ListBox ID="lsbList" AutoPostBack="true" OnSelectedIndexChanged="lsbList_SelectedIndexChanged" runat="server" CssClass="journal-list"></asp:ListBox>
             </div>
-        </div>
+            </div>
+
+
 
         <div class="sektion">
             <h3>Journal</h3>
@@ -76,5 +90,6 @@
             </div>          
         </div>
     </div>
+
 <%-- </form>--%>
 </asp:Content>
