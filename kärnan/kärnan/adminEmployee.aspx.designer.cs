@@ -13,13 +13,13 @@ namespace kärnan {
     public partial class adminEmployeee {
         
         /// <summary>
-        /// drpAlternativ control.
+        /// drpChoice control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList drpAlternativ;
+        protected global::System.Web.UI.WebControls.DropDownList drpChoice;
         
         /// <summary>
         /// lsbEmployee control.

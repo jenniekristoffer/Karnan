@@ -21,8 +21,9 @@ namespace kärnan
                 //Fyll information i listbox 
                 fillList();
 
-                ////Visa och dölj knappar beroende på alternativ i listboxen
-                alternativ();
+                btnAddClient.Visible = false;
+                btnRemoveClient.Visible = false;
+                btnUpdateClient.Visible = false;
 
                 //Håller koll på vem det är som är inloggad  
                 if (Session["employeeid"] != null)
@@ -86,97 +87,6 @@ namespace kärnan
             drpUnit.SelectedItem.Text = "-- Välj enhet --";
         }
 
-        //Lägg till client till enhet 
-        protected void btnAddFamily_Click(object sender, EventArgs e)
-        {
-            if (txbName.Text == string.Empty || txbSurname.Text == string.Empty || txbBirth.Text == string.Empty || drpUnit.SelectedItem.Value == string.Empty)
-            {
-                lblmeddelande.Text = "Du måste fylla i information i textboxrarna och välja enhet";
-            }
-            else
-            {
-
-                //Deklarerar info från textboxen
-                family.name = txbName.Text;
-                string name = family.name.ToString();
-                family.surname = txbSurname.Text;
-                string surname = family.surname.ToString();
-                family.birth = txbBirth.Text;
-                string birth = family.birth.ToString();
-
-                family.unitname = drpUnit.SelectedItem.Value;
-                int unitid = Convert.ToInt32(family.unitname);
-
-                family.saveClient(name, surname, birth, unitid);
-                lsbClient.Items.Clear();
-                drpUnit.Items.Clear();
-                fillList();
-                clearTextbox();
-                lblcorrekt.Text = "Ny klient är tillagd";
-            }
-        }
-
-        //Uppdatera client 
-        protected void btnUpdateFamily_Click(object sender, EventArgs e)
-        {
-            ////Deklarerar info
-            //family.familyid = Convert.ToInt32(lsbClient.SelectedItem.Value);
-            //int familyid = Convert.ToInt32(family.familyid);
-            //family.name = txbName.Text;
-            //string name = family.name;
-            //family.surname = txbSurname.Text;
-            //string surname = family.surname;
-            //family.birth = txbBirth.Text;
-            //string birth = family.birth;
-            //family.unitname = drpUnit.SelectedItem.Value;
-            //string unitname = family.unitname;
-
-            //family.updateFamily(familyid, name, surname, birth);
-            //lsbClient.Items.Clear();
-            //drpUnit.Items.Clear();
-            //fillList();
-            //clearTextbox();
-            //lblcorrekt.Text = "Information om klient är uppdaterad";
-        }
-
-        //Radera client
-        protected void btnRemove_Click(object sender, EventArgs e)
-        {
-            if (lsbClient.SelectedItem == null)
-            {
-                lblmeddelande.Text = "Välj klient innan du raderar";
-            }
-            else
-            {
-                //deklarera
-                family.familyid = Convert.ToInt32(lsbClient.SelectedItem.Value);
-                int familyid = Convert.ToInt32(family.familyid);
-
-                family.removeFamily(familyid);
-                lsbClient.Items.Clear();
-                drpUnit.Items.Clear();
-                fillList();
-                clearTextbox();
-                lblcorrekt.Text = "Klient är borttagen";
-            }
-        }
-
-        //Metod som fyller dropboxen med alternativ 
-        public void choice()
-        {
-            //List<ListItem> items = new List<ListItem>();
-            //items.Add(new ListItem("Lägg till", "Value 2"));
-            //items.Add(new ListItem("Radera", "Value 1"));
-            //items.Add(new ListItem("Redigera", "Value 3"));
-            //items.Sort(delegate (ListItem item1, ListItem item2) { return item1.Text.CompareTo(item2.Text); });
-            //drpChoice.Items.AddRange(items.ToArray());
-
-            //drpChoice.Items.Add("--- Välj alternativ ---");
-            //drpChoice.Items.Add("Lägg till ny klient");
-            //drpChoice.Items.Add("Radera befintlig klient");
-            //drpChoice.Items.Add("Redigera befintlig klient");
-        }
-
         //Uppdatera lista 
         public void fillList()
         {   //Visa information om klient
@@ -187,7 +97,6 @@ namespace kärnan
             lsbClient.DataSource = aktuellfamily;
             lsbClient.DataTextField = "name" + "surname" + "birth" + "unitname";
             lsbClient.DataValueField = "familyid";
-            //lsbClient.Items.Add("nameSurnameBirthUnitname");
             lsbClient.DataBind();
 
             //Visa namnen på enhet i dropdownlist
@@ -199,39 +108,6 @@ namespace kärnan
             drpUnit.DataSource = dt;
             drpUnit.DataBind();
 
-        }
-
-        //Metod för att avgöra vilket alternativ användaren väljer i droplist 
-        public void alternativ()
-        {
-
-           // if (drpChoice.SelectedItem.Value == "-1")
-           // {
-           //     btnAddFamily.Enabled = false;
-           //     btnUpdateFamily.Enabled = false;
-           //     btnRemove.Enabled = false;
-           // }
-
-           //else if (drpChoice.SelectedItem.Value == "1")
-           // {
-           //     //btnAddFamily.Enabled = true;
-           //     btnUpdateFamily.Enabled = false;
-           //     btnRemove.Enabled = false;
-           // }
-
-           // else if (drpChoice.SelectedItem.Value == "2")
-           // {
-           //     btnAddFamily.Enabled = false;
-           //     btnUpdateFamily.Enabled = true;
-           //     btnRemove.Enabled = false;
-           // }
-
-           //else if (drpChoice.SelectedItem.Value == "3")
-           // {
-           //     btnAddFamily.Enabled = false;
-           //     btnUpdateFamily.Enabled = false;
-           //     btnRemove.Enabled = true;
-           // }
         }
 
         //Metod Radera textboxrar
@@ -252,7 +128,6 @@ namespace kärnan
             }
             else
             {
-
                 //Deklarerar info från textboxen
                 family.name = txbName.Text;
                 string name = family.name.ToString();
@@ -315,6 +190,41 @@ namespace kärnan
                 fillList();
                 clearTextbox();
                 lblcorrekt.Text = "Klient är borttagen";
+            }
+        }
+
+        protected void drpChoice_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (drpChoice.SelectedItem.Value == "-1")
+            {
+                btnAddClient.Visible = false;
+                btnRemoveClient.Visible = false;
+                btnUpdateClient.Visible = false;
+                lsbClient.Enabled = false;
+            }
+
+            else if (drpChoice.SelectedItem.Value == "1")
+            {
+                btnUpdateClient.Visible = false;
+                btnRemoveClient.Visible = false;
+                btnAddClient.Visible = true;
+                lsbClient.Enabled = false;
+            }
+
+            else if (drpChoice.SelectedItem.Value == "2")
+            {
+                btnAddClient.Visible = false;
+                btnUpdateClient.Visible = true;
+                btnRemoveClient.Visible = false;
+                lsbClient.Enabled = true;
+            }
+
+            else if (drpChoice.SelectedItem.Value == "3")
+            {
+                btnAddClient.Visible = false;
+                btnUpdateClient.Visible = false;
+                btnRemoveClient.Visible = true;
+                lsbClient.Enabled = true;
             }
         }
     }
