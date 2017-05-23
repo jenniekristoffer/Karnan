@@ -35,38 +35,26 @@
             <div class="checkbox">
             <asp:CheckBox ID="cbxAdmin" Text =" Utökade admin egenskaper" runat="server" CssClass="mellan-rubrik" />
                 </div>
+            <p class="mellan-rubrik">Användarnamn: </p>
+            <asp:TextBox ID="txbAnv" ReadOnly="true" runat="server" style="margin-top: 0px; margin-bottom: 0px;" CssClass="new-name"></asp:TextBox>
+            <p class="mellan-rubrik">Lösenord: </p>
+            <asp:TextBox ID="txbPass" runat="server" style="margin-top: 0px;margin-bottom: 0px;" CssClass="new-name"></asp:TextBox>
+            <p class="mellan-rubrik">Upprepa lösenord: </p>
+            <asp:TextBox ID="txbPass2" runat="server" style="margin-top: 0px;margin-bottom: 0px;" CssClass="new-name"></asp:TextBox>
+
             <div class="unit-buttons-div">
                 <asp:Button ID="btnEmptyField" runat="server" OnClick="btnEmptyField_Click" CssClass="unit-buttons" Text="Töm fält" />
                 <asp:Button ID="btnUpdate" runat="server" OnClick="btnUpdate_Click" CssClass="unit-buttons" Text="Uppdatera anställd" />
                 <asp:Button ID="btnAdd" runat="server" OnClick="btnAdd_Click" CssClass="unit-buttons" Text="Lägg till anställd" />
                 <asp:Button ID="btnRemove" runat="server" OnClick="btnRemove_Click" CssClass="unit-buttons" Text="Radera anställd" />
+                <asp:Button ID="btnUsername" runat="server" Text="Skapa nytt loggin " CssClass="unit-buttons" OnClick="btnUsername_Click" />
+                <asp:Button ID="btnUpdateName" runat="server" CssClass="unit-buttons" Text="Ändra lösenord" OnClick="btnUpdateName_Click" />
             </div>
             <asp:Label ID="lblCorrekt" runat="server" Text=""></asp:Label>
             <asp:Label ID="lblmeddelande" ForeColor="Red" runat="server" Text=""></asp:Label>
         </div>
 
-
-        <div class="sektion">
-
-        <h3>Användarnamn och lösenord</h3>
-        <p class="mellan-rubrik">Användarnamn: </p>
-        <asp:TextBox ID="txbAnv" ReadOnly="true" runat="server" style="margin-top: 0px; margin-bottom: 0px;" CssClass="new-name"></asp:TextBox>
-
-        <p class="mellan-rubrik">Lösenord: </p>
-        <asp:TextBox ID="txbPass" runat="server" style="margin-top: 0px;margin-bottom: 0px;" CssClass="new-name"></asp:TextBox>
-        <p class="mellan-rubrik">Upprepa lösenord: </p>
-        <asp:TextBox ID="txbPass2" runat="server" style="margin-top: 0px;margin-bottom: 0px;" CssClass="new-name"></asp:TextBox>
-            <div class="unit-buttons-div">
-        <asp:Button ID="btnUsername" runat="server" Text="Skapa nytt loggin " CssClass="unit-buttons" OnClick="btnUsername_Click" />
-        <asp:Button ID="btnUpdateName" runat="server" CssClass="unit-buttons" Text="Ändra lösenord" OnClick="btnUpdateName_Click" />
-                </div>
-
-
     </div>
-
-    </div>
-
-
 
         <style>
 
