@@ -20,7 +20,13 @@
     </div>
     <div class="read-container">
         <div class="sektion">
-            <h3>Välj enhet och klient</h3>
+            <div class="rubrik-hjalp-div">
+                <h3>Välj enhet och klient</h3>
+                <div class="tooltip"><i class="fa fa-question-circle" style="font-size: 23px;"></i>
+                    <span class="tooltiptext"><strong>Steg 1.   Val av klient</strong><br/>Välj först enhet, välj sedan den klient du vill hantera.</span>
+                </div>
+            </div>
+
             <p class="mellan-rubrik-top">Välj enhet:</p>
                     <asp:DropDownList ID="drpUnit" runat="server" AutoPostBack="True" DataTextField="unitname"
                     DataValueField="unitid" AppendDataBoundItems="true" CssClass="drop" 
@@ -36,9 +42,15 @@
                 </asp:DropDownList>
         </div>
         <div class="sektion">
+            <div class="rubrik-hjalp-div">
             <div class="sektion-top">
                 <h3>Enhet:</h3><asp:Label ID="lblunit" runat="server" Text="" CssClass="label"></asp:Label>
                 <h3>Klient:</h3> <asp:Label ID="lblclient" runat="server" Text="" CssClass="label"></asp:Label>             
+            </div>                        
+                <h3>Välj enhet och klient</h3>
+                <div class="tooltip"><i class="fa fa-question-circle" style="font-size: 23px;"></i>
+                    <span class="tooltiptext"><strong>Steg 2.   Filtrera journaler</strong><br/>För att se datumspann: Välj datum <b>Från</b> och <b>Till</b>. Klicka sedan på <b>Visa mellan datum</b>. För att se alla datum: Klicka på <b>Visa alla datum</b></span>
+                </div>
             </div>
 
             <p class="mellan-rubrik-top">Välj journaler efter datum: </p>
@@ -46,7 +58,7 @@
                 <input type="text" class="datepick" id="datepicker" name="date1" placeholder="Från: " style="margin-top: 0px; margin-bottom: 0px;"/>
                 <input type="text" class="datepick" id="datepicker2" name="date2" placeholder="Till: " style="margin-top: 0px; margin-bottom: 0px;"/>
                 <asp:Button ID="btnShowSpecifik" CssClass ="alla-datum" runat="server" OnClick="btnShowSpecifik_Click" Text="Visa mellan datum" />  
-                <asp:Button ID="btnShowAll" CssClass ="alla-datum" runat="server" OnClick="btnShowAll_Click" Text="Välj alla datum" />
+                <asp:Button ID="btnShowAll" CssClass ="alla-datum" runat="server" OnClick="btnShowAll_Click" Text="Visa alla datum" />
               
             </div>
             <asp:Label ID="lblFelmeddelande" ForeColor ="Red" runat="server" Text=""></asp:Label>

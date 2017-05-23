@@ -207,6 +207,40 @@ height:39px;
         text-align: center;
     }
 
+.rubrik-hjalp-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    line-height: 35px;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 220px;
+    height: 220px;
+    background-color: #F7E4BE;
+    color: #121212;
+    text-align: left;
+    border-radius: 0px;
+    padding: 5px 5px;
+    position: absolute;
+    z-index: 1;
+    top: 60%;
+    right: 110%;
+    font-size:14px;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+
 
 
 @media screen and (max-width: 550px) {

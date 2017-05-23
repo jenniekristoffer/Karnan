@@ -17,7 +17,12 @@
             </div>
                 <div class="write-container">
         <div class="sektion">
-            <h3>Välj enhet och klient</h3>
+            <div class="rubrik-hjalp-div">
+                <h3>Välj enhet och klient</h3>
+                <div class="tooltip"><i class="fa fa-question-circle" style="font-size: 23px;"></i>
+                    <span class="tooltiptext"><strong>Steg 1.   Val av klient</strong><br/>Välj först enhet, välj sedan den klient du vill hantera.</span>
+                </div>
+            </div>
             <p class="mellan-rubrik">Välj enhet:</p>
                     <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True" DataTextField="unitname"
                     DataValueField="unitid" AppendDataBoundItems="true" CssClass="drop"
@@ -32,12 +37,18 @@
                 </asp:DropDownList>
         </div>
         <div class="sektion">
+            <div class="rubrik-hjalp-div">
             <div class="sektion-top">
                 <h3>Enhet:</h3>
                 <asp:Label ID="lblEnhet" runat="server" Text="" CssClass="label"></asp:Label>
                 <h3>Klient:</h3>
                 <asp:Label ID="lblKlient" runat="server" Text="" CssClass="label"></asp:Label>             
             </div>
+                <div class="tooltip"><i class="fa fa-question-circle" style="font-size: 23px;"></i>
+                    <span class="tooltiptext"><strong>Steg 2.   Skriv journal</strong><br/>Fyll i beskrivning, datum och journalanteckningen. <br />När du är färdig, klicka på <strong>Spara</strong>.</span>
+                </div>
+            </div>
+
             <p class="mellan-rubrik">Beskrivning:</p>
             <div class="beskrivning">
                 <textarea cols ="45" rows ="2" runat ="server" id="txbincident" name="inci" class="txb-beskrivning"></textarea>
@@ -255,6 +266,73 @@ margin-left:20px;
     margin:0px;
     text-align:center;
 }
+
+
+
+.rubrik-hjalp-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    line-height:35px;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+/*.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 240px;
+    height: 200px;
+    background-color: #F7E4BE;
+    border: 1px solid #121212;
+    color: #121212;
+    text-align: left;
+    padding: 5px 5px;
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    right: 100%;
+    margin-left: -120px;
+    font-family: Open sans, sans-serif;
+    line-height:25px;
+}
+
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent black transparent;
+}*/
+
+
+
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 220px;
+    height:220px;
+    background-color: #F7E4BE;
+    color: #121212;
+    text-align: left;
+    border-radius: 0px;
+    padding: 5px 5px;
+    position: absolute;
+    z-index: 1;
+    top: 60%;
+    right: 110%;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
 
 
 </style>

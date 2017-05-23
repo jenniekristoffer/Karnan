@@ -86,6 +86,9 @@
     <Content Include="adminReadJournal.aspx" />
     <Content Include="adminUnit.aspx" />
     <Content Include="adminWriteJournal.aspx" />
+    <Content Include="bilder\laptop.karnan.jpg" />
+    <Content Include="bilder\logo.karnan.jpg" />
+    <Content Include="bilder\mobile.karnan.jpg" />
     <Content Include="index.aspx" />
     <Content Include="inloggad.aspx" />
     <Content Include="packages.config" />
@@ -218,6 +221,7 @@
       <DependentUpon>writeJournal.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

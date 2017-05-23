@@ -70,6 +70,7 @@
 }
 
     #navbar ul li.meny {
+
     }
 
 #navbar ul a.logo {
@@ -107,9 +108,8 @@
 
 #navbar ul li:hover > ul {
     display: block;
-    background-color: rgba(250, 250, 250, 0.86);
+    background-color: rgb(250, 250, 250);
 }
-
 
 
 
@@ -298,3 +298,6 @@ span.psw {
                 border-bottom: 1px solid #73626E;
             }
 }
+
+
+
