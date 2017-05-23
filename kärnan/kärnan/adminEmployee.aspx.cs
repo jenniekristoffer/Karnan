@@ -26,7 +26,7 @@ namespace kärnan
 
                 btnAdd.Visible = false;
                 btnRemove.Visible = false;
-                btnUpdate.Visible = false;
+                //btnUpdate.Visible = false;
                 lsbEmployee.Enabled = false;
 
                 //Håller koll på vem det är som är inloggad  
@@ -42,8 +42,8 @@ namespace kärnan
             try
             {
                 sql.conn.Open();
-                string query = "SELECT employeeid, name, surname, initials, admin " +
-                           "FROM employee " +
+                string query = "SELECT employee.employeeid, name, surname, initials, admin, pass " +
+                           "FROM employee, userpass " +
                            "WHERE employee.employeeid = " + lsbEmployee.SelectedItem.Value;
 
                 NpgsqlCommand cmd = new NpgsqlCommand();
@@ -61,6 +61,8 @@ namespace kärnan
                     txbInitials.Text = dr["initials"].ToString();
                     cbxAdmin.Checked = Convert.ToBoolean(dr["admin"]);
                     txbAnv.Text = Convert.ToString(dr["employeeid"]);
+                    txbPass.Text = dr["pass"].ToString();
+                    txbPass2.Text = dr["pass"].ToString();
                 }
             }
             catch (Exception ex)
@@ -83,6 +85,8 @@ namespace kärnan
             txbSurname.Text = string.Empty;
             txbInitials.Text = string.Empty;
             cbxAdmin.Checked = false;
+            txbPass.Text = string.Empty;
+            txbPass2.Text = string.Empty;
         }
 
         //Uppdatera information om employee
@@ -104,6 +108,23 @@ namespace kärnan
             lsbEmployee.Items.Clear();
             clearTextbox();
             fill();
+
+            //if (txbPass.Text == txbPass2.Text)
+            //{
+                employ.anv = txbAnv.Text;
+                int employeeid = Convert.ToInt32(employ.employeeid);
+                employ.pass = txbPass.Text;
+                string pass = employ.pass;
+
+                employ.updatePassword(pass, employeeid);
+                lblCorrekt.Text = "Information om anställd är uppdaterad";
+            //}
+
+            //else
+            //{
+            //    lblmeddelande.Text = "Du måste skriva samma lösenord två gånger";
+            //}
+
         }
 
         //Lägg till ny employee
@@ -129,7 +150,22 @@ namespace kärnan
                 lsbEmployee.Items.Clear();
                 clearTextbox();
                 fill();
-                lblCorrekt.Text = "Ny anställd tillagd";
+                lblCorrekt.Text = "Ny användare tillagd";
+
+          }
+
+            if (txbPass.Text == txbPass2.Text)
+            {
+                employ.anv = txbAnv.Text;
+                string anv = employ.anv;
+
+                string crypt = Crypt.ComputeHash(txbPass.Text, "SHA512", null);
+                employ.saveInlogg(crypt, anv);
+            }
+
+            else if (txbPass.Text != txbPass2.Text || txbPass.Text == string.Empty || txbPass2.Text == string.Empty)
+            {
+                lblmeddelande.Text = "Du måste skriva samma lösenord två gånger";
             }
         }
 
@@ -153,47 +189,24 @@ namespace kärnan
             }
         }
 
-        //Lägg till ny inloggning för Employee
-        protected void btnUsername_Click(object sender, EventArgs e)
-        {
-            if (lsbEmployee.SelectedItem == null)
-            {
-                lblmeddelande.Text = "Välj klient innan du kan lägga till nytt lösenord";
-            }
-
-            else if (txbPass.Text == txbPass2.Text)
-            {
-                employ.employeeid = Convert.ToInt32(txbAnv.Text);
-                int employeeid = Convert.ToInt32(employ.employeeid);
-                string crypt = Crypt.ComputeHash(txbPass.Text, "SHA512", null);
-                employ.saveInlogg(crypt, employeeid);
-                lblCorrekt.Text = "Nytt lösenord tillagd";
-            }
-
-            else if (txbPass.Text != txbPass2.Text || txbPass.Text == string.Empty || txbPass2.Text == string.Empty)
-            {
-                lblmeddelande.Text = "Du måste skriva samma lösenord två gånger";
-            }
-        }
-
         //Uppdatera lösenord
         protected void btnUpdateName_Click(object sender, EventArgs e)
         {
-            if (txbPass.Text == txbPass2.Text)
-            {
-                employ.employeeid = Convert.ToInt32(txbAnv.Text);
-                int employeeid = Convert.ToInt32(employ.employeeid);
-                employ.pass = txbPass2.Text;
-                string pass = employ.pass;
+            //    if (txbPass.Text == txbPass2.Text)
+            //    {
+            //        employ.employeeid = Convert.ToInt32(txbAnv.Text);
+            //        int employeeid = Convert.ToInt32(employ.employeeid);
+            //        employ.pass = txbPass2.Text;
+            //        string pass = employ.pass;
 
-                employ.updatePassword(pass, employeeid);
-                lblCorrekt.Text = "Lösenordet är bytt";
-            }
+            //        employ.updatePassword(pass, employeeid);
+            //        lblCorrekt.Text = "Lösenordet är bytt";
+            //    }
 
-            else
-            {
-                lblmeddelande.Text = "Du måste skriva samma lösenord två gånger";
-            }
+            //    else
+            //    {
+            //        lblmeddelande.Text = "Du måste skriva samma lösenord två gånger";
+            //    }
         }
 
         //Metod: Fyll listbox
@@ -228,6 +241,9 @@ namespace kärnan
             txbSurname.Text = string.Empty;
             txbInitials.Text = string.Empty;
             cbxAdmin.Checked = false;
+            txbPass.Text = string.Empty;
+            txbPass2.Text = string.Empty;
+            txbAnv.Text = string.Empty;
             drpChoice.SelectedItem.Text = "-- Välj enhet --";
         }
 
@@ -237,7 +253,7 @@ namespace kärnan
             {
                 btnAdd.Visible = false;
                 btnRemove.Visible = false;
-                btnUpdate.Visible = false;
+                //btnUpdate.Visible = false;
                 lsbEmployee.Enabled = false;
             }
 
@@ -245,7 +261,7 @@ namespace kärnan
             {
                 btnAdd.Visible = true;
                 btnRemove.Visible = false;
-                btnUpdate.Visible = false;
+                //btnUpdate.Visible = false;
                 lsbEmployee.Enabled = false;
             }
 
@@ -253,7 +269,7 @@ namespace kärnan
             {
                 btnAdd.Visible = false;
                 btnRemove.Visible = false;
-                btnUpdate.Visible = true;
+                //btnUpdate.Visible = true;
                 lsbEmployee.Enabled = true;
             }
 
@@ -261,8 +277,45 @@ namespace kärnan
             {
                 btnAdd.Visible = false;
                 btnRemove.Visible = true;
-                btnUpdate.Visible = false;
+                //btnUpdate.Visible = false;
                 lsbEmployee.Enabled = true;
+            }
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+
+            //Deklarerar info
+            employ.employeeid = Convert.ToInt32(lsbEmployee.SelectedItem.Value);
+            int employteeid = Convert.ToInt32(employ.employeeid);
+            employ.name = txbName.Text;
+            string name = employ.name.ToString();
+            employ.surname = txbSurname.Text;
+            string surname = employ.surname.ToString();
+            employ.initials = txbInitials.Text;
+            string initials = employ.initials.ToString();
+            employ.admin = cbxAdmin.Checked;
+            bool admin = Convert.ToBoolean(employ.admin);
+
+            employ.updateEmployee(employteeid, name, surname, initials, admin);
+            lsbEmployee.Items.Clear();
+            clearTextbox();
+            fill();
+
+            if (txbPass.Text == txbPass2.Text)
+            {
+                employ.anv = txbAnv.Text;
+                int employeeid = Convert.ToInt32(employ.employeeid);
+                employ.pass = txbPass2.Text;
+                string pass = employ.pass;
+
+                employ.updatePassword(pass, employeeid);
+                lblCorrekt.Text = "Lösenordet är bytt";
+            }
+
+            else
+            {
+                lblmeddelande.Text = "Du måste skriva samma lösenord två gånger";
             }
         }
     }

@@ -94,24 +94,6 @@ namespace kärnan {
         protected global::System.Web.UI.WebControls.TextBox txbPass2;
         
         /// <summary>
-        /// btnEmptyField control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnEmptyField;
-        
-        /// <summary>
-        /// btnUpdate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnUpdate;
-        
-        /// <summary>
         /// btnAdd control.
         /// </summary>
         /// <remarks>
@@ -130,22 +112,22 @@ namespace kärnan {
         protected global::System.Web.UI.WebControls.Button btnRemove;
         
         /// <summary>
-        /// btnUsername control.
+        /// btnEmptyField control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnUsername;
+        protected global::System.Web.UI.WebControls.Button btnEmptyField;
         
         /// <summary>
-        /// btnUpdateName control.
+        /// Button1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnUpdateName;
+        protected global::System.Web.UI.WebControls.Button Button1;
         
         /// <summary>
         /// lblCorrekt control.

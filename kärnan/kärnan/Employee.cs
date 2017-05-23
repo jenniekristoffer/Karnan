@@ -147,16 +147,16 @@ namespace kärnan
         }
 
         //Spara ny inloggning
-        public void saveInlogg(string pass, int employeeid)
+        public void saveInlogg(string pass, string anv)
         {       
             try
             {
                 sql.conn.Open();
-                string query = "INSERT INTO userpass(pass, employeeid) " +
-                               "VALUES(@pass, @employeeid);";
+                string query = "INSERT INTO userpass(anv, pass) " +
+                               "VALUES(@anv, @pass);";
                 NpgsqlCommand cmd = new NpgsqlCommand(query, sql.conn);
                 cmd.Parameters.AddWithValue("pass", pass);
-                cmd.Parameters.AddWithValue("employeeid", employeeid);
+                cmd.Parameters.AddWithValue("anv", anv);
                 cmd.ExecuteNonQuery();
             }
 
@@ -179,6 +179,26 @@ namespace kärnan
 
                 NpgsqlCommand cmd = new NpgsqlCommand(query, sql.conn);
                 cmd.Parameters.AddWithValue("pass", pass);
+                cmd.Parameters.AddWithValue("employeeid", employeeid);
+                cmd.ExecuteNonQuery();
+            }
+
+            catch (NpgsqlException ex)
+            {
+                sql.ex = ex.Message;
+            }
+            sql.conn.Close();
+        }
+
+        //Visa senaste tillagda anställdas ID i textbox 
+        public void showLastEmployee(int employeeid)
+        {
+            try
+            {
+                sql.conn.Open();
+                string query = "SELECT employeeid FROM employee ORDER BY employeeid DESC LIMIT 1;";
+
+                NpgsqlCommand cmd = new NpgsqlCommand(query, sql.conn);
                 cmd.Parameters.AddWithValue("employeeid", employeeid);
                 cmd.ExecuteNonQuery();
             }
