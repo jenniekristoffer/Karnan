@@ -87,13 +87,14 @@
 #navbar ul li:hover:not(.meny) {
     border-bottom: 1px solid #73626E;
 }
-    
+
 #navbar ul ul {
     display: none;
     position: absolute;
     top: 100%;
     left: 0;
     background: none;
+    z-index: 2;
 }
 
     #navbar ul ul li {
@@ -179,9 +180,7 @@ span.psw {
         text-decoration: none;
     }
 
-
 /* The Modal (background) */
-
 .modal {
     display: none;
     /* Hidden by default */
@@ -206,7 +205,6 @@ span.psw {
     color: #22383c;
 }
 
-
 /* Modal Content/Box */
 
 .modal-content {
@@ -216,8 +214,6 @@ span.psw {
     width: 30%;
     /* Could be more or less, depending on screen size */
 }
-
-
 
 /* Add Zoom Animation */
 
@@ -246,7 +242,6 @@ span.psw {
     }
 }
 
-
 /* Change styles for span and cancel button on extra small screens */
 
 @media screen and (max-width: 300px) {
@@ -259,12 +254,6 @@ span.psw {
         width: 100%;
     }
 }
-
-
- 
-
-
-
 
 @media screen and (max-width: 400px) {
     #navbar {

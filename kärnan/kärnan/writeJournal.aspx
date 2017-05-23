@@ -323,7 +323,7 @@ margin-left:20px;
     border-radius: 0px;
     padding: 5px 5px;
     position: absolute;
-    z-index: 1;
+    /*z-index: 1;*/
     top: 60%;
     right: 110%;
 }
