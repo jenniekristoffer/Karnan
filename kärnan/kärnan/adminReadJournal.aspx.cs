@@ -87,10 +87,10 @@ namespace kärnan
         //Visa journaler mellan vald datum 
         protected void btnShowSpecifik_Click(object sender, EventArgs e)
         {
-            if (Request.Form["date1"] == string.Empty || Request.Form["date2"] == string.Empty)
-            {
-                lblFelmeddelande.Text = "Du måste välja mellan vilka datum du vill läsa";
-            }
+            //if (Request.Form["date1"] == string.Empty || Request.Form["date2"] == string.Empty)
+            //{
+            //    lblFelmeddelande.Text = "Du måste välja mellan vilka datum du vill läsa";
+            //}
             if (lblclient.Text == string.Empty && lblunit.Text == string.Empty)
             {
                 lblFelmeddelande.Text = "Du måste först välja enhet och klient";
