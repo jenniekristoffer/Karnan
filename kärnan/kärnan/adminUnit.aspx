@@ -8,18 +8,13 @@
         <h3>Hantera enhet</h3>
         </div>
         <div class="unit-container">
-        <div class="sektion">
-            <h3>Enhets överblick</h3>
-            <p class="mellan-rubrik">Samtliga enheter i verksamheten:</p>
-            <asp:ListBox ID="lsbAllUnit" runat="server" OnSelectedIndexChanged="lsbAllUnit_SelectedIndexChanged" AutoPostBack="true" CssClass="listbox"></asp:ListBox>    
 
-        </div>
         <div class="sektion">
             
             <div class="rubrik-hjalp-div">
                  <h3>Lägg till ny enhet</h3>
                 <div class="tooltip"><i class="fa fa-question-circle" style="font-size: 23px;"></i>
-                    <span class="tooltiptext"><strong>Lägg till ny enhet:</strong><br/>Ge den nya enheten ett namn. Klicka sedan på <strong>Lägg till</strong>.</span>
+                    <span class="tooltiptext"><strong>Lägg till ny enhet:</strong><br/>Ge den nya enheten ett namn. Klicka sedan på <strong>Lägg till</strong>.<br />För se ny enhet, se listan <br />till höger.</span>
                 </div>
             </div>
 
@@ -35,7 +30,7 @@
             <div class="rubrik-hjalp-div">
                  <h3>Byt namn på enhet</h3>
                 <div class="tooltip"><i class="fa fa-question-circle" style="font-size: 23px;"></i>
-                    <span class="tooltiptext"><strong>Byt namn på enhet:</strong><br/>Välj den enhet du vill ändra. Byt namn på enheten.<br /> Klicka sedan på <strong>Byt namn</strong>.</span>
+                    <span class="tooltiptext"><strong>Byt namn på enhet:</strong><br/>Välj den enhet du vill ändra. <br />Byt namn på enheten.<br /> Klicka sedan på <strong>Byt namn</strong>.<br />För nytt namn, se listan<br /> till höger.</span>
                 </div>
             </div>
 
@@ -64,7 +59,7 @@
             <div class="rubrik-hjalp-div">
             <h3>Tabort enhet</h3>
                 <div class="tooltip"><i class="fa fa-question-circle" style="font-size: 23px;"></i>
-                    <span class="tooltiptext"><strong>Tabort enhet:</strong><br/>Välj den enhet du till tabort.<br />Klicka sedan på <strong>Tabort</strong>.</span>
+                    <span class="tooltiptext"><strong>Tabort enhet:</strong><br/>Välj den enhet du till tabort.<br />Klicka sedan på <strong>Tabort</strong>.<br />För kontrollera borttagning, se listan<br /> till höger.</span>
                 </div>
             </div>
             <p class="mellan-rubrik">Välj den enhet du vill ta bort:</p>
@@ -78,6 +73,19 @@
             </div>
             <asp:Label ID="lblRemoveUnit" runat="server" Text=""></asp:Label>
         </div>
+
+            <div class="sektion">
+            <div class="rubrik-hjalp-div">
+            <h3>Enheter i verksamheten</h3>
+                <div class="tooltip"><i class="fa fa-question-circle" style="font-size: 23px;"></i>
+                    <span class="tooltiptext"><strong>Enhets överblick:</strong><br/>Här kan du kontrollera att ändringar på enhet blivit korrekta.</span>
+                </div>
+            </div>
+            <p class="mellan-rubrik">Samtliga enheter i verksamheten:</p>
+            <asp:ListBox ID="lsbAllUnit" runat="server" OnSelectedIndexChanged="lsbAllUnit_SelectedIndexChanged" AutoPostBack="true" CssClass="listbox"></asp:ListBox>    
+
+        </div>
+
     </div>
      
 
@@ -180,7 +188,7 @@ h3 {
     height: 502px;
     width: 100%;
     border: 1px solid grey;
-    /*margin-top: 0px;*/
+    padding:5px;
 }
 
        </style>

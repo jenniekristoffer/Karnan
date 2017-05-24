@@ -13,15 +13,6 @@ namespace kärnan {
     public partial class adminUnitt {
         
         /// <summary>
-        /// lsbAllUnit control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox lsbAllUnit;
-        
-        /// <summary>
         /// txbAddUnit control.
         /// </summary>
         /// <remarks>
@@ -110,5 +101,14 @@ namespace kärnan {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblRemoveUnit;
+        
+        /// <summary>
+        /// lsbAllUnit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListBox lsbAllUnit;
     }
 }
