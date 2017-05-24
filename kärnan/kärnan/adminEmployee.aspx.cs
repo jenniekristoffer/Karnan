@@ -233,6 +233,7 @@ namespace kärnan
                 txbAnv.Enabled = false;
                 txbPass.Enabled = false;
                 txbPass2.Enabled = false;
+                clearTextbox();
             }
 
             else if (drpChoice.SelectedItem.Value == "1")
@@ -248,6 +249,7 @@ namespace kärnan
                 txbAnv.Enabled = false;
                 txbPass.Enabled = true;
                 txbPass2.Enabled = true;
+                clearTextbox();
             }
 
             else if (drpChoice.SelectedItem.Value == "2")
@@ -263,6 +265,7 @@ namespace kärnan
                 txbAnv.Enabled = false;
                 txbPass.Enabled = true;
                 txbPass2.Enabled = true;
+                clearTextbox();
 
             }
 
@@ -279,6 +282,7 @@ namespace kärnan
                 txbAnv.Enabled = false;
                 txbPass.Enabled = true;
                 txbPass2.Enabled = true;
+                clearTextbox();
             }
         }
 

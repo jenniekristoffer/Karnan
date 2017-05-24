@@ -19,11 +19,8 @@ namespace kärnan
         public string initials { get; set; }
         public bool admin { get; set; }
 
-        //public int userpassid { get; set; }
         public string anv { get; set; }
         public string pass { get; set; }
-        //public char PasswordChar { get; set; }
-        //public char passwordChar { get; set; }
 
         public string nameSurnameInitialsAdminemployeeid
         {

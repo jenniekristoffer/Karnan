@@ -129,12 +129,8 @@ h3 {
 .journal-list {
     height: 500px;
     width: 100%;
-<<<<<<< HEAD
     padding:5px;
-=======
-    padding: 5px;
->>>>>>> bfb7121925dc388cc4034b7433c48a78a96ac709
-}
+    }
 
 .beskrivning {
     display: flex;

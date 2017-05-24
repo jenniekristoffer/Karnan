@@ -14,7 +14,7 @@
             <hr>  
             <li><a class="val" href="adminEmployee.aspx#">Hantera användare</a></li>
         </ul>
-            <p id="message" style="display:none; color:forestgreen;">Nytt namn sparat.</p>
+<%--            <p id="message" style="display:none; color:forestgreen;">Nytt namn sparat.</p>--%>
     </div>
  
        
