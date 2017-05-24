@@ -21,26 +21,5 @@ namespace kärnan
             }
 
         }
-
-        //protected void btnSkriv_Click(object sender, EventArgs e)
-        //{
-        //        Response.Redirect("writeJournal.aspx");
-        //}
-
-        //protected void btnLäs_Click(object sender, EventArgs e)
-        //{
-        //    if (Session["employeeid"] != null)
-        //    {
-        //        Response.Redirect("readJournal.aspx");
-        //    }            
-        //}
-
-        //protected void btnHantera_Click(object sender, EventArgs e)
-        //{
-        //    if (Session["employeeid"] != null)
-        //    {
-        //       Response.Redirect("adminPage.aspx");
-        //    }            
-        //}
       }
     }

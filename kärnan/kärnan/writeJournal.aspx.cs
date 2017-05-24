@@ -24,9 +24,7 @@ namespace kärnan
         Client family = new Client();
         Employee employee = new Employee();
         Unit ut = new Unit();
-        Alltables all = new Alltables();
 
-        List<Alltables> listAll = new List<Alltables>();
         List<Journal> newjc = new List<Journal>();
         List<Client> newfam = new List<Client>();
 
