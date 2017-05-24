@@ -12,7 +12,7 @@ using System.Web.UI.WebControls;
 namespace kärnan
 {
     public partial class adminEmployeee : System.Web.UI.Page
-    {
+    {        
         Employee employ = new Employee();
         SQL sql = new SQL();
         Client family = new Client();
@@ -21,13 +21,10 @@ namespace kärnan
         {
             if (!Page.IsPostBack)
             {
+                enabled();
+
                 //Fyll listboxen
                 fill();
-
-                btnAdd.Visible = false;
-                btnRemove.Visible = false;
-                //btnUpdate.Visible = false;
-                lsbEmployee.Enabled = false;
 
                 //Håller koll på vem det är som är inloggad  
                 if (Session["employeeid"] != null)
@@ -43,8 +40,8 @@ namespace kärnan
             {
                 sql.conn.Open();
                 string query = "SELECT employee.employeeid, name, surname, initials, admin, pass " +
-                           "FROM employee, userpass " +
-                           "WHERE employee.employeeid = " + lsbEmployee.SelectedItem.Value;
+                               "FROM employee " +
+                               "WHERE employee.employeeid = "+ lsbEmployee.SelectedItem.Value;
 
                 NpgsqlCommand cmd = new NpgsqlCommand();
                 cmd.Parameters.AddWithValue("employeeid", lsbEmployee.SelectedItem.Value);
@@ -89,199 +86,7 @@ namespace kärnan
             txbPass2.Text = string.Empty;
         }
 
-        //Uppdatera information om employee
-        protected void btnUpdate_Click(object sender, EventArgs e)
-        {
-            //Deklarerar info
-            employ.employeeid = Convert.ToInt32(lsbEmployee.SelectedItem.Value);
-            int employteeid = Convert.ToInt32(employ.employeeid);
-            employ.name = txbName.Text;
-            string name = employ.name.ToString();
-            employ.surname = txbSurname.Text;
-            string surname = employ.surname.ToString();
-            employ.initials = txbInitials.Text;
-            string initials = employ.initials.ToString();
-            employ.admin = cbxAdmin.Checked;
-            bool admin = Convert.ToBoolean(employ.admin);
-
-            employ.updateEmployee(employteeid, name, surname, initials, admin);
-            lsbEmployee.Items.Clear();
-            clearTextbox();
-            fill();
-
-            //if (txbPass.Text == txbPass2.Text)
-            //{
-                employ.anv = txbAnv.Text;
-                int employeeid = Convert.ToInt32(employ.employeeid);
-                employ.pass = txbPass.Text;
-                string pass = employ.pass;
-
-                employ.updatePassword(pass, employeeid);
-                lblCorrekt.Text = "Information om anställd är uppdaterad";
-            //}
-
-            //else
-            //{
-            //    lblmeddelande.Text = "Du måste skriva samma lösenord två gånger";
-            //}
-
-        }
-
-        //Lägg till ny employee
-        protected void btnAdd_Click(object sender, EventArgs e)
-        {
-            if (txbName.Text == string.Empty || txbSurname.Text == string.Empty || txbInitials.Text == string.Empty)
-            {
-                lblmeddelande.Text = "Du måste fylla i information i textboxrarna";
-            }
-            else
-            {
-                //Deklarerar info från textboxen
-                employ.name = txbName.Text;
-                string name = employ.name.ToString();
-                employ.surname = txbSurname.Text;
-                string surname = employ.surname.ToString();
-                employ.initials = txbInitials.Text;
-                string initials = employ.initials.ToString();
-                employ.admin = cbxAdmin.Checked;
-                bool admin = Convert.ToBoolean(employ.admin);
-
-                employ.saveEmployee(name, surname, initials, admin);
-                lsbEmployee.Items.Clear();
-                clearTextbox();
-                fill();
-                lblCorrekt.Text = "Ny användare tillagd";
-
-          }
-
-            if (txbPass.Text == txbPass2.Text)
-            {
-                employ.anv = txbAnv.Text;
-                string anv = employ.anv;
-
-                string crypt = Crypt.ComputeHash(txbPass.Text, "SHA512", null);
-                employ.saveInlogg(crypt, anv);
-            }
-
-            else if (txbPass.Text != txbPass2.Text || txbPass.Text == string.Empty || txbPass2.Text == string.Empty)
-            {
-                lblmeddelande.Text = "Du måste skriva samma lösenord två gånger";
-            }
-        }
-
-        //Radera employee
-        protected void btnRemove_Click(object sender, EventArgs e)
-        {
-            if (lsbEmployee.SelectedItem == null)
-            {
-                lblmeddelande.Text = "Välj anställd innan du raderar";
-            }
-            else
-            {
-                employ.employeeid = Convert.ToInt32(lsbEmployee.SelectedItem.Value);
-                int employeeid = Convert.ToInt32(employ.employeeid);
-
-                employ.removeEmployee(employeeid);
-                lsbEmployee.Items.Clear();
-                clearTextbox();
-                fill();
-                lblCorrekt.Text = "Anställd är nu raderad";
-            }
-        }
-
-        //Uppdatera lösenord
-        protected void btnUpdateName_Click(object sender, EventArgs e)
-        {
-            //    if (txbPass.Text == txbPass2.Text)
-            //    {
-            //        employ.employeeid = Convert.ToInt32(txbAnv.Text);
-            //        int employeeid = Convert.ToInt32(employ.employeeid);
-            //        employ.pass = txbPass2.Text;
-            //        string pass = employ.pass;
-
-            //        employ.updatePassword(pass, employeeid);
-            //        lblCorrekt.Text = "Lösenordet är bytt";
-            //    }
-
-            //    else
-            //    {
-            //        lblmeddelande.Text = "Du måste skriva samma lösenord två gånger";
-            //    }
-        }
-
-        //Metod: Fyll listbox
-        public void fill()
-        {
-            string admin = Convert.ToString(employ.admin);
-            string ad = admin = "Admin";
-            if (employ.admin == true )
-            {
-                ad.ToString();
-            }
-
-            else
-            {
-                
-            }
-
-            Employee e = new Employee();
-            List<Employee> aktuellEmployee = e.showEmployee();
-
-            //Visa namn på familj i listbox         
-            lsbEmployee.DataSource = aktuellEmployee;
-            lsbEmployee.DataTextField = "name" + "surname" + "initials" + ad.ToString();
-            lsbEmployee.DataValueField = "employeeid";
-            lsbEmployee.DataBind();
-        }
-
-        //Metod: Radera boxarna
-        public void clearTextbox()
-        {
-            txbName.Text = string.Empty;
-            txbSurname.Text = string.Empty;
-            txbInitials.Text = string.Empty;
-            cbxAdmin.Checked = false;
-            txbPass.Text = string.Empty;
-            txbPass2.Text = string.Empty;
-            txbAnv.Text = string.Empty;
-            drpChoice.SelectedItem.Text = "-- Välj enhet --";
-        }
-
-        protected void drpChoice_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (drpChoice.SelectedItem.Value == "-1")
-            {
-                btnAdd.Visible = false;
-                btnRemove.Visible = false;
-                //btnUpdate.Visible = false;
-                lsbEmployee.Enabled = false;
-            }
-
-            else if (drpChoice.SelectedItem.Value == "1")
-            {
-                btnAdd.Visible = true;
-                btnRemove.Visible = false;
-                //btnUpdate.Visible = false;
-                lsbEmployee.Enabled = false;
-            }
-
-            else if (drpChoice.SelectedItem.Value == "2")
-            {
-                btnAdd.Visible = false;
-                btnRemove.Visible = false;
-                //btnUpdate.Visible = true;
-                lsbEmployee.Enabled = true;
-            }
-
-            else if (drpChoice.SelectedItem.Value == "3")
-            {
-                btnAdd.Visible = false;
-                btnRemove.Visible = true;
-                //btnUpdate.Visible = false;
-                lsbEmployee.Enabled = true;
-            }
-        }
-
+        //Uppdatera anställd
         protected void Button1_Click(object sender, EventArgs e)
         {
 
@@ -310,13 +115,188 @@ namespace kärnan
                 string pass = employ.pass;
 
                 employ.updatePassword(pass, employeeid);
-                lblCorrekt.Text = "Lösenordet är bytt";
+                lblCorrekt.Text = "Användare är uppdaterad";
             }
 
             else
             {
                 lblmeddelande.Text = "Du måste skriva samma lösenord två gånger";
             }
+        }
+        //Lägg till ny employee
+        protected void btnAdd_Click(object sender, EventArgs e)
+        {
+            if (txbName.Text == string.Empty || txbSurname.Text == string.Empty || txbInitials.Text == string.Empty)
+            {
+                lblmeddelande.Text = "Du måste fylla i information i textboxrarna";
+            }
+            else
+            {
+                //Deklarerar info från textboxen
+                employ.name = txbName.Text;
+                string name = employ.name.ToString();
+                employ.surname = txbSurname.Text;
+                string surname = employ.surname.ToString();
+                employ.initials = txbInitials.Text;
+                string initials = employ.initials.ToString();
+                employ.admin = cbxAdmin.Checked;
+                bool admin = Convert.ToBoolean(employ.admin);
+                employ.anv = txbAnv.Text;
+                string anv = employ.anv.ToString();
+
+                if (txbPass.Text == txbPass2.Text)
+              {
+                string crypt = Crypt.ComputeHash(txbPass.Text, "SHA512", null);
+                employ.saveEmployee(name, surname, initials, admin, crypt);
+                lsbEmployee.Items.Clear();
+                clearTextbox();
+                fill();
+                lblCorrekt.Text = "Ny användare tillagd";      
+            }
+
+            else if (txbPass.Text != txbPass2.Text || txbPass.Text == string.Empty || txbPass2.Text == string.Empty)
+            {
+                lblmeddelande.Text = "Du måste skriva samma lösenord två gånger";
+            }
+        }
+      }
+
+        //Radera employee
+        protected void btnRemove_Click(object sender, EventArgs e)
+        {
+            if (lsbEmployee.SelectedItem == null)
+            {
+                lblmeddelande.Text = "Välj anställd innan du raderar";
+            }
+            else
+            {
+                employ.employeeid = Convert.ToInt32(lsbEmployee.SelectedItem.Value);
+                int employeeid = Convert.ToInt32(employ.employeeid);
+
+                employ.removeEmployee(employeeid);
+                lsbEmployee.Items.Clear();
+                clearTextbox();
+                fill();
+                lblCorrekt.Text = "Anställd är nu raderad";
+            }
+        }
+
+        //Metod: Fyll listbox
+        public void fill()
+        {
+            string admin = Convert.ToString(employ.admin);
+            string ad = admin = "Admin";
+            if (employ.admin == true )
+            {
+                ad.ToString();
+            }
+
+            else
+            {
+                
+            }
+
+            Employee e = new Employee();
+            List<Employee> aktuellEmployee = e.showEmployee();
+
+            //Visa namn på familj i listbox         
+            lsbEmployee.DataSource = aktuellEmployee;
+            lsbEmployee.DataTextField = "name" + "surname" + "initials" + ad.ToString() + "employeeid";
+            lsbEmployee.DataValueField = "employeeid";
+            lsbEmployee.DataBind();
+        }
+
+        //Metod: Radera boxarna
+        public void clearTextbox()
+        {
+            txbName.Text = string.Empty;
+            txbSurname.Text = string.Empty;
+            txbInitials.Text = string.Empty;
+            cbxAdmin.Checked = false;
+            txbPass.Text = string.Empty;
+            txbPass2.Text = string.Empty;
+            txbAnv.Text = string.Empty;
+        }
+
+        protected void drpChoice_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (drpChoice.SelectedItem.Value == "-1")
+            {
+                btnAdd.Visible = false;
+                btnRemove.Visible = false;
+                Button1.Visible = false;
+                lsbEmployee.Enabled = false;
+                txbName.Enabled = false;
+                txbSurname.Enabled = false;
+                txbInitials.Enabled = false;
+                cbxAdmin.Enabled = false;
+                txbAnv.Enabled = false;
+                txbPass.Enabled = false;
+                txbPass2.Enabled = false;
+            }
+
+            else if (drpChoice.SelectedItem.Value == "1")
+            {
+                btnAdd.Visible = true;
+                btnRemove.Visible = false;
+                Button1.Visible = false;
+                lsbEmployee.Enabled = false;
+                txbName.Enabled = true;
+                txbSurname.Enabled = true;
+                txbInitials.Enabled = true;
+                cbxAdmin.Enabled = true;
+                txbAnv.Enabled = true;
+                txbPass.Enabled = true;
+                txbPass2.Enabled = true;
+            }
+
+            else if (drpChoice.SelectedItem.Value == "2")
+            {
+                btnAdd.Visible = false;
+                btnRemove.Visible = false;
+                Button1.Visible = true;
+                lsbEmployee.Enabled = true;
+                txbName.Enabled = true;
+                txbSurname.Enabled = true;
+                txbInitials.Enabled = true;
+                cbxAdmin.Enabled = true;
+                txbAnv.Enabled = true;
+                txbPass.Enabled = true;
+                txbPass2.Enabled = true;
+
+            }
+
+            else if (drpChoice.SelectedItem.Value == "3")
+            {
+                btnAdd.Visible = false;
+                btnRemove.Visible = true;
+                Button1.Visible = false;
+                lsbEmployee.Enabled = true;
+                txbName.Enabled = true;
+                txbSurname.Enabled = true;
+                txbInitials.Enabled = true;
+                cbxAdmin.Enabled = true;
+                txbAnv.Enabled = true;
+                txbPass.Enabled = true;
+                txbPass2.Enabled = true;
+            }
+        }
+
+
+
+        public void enabled()
+        {
+            btnAdd.Visible = false;
+            btnRemove.Visible = false;
+            Button1.Visible = false;
+            lsbEmployee.Enabled = false;
+            txbName.Enabled = false;
+            txbSurname.Enabled = false;
+            txbInitials.Enabled = false;
+            cbxAdmin.Enabled = false;
+            txbAnv.Enabled = false;
+            txbPass.Enabled = false;
+            txbPass2.Enabled = false;
         }
     }
 }

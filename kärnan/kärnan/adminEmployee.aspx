@@ -47,16 +47,13 @@
             <asp:CheckBox ID="cbxAdmin" Text =" Utökade admin egenskaper" runat="server" CssClass="mellan-rubrik" />
                 </div>
             <p class="mellan-rubrik">Användarnamn: </p>
-            <asp:TextBox ID="txbAnv" runat="server" style="margin-top: 0px; margin-bottom: 0px;" CssClass="new-name"></asp:TextBox>
+            <asp:TextBox ID="txbAnv" Text="Genereras automatiskt" runat="server" style="margin-top: 0px; margin-bottom: 0px;" CssClass="new-name"></asp:TextBox>
             <p class="mellan-rubrik">Lösenord: </p>
-            <%--<asp:TextBox ID="txbPass" runat="server" style="margin-top: 0px;margin-bottom: 0px;" CssClass="new-name"></asp:TextBox>--%>
                <asp:TextBox ID="txbPass" runat="server" style="margin-top: 0px;margin-bottom: 0px;" CssClass="new-name"></asp:TextBox>
             <p class="mellan-rubrik">Upprepa lösenord: </p>
-            <%--<asp:TextBox ID="txbPass2" runat="server" style="margin-top: 0px;margin-bottom: 0px;" CssClass="new-name"></asp:TextBox>--%>
                <asp:TextBox ID="txbPass2" runat="server" style="margin-top: 0px;margin-bottom: 0px;" CssClass="new-name"></asp:TextBox>
 
             <div class="unit-buttons-div">             
-                <%--<asp:Button ID="btnUpdate" runat="server" OnClick="btnUpdate_Click" CssClass="unit-buttons" Text="Uppdatera anställd" />--%>
                 <asp:Button ID="btnAdd" runat="server" OnClick="btnAdd_Click" CssClass="unit-buttons" Text="Lägg till ny anställd" />
                 <asp:Button ID="btnRemove" runat="server" OnClick="btnRemove_Click" CssClass="unit-buttons" Text="Radera anställd" />
                 <asp:Button ID="btnEmptyField" runat="server" OnClick="btnEmptyField_Click" CssClass="unit-buttons" Text="Töm fält" />
@@ -132,6 +129,7 @@ h3 {
 .journal-list {
     height: 500px;
     width: 100%;
+    padding: 5px;
 }
 
 .beskrivning {

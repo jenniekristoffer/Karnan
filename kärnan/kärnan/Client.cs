@@ -130,14 +130,14 @@ namespace kärnan
         }
 
         //Uppdatera information på familjemedlem
-        public void updateFamily(int familyid, string name, string surname, string birth)
+        public void updateFamily(int familyid, string name, string surname, string birth, int unitid)
         {
             try
             {
                 sql.conn.Open();
 
                 string query = "UPDATE family " +
-                               "SET name = @name, surname = @surname, birth = @birth " +
+                               "SET name = @name, surname = @surname, birth = @birth, unitid = @unitid " +
                                "WHERE familyid = @familyid ";
 
                 NpgsqlCommand cmd = new NpgsqlCommand(query, sql.conn);
@@ -145,6 +145,7 @@ namespace kärnan
                 cmd.Parameters.AddWithValue("name", name);
                 cmd.Parameters.AddWithValue("surname", surname);
                 cmd.Parameters.AddWithValue("birth", birth);
+                cmd.Parameters.AddWithValue("unitid", unitid);
 
                 cmd.ExecuteNonQuery();
             }

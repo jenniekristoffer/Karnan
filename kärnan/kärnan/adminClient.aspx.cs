@@ -18,12 +18,10 @@ namespace kärnan
         {
             if (!Page.IsPostBack)
             {
+                enabled();
+
                 //Fyll information i listbox 
                 fillList();
-
-                btnAddClient.Visible = false;
-                btnRemoveClient.Visible = false;
-                btnUpdateClient.Visible = false;
 
                 //Håller koll på vem det är som är inloggad  
                 if (Session["employeeid"] != null)
@@ -161,9 +159,9 @@ namespace kärnan
             family.birth = txbBirth.Text;
             string birth = family.birth;
             family.unitname = drpUnit.SelectedItem.Value;
-            string unitname = family.unitname;
+            int unitname = Convert.ToInt32(family.unitname);
 
-            family.updateFamily(familyid, name, surname, birth);
+            family.updateFamily(familyid, name, surname, birth, unitname);
             lsbClient.Items.Clear();
             drpUnit.Items.Clear();
             fillList();
@@ -201,6 +199,11 @@ namespace kärnan
                 btnRemoveClient.Visible = false;
                 btnUpdateClient.Visible = false;
                 lsbClient.Enabled = false;
+                txbName.Enabled = false;
+                txbSurname.Enabled = false;
+                txbBirth.Enabled = false;
+                drpUnit.Enabled = false;
+                lsbClient.Enabled = false;
             }
 
             else if (drpChoice.SelectedItem.Value == "1")
@@ -208,6 +211,11 @@ namespace kärnan
                 btnUpdateClient.Visible = false;
                 btnRemoveClient.Visible = false;
                 btnAddClient.Visible = true;
+                lsbClient.Enabled = false;
+                txbName.Enabled = true;
+                txbSurname.Enabled = true;
+                txbBirth.Enabled = true;
+                drpUnit.Enabled = true;
                 lsbClient.Enabled = false;
             }
 
@@ -217,6 +225,11 @@ namespace kärnan
                 btnUpdateClient.Visible = true;
                 btnRemoveClient.Visible = false;
                 lsbClient.Enabled = true;
+                txbName.Enabled = true;
+                txbSurname.Enabled = true;
+                txbBirth.Enabled = true;
+                drpUnit.Enabled = true;
+                lsbClient.Enabled = true;
             }
 
             else if (drpChoice.SelectedItem.Value == "3")
@@ -225,7 +238,24 @@ namespace kärnan
                 btnUpdateClient.Visible = false;
                 btnRemoveClient.Visible = true;
                 lsbClient.Enabled = true;
+                txbName.Enabled = true;
+                txbSurname.Enabled = true;
+                txbBirth.Enabled = true;
+                drpUnit.Enabled = true;
+                lsbClient.Enabled = true;
             }
+        }
+
+        public void enabled()
+        {
+            btnAddClient.Visible = false;
+            btnRemoveClient.Visible = false;
+            btnUpdateClient.Visible = false;
+            txbName.Enabled = false;
+            txbSurname.Enabled = false;
+            txbBirth.Enabled = false;
+            drpUnit.Enabled = false;
+            lsbClient.Enabled = false;
         }
     }
 }
