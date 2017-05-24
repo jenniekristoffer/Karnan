@@ -206,6 +206,7 @@ namespace kärnan
             lsbEmployee.DataBind();
         }
 
+
         //Metod: Radera boxarna
         public void clearTextbox()
         {

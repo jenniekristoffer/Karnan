@@ -24,7 +24,7 @@
                 <asp:ListItem Text="Radera" Value="3"></asp:ListItem>
                </asp:DropDownList>
             <p class="mellan-rubrik">Välj den användare som du vill hantera:</p> 
-        <asp:ListBox ID="lsbEmployee" AutoPostBack="true" AppendDataBoundItems="true" OnSelectedIndexChanged="lsbEmployee_SelectedIndexChanged"  runat="server" CssClass="journal-list"></asp:ListBox>
+        <asp:ListBox ID="lsbEmployee" AutoPostBack="true" AppendDataBoundItems="true" OnSelectedIndexChanged="lsbEmployee_SelectedIndexChanged" runat="server" CssClass="journal-list"></asp:ListBox>
            
         </div>
 
@@ -53,10 +53,10 @@
             <p class="mellan-rubrik">Upprepa lösenord: </p>
                <asp:TextBox ID="txbPass2" runat="server" style="margin-top: 0px;margin-bottom: 0px;" CssClass="new-name"></asp:TextBox>
 
-            <div class="unit-buttons-div">             
+            <div class="unit-buttons-div">
+                <asp:Button ID="btnEmptyField" runat="server" OnClick="btnEmptyField_Click" CssClass="unit-buttons" Text="Töm fält" />
                 <asp:Button ID="btnAdd" runat="server" OnClick="btnAdd_Click" CssClass="unit-buttons" Text="Lägg till ny anställd" />
                 <asp:Button ID="btnRemove" runat="server" OnClick="btnRemove_Click" CssClass="unit-buttons" Text="Radera anställd" />
-                <asp:Button ID="btnEmptyField" runat="server" OnClick="btnEmptyField_Click" CssClass="unit-buttons" Text="Töm fält" />
                 <asp:Button ID="Button1" runat="server" Text="Uppdatera anställd" OnClick="Button1_Click" CssClass="unit-buttons" />
             </div>
             <asp:Label ID="lblCorrekt" runat="server" Text=""></asp:Label>
@@ -129,11 +129,8 @@ h3 {
 .journal-list {
     height: 500px;
     width: 100%;
-<<<<<<< HEAD
     padding:5px;
-=======
-    padding: 5px;
->>>>>>> bfb7121925dc388cc4034b7433c48a78a96ac709
+    line-height:2.5;
 }
 
 .beskrivning {

@@ -68,8 +68,9 @@
             <asp:Label ID="lblClient" ForeColor="Red" runat="server" Text=""></asp:Label>
             <asp:Label ID="lblBeskrivning" ForeColor ="Red" runat="server" Text=""></asp:Label>
             <asp:Label ID="lblJournal" ForeColor="Red" runat="server" Text=""></asp:Label>
-            <p id ="date"></p>
+<%--            <p id ="date"></p>--%>
 
+            <div id="tmp" runat="server"></div> 
         </div>
     </div>
 <%--    </form>--%>

@@ -13,7 +13,7 @@ using System.Windows.Forms;
 using System.Web.Services;
 using System.Configuration;
 using System.Data.SqlClient;
-
+using System.Web.UI.HtmlControls;
 
 namespace kärnan
 {
@@ -165,6 +165,15 @@ namespace kärnan
                 txbincident.InnerText = string.Empty;
                 txbJournal.InnerText = string.Empty;
                 lblMeddelande.Text = "Journalen är sparad";
+
+
+                ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                HtmlGenericControl sparat = new HtmlGenericControl("p");
+                sparat.Attributes.Add("id", "saveSeason");
+                sparat.InnerHtml = "Ändringar sparade";
+                tmp.Controls.Add(sparat);
+
+
             }
         }
 
