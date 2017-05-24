@@ -126,6 +126,7 @@
                 height: 500px;
                 width: 100%;
                 margin: 0;
+                padding:5px;
             }
 
             .beskrivning {

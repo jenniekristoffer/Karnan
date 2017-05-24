@@ -44,7 +44,7 @@
             <p class="mellan-rubrik">Initialer: </p>
             <asp:TextBox ID="txbInitials" runat="server" CssClass="new-name" style="margin-top: 0px; margin-bottom: 0px;"></asp:TextBox>
             <div class="checkbox">
-            <asp:CheckBox ID="cbxAdmin" Text =" Utökade admin egenskaper" runat="server" CssClass="mellan-rubrik" />
+            <asp:CheckBox ID="cbxAdmin" Text =" Admin" runat="server" CssClass="mellan-rubrik" />
                 </div>
             <p class="mellan-rubrik">Användarnamn: </p>
             <asp:TextBox ID="txbAnv" ReadOnly="true" runat="server" style="margin-top: 0px; margin-bottom: 0px;" CssClass="new-name"></asp:TextBox>
@@ -131,6 +131,7 @@ h3 {
 .journal-list {
     height: 500px;
     width: 100%;
+    padding:5px;
 }
 
 .beskrivning {
