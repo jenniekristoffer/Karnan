@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Principal;
 using System.Web;
+using System.Web.UI.WebControls;
 
 namespace kärnan
 {
@@ -18,32 +19,35 @@ namespace kärnan
         public string initials { get; set; }
         public bool admin { get; set; }
 
-        public int userpassid { get; set; }
+        //public int userpassid { get; set; }
         public string anv { get; set; }
         public string pass { get; set; }
+        //public char PasswordChar { get; set; }
+        //public char passwordChar { get; set; }
 
-        public string nameSurnameInitialsAdmin
+        public string nameSurnameInitialsAdminemployeeid
         {
             get
             {
-                return name + " " + surname + "( " + initials + ") :" + admin;
+                return name + " " + surname + "( " + initials + ") :" + admin + " " + "Användarnamn: " + employeeid;
             }
         }
 
         //Spara ny anställd 
-        public void saveEmployee(string name, string surname, string initials, bool admin)
+        public void saveEmployee(string name, string surname, string initials, bool admin, string pass)
         {
             try
             {
                 sql.conn.Open();
-                string query = "INSERT INTO employee(name, surname, initials, admin) " +
-                               "VALUES(@name, @surname, @initials, @admin);";
+                string query = "INSERT INTO employee (name, surname, initials, admin, pass) " +
+                               "VALUES(@name, @surname, @initials, @admin, @pass); ";
 
                 NpgsqlCommand cmd = new NpgsqlCommand(query, sql.conn);
                 cmd.Parameters.AddWithValue("name", name);
                 cmd.Parameters.AddWithValue("surname", surname);
                 cmd.Parameters.AddWithValue("initials", initials);
                 cmd.Parameters.AddWithValue("admin", admin);
+                cmd.Parameters.AddWithValue("pass", pass);
                 cmd.ExecuteNonQuery();
             }
 
@@ -100,8 +104,7 @@ namespace kärnan
             try
             {
                 sql.conn.Open();
-                string query = "DELETE FROM userpass WHERE userpass.employeeid = @employeeid; " +
-                               "DELETE FROM employee WHERE employee.employeeid = @employeeid;";
+                string query ="DELETE FROM employee WHERE employee.employeeid = @employeeid;";
 
                 NpgsqlCommand cmd = new NpgsqlCommand(query, sql.conn);
                 cmd.Parameters.AddWithValue("employeeid", employeeid);
@@ -146,26 +149,26 @@ namespace kärnan
             }
         }
 
-        //Spara ny inloggning
-        public void saveInlogg(string pass, int employeeid)
-        {       
-            try
-            {
-                sql.conn.Open();
-                string query = "INSERT INTO userpass(pass, employeeid) " +
-                               "VALUES(@pass, @employeeid);";
-                NpgsqlCommand cmd = new NpgsqlCommand(query, sql.conn);
-                cmd.Parameters.AddWithValue("pass", pass);
-                cmd.Parameters.AddWithValue("employeeid", employeeid);
-                cmd.ExecuteNonQuery();
-            }
+        ////Spara ny inloggning
+        //public void saveInlogg(string pass, string anv)
+        //{       
+        //    try
+        //    {
+        //        sql.conn.Open();
+        //        string query = "INSERT INTO userpass(anv, pass) " +
+        //                       "VALUES(@anv, @pass);";
+        //        NpgsqlCommand cmd = new NpgsqlCommand(query, sql.conn);
+        //        cmd.Parameters.AddWithValue("pass", pass);
+        //        cmd.Parameters.AddWithValue("anv", anv);
+        //        cmd.ExecuteNonQuery();
+        //    }
 
-            catch (NpgsqlException ex)
-            {
-                sql.ex = ex.Message;
-            }
-            sql.conn.Close();
-        }
+        //    catch (NpgsqlException ex)
+        //    {
+        //        sql.ex = ex.Message;
+        //    }
+        //    sql.conn.Close();
+        //}
 
         //Uppdatera lösenord
         public void updatePassword(string pass, int employeeid)
@@ -190,7 +193,29 @@ namespace kärnan
             sql.conn.Close();
         }
 
-        //Kontroller om anställd är admin EJ ANVÄND
+//______________________________________________________________________________________________________________________//
+
+        //Visa senaste tillagda anställdas ID i textbox: EJ ANVÄND 
+        public void showLastEmployee(int employeeid)
+        {
+            try
+            {
+                sql.conn.Open();
+                string query = "SELECT employeeid FROM employee ORDER BY employeeid DESC LIMIT 1;";
+
+                NpgsqlCommand cmd = new NpgsqlCommand(query, sql.conn);
+                cmd.Parameters.AddWithValue("employeeid", employeeid);
+                cmd.ExecuteNonQuery();
+            }
+
+            catch (NpgsqlException ex)
+            {
+                sql.ex = ex.Message;
+            }
+            sql.conn.Close();
+        }
+
+        //Kontroller om anställd är admin: EJ ANVÄND
         public void controllEmployee(int employeeid)
         {
             try
