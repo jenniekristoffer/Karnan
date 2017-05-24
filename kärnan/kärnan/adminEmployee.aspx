@@ -130,8 +130,12 @@ h3 {
     height: 500px;
     width: 100%;
     padding:5px;
+<<<<<<< HEAD
     line-height:2.5;
 }
+=======
+    }
+>>>>>>> 11791762b7b3a9a58477bca799ac2553f2963f45
 
 .beskrivning {
     display: flex;

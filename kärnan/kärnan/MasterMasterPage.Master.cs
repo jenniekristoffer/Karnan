@@ -23,35 +23,7 @@ namespace kärnan
 
         protected void btnLoggin_Click1(object sender, EventArgs e)
         {
-            //try
-            //{
-            //sql.conn.Open();
-            //NpgsqlCommand cmd = new NpgsqlCommand("SELECT employeeid, pass FROM userpass WHERE employeeid = @employeeid", sql.conn);
-            //cmd.Parameters.AddWithValue("@employeeid", Convert.ToInt32(txbUser.Text));
-            //DataTable dt = new DataTable();
-            //NpgsqlDataAdapter da = new NpgsqlDataAdapter(cmd);
-            //da.Fill(dt);
-            //string userid = txbUser.Text;
-            //string password = txbPassword.Text;
-            //bool flag = Crypt.VerifyHash(txbPassword.Text, "SHA512", password);
-
-            //if (userid == txbUser.Text && flag == true)
-            //{
-            //    Session["employeeid"] = txbUser.Text;
-            //    sql.conn.Close();
-            //    Response.Redirect("inloggad.aspx");
-            //}
-            //else
-            //{
-            //    lblMessage.Text = "Fel användarnamn eller lösenord";
-            //}
-            //}
-
-            //catch (NpgsqlException ex)
-            //{
-            //    sql.ex = ex.Message;
-            //}
-            //sql.conn.Close();     
+           
             if (txbUser.Text == string.Empty || txbPassword.Text == string.Empty)
             {
                 lblMessage.Text = "Du måste fylla i användarnamn och lösenord";
@@ -59,7 +31,7 @@ namespace kärnan
             else
             {
                 sql.conn.Open();
-                sql.cmd = new NpgsqlCommand("SELECT userpass.employeeid, pass, admin FROM userpass, employee WHERE userpass.employeeid = '" + txbUser.Text + "' AND pass = '" + txbPassword.Text + "'", sql.conn);
+                sql.cmd = new NpgsqlCommand("SELECT employeeid, pass, admin FROM employee WHERE employeeid = '" + txbUser.Text + "' AND pass = '" + txbPassword.Text + "'", sql.conn);
                 sql.cmd.Connection = sql.conn;
                 int output = Convert.ToInt32(sql.cmd.ExecuteScalar());
                 //bool admin = emp.controllEmployee();       
@@ -86,12 +58,6 @@ namespace kärnan
                     sql.conn.Close();
                 }
             }
-
-            //if (output != 0)
-            //{
-            //    emp.controllEmployee();
-            //    Response.Redirect("adminPage.aspx");
-            //}
         }
     }
 }

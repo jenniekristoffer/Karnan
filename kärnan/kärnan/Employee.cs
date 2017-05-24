@@ -11,7 +11,6 @@ namespace kärnan
     public class Employee
     {
         SQL sql = new SQL();
-        //Crypt crypt = new Crypt();
 
         public int employeeid { get; set; }
         public string name { get; set; }
@@ -19,11 +18,8 @@ namespace kärnan
         public string initials { get; set; }
         public bool admin { get; set; }
 
-        //public int userpassid { get; set; }
         public string anv { get; set; }
         public string pass { get; set; }
-        //public char PasswordChar { get; set; }
-        //public char passwordChar { get; set; }
 
         public string nameSurnameInitialsAdminemployeeid
         {
@@ -148,27 +144,6 @@ namespace kärnan
                 sql.conn.Close();
             }
         }
-
-        ////Spara ny inloggning
-        //public void saveInlogg(string pass, string anv)
-        //{       
-        //    try
-        //    {
-        //        sql.conn.Open();
-        //        string query = "INSERT INTO userpass(anv, pass) " +
-        //                       "VALUES(@anv, @pass);";
-        //        NpgsqlCommand cmd = new NpgsqlCommand(query, sql.conn);
-        //        cmd.Parameters.AddWithValue("pass", pass);
-        //        cmd.Parameters.AddWithValue("anv", anv);
-        //        cmd.ExecuteNonQuery();
-        //    }
-
-        //    catch (NpgsqlException ex)
-        //    {
-        //        sql.ex = ex.Message;
-        //    }
-        //    sql.conn.Close();
-        //}
 
         //Uppdatera lösenord
         public void updatePassword(string pass, int employeeid)

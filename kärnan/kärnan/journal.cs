@@ -67,7 +67,8 @@ namespace kärnan
                 sql.conn.Open();
                 string query = "SELECT journalid, date, incident FROM journal " +
                                "WHERE unitid = @unitid " +
-                               "AND familyid = @familyid";
+                               "AND familyid = @familyid " +
+                               "ORDER BY date DESC;";
 
                 List<Journal> jc = new List<Journal>();
                 NpgsqlCommand cmd = new NpgsqlCommand(query, sql.conn);

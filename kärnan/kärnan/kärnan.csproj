@@ -158,7 +158,6 @@
     <Compile Include="Crypt.cs" />
     <Compile Include="Employee.cs" />
     <Compile Include="Client.cs" />
-    <Compile Include="Alltables.cs" />
     <Compile Include="index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -174,7 +173,6 @@
       <DependentUpon>inloggad.aspx</DependentUpon>
     </Compile>
     <Compile Include="Journal.cs" />
-    <Compile Include="Loggain.cs" />
     <Compile Include="Master2_Inloggad.Master.cs">
       <DependentUpon>Master2_Inloggad.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
