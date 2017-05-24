@@ -245,7 +245,7 @@ namespace kärnan
                 txbSurname.Enabled = true;
                 txbInitials.Enabled = true;
                 cbxAdmin.Enabled = true;
-                txbAnv.Enabled = true;
+                txbAnv.Enabled = false;
                 txbPass.Enabled = true;
                 txbPass2.Enabled = true;
             }
@@ -260,7 +260,7 @@ namespace kärnan
                 txbSurname.Enabled = true;
                 txbInitials.Enabled = true;
                 cbxAdmin.Enabled = true;
-                txbAnv.Enabled = true;
+                txbAnv.Enabled = false;
                 txbPass.Enabled = true;
                 txbPass2.Enabled = true;
 
@@ -276,13 +276,11 @@ namespace kärnan
                 txbSurname.Enabled = true;
                 txbInitials.Enabled = true;
                 cbxAdmin.Enabled = true;
-                txbAnv.Enabled = true;
+                txbAnv.Enabled = false;
                 txbPass.Enabled = true;
                 txbPass2.Enabled = true;
             }
         }
-
-
 
         public void enabled()
         {
