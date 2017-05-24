@@ -86,7 +86,11 @@
                 </div>
                   <p class="mellan-rubrik">Journalanteckning:</p>
                 <textarea cols ="45" rows ="10" readonly ="readonly" runat ="server" id="txbJournal" class="journal-anteckning" name ="jour"></textarea>
-                <asp:Label ID="lblInitialer" runat="server" Text=""></asp:Label>
+                
+                <div class="signatur-div">
+                    <p class="mellan-rubrik">Signatur:</p>
+                <asp:Label ID="lblInitialer" runat="server" Text="" CssClass="mellan-rubrik initials"></asp:Label>
+                    </div>
             </div>          
         </div>
     </div>

@@ -71,6 +71,8 @@ namespace kärnan
             {
                 sql.conn.Close();
             }
+
+            clean();
         }
 
         //Måste ha denna för att namn ska visas i drpClient
@@ -78,6 +80,8 @@ namespace kärnan
         {
             //Lägg till klientnamn i label
             lblclient.Text = drpClient.SelectedItem.ToString();
+            showAllJournal();
+            cleanJournal();
         }
 
         //Visa journaler mellan vald datum 
@@ -114,42 +118,15 @@ namespace kärnan
                 lsbList.DataValueField = "journalid";
                 lsbList.Items.Add("dateIncident");
                 lsbList.DataBind();
+                cleanJournal();
             }
         }
 
         //Visa ALLA datum + anteckningar i listbox
         protected void btnShowAll_Click(object sender, EventArgs e)
         {
-            if (lblclient.Text == string.Empty && lblunit.Text == string.Empty)
-            {
-                lblFelmeddelande.Text = "Du måste först välja enhet och klient";
-            }
-            else
-            {
-                //}
-                //Deklarera information från dropdowns
-                ut.unitname = drpUnit.SelectedItem.Value;
-                int unitid = Convert.ToInt32(ut.unitname);
-                family.name = drpClient.SelectedItem.Value;
-                int familyid = Convert.ToInt32(family.name);
-
-                //if (unitid.ToString() != null || familyid.ToString() != null)
-                //{
-                //Visa information (DATUM + RUBRIK) i listbox
-                Journal jc = new Journal();
-                List<Journal> journal = jc.showIncident(unitid, familyid);
-
-                lsbList.DataSource = journal;
-                lsbList.DataTextField = "date" + "incident";
-                lsbList.DataValueField = "journalid";
-                lsbList.Items.Add("dateIncident");
-                lsbList.DataBind();
-            }
-
-            //else
-            //{
-            //    lblFelmeddelande.Text = "Du måste välja enhet eller familjmedlem";
-            //}
+            showAllJournal();
+            cleanJournal();
         }
 
         //Visa info i textboxrar om journal när namnet markeras i listboxen
@@ -192,6 +169,50 @@ namespace kärnan
             }
         }
 
+        //Metod: radera information 
+        public void clean()
+        {
+            txbDate.InnerText = string.Empty;
+            txbJournal.InnerText = string.Empty;
+            txbRubrik.InnerText = string.Empty;
+            lblInitialer.Text = string.Empty;
+            lblclient.Text = string.Empty;
+            lsbList.Items.Clear();    
+        }
+        
+        public void cleanJournal()
+        {
+            txbDate.InnerText = string.Empty;
+            txbJournal.InnerText = string.Empty;
+            txbRubrik.InnerText = string.Empty;
+            lblInitialer.Text = string.Empty;
+        }
 
+
+        //Metod: Visa alla journaler 
+        public void showAllJournal()
+        {
+            if (lblclient.Text == string.Empty && lblunit.Text == string.Empty)
+            {
+                lblFelmeddelande.Text = "Du måste först välja enhet och klient";
+            }
+            else
+            {
+                //Deklarera information från dropdowns
+                ut.unitname = drpUnit.SelectedItem.Value;
+                int unitid = Convert.ToInt32(ut.unitname);
+                family.name = drpClient.SelectedItem.Value;
+                int familyid = Convert.ToInt32(family.name);
+
+                Journal jc = new Journal();
+                List<Journal> journal = jc.showIncident(unitid, familyid);
+
+                lsbList.DataSource = journal;
+                lsbList.DataTextField = "date" + "incident";
+                lsbList.DataValueField = "journalid";
+                lsbList.Items.Add("dateIncident");
+                lsbList.DataBind();
+            }
+        }
     }
 }
