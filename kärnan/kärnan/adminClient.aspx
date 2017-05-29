@@ -55,14 +55,23 @@
                     <asp:Button ID="btnUpdateClient" OnClick="btnUpdateClient_Click" CssClass="unit-buttons" runat="server" Text="Uppdatera klient" />
                     <asp:Button ID="btnRemoveClient" OnClick="btnRemoveClient_Click" CssClass="unit-buttons" runat="server" Text="Radera klient" />
                     </div>
-                    
-             <asp:Label ID="lblmeddelande" ForeColor="Red" runat="server" Text=""></asp:Label>
-             <asp:Label ID="lblcorrekt" runat="server" Text=""></asp:Label>
+                    <div class="meddelande">
+                    <asp:Label ID="lblmeddelande" ForeColor="Red" runat="server" Text=""></asp:Label>
+                    <asp:Label ID="lblcorrekt" runat="server" Text=""></asp:Label>
+                    </div>
+
             </div>
         </div>
 
 
         <style>
+
+            .meddelande{
+                margin-top:5px;
+                display:flex;
+                flex-direction:row;
+                justify-content:flex-end;
+            }
 
             .unit-container {
                 width: 100%;

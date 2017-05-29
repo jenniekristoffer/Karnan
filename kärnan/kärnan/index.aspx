@@ -6,7 +6,7 @@
         
         <div class="index-content">
         <div class="logo-img">
-            <img src="bilder/logo.karnan.jpg" />
+            <img src="bilder/logo2.karnan.png" />
         </div>
         <div class="index-rubrik">
             <h1>kärnan</h1>
@@ -29,8 +29,8 @@
         </div>
         <div class="responsiv">
 
-            <img src="bilder/laptop.karnan.jpg" />
-            <img src="bilder/mobile.karnan.jpg" />
+            <img src="bilder/laptop.karnan.png" />
+            <img src="bilder/mobile.karnan.png" />
         </div>
     </div>
 

@@ -59,13 +59,16 @@
                 <asp:Button ID="btnRemove" runat="server" OnClick="btnRemove_Click" CssClass="unit-buttons" Text="Radera anställd" />
                 <asp:Button ID="Button1" runat="server" Text="Uppdatera anställd" OnClick="Button1_Click" CssClass="unit-buttons" />
             </div>
+            <div class="meddelande">
             <asp:Label ID="lblCorrekt" runat="server" Text=""></asp:Label>
             <asp:Label ID="lblmeddelande" ForeColor="Red" runat="server" Text=""></asp:Label>
+            </div>
         </div>
 
     </div>
 
         <style>
+
 
 .unit-container {
     width: 100%;

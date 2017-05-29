@@ -12,7 +12,7 @@
             <div class="rubrik-hjalp-div">
             <h3>Välj enhet och klient</h3>
             <div class="tooltip"><i class="fa fa-question-circle" style="font-size: 23px;"></i>
-            <span class="tooltiptext"><strong>Steg 1.   Val av klient</strong><br/>Välj först enhet, välj sedan den klient du vill hantera.</span>
+            <span class="tooltiptext"><strong>Steg 1.   Val av klient</strong><br/>Välj först enhet, välj sedan den klient du vill skriva journal för.</span>
             </div>
             </div>
             <p class="mellan-rubrik">Välj enhet:</p>
@@ -50,12 +50,14 @@
                 <p class="mellan-rubrik">Journal:</p>
                 <textarea cols ="45" rows ="10" runat ="server" id="txbJournal" name ="jour" class="journal-list"></textarea>
             </div>
-            <div class="knappar-div">
+            <div class="knappar-div">                
                 <asp:Button ID="btnSpara" OnClick="btnSpara_Click" runat="server" CssClass="write-buttons" Text="Spara" />
             </div>
-            <asp:Label ID="lblInitials" runat="server" Text=""></asp:Label>
+            <div class="meddelande">
+            <asp:Label ID="lblMeddelande" runat="server" Text="" CssClass="lbl-meddelande"></asp:Label>
+            </div>
 
-            <asp:Label ID="lblMeddelande" runat="server" Text=""></asp:Label>
+            <asp:Label ID="lblInitials" runat="server" Text=""></asp:Label>            
             <asp:Label ID="lblClient" ForeColor="Red" runat="server" Text=""></asp:Label>
             <asp:Label ID="lblBeskrivning" ForeColor ="Red" runat="server" Text=""></asp:Label>
             <asp:Label ID="lblJournal" ForeColor="Red" runat="server" Text=""></asp:Label>
@@ -76,6 +78,20 @@
 
 
 <style type="text/css">
+
+.meddelande{
+    margin-top:5px;
+    display:flex;
+    flex-direction:row;
+    justify-content:flex-end;
+}
+
+.lbl-meddelande{
+    font-family:'Open Sans', sans-serif;
+    line-height:41px;
+    align-self:flex-start;
+    font-size:17px;
+}
 
 .write-container {
     display: flex;
@@ -146,6 +162,7 @@ h3 {
     width: 100%;
     height: 41px;
     margin-right: 25px;
+    padding:5px;
 }
 
 .mellan-rubrik {
@@ -172,7 +189,7 @@ textarea{
 .write-buttons {
     width:150px;
     border: none;
-    padding: 12px 0px 12px 0px;    
+    /*padding: 12px 0px 12px 0px;*/    
     margin-top:10px;
     margin-bottom:20px;
     background-color: #9b6e71;
@@ -180,6 +197,8 @@ textarea{
     font-size:14px;
     cursor:pointer;
     font-family:'Open Sans', sans-serif;
+    line-height:41px;
+    height:41px;
 }
 
 .write-buttons:hover{

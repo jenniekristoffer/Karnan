@@ -76,15 +76,6 @@ namespace kärnan {
         protected global::System.Web.UI.WebControls.Button btnSpara;
         
         /// <summary>
-        /// lblInitials control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblInitials;
-        
-        /// <summary>
         /// lblMeddelande control.
         /// </summary>
         /// <remarks>
@@ -92,6 +83,15 @@ namespace kärnan {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblMeddelande;
+        
+        /// <summary>
+        /// lblInitials control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblInitials;
         
         /// <summary>
         /// lblClient control.

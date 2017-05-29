@@ -162,12 +162,11 @@ namespace kärnan
                 //tömmer textboxrarna
                 txbincident.InnerText = string.Empty;
                 txbJournal.InnerText = string.Empty;
-                lblMeddelande.Text = "Journalen är sparad";
+                //lblMeddelande.Text = "Journalen är sparad";
 
 
                 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                 HtmlGenericControl sparat = new HtmlGenericControl("p");
-                sparat.Attributes.Add("id", "saveSeason");
                 sparat.InnerHtml = "Ändringar sparade";
                 tmp.Controls.Add(sparat);
 

@@ -87,8 +87,11 @@
     <Content Include="adminUnit.aspx" />
     <Content Include="adminWriteJournal.aspx" />
     <Content Include="bilder\laptop.karnan.jpg" />
+    <Content Include="bilder\laptop.karnan.png" />
     <Content Include="bilder\logo.karnan.jpg" />
+    <Content Include="bilder\logo2.karnan.png" />
     <Content Include="bilder\mobile.karnan.jpg" />
+    <Content Include="bilder\mobile.karnan.png" />
     <Content Include="index.aspx" />
     <Content Include="inloggad.aspx" />
     <Content Include="packages.config" />

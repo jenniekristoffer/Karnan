@@ -2,11 +2,6 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
-<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.10.0.min.js" type="text/javascript"></script>
-<script src="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.9.2/jquery-ui.min.js" type="text/javascript"></script>
-<link href="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.9.2/themes/blitzer/jquery-ui.css"
-    rel="Stylesheet" type="text/css" />
-
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -20,7 +15,7 @@
             <div class="rubrik-hjalp-div">
                 <h3>Välj enhet och klient</h3>
                 <div class="tooltip"><i class="fa fa-question-circle" style="font-size: 23px;"></i>
-                    <span class="tooltiptext"><strong>Steg 1.   Val av klient</strong><br/>Välj först enhet, välj sedan den klient du vill hantera.</span>
+                    <span class="tooltiptext"><strong>Steg 1.   Val av klient</strong><br/>Välj först enhet, välj sedan den klient du skriva journal för.</span>
                 </div>
             </div>
             <p class="mellan-rubrik">Välj enhet:</p>
@@ -64,13 +59,17 @@
             </div>
             <asp:Label ID="lblInitials" runat="server" Text=""></asp:Label>
 
-            <asp:Label ID="lblMeddelande" runat="server" Text=""></asp:Label>
+<%--            <asp:Label ID="lblMeddelande" runat="server" Text=""></asp:Label>--%>
             <asp:Label ID="lblClient" ForeColor="Red" runat="server" Text=""></asp:Label>
             <asp:Label ID="lblBeskrivning" ForeColor ="Red" runat="server" Text=""></asp:Label>
             <asp:Label ID="lblJournal" ForeColor="Red" runat="server" Text=""></asp:Label>
-<%--            <p id ="date"></p>--%>
+            <p id ="date"></p>
 
-            <div id="tmp" runat="server"></div> 
+            <div class="meddelade">
+            <div id="tmp" runat="server"></div>
+            </div>
+
+
         </div>
     </div>
 <%--    </form>--%>
@@ -85,40 +84,6 @@
 </script>
 
 
-<%--    <script type="text/javascript">
-    $(function () {
-        $("[id$=txtSearch]").autocomplete({
-            source: function (request, response) {
-                $.ajax({
-                    url: '<%=ResolveUrl("~/Default.aspx/GetCustomers") %>',
-                    data: "{ 'prefix': '" + request.term + "'}",
-                    dataType: "json",
-                    type: "POST",
-                    contentType: "application/json; charset=utf-8",
-                    success: function (data) {
-                        response($.map(data.d, function (item) {
-                            return {
-                                label: item.split('-')[0],
-                                val: item.split('-')[1]
-                            }
-                        }))
-                    },
-                    error: function (response) {
-                        alert(response.responseText);
-                    },
-                    failure: function (response) {
-                        alert(response.responseText);
-                    }
-                });
-            },
-            select: function (e, i) {
-                $("[id$=hfCustomerId]").val(i.item.val);
-            },
-            minLength: 1
-        });
-    });  --%>
-<%--</script>--%>
-
 
 
 
@@ -127,6 +92,13 @@
 
 
 <style type="text/css">
+
+.meddelande{
+    margin-top:5px;
+    display:flex;
+    flex-direction:row;
+    justify-content:flex-end;
+}
 
 .write-container {
     display: flex;
@@ -184,6 +156,7 @@ h3 {
 .journal-list {
     height: 500px;
     width: 100%;
+    padding:5px;
 }
 
 .beskrivning {
@@ -197,6 +170,7 @@ h3 {
     width: 100%;
     height: 41px;
     margin-right: 25px;
+    padding:5px;
 }
 
 .mellan-rubrik {
@@ -223,7 +197,7 @@ textarea{
 .write-buttons {
     width:150px;
     border: none;
-    padding: 12px 0px 12px 0px;    
+    /*padding: 12px 0px 12px 0px;*/    
     margin-top:10px;
     margin-bottom:20px;
     background-color: #9b6e71;
@@ -231,6 +205,8 @@ textarea{
     font-size:14px;
     cursor:pointer;
     font-family:'Open Sans', sans-serif;
+    line-height:41px;
+    height:41px;
 }
 
 .write-buttons:hover{

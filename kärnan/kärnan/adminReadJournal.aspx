@@ -21,7 +21,7 @@
             <div class="rubrik-hjalp-div">
                 <h3>Välj enhet och klient</h3>
                 <div class="tooltip"><i class="fa fa-question-circle" style="font-size: 23px;"></i>
-                    <span class="tooltiptext"><strong>Steg 1.   Val av klient</strong><br/>Välj först enhet, välj sedan den klient du vill hantera.</span>
+                    <span class="tooltiptext"><strong>Steg 1.   Val av klient</strong><br/>Välj först enhet, välj sedan den klient du vill se journaler för.</span>
                 </div>
             </div>
 

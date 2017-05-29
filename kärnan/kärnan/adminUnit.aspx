@@ -24,7 +24,9 @@
                 <div class="unit-buttons-div">
                     <asp:Button ID="btnAddUnit" runat="server" OnClick="btnAddUnit_Click" CssClass="unit-buttons" Text="Lägg till" />                    
                 </div>
+                <div class="meddelande">
                 <asp:Label ID="lblUnitMessage" runat="server" Text=""></asp:Label>
+                </div>
             </div>                
             
             <div class="rubrik-hjalp-div">
@@ -47,12 +49,11 @@
                 <div class="unit-buttons-div">
                      <asp:Button ID="btnChangeUnit" OnClick="btnChangeUnit_Click" CssClass="unit-buttons" runat="server" Text="Byt namn" />                     
                 </div>
-                <div class="unit-buttons-div">
+                <div class="meddelande">
                     <asp:Label ID="lblCorrectMessage" runat="server" Text=""></asp:Label>
-                    
-
                 </div>
-                <p id="message" style="display:none; color:forestgreen;">Nytt namn sparat.</p>
+                <%--<p id="message" style="display:none; color:forestgreen;">Nytt namn sparat.</p>--%>
+
             </div>
         </div>
         <div class="sektion">
@@ -71,7 +72,9 @@
             <div class="unit-buttons-label">
                 <asp:Button ID="btnRemove" runat="server" OnClick="btnRemove_Click" CssClass="unit-buttons" Text="Tabort" />
             </div>
+            <div class="meddelande">
             <asp:Label ID="lblRemoveUnit" runat="server" Text=""></asp:Label>
+            </div>
         </div>
 
             <div class="sektion">
