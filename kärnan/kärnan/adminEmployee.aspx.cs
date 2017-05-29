@@ -15,12 +15,12 @@ namespace kärnan
     {        
         Employee employ = new Employee();
         SQL sql = new SQL();
-        Client family = new Client();
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
             {
+                //Gör textboxrar oskrivbara
                 enabled();
 
                 //Fyll listboxen
@@ -123,6 +123,7 @@ namespace kärnan
                 lblmeddelande.Text = "Du måste skriva samma lösenord två gånger";
             }
         }
+
         //Lägg till ny employee
         protected void btnAdd_Click(object sender, EventArgs e)
         {
@@ -181,44 +182,7 @@ namespace kärnan
             }
         }
 
-        //Metod: Fyll listbox
-        public void fill()
-        {
-            string admin = Convert.ToString(employ.admin);
-            string ad = admin = "Admin";
-            if (employ.admin == true )
-            {
-                ad.ToString();
-            }
-
-            else
-            {
-                
-            }
-
-            Employee e = new Employee();
-            List<Employee> aktuellEmployee = e.showEmployee();
-
-            //Visa namn på familj i listbox         
-            lsbEmployee.DataSource = aktuellEmployee;
-            lsbEmployee.DataTextField = "name" + "surname" + "initials" + ad.ToString() + "employeeid";
-            lsbEmployee.DataValueField = "employeeid";
-            lsbEmployee.DataBind();
-        }
-
-
-        //Metod: Radera boxarna
-        public void clearTextbox()
-        {
-            txbName.Text = string.Empty;
-            txbSurname.Text = string.Empty;
-            txbInitials.Text = string.Empty;
-            cbxAdmin.Checked = false;
-            txbPass.Text = string.Empty;
-            txbPass2.Text = string.Empty;
-            txbAnv.Text = string.Empty;
-        }
-
+        //Olika val visas olika alternativ
         protected void drpChoice_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (drpChoice.SelectedItem.Value == "-1")
@@ -287,6 +251,46 @@ namespace kärnan
             }
         }
 
+        //Metod: Fyll listbox
+        public void fill()
+        {
+            string admin = Convert.ToString(employ.admin);
+            string ad = admin = "Admin";
+            if (employ.admin == true)
+            {
+                ad.ToString();
+            }
+
+            else
+            {
+
+            }
+
+            Employee e = new Employee();
+            List<Employee> aktuellEmployee = e.showEmployee();
+
+            //Visa namn på familj i listbox         
+            lsbEmployee.DataSource = aktuellEmployee;
+            lsbEmployee.DataTextField = "name" + "surname" + "initials" + ad.ToString() + "employeeid";
+            lsbEmployee.DataValueField = "employeeid";
+            lsbEmployee.DataBind();
+        }
+
+        //Metod: Radera boxarna
+        public void clearTextbox()
+        {
+            txbName.Text = string.Empty;
+            txbSurname.Text = string.Empty;
+            txbInitials.Text = string.Empty;
+            cbxAdmin.Checked = false;
+            txbAnv.Text = "Genereras automatiskt";
+            txbPass.Text = string.Empty;
+            txbPass2.Text = string.Empty;
+            lblCorrekt.Text = string.Empty;
+            lblmeddelande.Text = string.Empty;
+        }
+
+        //Metod: gör textboxrar ovaldbara
         public void enabled()
         {
             btnAdd.Visible = false;

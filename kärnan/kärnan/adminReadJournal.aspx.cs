@@ -13,10 +13,8 @@ namespace kärnan
     {
         SQL sql = new SQL();
         Unit ut = new Unit();
-        Client family = new Client();
+        Client client = new Client();
         Journal journal = new Journal();
-
-        List<Journal> aktuellJournal = new List<Journal>();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -107,8 +105,8 @@ namespace kärnan
 
                 ut.unitname = drpUnit.SelectedItem.Value;
                 int unitid = Convert.ToInt32(ut.unitname);
-                family.name = drpClient.SelectedItem.Value;
-                int familyid = Convert.ToInt32(family.name);
+                client.name = drpClient.SelectedItem.Value;
+                int familyid = Convert.ToInt32(client.name);
 
                 //Visa specifik information (DATUM + RUBRIK) i listbox
                 List<Journal> j = journal.dateJournal(familyid, unitid, date, date2);
@@ -201,8 +199,8 @@ namespace kärnan
                 //Deklarera information från dropdowns
                 ut.unitname = drpUnit.SelectedItem.Value;
                 int unitid = Convert.ToInt32(ut.unitname);
-                family.name = drpClient.SelectedItem.Value;
-                int familyid = Convert.ToInt32(family.name);
+                client.name = drpClient.SelectedItem.Value;
+                int familyid = Convert.ToInt32(client.name);
 
                 Journal jc = new Journal();
                 List<Journal> journal = jc.showIncident(unitid, familyid);

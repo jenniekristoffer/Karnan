@@ -18,9 +18,6 @@ namespace kärnan
             Employee employee = new Employee();
             Unit ut = new Unit();
 
-            List<Journal> newjc = new List<Journal>();
-            List<Client> newfam = new List<Client>();
-
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
@@ -37,7 +34,6 @@ namespace kärnan
                 //Håller koll på vem det är som är inloggad  
                 if (Session["employeeid"] != null)
                 {
-                    //lblBeskrivning.Text = Session["employeeid"].ToString();
                 }
             }
         }

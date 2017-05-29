@@ -10,8 +10,6 @@ namespace kärnan
 {
     public partial class inloggad : System.Web.UI.Page
     {
-        Employee employee = new Employee();
-
         protected void Page_Load(object sender, EventArgs e)
         {
             //Håller koll på vem det är som är inloggad    

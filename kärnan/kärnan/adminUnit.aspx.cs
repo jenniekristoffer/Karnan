@@ -40,6 +40,7 @@ namespace kärnan
             }
         }
 
+        //Måste ha
         protected void lsbAllUnit_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -123,7 +124,7 @@ namespace kärnan
             fillList();
         }
         
-
+        //Måste ha
         protected void DropDownList2_SelectedIndexChanged(object sender, EventArgs e)
         {
 

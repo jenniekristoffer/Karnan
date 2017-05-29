@@ -12,7 +12,7 @@ namespace kärnan
     public partial class adminClientt : System.Web.UI.Page
     {
         SQL sql = new SQL();
-        Client family = new Client();
+        Client client = new Client ();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -55,7 +55,7 @@ namespace kärnan
                     txbSurname.Text = dr["surname"].ToString();
                     txbBirth.Text = dr["birth"].ToString();
                     drpUnit.SelectedItem.Text = dr["unitname"].ToString();
-                    family.familyid = Convert.ToInt32(dr["familyid"]);
+                    client.familyid = Convert.ToInt32(dr["familyid"]);
                 }
             }
             catch (Exception ex)
@@ -70,6 +70,7 @@ namespace kärnan
             }
         }
 
+        //Måste ha 
         protected void drpUnit_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -127,17 +128,17 @@ namespace kärnan
             else
             {
                 //Deklarerar info från textboxen
-                family.name = txbName.Text;
-                string name = family.name.ToString();
-                family.surname = txbSurname.Text;
-                string surname = family.surname.ToString();
-                family.birth = txbBirth.Text;
-                string birth = family.birth.ToString();
+                client.name = txbName.Text;
+                string name = client.name.ToString();
+                client.surname = txbSurname.Text;
+                string surname = client.surname.ToString();
+                client.birth = txbBirth.Text;
+                string birth = client.birth.ToString();
 
-                family.unitname = drpUnit.SelectedItem.Value;
-                int unitid = Convert.ToInt32(family.unitname);
+                client.unitname = drpUnit.SelectedItem.Value;
+                int unitid = Convert.ToInt32(client.unitname);
 
-                family.saveClient(name, surname, birth, unitid);
+                client.saveClient(name, surname, birth, unitid);
                 lsbClient.Items.Clear();
                 drpUnit.Items.Clear();
                 fillList();
@@ -150,18 +151,18 @@ namespace kärnan
         protected void btnUpdateClient_Click(object sender, EventArgs e)
         {
             //Deklarerar info
-            family.familyid = Convert.ToInt32(lsbClient.SelectedItem.Value);
-            int familyid = Convert.ToInt32(family.familyid);
-            family.name = txbName.Text;
-            string name = family.name;
-            family.surname = txbSurname.Text;
-            string surname = family.surname;
-            family.birth = txbBirth.Text;
-            string birth = family.birth;
-            family.unitname = drpUnit.SelectedItem.Value;
-            int unitname = Convert.ToInt32(family.unitname);
+            client.familyid = Convert.ToInt32(lsbClient.SelectedItem.Value);
+            int familyid = Convert.ToInt32(client.familyid);
+            client.name = txbName.Text;
+            string name = client.name;
+            client.surname = txbSurname.Text;
+            string surname = client.surname;
+            client.birth = txbBirth.Text;
+            string birth = client.birth;
+            client.unitname = drpUnit.SelectedItem.Value;
+            int unitname = Convert.ToInt32(client.unitname);
 
-            family.updateFamily(familyid, name, surname, birth, unitname);
+            client.updateFamily(familyid, name, surname, birth, unitname);
             lsbClient.Items.Clear();
             drpUnit.Items.Clear();
             fillList();
@@ -179,10 +180,10 @@ namespace kärnan
             else
             {
                 //deklarera
-                family.familyid = Convert.ToInt32(lsbClient.SelectedItem.Value);
-                int familyid = Convert.ToInt32(family.familyid);
+                client.familyid = Convert.ToInt32(lsbClient.SelectedItem.Value);
+                int familyid = Convert.ToInt32(client.familyid);
 
-                family.removeFamily(familyid);
+                client.removeFamily(familyid);
                 lsbClient.Items.Clear();
                 drpUnit.Items.Clear();
                 fillList();
@@ -198,12 +199,18 @@ namespace kärnan
                 btnAddClient.Visible = false;
                 btnRemoveClient.Visible = false;
                 btnUpdateClient.Visible = false;
+                btnClearText.Visible = false;
                 lsbClient.Enabled = false;
                 txbName.Enabled = false;
                 txbSurname.Enabled = false;
                 txbBirth.Enabled = false;
                 drpUnit.Enabled = false;
                 lsbClient.Enabled = false;
+                txbName.Text = string.Empty;
+                txbSurname.Text = string.Empty;
+                txbBirth.Text = string.Empty;
+                drpUnit.SelectedItem.Text = "-- Välj enhet --";
+
             }
 
             else if (drpChoice.SelectedItem.Value == "1")
@@ -211,6 +218,7 @@ namespace kärnan
                 btnUpdateClient.Visible = false;
                 btnRemoveClient.Visible = false;
                 btnAddClient.Visible = true;
+                btnClearText.Visible = true;
                 lsbClient.Enabled = false;
                 txbName.Enabled = true;
                 txbSurname.Enabled = true;
@@ -225,6 +233,7 @@ namespace kärnan
                 btnUpdateClient.Visible = true;
                 btnRemoveClient.Visible = false;
                 lsbClient.Enabled = true;
+                btnClearText.Visible = true;
                 txbName.Enabled = true;
                 txbSurname.Enabled = true;
                 txbBirth.Enabled = true;
@@ -238,6 +247,7 @@ namespace kärnan
                 btnUpdateClient.Visible = false;
                 btnRemoveClient.Visible = true;
                 lsbClient.Enabled = true;
+                btnClearText.Visible = true;
                 txbName.Enabled = true;
                 txbSurname.Enabled = true;
                 txbBirth.Enabled = true;
@@ -251,6 +261,7 @@ namespace kärnan
             btnAddClient.Visible = false;
             btnRemoveClient.Visible = false;
             btnUpdateClient.Visible = false;
+            btnClearText.Visible = false;
             txbName.Enabled = false;
             txbSurname.Enabled = false;
             txbBirth.Enabled = false;

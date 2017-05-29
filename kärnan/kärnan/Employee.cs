@@ -169,42 +169,15 @@ namespace kärnan
         }
 
 //______________________________________________________________________________________________________________________//
-
-        //Visa senaste tillagda anställdas ID i textbox: EJ ANVÄND 
-        public void showLastEmployee(int employeeid)
-        {
-            try
-            {
-                sql.conn.Open();
-                string query = "SELECT employeeid FROM employee ORDER BY employeeid DESC LIMIT 1;";
-
-                NpgsqlCommand cmd = new NpgsqlCommand(query, sql.conn);
-                cmd.Parameters.AddWithValue("employeeid", employeeid);
-                cmd.ExecuteNonQuery();
-            }
-
-            catch (NpgsqlException ex)
-            {
-                sql.ex = ex.Message;
-            }
-            sql.conn.Close();
-        }
-
         //Kontroller om anställd är admin: EJ ANVÄND
         public void controllEmployee(int employeeid)
         {
             try
             {
                 sql.conn.Open();
-                //string query = "SELECT DISTINCT employee.employeeid, pass, admin " +
-                //               "FROM userpass, employee " +
-                //               "WHERE employee.admin = true " +
-                //               "AND employee.employeeid = userpass.employeeid; ";
-
-                string query = "SELECT DISTINCT employeeid, pass " +
-               "FROM userpass " +
-               "WHERE employeeid = '1' " +
-               "AND employeeid = '6'; ";
+                string query = "SELECT DISTINCT employee.employeeid, admin " +
+                               "FROM employee " +
+                               "WHERE employee.admin = true ";
 
                 NpgsqlCommand cmd = new NpgsqlCommand(query, sql.conn);
 
