@@ -5,6 +5,7 @@ using System.Linq;
 using System.Timers;
 using System.Web;
 using System.Web.UI;
+using System.Web.UI.HtmlControls;
 using System.Windows.Forms;
 
 namespace kärnan
@@ -149,19 +150,13 @@ namespace kärnan
                 //tömmer textboxrarna
                 txbincident.InnerText = string.Empty;
                 txbJournal.InnerText = string.Empty;
-<<<<<<< HEAD
-                //lblMeddelande.Text = "Journalen är sparad";
-
 
                 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                 HtmlGenericControl sparat = new HtmlGenericControl("p");
                 sparat.InnerHtml = "Ändringar sparade";
                 tmp.Controls.Add(sparat);
 
-
-=======
-                lblMeddelande.Text = "Journalen är sparad";
->>>>>>> 8182a25ea13b672156b1779e6722aa4c13907a4a
+                //lblMeddelande.Text = "Journalen är sparad";
             }
         }
     }
