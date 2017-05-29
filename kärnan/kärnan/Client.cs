@@ -14,7 +14,6 @@ namespace kärnan
         public string name { get; set; }
         public string surname { get; set; }
         public string birth { get; set; }
-        public int unitid { get; set; }
         public string unitname { get; set; }
 
         public string nameSurnameBirthUnitname
@@ -25,43 +24,6 @@ namespace kärnan
             }
         }
      
-        //Visa födelsenummret på familjemedlem - EJ IMPLEMENTERAD
-        public List<Client>showBirth(string pnr)
-        {
-            try
-            {
-                sql.conn.Open();
-                string query = "SELECT birth FROM family WHERE familyid = @familyid;";
-
-                sql.cmd = new NpgsqlCommand(query, sql.conn);
-                sql.cmd.Parameters.AddWithValue("familyid", pnr);
-
-                sql.dr = sql.cmd.ExecuteReader();
-                List<Client> fy = new List<Client>();
-                Client family;
-
-                while (sql.dr.Read())
-                {
-                    family = new Client()
-                    {
-                        familyid = (int)sql.dr["familyid"],
-                        birth = sql.dr["birth"].ToString(),
-                    };
-                    fy.Add(family);
-                }
-                return fy;
-            }
-            catch (NpgsqlException ex)
-            {
-                this.sql.ex = ex.Message;
-                return null;
-            }
-            finally
-            {
-                sql.conn.Close();
-            }
-        }
-
         //Visa rubriker på journaler
         public List<Client> showFamily()
         {

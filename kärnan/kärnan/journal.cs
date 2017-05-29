@@ -9,20 +9,15 @@ namespace kärnan
     public class Journal
     {
         SQL sql = new SQL();
-        Client family = new Client();
-        Unit unit = new Unit();
-        Employee employee = new Employee();
 
         public int journalid { get; set; }
         public DateTime date { get; set; }
         public DateTime date2 { get; set; }
         public string journalnote { get; set; }
         public string incident { get; set; }
-        public int employeeid { get; set; }
 
         public int unitid { get; set; }
         public int familyid { get; set; }
-        public string initialer { get; set; }
 
         public string dateIncident
         {

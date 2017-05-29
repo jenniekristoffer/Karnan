@@ -1,19 +1,11 @@
-﻿using Microsoft.AspNet.Identity;
-using Npgsql;
+﻿using Npgsql;
 using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Timers;
 using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 using System.Windows.Forms;
-//
-using System.Web.Services;
-using System.Configuration;
-using System.Data.SqlClient;
-using System.Web.UI.HtmlControls;
 
 namespace kärnan
 {
@@ -21,14 +13,9 @@ namespace kärnan
     {
         SQL sql = new SQL();
         Journal jc = new Journal();
-        Client family = new Client();
+        Client client = new Client();
         Employee employee = new Employee();
         Unit ut = new Unit();
-
-        List<Journal> newjc = new List<Journal>();
-        List<Client> newfam = new List<Client>();
-
-
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -141,8 +128,8 @@ namespace kärnan
 
                 ut.unitname = DropDownList1.SelectedItem.Value;
                 int unitid = Convert.ToInt32(ut.unitname);
-                family.name = DropDownList2.SelectedItem.Value;
-                int familyid = Convert.ToInt32(family.name);
+                client.name = DropDownList2.SelectedItem.Value;
+                int familyid = Convert.ToInt32(client.name);
 
                 int jourid = Convert.ToInt32(jc.journalid);
 
@@ -162,6 +149,7 @@ namespace kärnan
                 //tömmer textboxrarna
                 txbincident.InnerText = string.Empty;
                 txbJournal.InnerText = string.Empty;
+<<<<<<< HEAD
                 //lblMeddelande.Text = "Journalen är sparad";
 
 
@@ -171,39 +159,10 @@ namespace kärnan
                 tmp.Controls.Add(sparat);
 
 
+=======
+                lblMeddelande.Text = "Journalen är sparad";
+>>>>>>> 8182a25ea13b672156b1779e6722aa4c13907a4a
             }
         }
-
-        //public static string[] GetCustomers(string prefix)
-        //{
-        //    List<string> customers = new List<string>();
-        //    using (SqlConnection conn = new SqlConnection())
-        //    {
-        //        conn.ConnectionString = ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
-        //        using (SqlCommand cmd = new SqlCommand())
-        //        {
-        //            cmd.CommandText = "select ContactName, CustomerId from Customers where ContactName like @SearchText + '%'";
-        //            cmd.Parameters.AddWithValue("@SearchText", prefix);
-        //            cmd.Connection = conn;
-        //            conn.Open();
-        //            using (SqlDataReader sdr = cmd.ExecuteReader())
-        //            {
-        //                while (sdr.Read())
-        //                {
-        //                    customers.Add(string.Format("{0}-{1}", sdr["ContactName"], sdr["CustomerId"]));
-        //                }
-        //            }
-        //            conn.Close();
-        //        }
-        //    }
-        //    return customers.ToArray();
-        //}
-
-        //protected void Submit(object sender, EventArgs e)
-        //{
-        //    string customerName = Request.Form[txbincident.UniqueID];
-        //    string customerId = Request.Form[hfCustomerId.UniqueID];
-        //    ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Name: " + customerName + "\\nID: " + customerId + "');", true);
-        //}
     }
 }
