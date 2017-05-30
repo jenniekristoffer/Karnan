@@ -205,7 +205,6 @@ namespace kärnan
                 txbSurname.Enabled = false;
                 txbBirth.Enabled = false;
                 drpUnit.Enabled = false;
-                lsbClient.Enabled = false;
                 txbName.Text = string.Empty;
                 txbSurname.Text = string.Empty;
                 txbBirth.Text = string.Empty;
@@ -252,7 +251,11 @@ namespace kärnan
                 txbSurname.Enabled = true;
                 txbBirth.Enabled = true;
                 drpUnit.Enabled = true;
-                lsbClient.Enabled = true;
+                lsbClient.Enabled = false;
+                txbName.Enabled = false;
+                txbSurname.Enabled = false;
+                txbBirth.Enabled = false;
+                drpUnit.Enabled = false;
             }
         }
 

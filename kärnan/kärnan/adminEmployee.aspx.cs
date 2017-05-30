@@ -247,7 +247,13 @@ namespace kärnan
                 txbAnv.Enabled = false;
                 txbPass.Enabled = true;
                 txbPass2.Enabled = true;
-                clearTextbox();
+                txbName.Enabled = false;
+                txbSurname.Enabled = false;
+                txbInitials.Enabled = false;
+                cbxAdmin.Enabled = false;
+                txbAnv.Enabled = false;
+                txbPass.Enabled = false;
+                txbPass2.Enabled = false;
             }
         }
 
