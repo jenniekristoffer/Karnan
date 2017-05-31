@@ -69,7 +69,9 @@
         </div>
 
         <div class="sektion">
+            <div class="rubrik-hjalp-div">
             <h3>Journal</h3>
+                 </div>
             <div class="readjournal">
 
                 <div class="read-right-top">

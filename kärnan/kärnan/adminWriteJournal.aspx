@@ -1,4 +1,4 @@
-﻿<%--<%@ Page Title="" Language="C#" MasterPageFile="~/masterAdmin.Master" AutoEventWireup="true" CodeBehind="adminWriteJournal.aspx.cs" Inherits="kärnan.adminWriteJournal" %>--%>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/masterAdmin.Master" AutoEventWireup="true" CodeBehind="adminWriteJournal.aspx.cs" Inherits="kärnan.adminWriteJournal" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">

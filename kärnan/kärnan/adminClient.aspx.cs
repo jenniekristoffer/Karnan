@@ -251,7 +251,6 @@ namespace kärnan
                 txbSurname.Enabled = true;
                 txbBirth.Enabled = true;
                 drpUnit.Enabled = true;
-                lsbClient.Enabled = false;
                 txbName.Enabled = false;
                 txbSurname.Enabled = false;
                 txbBirth.Enabled = false;
