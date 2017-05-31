@@ -58,19 +58,19 @@
         </div>
         <div class="sektion">
             <div class="rubrik-hjalp-div">
-            <h3>Tabort enhet</h3>
+            <h3>Radera enhet</h3>
                 <div class="tooltip"><i class="fa fa-question-circle" style="font-size: 23px;"></i>
-                    <span class="tooltiptext"><strong>Tabort enhet:</strong><br/>Välj den enhet du till tabort.<br />Klicka sedan på <strong>Tabort</strong>.<br />För kontrollera borttagning, se listan<br /> till höger.</span>
+                    <span class="tooltiptext"><strong>Radera enhet:</strong><br/>Välj den enhet du till radera.<br />Klicka sedan på <strong>Radera</strong>.<br />För kontrollera borttagning, se listan<br /> till höger.</span>
                 </div>
             </div>
-            <p class="mellan-rubrik">Välj den enhet du vill ta bort:</p>
+            <p class="mellan-rubrik">Välj den enhet du vill radera:</p>
                   <asp:DropDownList ID="DropDownList2" runat="server" AutoPostBack="True" DataTextField="unitname"
        DataValueField="unitid" AppendDataBoundItems="true" CssClass="drop"
         OnSelectedIndexChanged="DropDownList2_SelectedIndexChanged">
        <asp:ListItem Value="0">-- Välj enhet --</asp:ListItem>
        </asp:DropDownList>
             <div class="unit-buttons-label">
-                <asp:Button ID="btnRemove" runat="server" OnClick="btnRemove_Click" CssClass="unit-buttons" Text="Tabort" />
+                <asp:Button ID="btnRemove" runat="server" OnClick="btnRemove_Click" CssClass="unit-buttons" Text="Radera" />
             </div>
             <div class="meddelande">
             <asp:Label ID="lblRemoveUnit" runat="server" Text=""></asp:Label>

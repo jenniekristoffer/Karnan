@@ -84,15 +84,15 @@ namespace kärnan
         //Spara journal
         protected void btnSpara_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Är du säker på att du vill spara ?", "Spara journal", MessageBoxButtons.YesNo);
-            if (dialogResult == DialogResult.Yes)
-            {
+            //DialogResult dialogResult = MessageBox.Show("Är du säker på att du vill spara ?", "Spara journal", MessageBoxButtons.YesNo);
+            //if (dialogResult == DialogResult.Yes)
+            //{
                 saveJournal();
-        }
-            else if (dialogResult == DialogResult.No)
-            {
+        //}
+        //    else if (dialogResult == DialogResult.No)
+        //    {
 
-            }
+        //    }
         }
 
         //Spara journal-Metod
@@ -153,7 +153,7 @@ namespace kärnan
 
                 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                 HtmlGenericControl sparat = new HtmlGenericControl("p");
-                sparat.InnerHtml = "Ändringar sparade";
+                sparat.InnerHtml = "Journal sparad";
                 tmp.Controls.Add(sparat);
 
                 //lblMeddelande.Text = "Journalen är sparad";

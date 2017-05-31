@@ -133,9 +133,9 @@ namespace kärnan
         //Radera enhet
         protected void btnRemove_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Vill du radera enhet? Raderad enhet går inte att få tillbaka", "Radera enhet", MessageBoxButtons.YesNo);
-            if (dialogResult == DialogResult.Yes)
-            {
+            //DialogResult dialogResult = MessageBox.Show("Vill du radera enhet? Raderad enhet går inte att få tillbaka", "Radera enhet", MessageBoxButtons.YesNo);
+            //if (dialogResult == DialogResult.Yes)
+            //{
                 unit.unitname = DropDownList2.SelectedItem.Value;
                 int unitid = Convert.ToInt32(unit.unitname);
 
@@ -147,11 +147,11 @@ namespace kärnan
                 lblRemoveUnit.Text = "Enheten är raderad";
 
                 fillList();
-            }
-            else if (dialogResult == DialogResult.No)
-            {
+            //}
+            //else if (dialogResult == DialogResult.No)
+            //{
 
-            }
+            //}
         }
 
         public void showAllUnit()
