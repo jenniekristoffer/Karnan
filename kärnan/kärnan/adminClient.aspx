@@ -51,9 +51,9 @@
                     
                 <div class="unit-buttons-div">
                 <asp:Button ID="btnClearText" CssClass="unit-buttons" runat="server" OnClick="btnClearText_Click" Text="Töm fält" />
-                   <asp:Button ID="btnAddClient" OnClick="btnAddClient_Click" runat="server" CssClass="unit-buttons" Text="Lägg till klient" />
-                    <asp:Button ID="btnUpdateClient" OnClick="btnUpdateClient_Click" CssClass="unit-buttons" runat="server" Text="Uppdatera klient" />
-                    <asp:Button ID="btnRemoveClient" OnClick="btnRemoveClient_Click" CssClass="unit-buttons" runat="server" Text="Radera klient" />
+                   <asp:Button ID="btnAddClient" OnClick="btnAddClient_Click" runat="server" CssClass="unit-buttons" Text="Lägg till" />
+                    <asp:Button ID="btnUpdateClient" OnClick="btnUpdateClient_Click" CssClass="unit-buttons" runat="server" Text="Uppdatera" />
+                    <asp:Button ID="btnRemoveClient" OnClick="btnRemoveClient_Click" CssClass="unit-buttons" runat="server" Text="Radera" />
                     </div>
                     <div class="meddelande">
                     <asp:Label ID="lblmeddelande" ForeColor="Red" runat="server" Text=""></asp:Label>

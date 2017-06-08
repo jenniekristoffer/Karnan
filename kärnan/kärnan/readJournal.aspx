@@ -47,7 +47,7 @@
                 <h3>Enhet:</h3><asp:Label ID="lblunit" runat="server" Text="" CssClass="label"></asp:Label>
                 <h3>Klient:</h3> <asp:Label ID="lblclient" runat="server" Text="" CssClass="label"></asp:Label>             
             </div>                        
-                <h3>Välj enhet och klient</h3>
+                <%--<h3>Välj enhet och klient</h3>--%>
                 <div class="tooltip"><i class="fa fa-question-circle" style="font-size: 23px;"></i>
                     <span class="tooltiptext"><strong>Steg 2.   Filtrera journaler</strong><br/>För att se datumspann: Välj datum <b>Från</b> och <b>Till</b>. Klicka sedan på <b>Visa mellan datum</b>. För att se alla datum: Klicka på <b>Visa alla datum</b></span>
                 </div>

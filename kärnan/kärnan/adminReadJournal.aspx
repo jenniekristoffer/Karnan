@@ -68,11 +68,11 @@
 
 
 
-        <div class="sektion">
-            <h3>Journal</h3>
+        <div class="sektion">           
             <div class="rubrik-hjalp-div">
-            <div class="readjournal">
+                <h3>Journal</h3>
                 </div>
+            <div class="readjournal">                
                 <div class="read-right-top">
 
                 <div class="read-rubrik">

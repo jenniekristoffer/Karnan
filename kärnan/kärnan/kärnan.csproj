@@ -104,6 +104,7 @@
     <Content Include="writeJournal.aspx" />
     <Content Include="MasterMasterPage.Master" />
     <Content Include="masterAdmin.Master" />
+    <None Include="Properties\PublishProfiles\krnan20170607061914 - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

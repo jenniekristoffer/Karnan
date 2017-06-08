@@ -83,16 +83,16 @@ namespace kärnan
         //Spara journal
         protected void btnSpara_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Är du säker på att du vill spara ?", "Spara journal", MessageBoxButtons.YesNo);
-            if (dialogResult == DialogResult.Yes)
-            {
+            //DialogResult dialogResult = MessageBox.Show("Är du säker på att du vill spara ?", "Spara journal", MessageBoxButtons.YesNo);
+            //if (dialogResult == DialogResult.Yes)
+            //{
                 saveJournals();
         }
-            else if (dialogResult == DialogResult.No)
-            {
+        //    else if (dialogResult == DialogResult.No)
+        //    {
 
-            }
-        }
+        //    }
+        //}
 
         //Spara journal-Metod
         public void saveJournals()
